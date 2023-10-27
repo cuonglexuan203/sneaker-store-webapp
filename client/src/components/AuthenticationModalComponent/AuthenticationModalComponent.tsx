@@ -70,7 +70,3 @@ export default function AuthenticationModal() {
         </dialog> 
         </>)
 }
-
-function listAllEventListeners(): any {
-    throw new Error("Function not implemented.");
-}
