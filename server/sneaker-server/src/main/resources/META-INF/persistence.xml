@@ -6,8 +6,6 @@
 
 	<persistence-unit name="sneakerdb">
 
-		<class>org.hibernate.example.Book</class>
-		<class>org.hibernate.example.Author</class>
 
 		<properties>
 			<!-- MySQL -->
@@ -22,7 +20,7 @@
 			<!-- Automatic schema export -->
 			<property
 				name="jakarta.persistence.schema-generation.database.action"
-				value="create" />
+				value="drop-and-create" />
 
 			<!-- SQL statement logging -->
 			<property name="hibernate.show_sql" value="true" />
