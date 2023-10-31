@@ -36,7 +36,7 @@ body {
 }
 
 .container a {
-    color: #333;
+    /* color: #333; */
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
@@ -190,6 +190,16 @@ body {
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
+}
+
+#login{
+    background-color: transparent;
+    border-color: white;
+}
+
+#register {
+    background-color: transparent;
+    border-color: white;
 }
 
 .toggle-left {
