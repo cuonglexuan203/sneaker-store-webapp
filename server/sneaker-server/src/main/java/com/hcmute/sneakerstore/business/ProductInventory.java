@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,33 +12,24 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "LINEITEM")
-public class LineItem {
+@Table(name="PRODUCT_INVENTORY")
+public class ProductInventory {
 
 	@Id
 	@GeneratedValue
-	private String id;
-
+	private int id;
+	
+	@NotNull
+	@Column(name="product_amount")
+	private int productAmount = 0;
+	
 	@NotNull
 	private String color;
-
+	
 	@NotNull
 	private int size;
-
-	@NotNull
-	private int quantity = 0;
-
-	//
 	
 	@ManyToOne
-	@JoinColumn(name = "invoice_id")
-	private Invoice invoice;
-
-	@ManyToOne
-	@JoinColumn(name = "cart_id")
-	private Cart cart;
-
-	@ManyToOne
-	@JoinColumn(name = "product_id")
+	@JoinColumn(name="product_id")
 	private Product product;
 }

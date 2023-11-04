@@ -1,152 +1,71 @@
 package com.hcmute.sneakerstore.business;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+@Data
 @Entity
-@Table(name="USER")
-public @Data class User{
+@Table(name = "USER")
+public class User {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int user_id;
+	@GeneratedValue
+	@Column(name = "user_id")
+	private int userId;
 	
+	@NotNull
 	private String firstname;
 	
+	@NotNull
 	private String lastname;
-	
+
 	private String email;
+
+	// 0: male, 1: female
+	@NotNull
+	private Boolean gender = false;
 	
-	private Boolean genger;
+	@NotNull
+	private LocalDate birthday = LocalDate.now();
 	
-	private String phone_number;
+	@NotNull
+	@Column(name = "phone_number")
+	private String phoneNumber;
 	
-	private String address;
-	
-	private String credit_card_type;
-	
-	private String credit_card_number;
-	
-	//Relationship with Invoice
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Invoice> invoices;
-	
-	//Relationship with Cart
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Cart cart;
-	
-	//Relationship with Account
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Account account;
-	
-	public User() {
-		
-	}
+	@NotNull
+	@Embedded
+	private Location address;
 
-	public int getUser_id() {
-		return user_id;
-	}
+	// => convert to embeddable values
+	@Column(name = "credit_card_type")
+	private String creditCardType;
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
+	@Column(name = "credit_card_number")
+	private String creditCardNumber;
 
-	public String getFirstname() {
-		return firstname;
-	}
+	// Invoice //
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Invoice> invoices;
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+	// Cart
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Cart cart;
 
-	public String getLastname() {
-		return lastname;
-	}
+	// Account
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Account account;
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Boolean getGenger() {
-		return genger;
-	}
-
-	public void setGenger(Boolean genger) {
-		this.genger = genger;
-	}
-
-	public String getPhone_number() {
-		return phone_number;
-	}
-
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCredit_card_type() {
-		return credit_card_type;
-	}
-
-	public void setCredit_card_type(String credit_card_type) {
-		this.credit_card_type = credit_card_type;
-	}
-
-	public String getCredit_card_number() {
-		return credit_card_number;
-	}
-
-	public void setCredit_card_number(String credit_card_number) {
-		this.credit_card_number = credit_card_number;
-	}
-
-	public Set<Invoice> getInvoices() {
-		return invoices;
-	}
-
-	public void setInvoices(Set<Invoice> invoices) {
-		this.invoices = invoices;
-	}
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-	
-	
 }
