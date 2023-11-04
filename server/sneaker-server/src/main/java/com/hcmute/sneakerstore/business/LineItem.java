@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.business;
 
 import java.util.Set;
 
@@ -16,8 +16,8 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
-@Table(name="SALESOFF")
-public @Data class SalesOff{
+@Table(name="LINEITEM")
+public @Data class LineItem{
 	@Id
 	@ManyToOne
     @JoinColumn(name = "product_id")
@@ -25,12 +25,17 @@ public @Data class SalesOff{
 
 	@Id
     @ManyToOne
-    @JoinColumn(name = "sales_id")
-    private Sales sales;
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
+    private String color;
+    
+    private int size;
+    
+    private int quantity;
 
-	public SalesOff() {
-	
+	public LineItem() {
+		
 	}
 
 	public Product getProduct() {
@@ -41,5 +46,37 @@ public @Data class SalesOff{
 		this.product = product;
 	}
 
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+    
 	
 }

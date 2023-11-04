@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.business;
 
 import java.util.Date;
 import java.util.Set;
@@ -9,6 +9,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
@@ -20,47 +21,51 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
-@Table(name="SIZE")
-public @Data class Size{
+@Table(name="CART")
+public @Data class Cart{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int size_id;
-
-	private int number;
+	private int cart_id;
 	
+	@OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+	
+	
+	//Relationship with Product
 	@OneToMany(
-			mappedBy = "size", 
+			mappedBy = "cart",
 			cascade = CascadeType.ALL,
-			orphanRemoval = true)
-	private Set<Storage> storage;
+			orphanRemoval = true
+		)
+	private Set<LineItem> lineitems;
+
 	
-	public Size() {
+	
+	public Cart() {
 		
 	}
 
-	public int getSize_id() {
-		return size_id;
+
+	public int getCart_id() {
+		return cart_id;
 	}
 
-	public void setSize_id(int size_id) {
-		this.size_id = size_id;
+
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
 	}
 
-	public int getNumber() {
-		return number;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Set<Storage> getStorage() {
-		return storage;
-	}
-
-	public void setStorage(Set<Storage> storage) {
-		this.storage = storage;
-	}
-
+	
 	
 }

@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.business;
 
 import java.util.Set;
 

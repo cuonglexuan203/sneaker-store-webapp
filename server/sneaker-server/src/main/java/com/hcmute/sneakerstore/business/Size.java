@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.business;
 
 import java.util.Date;
 import java.util.Set;
@@ -9,6 +9,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -19,45 +20,47 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
-@Table(name="SALES")
-public @Data class Sales{
+@Table(name="SIZE")
+public @Data class Size{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int sales_id;
+	private int size_id;
 
-	private String type;
-
+	private int number;
+	
 	@OneToMany(
-			mappedBy = "sales",
+			mappedBy = "size", 
 			cascade = CascadeType.ALL,
-			orphanRemoval = true
-		)
-	private Set<SalesOff> salesoff;
-
-	public Sales() {
+			orphanRemoval = true)
+	private Set<Storage> storage;
+	
+	public Size() {
 		
 	}
 
-
-	public int getSales_id() {
-		return sales_id;
+	public int getSize_id() {
+		return size_id;
 	}
 
-
-	public void setSales_id(int sales_id) {
-		this.sales_id = sales_id;
+	public void setSize_id(int size_id) {
+		this.size_id = size_id;
 	}
 
-
-	public String getType() {
-		return type;
+	public int getNumber() {
+		return number;
 	}
 
-
-	public void setType(String type) {
-		this.type = type;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
+	public Set<Storage> getStorage() {
+		return storage;
+	}
+
+	public void setStorage(Set<Storage> storage) {
+		this.storage = storage;
+	}
 
 	
 }

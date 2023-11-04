@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.controllers;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transaction;
 
 import java.io.IOException;
+
+import com.hcmute.sneakerstore.business.User;
 
 @WebServlet("/test")
 public class TestDB extends HttpServlet {

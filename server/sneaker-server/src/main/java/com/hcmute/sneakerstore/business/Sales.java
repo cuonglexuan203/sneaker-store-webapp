@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore;
+package com.hcmute.sneakerstore.business;
 
 import java.util.Date;
 import java.util.Set;
@@ -9,8 +9,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -21,51 +19,45 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
-@Table(name="CART")
-public @Data class Cart{
+@Table(name="SALES")
+public @Data class Sales{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cart_id;
-	
-	@OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-	
-	
-	//Relationship with Product
+	private int sales_id;
+
+	private String type;
+
 	@OneToMany(
-			mappedBy = "cart",
+			mappedBy = "sales",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 		)
-	private Set<LineItem> lineitems;
+	private Set<SalesOff> salesoff;
 
-	
-	
-	public Cart() {
+	public Sales() {
 		
 	}
 
 
-	public int getCart_id() {
-		return cart_id;
+	public int getSales_id() {
+		return sales_id;
 	}
 
 
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
+	public void setSales_id(int sales_id) {
+		this.sales_id = sales_id;
 	}
 
 
-	public User getUser() {
-		return user;
+	public String getType() {
+		return type;
 	}
 
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	
+
 	
 }
