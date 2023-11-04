@@ -23,15 +23,15 @@ public class TestDB extends HttpServlet {
 		try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("sneakerdb");
 				EntityManager em = emf.createEntityManager();) {
 			User user = new User();
-			user.setId(1);
-			user.setName("Cuong");
+			user.setUser_id(1);
+			user.setFirstname("Cuong");
 			
 			EntityTransaction tran = em.getTransaction();
 			tran.begin();
 
 			em.persist(user);
 			tran.commit();
-			response.getWriter().println(user.getId() + ": " + user.getName());
+			response.getWriter().println(user.getUser_id() + ": " + user.getFirstname());
 		} catch (Exception ex) {
 
 		}
