@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Product = ({ params }: { params: { id: string } }) => {
     return <div>id: {params.id}</div>;
