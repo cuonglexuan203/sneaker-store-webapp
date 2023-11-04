@@ -7,11 +7,15 @@ import {
 } from "@/app/(main)/_store/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/app/(main)/_store/hooks";
 import { useGetUsersQuery } from "./_store/services/userApi";
-
+import Image from 'next/image'
+import AuthenticationModal from "@/components/AuthenticationModalComponent/AuthenticationModalComponent";
 export default function Home() {
     const count = useAppSelector((state) => state.counter.value);
     const dispatch = useAppDispatch();
-
+function handleOpenAuthentication(){
+            const authenticationModal = (document.getElementById("authenticationModal") as HTMLDialogElement);
+            authenticationModal!.showModal();
+        }
     const {
         isLoading,
         isFetching,
@@ -63,6 +67,8 @@ export default function Home() {
                     ))}
                 </div>
             ) : null}
+                    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded button open-button" onClick={handleOpenAuthentication}>open modal</button>
+             <AuthenticationModal></AuthenticationModal>
         </main>
     );
 }
