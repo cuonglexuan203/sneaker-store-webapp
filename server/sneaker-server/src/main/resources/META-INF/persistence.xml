@@ -10,12 +10,12 @@
 		<properties>
 			<!-- MySQL -->
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/uni_wp_sneakerdb" />
+				value="jdbc:mysql://localhost:3306/sneakerstore" />
 
 			<!-- Credentials -->
 			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="123456xc" />
+				value="123456" />
 
 			<!-- Automatic schema export -->
 			<property
