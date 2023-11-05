@@ -1,152 +1,106 @@
 package com.hcmute.sneakerstore.business;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+@Data
 @Entity
-@Table(name="USER")
-public @Data class User{
+@Table(name = "USER")
+public class User {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int user_id;
+	@GeneratedValue
+	private int id;
 	
-	private String firstname;
+	@NotNull
+	@Column(name="first_name")
+	private String firstName;
 	
-	private String lastname;
-	
+	@NotNull
+	@Column(name="last_name")
+	private String lastName;
+
 	private String email;
+
+	// 0: male, 1: female
+	@NotNull
+	private Boolean gender = false;
 	
-	private Boolean genger;
+	@NotNull
+	private LocalDate birthday = LocalDate.now();
 	
-	private String phone_number;
+	@NotNull
+	@Column(name = "phone_number")
+	private String phoneNumber;
 	
-	private String address;
+	@NotNull
+	@Embedded
+	private Location address;
+
+	// => convert to embeddable values
+	@Column(name = "credit_card_type")
+	private String creditCardType;
+
+	@Column(name = "credit_card_number")
+	private String creditCardNumber;
+
+	//
 	
-	private String credit_card_type;
+	// Invoice
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Invoice> invoices;
+
+	// Cart
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Cart cart;
+
+	// Account
+	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Account account;
 	
-	private String credit_card_number;
+	//
 	
-	//Relationship with Invoice
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Invoice> invoices;
-	
-	//Relationship with Cart
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Cart cart;
-	
-	//Relationship with Account
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Account account;
-	
-	public User() {
-		
-	}
-
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Boolean getGenger() {
-		return genger;
-	}
-
-	public void setGenger(Boolean genger) {
-		this.genger = genger;
-	}
-
-	public String getPhone_number() {
-		return phone_number;
-	}
-
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCredit_card_type() {
-		return credit_card_type;
-	}
-
-	public void setCredit_card_type(String credit_card_type) {
-		this.credit_card_type = credit_card_type;
-	}
-
-	public String getCredit_card_number() {
-		return credit_card_number;
-	}
-
-	public void setCredit_card_number(String credit_card_number) {
-		this.credit_card_number = credit_card_number;
-	}
-
-	public Set<Invoice> getInvoices() {
-		return invoices;
-	}
-
-	public void setInvoices(Set<Invoice> invoices) {
-		this.invoices = invoices;
-	}
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
+	public void addInvoice(Invoice invoice) {
+		invoices.add(invoice);
+		invoice.setUser(this);
 	}
 	
+	public void removeInvoice(Invoice invoice) {
+		invoices.remove(invoice);
+		invoice.setUser(null);
+	}
 	
+	public void addCart(Cart cart) {
+		this.setCart(cart);
+		cart.setUser(this);
+	}
+	
+	public void removeCart(Cart cart) {
+		this.setCart(null);
+		cart.setUser(null);
+	}
+	
+	public void addAccount(Account account) {
+		this.setAccount(account);
+		account.setUser(this);
+	}
+	
+	public void removeAccount(Account account) {
+		this.setAccount(null);
+		account.setUser(null);
+	}
+
 }
