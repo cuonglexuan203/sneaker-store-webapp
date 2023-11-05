@@ -30,19 +30,26 @@ public class TestDB extends HttpServlet {
 			
 			EntityTransaction tran = em.getTransaction();
 			tran.begin();
-			User user = new User();
-			user.setFirstName("LXC");
-			user.setLastName("Non");
-			user.setGender(true);
-			user.setBirthday(LocalDate.now());
-			user.setPhoneNumber("012");
-			user.setAddress(new Location("VN", "VN", "VN"));
-			em.persist(user);
+			for(int i = 0; i < 5; i++) {
+				User user = new User();
+				user.setFirstName("LXC");
+				user.setLastName("Non");
+				user.setGender(true);
+				user.setBirthday(LocalDate.now());
+				user.setPhoneNumber("012");
+				Location l = new Location();
+				l.setCity("HCM");
+				l.setCountry("VN");
+				l.setDistrict("Thu Duc");
+				user.setAddress(l);
+				em.persist(user);
+			}
 			tran.commit();
 			
 			
 		} catch (Exception ex) {
-
+			ex.printStackTrace();
+			response.getWriter().println("Hello2 world!");
 		}
 		response.getWriter().println("Hello world!");
 	}

@@ -13,14 +13,14 @@
 				value="jdbc:mysql://localhost:3306/sneakerstore" />
 
 			<!-- Credentials -->
-			<property name="jakarta.persistence.jdbc.user" value="admin" />
+			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
 				value="admin" />
 
 			<!-- Automatic schema export -->
 			<property
 				name="jakarta.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+				value="create" />
 
 			<!-- SQL statement logging -->
 			<property name="hibernate.show_sql" value="true" />
