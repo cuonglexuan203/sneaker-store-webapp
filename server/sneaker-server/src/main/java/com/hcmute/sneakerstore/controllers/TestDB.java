@@ -37,11 +37,8 @@ public class TestDB extends HttpServlet {
 				user.setGender(true);
 				user.setBirthday(LocalDate.now());
 				user.setPhoneNumber("012");
-				Location l = new Location();
-				l.setCity("HCM");
-				l.setCountry("VN");
-				l.setDistrict("Thu Duc");
-				user.setAddress(l);
+				
+				user.setAddress(new Location("VN", "ThuDuc", "HCM"));
 				em.persist(user);
 			}
 			tran.commit();

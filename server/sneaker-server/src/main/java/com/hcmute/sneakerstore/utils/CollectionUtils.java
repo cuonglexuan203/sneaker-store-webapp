@@ -4,10 +4,12 @@ import java.util.Iterator;
 import java.util.function.BiFunction;
 
 public class CollectionUtils {
-	public static <T> Integer aggregate(Iterator<T> iter, BiFunction<Integer, T, Integer> func, int initialValue) {
+	
+	// func(acc, item )
+	public static <T> float aggregate(Iterator<T> iter, BiFunction<Float, T, Float> func, float initialValue) {
 
 		// accumulator
-		Integer acc = initialValue;
+		float acc = initialValue;
 		
 		while (iter.hasNext()) {
 			
@@ -16,7 +18,10 @@ public class CollectionUtils {
 		}
 		return acc;
 	}
-	public static <T> Integer aggregate(Iterator<T> iter, BiFunction<Integer, T, Integer> func) {
-		return aggregate(iter, func, 0);
+	public static <T> float aggregate(Iterator<T> iter, BiFunction<Float, T, Float> func) {
+		return aggregate(iter, func, 0.f);
 	}
+	
+	
+	
 }

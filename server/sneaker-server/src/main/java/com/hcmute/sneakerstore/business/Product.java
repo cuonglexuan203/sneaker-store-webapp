@@ -57,7 +57,7 @@ public class Product {
 	@Column(name = "image_url")
 	@NotNull
 	private String imageUrl;
-	
+
 	//
 
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -65,70 +65,89 @@ public class Product {
 
 	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
 	private Set<Sale> sales;
-	
+
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProductInventory> productInventories;
-	
+
 	//
-	
+
 	public void addLineItem(LineItem lineItem) {
 		lineItems.add(lineItem);
 		lineItem.setProduct(this);
 	}
-	
+
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
 		lineItem.setProduct(null);
 	}
-	
+
 	public void addProductInventory(ProductInventory productInventory) {
 		productInventories.add(productInventory);
 		productInventory.setProduct(this);
 	}
-	
+
 	public void removeProductInventory(ProductInventory productInventory) {
 		productInventories.remove(productInventory);
 		productInventory.setProduct(null);
 	}
-	
+
 	//
-	
-	public float calcSalePrice(Sale sale) {
-		return price * sale.getPercentage();
+
+	public float getSalePrice(Sale sale) {
+		float ratio = sale == null ? 1.f : sale.getPercentage();
+		return price * ratio;
 	}
-	
+
+	public float getSalePrice() {
+		return getSalePrice(getHighestSale());
+	}
+
+	public Sale getHighestSale() {
+		if (this.sales == null || this.sales.isEmpty()) {
+			return null;
+		}
+
+		Iterator<Sale> iter = this.sales.iterator();
+		Sale highestSale = iter.next();
+		while (iter.hasNext()) {
+			Sale temp = iter.next();
+			if (highestSale.getPercentage() < temp.getPercentage()) {
+				highestSale = temp;
+			}
+		}
+		return highestSale;
+	}
+
 	public void addCategory(String category) {
 		categories.add(category);
 	}
-	
+
 	public void removeCategory(String category) {
 		categories.removeIf(s -> s.equalsIgnoreCase(category));
 	}
-	
+
 	public void addCategories(List<String> categories) {
 		this.categories.addAll(categories);
 	}
-	
+
 	public void removeCategories(List<String> categories) {
 		this.categories.removeIf(s -> categories.contains(s));
 	}
-	
+
 	public int getAllProductCount() {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> acc + i.getProductAmount());	
+		return (int)CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> acc + i.getProductAmount());
 	}
-	
+
 	public int getProductCountByColor(Color c) {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> (
-				i.getColor().compareTo(c) == 0 ? acc + i.getProductAmount() : acc
-				));
+		return (int)CollectionUtils.<ProductInventory>aggregate(iter,
+				(acc, i) -> (i.getColor().compareTo(c) == 0 ? acc + i.getProductAmount() : acc));
 	}
-	
+
 	public int getProductCountBySize(int size) {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> (
-				i.getSize() == size ? acc + i.getProductAmount() : acc
-				));
+		return (int)CollectionUtils.<ProductInventory>aggregate(iter,
+				(acc, i) -> (i.getSize() == size ? acc + i.getProductAmount() : acc));
 	}
 }

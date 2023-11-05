@@ -51,5 +51,14 @@ public class LineItem {
 		this.size = size;
 		this.quantity = quantity;
 	}
+	
+	//
+	
+	public float getLineItemPrice() {
+		return this.getQuantity() * this.product.getPrice();
+	}
+	public float getSaleLineItemPrice() {
+		return this.getQuantity() * 1.f * this.product.getSalePrice();
+	}
 
 }
