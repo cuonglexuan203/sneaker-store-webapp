@@ -13,9 +13,9 @@
 				value="jdbc:mysql://localhost:3306/sneakerstore" />
 
 			<!-- Credentials -->
-			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.user" value="admin" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="123456" />
+				value="admin" />
 
 			<!-- Automatic schema export -->
 			<property
