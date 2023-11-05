@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.hcmute.sneakerstore.business.enums.Color;
+import com.hcmute.sneakerstore.utils.CollectionUtils;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -109,11 +112,22 @@ public class Product {
 		this.categories.removeIf(s -> categories.contains(s));
 	}
 	
-	public int getProductCount() {
-		int count = 0;
+	public int getAllProductCount() {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		while(iter.hasNext()) {
-			
-		}
+		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> acc + i.getProductAmount());	
+	}
+	
+	public int getProductCountByColor(Color c) {
+		Iterator<ProductInventory> iter = this.productInventories.iterator();
+		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> (
+				i.getColor().compareTo(c) == 0 ? acc + i.getProductAmount() : acc
+				));
+	}
+	
+	public int getProductCountBySize(int size) {
+		Iterator<ProductInventory> iter = this.productInventories.iterator();
+		return CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> (
+				i.getSize() == size ? acc + i.getProductAmount() : acc
+				));
 	}
 }

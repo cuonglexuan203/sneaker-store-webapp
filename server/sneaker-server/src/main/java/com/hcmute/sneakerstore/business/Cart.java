@@ -47,6 +47,12 @@ public  class Cart{
 		lineItem.setCart(null);
 	}
 	
+	//
+	
+	public int getItemCount() {
+		return lineItems.size();
+	}
+	
 	
 	
 	
