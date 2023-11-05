@@ -14,5 +14,4 @@ public class Location {
 	private String district;
 	
 	//
-	
 }

@@ -23,14 +23,15 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "user_id")
-	private int userId;
+	private int id;
 	
 	@NotNull
-	private String firstname;
+	@Column(name="first_name")
+	private String firstName;
 	
 	@NotNull
-	private String lastname;
+	@Column(name="last_name")
+	private String lastName;
 
 	private String email;
 
@@ -56,7 +57,9 @@ public class User {
 	@Column(name = "credit_card_number")
 	private String creditCardNumber;
 
-	// Invoice //
+	//
+	
+	// Invoice
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Invoice> invoices;
 
@@ -67,5 +70,37 @@ public class User {
 	// Account
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Account account;
+	
+	//
+	
+	public void addInvoice(Invoice invoice) {
+		invoices.add(invoice);
+		invoice.setUser(this);
+	}
+	
+	public void removeInvoice(Invoice invoice) {
+		invoices.remove(invoice);
+		invoice.setUser(null);
+	}
+	
+	public void addCart(Cart cart) {
+		this.setCart(cart);
+		cart.setUser(this);
+	}
+	
+	public void removeCart(Cart cart) {
+		this.setCart(null);
+		cart.setUser(null);
+	}
+	
+	public void addAccount(Account account) {
+		this.setAccount(account);
+		account.setUser(this);
+	}
+	
+	public void removeAccount(Account account) {
+		this.setAccount(null);
+		account.setUser(null);
+	}
 
 }

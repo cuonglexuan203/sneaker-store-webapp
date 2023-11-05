@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.business;
 
 
+import com.hcmute.sneakerstore.business.enums.Role;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,10 +19,7 @@ import lombok.Data;
 @Table(name="ACCOUNT")
 public class Account{
 	
-	enum Role{
-		ADMIN,
-		USER,
-	}
+	
 	
 	@Id
 	@GeneratedValue
@@ -34,9 +33,18 @@ public class Account{
 	
 	@NotNull
 	private Role role = Role.USER;
+	
 	//
+	
 	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 	
+	//
+	
+	public Account(String username, String password, Role role) {
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
 }

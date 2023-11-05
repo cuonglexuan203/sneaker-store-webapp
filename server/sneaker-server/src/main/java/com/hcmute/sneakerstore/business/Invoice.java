@@ -3,6 +3,9 @@ package com.hcmute.sneakerstore.business;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import com.hcmute.sneakerstore.business.enums.DeliveryStatus;
+import com.hcmute.sneakerstore.business.enums.PaymentStatus;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,14 +22,6 @@ import lombok.Data;
 @Entity
 @Table(name = "INVOICE")
 public class Invoice {
-
-	public enum PaymentStatus {
-		SUCCESS, CANCEL, WAITING_FOR_PAYMENT, PAYMENT_EXPIRY,
-	}
-
-	public enum DeliveryStatus {
-		PENDING, IN_TRANSIT, SHIPPED, CANCELLED
-	}
 
 	@Id
 	@GeneratedValue
@@ -49,6 +44,8 @@ public class Invoice {
 	@Column(name = "total_amount")
 	private float totalAmount;
 
+	//
+	
 	// User
 	@ManyToOne
 	@JoinColumn(name = "user_id", foreignKey = @jakarta.persistence.ForeignKey(name = "USER_ID_FK"))
@@ -57,5 +54,17 @@ public class Invoice {
 	// LineItem
 	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems;
+	
+	//
+	
+	public void addLineItem(LineItem lineItem) {
+		lineItems.add(lineItem);
+		lineItem.setInvoice(this);
+	}
+	
+	public void removeLineItem(LineItem lineItem) {
+		lineItems.remove(lineItem);
+		lineItem.setInvoice(null);
+	}
 
 }

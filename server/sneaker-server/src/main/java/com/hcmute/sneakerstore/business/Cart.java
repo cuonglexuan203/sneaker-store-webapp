@@ -19,7 +19,9 @@ public  class Cart{
 	
 	@Id
 	@GeneratedValue
-	private int cart_id;
+	private int id;
+	
+	//
 	
 	@OneToOne
     @JoinColumn(name = "user_id")
@@ -31,8 +33,20 @@ public  class Cart{
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 		)
-	private Set<LineItem> lineitems;
-
+	private Set<LineItem> lineItems;
+	
+	//
+	
+	public void addLineItem(LineItem lineItem) {
+		lineItems.add(lineItem);
+		lineItem.setCart(this);
+	}
+	
+	public void removeLineItem(LineItem lineItem) {
+		lineItems.remove(lineItem);
+		lineItem.setCart(null);
+	}
+	
 	
 	
 	
