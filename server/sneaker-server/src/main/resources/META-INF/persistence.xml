@@ -15,7 +15,7 @@
 			<!-- Credentials -->
 			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="admin" />
+				value="123456xc" />
 
 			<!-- Automatic schema export -->
 			<property

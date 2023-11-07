@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+
 import com.hcmute.sneakerstore.business.enums.Color;
 
 import jakarta.persistence.Column;
@@ -45,5 +46,9 @@ public class ProductInventory {
 		this.color = color;
 		this.size = size;
 	}
+	
+	//
+	
+	
 	
 }

@@ -80,4 +80,18 @@ public class Invoice {
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
 
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (!(o instanceof Invoice))
+//			return false;
+//		Invoice invoice = (Invoice) o;
+//		return id == invoice.id;
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(id);
+//	}
 }

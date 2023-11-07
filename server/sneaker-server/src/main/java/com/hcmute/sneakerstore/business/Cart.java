@@ -54,9 +54,25 @@ public class Cart {
 	public float getTotalPrice() {
 		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
 	}
-	
+
 	public float getTotalSalePrice() {
-		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getSaleLineItemPrice());
+		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(),
+				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
+
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (!(o instanceof Cart))
+//			return false;
+//		Cart cart = (Cart) o;
+//		return id == cart.id;
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(id);
+//	}
 
 }
