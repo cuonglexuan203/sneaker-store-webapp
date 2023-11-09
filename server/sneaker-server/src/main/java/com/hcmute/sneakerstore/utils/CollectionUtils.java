@@ -1,14 +1,27 @@
 package com.hcmute.sneakerstore.utils;
 
 import java.util.Iterator;
+import java.util.function.BiFunction;
 
 public class CollectionUtils {
-	public static <T> T aggregate(Iterator<T> iter) {
-		while(iter.hasNext()) {
+	
+	// func(acc, item )
+	public static <T> float aggregate(Iterator<T> iter, BiFunction<Float, T, Float> func, float initialValue) {
+
+		// accumulator
+		float acc = initialValue;
+		
+		while (iter.hasNext()) {
+			
 			T i = iter.next();
-			if(i instanceof Integer) {
-				
-			}
+			acc = func.apply(acc, i);
 		}
+		return acc;
 	}
+	public static <T> float aggregate(Iterator<T> iter, BiFunction<Float, T, Float> func) {
+		return aggregate(iter, func, 0.f);
+	}
+	
+	
+	
 }

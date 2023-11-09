@@ -5,11 +5,13 @@ import java.util.Set;
 
 import com.hcmute.sneakerstore.business.enums.DeliveryStatus;
 import com.hcmute.sneakerstore.business.enums.PaymentStatus;
+import com.hcmute.sneakerstore.utils.CollectionUtils;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -24,7 +26,7 @@ import lombok.Data;
 public class Invoice {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@NotNull
@@ -45,7 +47,7 @@ public class Invoice {
 	private float totalAmount;
 
 	//
-	
+
 	// User
 	@ManyToOne
 	@JoinColumn(name = "user_id", foreignKey = @jakarta.persistence.ForeignKey(name = "USER_ID_FK"))
@@ -54,17 +56,42 @@ public class Invoice {
 	// LineItem
 	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems;
-	
+
 	//
-	
+
 	public void addLineItem(LineItem lineItem) {
 		lineItems.add(lineItem);
 		lineItem.setInvoice(this);
 	}
-	
+
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
 		lineItem.setInvoice(null);
 	}
 
+	//
+	public float getTotalPrice() {
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
+				(acc, i) -> acc + i.getLineItemPrice());
+	}
+
+	public float getTotalSalePrice() {
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
+				(acc, i) -> acc + i.getSaleLineItemPrice());
+	}
+
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (!(o instanceof Invoice))
+//			return false;
+//		Invoice invoice = (Invoice) o;
+//		return id == invoice.id;
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(id);
+//	}
 }

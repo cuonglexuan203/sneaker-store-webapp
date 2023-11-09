@@ -2,9 +2,12 @@ package com.hcmute.sneakerstore.business;
 
 import java.util.Set;
 
+import com.hcmute.sneakerstore.utils.CollectionUtils;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -14,40 +17,62 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="CART")
-public  class Cart{
-	
+@Table(name = "CART")
+public class Cart {
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	//
-	
+
 	@OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-	
-	
-	@OneToMany(
-			mappedBy = "cart",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true
-		)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems;
-	
+
 	//
-	
+
 	public void addLineItem(LineItem lineItem) {
 		lineItems.add(lineItem);
 		lineItem.setCart(this);
 	}
-	
+
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
 		lineItem.setCart(null);
 	}
-	
-	
-	
-	
+
+	//
+
+	public int getItemCount() {
+		return lineItems.size();
+	}
+
+	public float getTotalPrice() {
+		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
+	}
+
+	public float getTotalSalePrice() {
+		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(),
+				(acc, i) -> acc + i.getSaleLineItemPrice());
+	}
+
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (!(o instanceof Cart))
+//			return false;
+//		Cart cart = (Cart) o;
+//		return id == cart.id;
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(id);
+//	}
+
 }
