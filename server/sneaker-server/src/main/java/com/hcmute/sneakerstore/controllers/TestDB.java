@@ -51,6 +51,7 @@ public class TestDB extends HttpServlet {
 //													.phoneNumber("25646161")
 //													.address(new Location("VN", "ThuDuc", "HCM"))
 //													.build();
+		
 //				
 //				em.persist(user);
 //			}

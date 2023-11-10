@@ -40,29 +40,29 @@ public class AccountDao {
 		return DBUtils.getResultList(query);
 	}
 
-	public long insertOne(Account entity) {
+	public static long insertOne(Account entity) {
 
 		return DBUtils.insertOne(entity);
 	}
 
-	public long insertMany(List<Account> entities) {
+	public static long insertMany(List<Account> entities) {
 		return DBUtils.insertMany(entities);
 	}
 
-	public Account updateOne(Account entity) {
+	public static Account updateOne(Account entity) {
 		return DBUtils.updateOne(entity);
 	}
 
-	public List<Account> updateMany(List<Account> entities) {
+	public static List<Account> updateMany(List<Account> entities) {
 		return DBUtils.updateMany(entities);
 	}
 
-	public long deleteOne(Long id) {
+	public static long deleteOne(Long id) {
 		Account deletedAccount = selectOne(id);
 		return DBUtils.deleteOne(deletedAccount);
 	}
 
-	public long deleteMany() {
+	public static long deleteMany() {
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
@@ -70,7 +70,7 @@ public class AccountDao {
 		return DBUtils.executeUpdateOrDelete(query, tran);
 	}
 
-	public long deleteMany(List<Long> ids) {
+	public static long deleteMany(List<Long> ids) {
 		List<Account> deletedAccounts = selectMany(ids);
 		return DBUtils.deleteMany(deletedAccounts);
 	}
