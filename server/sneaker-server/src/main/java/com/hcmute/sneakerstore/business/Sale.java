@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "SALES")
+@Table(name = "SALE")
 public class Sale {
 
 	@Id
@@ -52,12 +52,12 @@ public class Sale {
 	
 	public void addProduct(Product product) {
 		products.add(product);
-		product.getSales().add(this);
+		product.getDiscountedSales().add(this);
 	}
 	
 	public void removeProduct(Product product) {
 		products.remove(product);
-		product.getSales().remove(this);
+		product.getDiscountedSales().remove(this);
 	}
 	
 	//

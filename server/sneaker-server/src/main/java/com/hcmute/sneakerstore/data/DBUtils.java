@@ -112,7 +112,6 @@ public class DBUtils {
 
 	public static <T> long insertMany(List<T> entities) {
 		final long ZERO = 0;
-		final long ONE = 1;
 		//
 		if (ValidationUtils.isNullOrEmpty(entities))
 			return ZERO;
