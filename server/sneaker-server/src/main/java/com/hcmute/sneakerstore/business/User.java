@@ -1,6 +1,7 @@
 package com.hcmute.sneakerstore.business;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -15,12 +16,18 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Table(name = "USER")
 public class User {
 
@@ -28,28 +35,30 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private int id;
-	
+
 	@NotNull
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@NotNull
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
 
 	private String email;
 
 	// 0: male, 1: female
+	@Builder.Default
 	@NotNull
 	private Boolean gender = false;
-	
+
 	@NotNull
+	@Builder.Default
 	private LocalDate birthday = LocalDate.now();
-	
+
 	@NotNull
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	@NotNull
 	@Embedded
 	private Location address;
@@ -62,10 +71,11 @@ public class User {
 	private String creditCardNumber;
 
 	//
-	
+
 	// Invoice
+	@Builder.Default
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Invoice> invoices;
+	private Set<Invoice> invoices = new HashSet<>();
 
 	// Cart
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -74,37 +84,39 @@ public class User {
 	// Account
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Account account;
-	
+
 	//
-	
+
 	public void addInvoice(Invoice invoice) {
 		invoices.add(invoice);
 		invoice.setUser(this);
 	}
-	
+
 	public void removeInvoice(Invoice invoice) {
 		invoices.remove(invoice);
 		invoice.setUser(null);
 	}
-	
+
 	public void addCart(Cart cart) {
 		this.setCart(cart);
 		cart.setUser(this);
 	}
-	
+
 	public void removeCart(Cart cart) {
 		this.setCart(null);
 		cart.setUser(null);
 	}
-	
+
 	public void addAccount(Account account) {
 		this.setAccount(account);
 		account.setUser(this);
 	}
-	
+
 	public void removeAccount(Account account) {
 		this.setAccount(null);
 		account.setUser(null);
 	}
+	
+	//
 
 }

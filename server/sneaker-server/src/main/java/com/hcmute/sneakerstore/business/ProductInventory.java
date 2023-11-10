@@ -12,9 +12,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="PRODUCT_INVENTORY")
 public class ProductInventory {
@@ -23,10 +29,12 @@ public class ProductInventory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Builder.Default
 	@NotNull
 	@Column(name="product_amount")
 	private int productAmount = 0;
 	
+	@Builder.Default
 	@NotNull
 	private Color color = Color.BLACK;
 	
@@ -40,14 +48,7 @@ public class ProductInventory {
 	private Product product;
 	
 	//
-	
-	public ProductInventory(int productAmount, Color color, int size) {
-		this.productAmount = productAmount;
-		this.color = color;
-		this.size = size;
-	}
-	
-	//
+
 	
 	
 	

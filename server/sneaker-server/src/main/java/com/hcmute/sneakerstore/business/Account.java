@@ -1,6 +1,5 @@
 package com.hcmute.sneakerstore.business;
 
-import java.util.Objects;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -16,16 +15,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ACCOUNT")
 public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@NotNull
 	@NaturalId
@@ -35,6 +40,7 @@ public class Account {
 	private String password;
 
 	@NotNull
+	@Builder.Default
 	private Role role = Role.USER;
 
 	//
@@ -44,23 +50,6 @@ public class Account {
 	private User user;
 
 	//
-
-	public Account(String username, String password, Role role) {
-		this.username = username;
-		this.password = password;
-		this.role = role;
-	}
 	
-	@Override
-	public boolean equals(Object o) {
-		if(this == o) return true;
-		if(o == null || getClass() != o.getClass()) return false;
-		Account that = (Account) o;
-		return Objects.equals(username, that.username);
-	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(username);
-	}
 }
