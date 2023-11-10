@@ -23,6 +23,7 @@ import com.hcmute.sneakerstore.business.ProductInventory;
 import com.hcmute.sneakerstore.business.User;
 import com.hcmute.sneakerstore.business.enums.Color;
 import com.hcmute.sneakerstore.data.AccountDao;
+import com.hcmute.sneakerstore.data.ProductDao;
 import com.hcmute.sneakerstore.data.DBUtils;
 import com.hcmute.sneakerstore.data.JpaProvider;
 
@@ -37,8 +38,27 @@ public class TestDB extends HttpServlet {
 		
 		@Cleanup EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-		Query query = em.createQuery("delete from ProductInventory");
-		DBUtils.executeUpdateOrDelete(query, tran);
+		/*
+		 * Query query = em.createQuery("delete from ProductInventory");
+		 * DBUtils.executeUpdateOrDelete(query, tran);
+		 */
+		
+		
+		Product p = Product.builder()
+				.brand("Hamiing")
+				.name("Air force 1")
+				.ean("2342")
+				.price(123.11f)
+				.dateAdded(LocalDate.now())
+				.dateUpdated(LocalDate.now())
+				.imageUrl("http://image")
+				.build();
+				
+				
+		
+		
+		long p2 = ProductDao.insertOne(p);
+		
 		
 		
 		
@@ -91,7 +111,7 @@ public class TestDB extends HttpServlet {
 //			tran.commit();
 			
 			
-		response.getWriter().println("Hello world!: " + a);
+		response.getWriter().println("Hello world!: " + p2);
 	}
 
 }
