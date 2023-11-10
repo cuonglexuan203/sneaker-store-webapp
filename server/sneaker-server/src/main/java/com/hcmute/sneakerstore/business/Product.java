@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,11 +37,16 @@ import lombok.Singular;
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7328997558903962833L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@NotNull
 	private String brand;

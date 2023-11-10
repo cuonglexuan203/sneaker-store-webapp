@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,11 +25,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "SALE")
-public class Sale {
+public class Sale implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2842787509443180196L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@Builder.Default
 	@NotNull

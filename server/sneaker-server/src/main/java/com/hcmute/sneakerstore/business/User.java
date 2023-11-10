@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,12 +30,17 @@ import lombok.NoArgsConstructor;
 @Entity
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Table(name = "USER")
-public class User {
+public class User implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3211725346777768171L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
-	private int id;
+	private long id;
 
 	@NotNull
 	@Column(name = "first_name")

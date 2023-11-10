@@ -27,7 +27,7 @@ public class TestDB extends HttpServlet {
 		@Cleanup EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
 		Query query = em.createQuery("delete from ProductInventory");
-		DBUtils.executeUpdateOrDelete(query, tran);
+//		DBUtils.executeUpdateOrDelete(query, tran);
 		
 		
 		
