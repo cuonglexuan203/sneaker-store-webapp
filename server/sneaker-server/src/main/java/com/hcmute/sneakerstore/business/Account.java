@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.business;
 
 
+import java.io.Serializable;
+
 import org.hibernate.annotations.NaturalId;
 
 import com.hcmute.sneakerstore.business.enums.Role;
@@ -26,7 +28,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "ACCOUNT")
-public class Account {
+public class Account implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6363446764553001684L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

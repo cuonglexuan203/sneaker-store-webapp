@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +31,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "INVOICE")
-public class Invoice {
+public class Invoice implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7781909304560806023L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

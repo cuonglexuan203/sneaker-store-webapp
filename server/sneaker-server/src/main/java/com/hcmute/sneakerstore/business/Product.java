@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,7 +37,12 @@ import lombok.Singular;
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7328997558903962833L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,7 +91,7 @@ public class Product {
 
 	@Builder.Default
 	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
-	private Set<Sale> sales = new HashSet<>();
+	private Set<Sale> discountedSales = new HashSet<>();
 
 	@Builder.Default
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -125,11 +131,11 @@ public class Product {
 	}
 
 	public Sale getHighestSale() {
-		if (this.sales == null || this.sales.isEmpty()) {
+		if (this.discountedSales == null || this.discountedSales.isEmpty()) {
 			return null;
 		}
 
-		Iterator<Sale> iter = this.sales.iterator();
+		Iterator<Sale> iter = this.discountedSales.iterator();
 		Sale highestSale = iter.next();
 		while (iter.hasNext()) {
 			Sale temp = iter.next();

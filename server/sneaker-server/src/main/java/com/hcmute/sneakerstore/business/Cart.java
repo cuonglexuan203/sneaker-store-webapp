@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,6 +8,7 @@ import com.hcmute.sneakerstore.utils.CollectionUtils;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +27,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "CART")
-public class Cart {
+public class Cart implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1936956525338503426L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +45,7 @@ public class Cart {
 	private User user;
 
 	@Builder.Default
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cart", fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -60,11 +67,11 @@ public class Cart {
 	}
 
 	public float getTotalPrice() {
-		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
+		return CollectionUtils.aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
 	}
 
 	public float getTotalSalePrice() {
-		return CollectionUtils.<LineItem>aggregate(this.lineItems.iterator(),
+		return CollectionUtils.aggregate(this.lineItems.iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
 

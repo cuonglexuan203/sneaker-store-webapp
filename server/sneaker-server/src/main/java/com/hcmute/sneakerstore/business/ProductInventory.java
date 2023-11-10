@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.business;
 
 
+import java.io.Serializable;
+
 import com.hcmute.sneakerstore.business.enums.Color;
 
 import jakarta.persistence.Column;
@@ -23,11 +25,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="PRODUCT_INVENTORY")
-public class ProductInventory {
+public class ProductInventory implements Serializable ,Identifiable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -830725538291796429L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	@Builder.Default
 	@NotNull
