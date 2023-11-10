@@ -1,10 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,16 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.Cleanup;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.hcmute.sneakerstore.business.Location;
-import com.hcmute.sneakerstore.business.Product;
-import com.hcmute.sneakerstore.business.ProductInventory;
-import com.hcmute.sneakerstore.business.User;
-import com.hcmute.sneakerstore.business.enums.Color;
-import com.hcmute.sneakerstore.data.AccountDao;
 import com.hcmute.sneakerstore.data.DBUtils;
 import com.hcmute.sneakerstore.data.JpaProvider;
 
@@ -38,7 +27,7 @@ public class TestDB extends HttpServlet {
 		@Cleanup EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
 		Query query = em.createQuery("delete from ProductInventory");
-		DBUtils.executeUpdateOrDelete(query, tran);
+//		DBUtils.executeUpdateOrDelete(query, tran);
 		
 		
 		

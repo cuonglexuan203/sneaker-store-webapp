@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.QueryException;
 
+import com.hcmute.sneakerstore.business.Identifiable;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 import jakarta.persistence.EntityManager;
@@ -19,7 +20,9 @@ public class DBUtils {
 
 	// Query
 
-	public static <T> List<T> getResultList(TypedQuery<T> query) {
+	public final static long FAILED_ID = -1l;
+
+	public static <T extends Identifiable> List<T> getResultList(TypedQuery<T> query) {
 
 		if (query == null)
 			return null;
@@ -37,7 +40,7 @@ public class DBUtils {
 		return result;
 	}
 
-	public static <T> T getSingleResult(TypedQuery<T> query) {
+	public static <T extends Identifiable> T getSingleResult(TypedQuery<T> query) {
 
 		if (query == null)
 			return null;
@@ -56,19 +59,18 @@ public class DBUtils {
 		return result;
 	}
 
-	public static long executeUpdateOrDelete(Query query, EntityTransaction tran) {
+	public static long executeUpdateOrDelete(EntityManager em, Query query) {
 
 		if (query == null)
 			return 0;
 
 		long result = 0;
-
+		EntityTransaction tran = em.getTransaction();
 		tran.begin();
 		try {
 			result = query.executeUpdate();
 			tran.commit();
 		} catch (NoResultException ex) {
-
 //			ex.printStackTrace();
 			tran.rollback();
 			return 0;
@@ -81,14 +83,62 @@ public class DBUtils {
 	}
 
 	// CRUD
+	// One: return inserted item / id
+	// Many: return number of affected item
 
-	public static <T> long insertOne(T entity) {
-		
-		final long ZERO = 0;
-		final long ONE = 1;
+	// return finding entity
+	public static <T extends Identifiable> T selectOne(Class<T> entityClass, long id) {
+		if (id <= 0)
+			return null;
+
+		@Cleanup
+		EntityManager em = JpaProvider.getEntityManager();
+		EntityTransaction tran = em.getTransaction();
+		//
+		T managedEntity = null;
+		tran.begin();
+		try {
+			managedEntity = em.find(entityClass, id);
+			tran.commit();
+		} catch (Exception e) {
+			tran.rollback();
+			return null;
+		}
+		return managedEntity;
+	}
+
+	// return list of finding entities
+	public static <T extends Identifiable> List<T> selectMany(Class<T> entityClass, List<Long> ids) {
+		if (ValidationUtils.isNullOrEmpty(ids))
+			return null;
+		//
+		@Cleanup
+		EntityManager em = JpaProvider.getEntityManager();
+		EntityTransaction tran = em.getTransaction();
+		//
+		List<T> managedEntities = new ArrayList<>();
+		tran.begin();
+		try {
+			for (long id : ids) {
+				T foo = em.find(entityClass, id);
+				if (foo != null) {
+					managedEntities.add(foo);
+				}
+			}
+			tran.commit();
+		} catch (Exception e) {
+			tran.rollback();
+			return null;
+		}
+		return managedEntities;
+	}
+
+	// return id of inserted entity
+	public static <T extends Identifiable> long insertOne(T entity) {
+
 		//
 		if (entity == null)
-			return ZERO;
+			return FAILED_ID;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
@@ -101,26 +151,26 @@ public class DBUtils {
 		} catch (PersistenceException e) {
 
 			tran.rollback();
-			return ZERO;
+			return FAILED_ID;
 		} catch (Exception e) {
 //			e.printStackTrace();
 			tran.rollback();
-			return ZERO;
+			return FAILED_ID;
 		}
-		return ONE;
+		return entity.getId();
 	}
 
-	public static <T> long insertMany(List<T> entities) {
-		final long ZERO = 0;
-		final long ONE = 1;
+	// return number of inserted entities
+	public static <T extends Identifiable> long insertMany(List<T> entities) {
+		long count = 0;
 		//
 		if (ValidationUtils.isNullOrEmpty(entities))
-			return ZERO;
+			return 0;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-		long count = 0;
+
 		tran.begin();
 		try {
 			for (T entity : entities) {
@@ -131,26 +181,28 @@ public class DBUtils {
 		} catch (PersistenceException e) {
 
 			tran.rollback();
-			return ZERO;
+			return 0;
 		} catch (Exception e) {
 //			e.printStackTrace();
 			tran.rollback();
-			return ZERO;
+			return 0;
 		}
 		return count;
 	}
 
-	public static <T> T updateOne(T entity) {
+	// return updated entity
+	public static <T extends Identifiable> T updateOne(T entity) {
+		//
 		if (entity == null)
 			return null;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-		T result = null;
+		T managedEntity = null;
 		tran.begin();
 		try {
-			result = em.merge(entity);
+			managedEntity = em.merge(entity);
 			tran.commit();
 		} catch (PersistenceException e) {
 
@@ -161,79 +213,76 @@ public class DBUtils {
 			tran.rollback();
 			return null;
 		}
-		return result;
+		return managedEntity;
 	}
 
-	public static <T> List<T> updateMany(List<T> entities) {
-
+	// return number of updated entities
+	public static <T extends Identifiable> long updateMany(List<T> entities) {
+		long count = 0l;
+		//
 		if (ValidationUtils.isNullOrEmpty(entities))
-			return null;
+			return 0;
+		//
+		for (T entity : entities) {
+			updateOne(entity);
+			count++;
+		}
+		return count;
+	}
+
+	// return 0: failure, 1: successful
+	public static <T extends Identifiable> long deleteOne(Class<T> entityClass, long id) {
+
+		//
+		if (id <= 0)
+			return 0;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-		List<T> result = new ArrayList<T>();
+
 		tran.begin();
 		try {
-			for (T entity : entities) {
-				result.add(em.merge(entity));
+//			The entity must be managed in the current persistence context: the entity must be either retrieved from the database in the current transaction 
+//			or made managed via merge() if it's detached
+			T managedEntity = em.find(entityClass, id);
+			if (managedEntity != null) {
+				em.remove(managedEntity);
 			}
 			tran.commit();
 		} catch (PersistenceException e) {
 
 			tran.rollback();
-			return null;
+			return 0;
 		} catch (Exception e) {
 //			e.printStackTrace();
 			tran.rollback();
-			return null;
+			return 0;
 		}
-		return entities;
+		return 1;
 	}
 
-	public static <T> long deleteOne(T entity) {
-		
-		final long ZERO = 0;
-		final long ONE = 1;
+	// return number of deleted entities
+	public static <T extends Identifiable> long deleteMany(Class<T> entityClass, List<Long> ids) {
+		long count = 0l;
 		//
-		if (entity == null)
-			return ZERO;
+		if (ValidationUtils.isNullOrEmpty(ids))
+			return 0;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-		
+		List<T> deletedEntities = new ArrayList<>();
 		tran.begin();
+
 		try {
-			em.remove(entity);
-			tran.commit();
-		} catch (PersistenceException e) {
-
-			tran.rollback();
-			return ZERO;
-		} catch (Exception e) {
-//			e.printStackTrace();
-			tran.rollback();
-			return ZERO;
-		}
-		return ONE;
-	}
-
-	public static <T> long deleteMany(List<T> entities) {
-
-		long count = 0;
-		final long ZERO = 0;
-		//
-		if (ValidationUtils.isNullOrEmpty(entities))
-			return ZERO;
-		//
-		@Cleanup
-		EntityManager em = JpaProvider.getEntityManager();
-		EntityTransaction tran = em.getTransaction();
-		
-		tran.begin();
-		try {
-			for (T entity : entities) {
+			for (long id : ids) {
+				T foo = em.find(entityClass, id);
+				if (foo != null) {
+					deletedEntities.add(foo);
+				}
+			}
+			for (T entity : deletedEntities) {
 				em.remove(entity);
 				count++;
 			}
@@ -241,11 +290,11 @@ public class DBUtils {
 		} catch (PersistenceException e) {
 
 			tran.rollback();
-			return ZERO;
+			return 0;
 		} catch (Exception e) {
 //			e.printStackTrace();
 			tran.rollback();
-			return ZERO;
+			return 0;
 		}
 		return count;
 	}
