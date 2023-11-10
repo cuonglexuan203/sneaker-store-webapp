@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.business;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.utils.CollectionUtils;
@@ -13,16 +14,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "CART")
 public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	//
 
@@ -30,8 +37,9 @@ public class Cart {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@Builder.Default
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<LineItem> lineItems;
+	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
 
@@ -60,19 +68,5 @@ public class Cart {
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o)
-//			return true;
-//		if (!(o instanceof Cart))
-//			return false;
-//		Cart cart = (Cart) o;
-//		return id == cart.id;
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(id);
-//	}
 
 }

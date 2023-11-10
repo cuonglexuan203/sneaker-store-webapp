@@ -1,6 +1,7 @@
 package com.hcmute.sneakerstore.business;
 
 
+
 import com.hcmute.sneakerstore.business.enums.Color;
 
 import jakarta.persistence.Entity;
@@ -11,9 +12,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "LINEITEM")
 public class LineItem {
@@ -22,12 +29,14 @@ public class LineItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Builder.Default
 	@NotNull
 	private Color color = Color.BLACK;
 
 	@NotNull
 	private int size;
 
+	@Builder.Default
 	@NotNull
 	private int quantity = 0;
 
@@ -63,19 +72,6 @@ public class LineItem {
 		return this.getQuantity() * 1.f * this.product.getSalePrice();
 	}
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o)
-//			return true;
-//		if (!(o instanceof LineItem))
-//			return false;
-//		LineItem lineItem = (LineItem) o;
-//		return id == lineItem.id;
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(id);
-//	}
+
 
 }

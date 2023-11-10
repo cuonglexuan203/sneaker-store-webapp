@@ -1,6 +1,7 @@
 package com.hcmute.sneakerstore.business;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.business.enums.DeliveryStatus;
@@ -18,17 +19,24 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "INVOICE")
 public class Invoice {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
+	@Builder.Default
 	@NotNull
 	private PaymentStatus status = PaymentStatus.WAITING_FOR_PAYMENT;
 
@@ -39,6 +47,7 @@ public class Invoice {
 	@NotNull
 	private Location address;
 
+	@Builder.Default
 	@NotNull
 	@Column(name = "delivery_status")
 	private DeliveryStatus deliveryStatus = DeliveryStatus.PENDING;
@@ -54,8 +63,9 @@ public class Invoice {
 	private User user;
 
 	// LineItem
+	@Builder.Default
 	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<LineItem> lineItems;
+	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
 
@@ -80,18 +90,5 @@ public class Invoice {
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
 
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o)
-//			return true;
-//		if (!(o instanceof Invoice))
-//			return false;
-//		Invoice invoice = (Invoice) o;
-//		return id == invoice.id;
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(id);
-//	}
+
 }
