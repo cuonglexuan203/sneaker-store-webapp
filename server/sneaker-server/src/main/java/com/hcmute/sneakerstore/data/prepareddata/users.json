@@ -1,0 +1,262 @@
+[
+    {
+        "firstName": "Mark",
+        "lastName": "Sanders",
+        "email": "jose26@example.net",
+        "gender": true,
+        "birthday": "1985-07-03",
+        "phoneNumber": "(670)464-9216x0894",
+        "address": {
+            "country": "United States",
+            "city": "Weisstown",
+            "district": "7597 Jessica Mountains Suite 018"
+        }
+    },
+    {
+        "firstName": "Melissa",
+        "lastName": "Peterson",
+        "email": "brenda01@example.net",
+        "gender": false,
+        "birthday": "1991-06-30",
+        "phoneNumber": "001-795-816-4315x45047",
+        "address": {
+            "country": "United States",
+            "city": "East Brooke",
+            "district": "5967 James Village"
+        }
+    },
+    {
+        "firstName": "Eric",
+        "lastName": "Hall",
+        "email": "maldonadokristin@example.com",
+        "gender": true,
+        "birthday": "2003-08-26",
+        "phoneNumber": "(782)952-4199x87872",
+        "address": {
+            "country": "United States",
+            "city": "Lake Adamhaven",
+            "district": "1501 Lewis Brook Apt. 851"
+        }
+    },
+    {
+        "firstName": "Pamela",
+        "lastName": "Barnett",
+        "email": "joshua98@example.net",
+        "gender": false,
+        "birthday": "1991-03-18",
+        "phoneNumber": "(656)471-7783x267",
+        "address": {
+            "country": "United States",
+            "city": "Millsland",
+            "district": "931 Cohen Haven"
+        }
+    },
+    {
+        "firstName": "Matthew",
+        "lastName": "Carpenter",
+        "email": "williamsanna@example.net",
+        "gender": false,
+        "birthday": "1965-01-18",
+        "phoneNumber": "726.849.4638x2002",
+        "address": {
+            "country": "United States",
+            "city": "Hannahburgh",
+            "district": "4762 Thomas Plaza Apt. 489"
+        }
+    },
+    {
+        "firstName": "Kelly",
+        "lastName": "Hill",
+        "email": "wayne09@example.org",
+        "gender": true,
+        "birthday": "1997-05-30",
+        "phoneNumber": "+1-509-367-1093",
+        "address": {
+            "country": "United States",
+            "city": "Perezfort",
+            "district": "55990 Mark Fields"
+        }
+    },
+    {
+        "firstName": "Holly",
+        "lastName": "Jones",
+        "email": "dmartin@example.net",
+        "gender": true,
+        "birthday": "1999-04-14",
+        "phoneNumber": "(207)384-0239x245",
+        "address": {
+            "country": "United States",
+            "city": "North Jennifer",
+            "district": "2511 Hudson Roads"
+        }
+    },
+    {
+        "firstName": "David",
+        "lastName": "Ross",
+        "email": "sherribriggs@example.org",
+        "gender": true,
+        "birthday": "1954-07-11",
+        "phoneNumber": "501.549.8188x94380",
+        "address": {
+            "country": "United States",
+            "city": "South Matthewstad",
+            "district": "898 Moore Forest"
+        }
+    },
+    {
+        "firstName": "Kimberly",
+        "lastName": "Smith",
+        "email": "matthew28@example.com",
+        "gender": true,
+        "birthday": "1961-09-01",
+        "phoneNumber": "001-505-368-1050",
+        "address": {
+            "country": "United States",
+            "city": "Lake Eric",
+            "district": "750 Monroe Trace Suite 881"
+        }
+    },
+    {
+        "firstName": "Thomas",
+        "lastName": "Armstrong",
+        "email": "deborah36@example.org",
+        "gender": false,
+        "birthday": "1978-07-03",
+        "phoneNumber": "9675698579",
+        "address": {
+            "country": "United States",
+            "city": "Gregoryland",
+            "district": "961 Ashley Club"
+        }
+    },
+    {
+        "firstName": "Justin",
+        "lastName": "Stephens",
+        "email": "michael45@example.net",
+        "gender": true,
+        "birthday": "1981-11-23",
+        "phoneNumber": "+1-682-428-0459x71712",
+        "address": {
+            "country": "United States",
+            "city": "Hannahchester",
+            "district": "674 Gonzalez Shoals"
+        }
+    },
+    {
+        "firstName": "Cynthia",
+        "lastName": "Ayers",
+        "email": "jthompson@example.org",
+        "gender": true,
+        "birthday": "1974-02-18",
+        "phoneNumber": "987.803.7525x19755",
+        "address": {
+            "country": "United States",
+            "city": "Martinezton",
+            "district": "718 Pace Oval"
+        }
+    },
+    {
+        "firstName": "Jason",
+        "lastName": "Figueroa",
+        "email": "chasesantana@example.com",
+        "gender": true,
+        "birthday": "1984-02-15",
+        "phoneNumber": "215-399-9131x54426",
+        "address": {
+            "country": "United States",
+            "city": "North Christinamouth",
+            "district": "4337 Kelsey River"
+        }
+    },
+    {
+        "firstName": "John",
+        "lastName": "Flores",
+        "email": "danielrichard@example.com",
+        "gender": true,
+        "birthday": "1966-04-18",
+        "phoneNumber": "+1-683-554-7035x8202",
+        "address": {
+            "country": "United States",
+            "city": "Jillianport",
+            "district": "033 Walls Mills"
+        }
+    },
+    {
+        "firstName": "Phillip",
+        "lastName": "Ferrell",
+        "email": "craigmyers@example.org",
+        "gender": true,
+        "birthday": "1979-03-09",
+        "phoneNumber": "(629)367-1500x334",
+        "address": {
+            "country": "United States",
+            "city": "Lake Julie",
+            "district": "31064 Bates Parks Suite 724"
+        }
+    },
+    {
+        "firstName": "Heather",
+        "lastName": "Russell",
+        "email": "perezbenjamin@example.com",
+        "gender": true,
+        "birthday": "1976-04-19",
+        "phoneNumber": "371.463.1592x601",
+        "address": {
+            "country": "United States",
+            "city": "North Stacey",
+            "district": "302 Sanchez Hill"
+        }
+    },
+    {
+        "firstName": "Alicia",
+        "lastName": "Cohen",
+        "email": "ysteele@example.net",
+        "gender": false,
+        "birthday": "2003-08-20",
+        "phoneNumber": "001-238-393-3167x0362",
+        "address": {
+            "country": "United States",
+            "city": "North Michaelton",
+            "district": "050 Barton Locks Apt. 352"
+        }
+    },
+    {
+        "firstName": "Justin",
+        "lastName": "Thompson",
+        "email": "tara39@example.com",
+        "gender": false,
+        "birthday": "1996-04-24",
+        "phoneNumber": "865-653-4774",
+        "address": {
+            "country": "United States",
+            "city": "Travismouth",
+            "district": "549 Rose Corners Suite 636"
+        }
+    },
+    {
+        "firstName": "Robert",
+        "lastName": "James",
+        "email": "paulmelissa@example.net",
+        "gender": false,
+        "birthday": "1992-09-11",
+        "phoneNumber": "959-575-2380x477",
+        "address": {
+            "country": "United States",
+            "city": "New Richard",
+            "district": "4854 Daniel Alley"
+        }
+    },
+    {
+        "firstName": "Alexander",
+        "lastName": "Shaw",
+        "email": "wigginsgregory@example.org",
+        "gender": true,
+        "birthday": "1990-06-22",
+        "phoneNumber": "7647092571",
+        "address": {
+            "country": "United States",
+            "city": "Port Cynthia",
+            "district": "4676 Matthew Via Suite 757"
+        }
+    }
+]

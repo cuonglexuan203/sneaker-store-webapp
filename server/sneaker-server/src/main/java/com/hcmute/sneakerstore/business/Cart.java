@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "CART")
-public class Cart implements Serializable ,Identifiable {
+public class Cart implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -45,7 +45,7 @@ public class Cart implements Serializable ,Identifiable {
 	private User user;
 
 	@Builder.Default
-	@OneToMany(mappedBy = "cart", fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -67,13 +67,13 @@ public class Cart implements Serializable ,Identifiable {
 	}
 
 	public float getTotalPrice() {
-		return CollectionUtils.aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
+		return CollectionUtils.aggregate(this.lineItems.iterator(),
+				(acc, i) -> acc + i.getLineItemPrice());
 	}
 
 	public float getTotalSalePrice() {
 		return CollectionUtils.aggregate(this.lineItems.iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
-
 
 }

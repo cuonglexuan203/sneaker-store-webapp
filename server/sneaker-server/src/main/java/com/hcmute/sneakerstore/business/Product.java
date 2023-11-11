@@ -37,7 +37,7 @@ import lombok.Singular;
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "PRODUCT")
-public class Product implements Serializable ,Identifiable {
+public class Product implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -54,7 +54,6 @@ public class Product implements Serializable ,Identifiable {
 	@NotNull
 	private String name;
 
-	
 	@EqualsAndHashCode.Include
 	@NaturalId
 	@NotNull
@@ -66,13 +65,8 @@ public class Product implements Serializable ,Identifiable {
 
 	@Builder.Default
 	@NotNull
-	@Column(name = "date_added")
-	private LocalDate dateAdded = LocalDate.now();
-
-	@Builder.Default
-	@NotNull
-	@Column(name = "date_updated")
-	private LocalDate dateUpdated = LocalDate.now();
+	@Column(name = "release_date")
+	private LocalDate releaseDate = LocalDate.now();
 
 	@Singular
 	private Set<String> categories;
@@ -164,21 +158,20 @@ public class Product implements Serializable ,Identifiable {
 
 	public int getAllProductCount() {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return (int) CollectionUtils.<ProductInventory>aggregate(iter, (acc, i) -> acc + i.getProductAmount());
+		return (int) CollectionUtils.<ProductInventory>aggregate(iter,
+				(acc, i) -> acc + i.getProductAmount());
 	}
 
 	public int getProductCountByColor(Color c) {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return (int) CollectionUtils.<ProductInventory>aggregate(iter,
-				(acc, i) -> (i.getColor() == c ? acc + i.getProductAmount() : acc));
+		return (int) CollectionUtils.<ProductInventory>aggregate(iter, (acc,
+				i) -> (i.getColor() == c ? acc + i.getProductAmount() : acc));
 	}
 
 	public int getProductCountBySize(int size) {
 		Iterator<ProductInventory> iter = this.productInventories.iterator();
-		return (int) CollectionUtils.<ProductInventory>aggregate(iter,
-				(acc, i) -> (i.getSize() == size ? acc + i.getProductAmount() : acc));
+		return (int) CollectionUtils.<ProductInventory>aggregate(iter, (acc,
+				i) -> (i.getSize() == size ? acc + i.getProductAmount() : acc));
 	}
-
-	
 
 }

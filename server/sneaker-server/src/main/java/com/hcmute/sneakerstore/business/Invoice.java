@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "INVOICE")
-public class Invoice implements Serializable ,Identifiable {
+public class Invoice implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -87,14 +87,13 @@ public class Invoice implements Serializable ,Identifiable {
 
 	//
 	public float getTotalPrice() {
-		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
-				(acc, i) -> acc + i.getLineItemPrice());
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems()
+				.iterator(), (acc, i) -> acc + i.getLineItemPrice());
 	}
 
 	public float getTotalSalePrice() {
-		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
-				(acc, i) -> acc + i.getSaleLineItemPrice());
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems()
+				.iterator(), (acc, i) -> acc + i.getSaleLineItemPrice());
 	}
-
 
 }

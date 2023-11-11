@@ -1,8 +1,10 @@
-package com.hcmute.sneakerstore.data;
+package com.hcmute.sneakerstore.data.DAOs;
 
 import java.util.List;
 
 import com.hcmute.sneakerstore.business.Account;
+import com.hcmute.sneakerstore.data.DBUtils;
+import com.hcmute.sneakerstore.data.JpaProvider;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 import jakarta.persistence.EntityManager;
@@ -19,7 +21,8 @@ public class AccountDao {
 	public static List<Account> selectMany() {
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
-		TypedQuery<Account> query = em.createQuery("select a from Account a", Account.class);
+		TypedQuery<Account> query = em.createQuery("select a from Account a",
+				Account.class);
 		return DBUtils.getResultList(query);
 	}
 
@@ -30,7 +33,9 @@ public class AccountDao {
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
-		String str = new StringBuilder().append("select a from Account a where a.id in :ids").toString();
+		String str = new StringBuilder()
+				.append("select a from Account a where a.id in :ids")
+				.toString();
 		TypedQuery<Account> query = em.createQuery(str, Account.class);
 		query.setParameter("ids", ids);
 

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "SALE")
-public class Sale implements Serializable ,Identifiable {
+public class Sale implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -43,31 +43,33 @@ public class Sale implements Serializable ,Identifiable {
 	@Builder.Default
 	@NotNull
 	private float percentage = 1.f;
-	
+
 	//
 	@Builder.Default
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Set<Product> products = new HashSet<>();
-	
+
 	//
-	
+
 	public Sale(SaleType type, float percentage) {
 		this.type = type;
 		this.percentage = percentage;
 	}
-	
+
 	public void addProduct(Product product) {
 		products.add(product);
-		product.getDiscountedSales().add(this);
+		product.getDiscountedSales()
+				.add(this);
 	}
-	
+
 	public void removeProduct(Product product) {
 		products.remove(product);
-		product.getDiscountedSales().remove(this);
+		product.getDiscountedSales()
+				.remove(this);
 	}
-	
+
 	//
-	
+
 	public int getSaleProductCount() {
 		return products.size();
 	}

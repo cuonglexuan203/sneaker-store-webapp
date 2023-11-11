@@ -1,6 +1,5 @@
 package com.hcmute.sneakerstore.business;
 
-
 import java.io.Serializable;
 
 import org.hibernate.annotations.NaturalId;
@@ -28,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "ACCOUNT")
-public class Account implements Serializable ,Identifiable {
+public class Account implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -57,6 +56,5 @@ public class Account implements Serializable ,Identifiable {
 	private User user;
 
 	//
-	
-	
+
 }

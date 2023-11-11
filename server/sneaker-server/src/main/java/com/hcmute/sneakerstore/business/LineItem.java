@@ -1,7 +1,5 @@
 package com.hcmute.sneakerstore.business;
 
-
-
 import java.io.Serializable;
 
 import com.hcmute.sneakerstore.business.enums.Color;
@@ -25,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "LINEITEM")
-public class LineItem implements Serializable ,Identifiable {
+public class LineItem implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -78,7 +76,5 @@ public class LineItem implements Serializable ,Identifiable {
 	public float getSaleLineItemPrice() {
 		return this.getQuantity() * 1.f * this.product.getSalePrice();
 	}
-
-
 
 }

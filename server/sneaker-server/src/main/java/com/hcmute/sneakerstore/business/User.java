@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Table(name = "USER")
-public class User implements Serializable ,Identifiable {
+public class User implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -122,7 +122,7 @@ public class User implements Serializable ,Identifiable {
 		this.setAccount(null);
 		account.setUser(null);
 	}
-	
+
 	//
 
 }
