@@ -12,6 +12,7 @@ import com.hcmute.sneakerstore.utils.CollectionUtils;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,7 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "INVOICE")
-public class Invoice implements Serializable ,Identifiable {
+public class Invoice implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -70,7 +71,7 @@ public class Invoice implements Serializable ,Identifiable {
 
 	// LineItem
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -95,6 +96,5 @@ public class Invoice implements Serializable ,Identifiable {
 		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
-
 
 }
