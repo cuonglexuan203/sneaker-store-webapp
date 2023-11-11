@@ -1,3 +1,7 @@
+/client
+/server
 !server/sneaker-server/src/main/java/com/hcmute/sneakerstore/data/InvoiceDao.java
-*
 !.gitignore
+package.json
+readme.md
+package-lock.json
