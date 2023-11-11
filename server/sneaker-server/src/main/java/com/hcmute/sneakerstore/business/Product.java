@@ -75,7 +75,7 @@ public class Product implements Serializable ,Identifiable {
 	private LocalDate dateUpdated = LocalDate.now();
 
 	@Singular
-	private Set<String> categories;
+	private Set<String> categories = new HashSet<>();
 
 	private String description;
 
@@ -86,15 +86,15 @@ public class Product implements Serializable ,Identifiable {
 	//
 
 	@Builder.Default
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	@Builder.Default
-	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
 	private Set<Sale> discountedSales = new HashSet<>();
 
 	@Builder.Default
-	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProductInventory> productInventories = new HashSet<>();
 
 	//
