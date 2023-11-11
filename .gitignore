@@ -1,4 +1,3 @@
+*
 !gitignore
-/client
-/server
 !server/sneaker-server/src/main/java/com/hcmute/sneakerstore/data/InvoiceDao.java
