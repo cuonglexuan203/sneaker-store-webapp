@@ -18,6 +18,11 @@ public class ProductsServlet extends HttpServlet {
        
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
     	res.setContentType("application/json");
+    	
+    	res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Allow only your frontend
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    	
     	List<Product> ps = ProductDao.selectMany();
     	res.getWriter().write(GsonProvider.getGsonInstance().toJson(ps));
     }
