@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.utils.CollectionUtils;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -39,11 +41,13 @@ public class Cart implements Serializable, Identifiable {
 	private long id;
 
 	//
-
+	@GsonExclude
+	@ToString.Exclude
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-
+	
+	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();

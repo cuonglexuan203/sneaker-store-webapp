@@ -2,16 +2,13 @@ package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.Account;
 import com.hcmute.sneakerstore.business.enums.Role;
-import com.hcmute.sneakerstore.data.JpaProvider;
 import com.hcmute.sneakerstore.data.DAOs.AccountDao;
 
-import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Cleanup;
 
 import java.io.IOException;
 import java.util.Arrays;

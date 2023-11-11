@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.business.enums.SaleType;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -45,8 +46,10 @@ public class Sale implements Serializable, Identifiable {
 	private float percentage = 1.f;
 
 	//
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany
 	private Set<Product> products = new HashSet<>();
 
 	//

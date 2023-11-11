@@ -5,8 +5,6 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class JpaProvider {
-	private JpaProvider() {
-	}
 
 	private static class JpaProviderHelper {
 		public static final EntityManagerFactory emf = Persistence

@@ -8,6 +8,7 @@ import java.util.Set;
 import com.hcmute.sneakerstore.business.enums.DeliveryStatus;
 import com.hcmute.sneakerstore.business.enums.PaymentStatus;
 import com.hcmute.sneakerstore.utils.CollectionUtils;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -24,6 +25,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -64,11 +66,15 @@ public class Invoice implements Serializable, Identifiable {
 	//
 
 	// User
+	@GsonExclude
+	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "user_id", foreignKey = @jakarta.persistence.ForeignKey(name = "USER_ID_FK"))
 	private User user;
 
 	// LineItem
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();

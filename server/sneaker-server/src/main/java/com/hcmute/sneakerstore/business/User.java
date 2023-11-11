@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -22,6 +24,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -79,15 +82,21 @@ public class User implements Serializable, Identifiable {
 	//
 
 	// Invoice
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Invoice> invoices = new HashSet<>();
 
 	// Cart
+	@GsonExclude
+	@ToString.Exclude
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Cart cart;
 
 	// Account
+	@GsonExclude
+	@ToString.Exclude
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Account account;
 

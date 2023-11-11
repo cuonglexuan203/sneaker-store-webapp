@@ -3,6 +3,7 @@ package com.hcmute.sneakerstore.business;
 import java.io.Serializable;
 
 import com.hcmute.sneakerstore.business.enums.Color;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -49,6 +51,8 @@ public class ProductInventory implements Serializable, Identifiable {
 
 	//
 
+	@GsonExclude
+	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;

@@ -11,6 +11,7 @@ import org.hibernate.annotations.NaturalId;
 
 import com.hcmute.sneakerstore.business.enums.Color;
 import com.hcmute.sneakerstore.utils.CollectionUtils;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,6 +30,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -78,15 +80,20 @@ public class Product implements Serializable, Identifiable {
 	private String imageUrl;
 
 	//
-
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
 	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
 	private Set<Sale> discountedSales = new HashSet<>();
 
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProductInventory> productInventories = new HashSet<>();

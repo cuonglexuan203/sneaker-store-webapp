@@ -1,39 +1,20 @@
 package com.hcmute.sneakerstore.controllers;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Cleanup;
 import com.google.gson.reflect.TypeToken;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.hcmute.sneakerstore.business.Account;
 import com.hcmute.sneakerstore.business.Product;
-import com.hcmute.sneakerstore.business.ProductInventory;
-import com.hcmute.sneakerstore.business.enums.Color;
-import com.hcmute.sneakerstore.business.enums.Role;
-import com.hcmute.sneakerstore.data.DBUtils;
-import com.hcmute.sneakerstore.data.JpaProvider;
 import com.hcmute.sneakerstore.data.DAOs.ProductDao;
 import com.hcmute.sneakerstore.utils.FileUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
-import com.hcmute.sneakerstore.utils.adapters.LocalDateTimeTypeAdapter;
-import com.hcmute.sneakerstore.utils.adapters.LocalDateTypeAdapter;
 
 @WebServlet("/test")
 public class TestDB extends HttpServlet {
@@ -117,7 +98,7 @@ public class TestDB extends HttpServlet {
 //		Product newp = gson.fromJson(productstr, Product.class);
 //		String product = gson.toJson(p);
 		String productsStr = FileUtils.getFileContent(
-				"D:\\WorkSpace\\Projects\\sneaker-web-app\\server\\sneaker-server\\src\\main\\java\\com\\hcmute\\sneakerstore\\data\\prepared-data\\data.json");
+				"D:\\WorkSpace\\Projects\\sneaker-web-app\\server\\sneaker-server\\src\\main\\java\\com\\hcmute\\sneakerstore\\data\\prepareddata\\products.json");
 		Type productListType = new TypeToken<List<Product>>(){}.getType();
 		List<Product> products = GsonProvider.getGsonInstance().fromJson(productsStr, productListType);
 		
