@@ -1,3 +1,4 @@
 *
 !gitignore
+package-lock.json
 !server/sneaker-server/src/main/java/com/hcmute/sneakerstore/data/InvoiceDao.java
