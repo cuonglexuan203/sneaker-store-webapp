@@ -1,100 +1,68 @@
 package com.hcmute.sneakerstore.data;
 
 import java.util.List;
-import java.util.Optional;
-
-import com.hcmute.sneakerstore.business.Invoice;
 import com.hcmute.sneakerstore.business.Invoice;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import lombok.Cleanup;
 
 public class InvoiceDao {
-    // Tạo 1 getEntityManager method để get an EntityManager instance.
-    private EntityManager getEntityManager() {
-        return JpaProvider.getEntityManager();
+
+    public static Invoice selectOne(long id) {
+        return DBUtils.selectOne(Invoice.class, id);
     }
 
-    // Ở dưới tương tự - dùng try-finally block thay vì @Cleanup để đọc cho nó dễ
-    // hiểu tí, tuy hơi dài dòng
-    public Optional<Invoice> selectOne(long id) {
-        EntityManager em = getEntityManager();
-        try {
-            return Optional.ofNullable(em.find(Invoice.class, id));
-        } finally {
-            em.close();
-        }
+    public static List<Invoice> selectMany() {
+        @Cleanup
+        EntityManager em = JpaProvider.getEntityManager();
+        TypedQuery<Invoice> query = em.createQuery("select c from Invoice c", Invoice.class);
+        return DBUtils.getResultList(query);
     }
 
-    public List<Invoice> selectMany() {
-        EntityManager em = getEntityManager();
-        try {
-            TypedQuery<Invoice> query = em.createQuery("SELECT a FROM Invoice a", Invoice.class);
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
+    public static List<Invoice> selectMany(List<Long> ids) {
+        if (ValidationUtils.isNullOrEmpty(ids))
+            return null;
+
+        @Cleanup
+        EntityManager em = JpaProvider.getEntityManager();
+        String str = new StringBuilder().append("select c from Invoice c where c.id in :ids").toString();
+        TypedQuery<Invoice> query = em.createQuery(str, Invoice.class);
+        query.setParameter("ids", ids);
+
+        return DBUtils.getResultList(query);
     }
 
-    public List<Invoice> selectMany(List<Long> ids) {
-        if (ValidationUtils.isNullOrEmpty(ids)) {
-            return List.of(); // Prefer returning an empty list over null.
-        }
-        EntityManager em = getEntityManager();
-        try {
-            TypedQuery<Invoice> query = em.createQuery("SELECT a FROM Invoice a WHERE a.id IN :ids", Invoice.class);
-            query.setParameter("ids", ids);
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
-    public long insertOne(Invoice entity) {
+    public static long insertOne(Invoice entity) {
         return DBUtils.insertOne(entity);
     }
 
-    // public long insertMany(List<Invoice> entities) {
-    // return DBUtils.insertMany(entities);
-    // }
+    public static long insertMany(List<Invoice> entities) {
+        return DBUtils.insertMany(entities);
+    }
 
-    public Invoice updateOne(Invoice entity) {
+    public static Invoice updateOne(Invoice entity) {
         return DBUtils.updateOne(entity);
     }
 
-    public List<Invoice> updateMany(List<Invoice> entities) {
+    public static long updateMany(List<Invoice> entities) {
         return DBUtils.updateMany(entities);
     }
 
-    public long deleteMany() {
-        EntityManager em = getEntityManager();
-        EntityTransaction tran = em.getTransaction();
-        try {
-            tran.begin();
-            int deletedCount = em.createQuery("DELETE FROM Invoice").executeUpdate();
-            tran.commit();
-            return deletedCount;
-        } finally {
-            if (tran.isActive()) {
-                tran.rollback();
-            }
-            em.close();
-        }
+    public static long deleteOne(long id) {
+        return DBUtils.deleteOne(Invoice.class, id);
     }
 
-    public long deleteOne(Long id) {
-        Optional<Invoice> deletedInvoice = selectOne(id);
-        return DBUtils.deleteOne(deletedInvoice);
+    public static long deleteMany() {
+        @Cleanup
+        EntityManager em = JpaProvider.getEntityManager();
+        Query query = em.createQuery("delete from Invoice");
+        return DBUtils.executeUpdateOrDelete(em, query);
     }
 
-    public long insertMany(List<Long> ids) {
-        List<Invoice> insertedInvoices = selectMany(ids);
-        return DBUtils.insertMany(insertedInvoices);
+    public static long deleteMany(List<Long> ids) {
+        return DBUtils.deleteMany(Invoice.class, ids);
     }
 
-    public long deleteMany(List<Long> ids) {
-        List<Invoice> deleteInvoices = selectMany(ids);
-        return DBUtils.deleteMany(deleteInvoices);
-    }
 }
