@@ -1,8 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.Product;
-import com.hcmute.sneakerstore.data.ProductDao;
 import com.hcmute.sneakerstore.data.JpaProvider;
+import com.hcmute.sneakerstore.data.DAOs.ProductDao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletException;

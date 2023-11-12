@@ -2,8 +2,7 @@ package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.Sale;
 import com.hcmute.sneakerstore.business.enums.SaleType;
-import com.hcmute.sneakerstore.data.SaleDao;
-
+import com.hcmute.sneakerstore.data.DAOs.SaleDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
