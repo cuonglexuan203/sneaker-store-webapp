@@ -1,8 +1,10 @@
-package com.hcmute.sneakerstore.data;
+package com.hcmute.sneakerstore.data.DAOs;
 
 import java.util.List;
 
 import com.hcmute.sneakerstore.business.Cart;
+import com.hcmute.sneakerstore.data.DBUtils;
+import com.hcmute.sneakerstore.data.JpaProvider;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 import jakarta.persistence.EntityManager;
@@ -19,17 +21,20 @@ public class CartDao {
 	public static List<Cart> selectMany() {
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
-		TypedQuery<Cart> query = em.createQuery("select c from Cart c", Cart.class);
+		TypedQuery<Cart> query = em.createQuery("select c from Cart c",
+				Cart.class);
 		return DBUtils.getResultList(query);
 	}
 
 	public static List<Cart> selectMany(List<Long> ids) {
 		if (ValidationUtils.isNullOrEmpty(ids))
 			return null;
-		
+
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
-		String str = new StringBuilder().append("select c from Cart c where c.id in :ids").toString();
+		String str = new StringBuilder()
+				.append("select c from Cart c where c.id in :ids")
+				.toString();
 		TypedQuery<Cart> query = em.createQuery(str, Cart.class);
 		query.setParameter("ids", ids);
 

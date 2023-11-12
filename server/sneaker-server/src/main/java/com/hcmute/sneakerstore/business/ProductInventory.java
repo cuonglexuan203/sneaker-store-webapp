@@ -1,9 +1,9 @@
 package com.hcmute.sneakerstore.business;
 
-
 import java.io.Serializable;
 
 import com.hcmute.sneakerstore.business.enums.Color;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,14 +18,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="PRODUCT_INVENTORY")
-public class ProductInventory implements Serializable ,Identifiable {
+@Table(name = "PRODUCT_INVENTORY")
+public class ProductInventory implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -35,28 +36,27 @@ public class ProductInventory implements Serializable ,Identifiable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Builder.Default
 	@NotNull
-	@Column(name="product_amount")
+	@Column(name = "product_amount")
 	private int productAmount = 0;
-	
+
 	@Builder.Default
 	@NotNull
 	private Color color = Color.BLACK;
-	
+
 	@NotNull
 	private int size;
-	
-	//
-	
-	@ManyToOne
-	@JoinColumn(name="product_id")
-	private Product product;
-	
+
 	//
 
-	
-	
-	
+	@GsonExclude
+	@ToString.Exclude
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
+
+	//
+
 }

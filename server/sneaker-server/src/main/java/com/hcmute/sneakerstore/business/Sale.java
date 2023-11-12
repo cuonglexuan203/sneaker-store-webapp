@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.business.enums.SaleType;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "SALE")
-public class Sale implements Serializable ,Identifiable {
+public class Sale implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -44,31 +45,35 @@ public class Sale implements Serializable ,Identifiable {
 	@Builder.Default
 	@NotNull
 	private float percentage = 1.f;
-	
+
 	//
+	@GsonExclude
+	@ToString.Exclude
 	@Builder.Default
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany
 	private Set<Product> products = new HashSet<>();
-	
+
 	//
-	
+
 	public Sale(SaleType type, float percentage) {
 		this.type = type;
 		this.percentage = percentage;
 	}
-	
+
 	public void addProduct(Product product) {
 		products.add(product);
-		product.getDiscountedSales().add(this);
+		product.getDiscountedSales()
+				.add(this);
 	}
-	
+
 	public void removeProduct(Product product) {
 		products.remove(product);
-		product.getDiscountedSales().remove(this);
+		product.getDiscountedSales()
+				.remove(this);
 	}
-	
+
 	//
-	
+
 	public int getSaleProductCount() {
 		return products.size();
 	}

@@ -7,6 +7,7 @@ import {
 } from "@/app/(main)/_store/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/app/(main)/_store/hooks";
 import { useGetUsersQuery } from "./_store/services/userApi";
+import { useGetProductsQuery } from "./_store/services/productsApi";
 
 export default function Home() {
     const count = useAppSelector((state) => state.counter.value);
@@ -18,6 +19,13 @@ export default function Home() {
         data: users = [],
         error,
     } = useGetUsersQuery(null);
+
+    const {
+        isLoading: isProductsLoading,
+        isFetching: isProductsFetching,
+        data: products = [],
+        error: productsError,
+    } = useGetProductsQuery(null);
 
     return (
         <main style={{ maxWidth: 1200, marginInline: "auto", padding: 20 }}>
@@ -63,6 +71,17 @@ export default function Home() {
                     ))}
                 </div>
             ) : null}
+            {productsError ? (
+                <p>Wait a minute</p>
+            ) : isProductsLoading || isProductsFetching ? (
+                <p>is loading</p>
+            ) : products ? (
+                products.map((p) => (
+                    <img width={200} key={p.id} src={p.imageUrl} />
+                ))
+            ) : (
+                <p>Nothing</p>
+            )}
         </main>
     );
 }

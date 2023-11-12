@@ -33,16 +33,14 @@ public class TestProductDaoServlet extends HttpServlet {
                     .name("Air Max")
                     .ean("123456789")
                     .price(100.0f)
-                    .dateAdded(LocalDate.now())
-                    .dateUpdated(LocalDate.now())
-                    .imageUrl("http://example.com/image.jpg")
+                    .releaseDate(LocalDate.now())                    .imageUrl("http://example.com/image.jpg")
                     .build();
             long newProductId = ProductDao.insertOne(newProduct);
             output.append("insertOne: Inserted product with ID: ").append(newProductId).append("\n");
 
             // Test insertMany
-            Product newProduct2 = Product.builder().brand("Adidas").name("Yeezy").ean("987654321").price(200.0f).dateAdded(LocalDate.now()).dateUpdated(LocalDate.now()).imageUrl("http://example.com/image.jpg").build();
-            Product newProduct3 = Product.builder().brand("Puma").name("Suede").ean("192837465").price(150.0f).dateAdded(LocalDate.now()).dateUpdated(LocalDate.now()).imageUrl("http://example.com/image.jpg").build();
+            Product newProduct2 = Product.builder().brand("Adidas").name("Yeezy").ean("987654321").price(200.0f).imageUrl("http://example.com/image.jpg").build();
+            Product newProduct3 = Product.builder().brand("Puma").name("Suede").ean("192837465").price(150.0f).imageUrl("http://example.com/image.jpg").build();
             long insertManyCount = ProductDao.insertMany(Arrays.asList(newProduct2, newProduct3));
             output.append("insertMany: Inserted count: ").append(insertManyCount).append("\n");
 
