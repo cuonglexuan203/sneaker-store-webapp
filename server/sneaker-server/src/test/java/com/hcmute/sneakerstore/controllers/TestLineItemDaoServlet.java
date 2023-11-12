@@ -1,7 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.LineItem;
-import com.hcmute.sneakerstore.data.LineItemDao;
+import com.hcmute.sneakerstore.data.DAOs.LineItemDao;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
