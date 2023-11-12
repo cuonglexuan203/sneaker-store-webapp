@@ -23,7 +23,7 @@ public class TestInvoiceDaoServlet extends HttpServlet {
                 StringBuilder output = new StringBuilder();
 
                 try {
-                        // Test insertOne
+                        //// Test insertOne
                         Invoice newInvoice = Invoice.builder().paymentTime(LocalDateTime.parse("2017-11-15T08:22:12"))
                                         .address(Location.builder().city("haah").country("hehe").district("hic")
                                                         .build())

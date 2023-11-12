@@ -9,7 +9,7 @@ import jakarta.persistence.TypedQuery;
 import lombok.Cleanup;
 
 public class InvoiceDao {
-
+    //
     public static Invoice selectOne(long id) {
         return DBUtils.selectOne(Invoice.class, id);
     }

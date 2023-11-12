@@ -9,7 +9,7 @@ import jakarta.persistence.TypedQuery;
 import lombok.Cleanup;
 
 public class ProductInventoryDao {
-
+    //
     public static ProductInventory selectOne(long id) {
         return DBUtils.selectOne(ProductInventory.class, id);
     }

@@ -62,7 +62,7 @@ public class Invoice implements Serializable, Identifiable {
 	@Column(name = "total_amount")
 	private float totalAmount;
 
-	//
+	////
 
 	// User
 	@ManyToOne
