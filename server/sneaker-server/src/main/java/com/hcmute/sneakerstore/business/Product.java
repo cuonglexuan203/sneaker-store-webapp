@@ -83,19 +83,19 @@ public class Product implements Serializable, Identifiable {
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
-	@ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
 	private Set<Sale> discountedSales = new HashSet<>();
 
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<ProductInventory> productInventories = new HashSet<>();
 
 	//
