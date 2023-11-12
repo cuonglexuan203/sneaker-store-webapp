@@ -24,6 +24,7 @@ public class ProductsServlet extends HttpServlet {
         res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     	
     	List<Product> ps = ProductDao.selectMany();
+//        Product ps = Product.builder().name("LXC").category("men").build();
     	res.getWriter().write(GsonProvider.getGsonInstance().toJson(ps));
     }
 

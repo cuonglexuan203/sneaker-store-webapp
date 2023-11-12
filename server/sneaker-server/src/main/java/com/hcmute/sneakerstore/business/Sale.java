@@ -8,6 +8,7 @@ import com.hcmute.sneakerstore.business.enums.SaleType;
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
