@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.utils.CollectionUtils;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -27,7 +29,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "CART")
-public class Cart implements Serializable ,Identifiable {
+public class Cart implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -39,13 +41,15 @@ public class Cart implements Serializable ,Identifiable {
 	private long id;
 
 	//
-
+	@GsonExclude
+	@ToString.Exclude
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-
+	
+	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "cart", fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -67,13 +71,13 @@ public class Cart implements Serializable ,Identifiable {
 	}
 
 	public float getTotalPrice() {
-		return CollectionUtils.aggregate(this.lineItems.iterator(), (acc, i) -> acc + i.getLineItemPrice());
+		return CollectionUtils.aggregate(this.lineItems.iterator(),
+				(acc, i) -> acc + i.getLineItemPrice());
 	}
 
 	public float getTotalSalePrice() {
 		return CollectionUtils.aggregate(this.lineItems.iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
-
 
 }

@@ -1,11 +1,11 @@
 package com.hcmute.sneakerstore.business;
 
-
 import java.io.Serializable;
 
 import org.hibernate.annotations.NaturalId;
 
 import com.hcmute.sneakerstore.business.enums.Role;
+import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Builder
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "ACCOUNT")
-public class Account implements Serializable ,Identifiable {
+public class Account implements Serializable, Identifiable {
 
 	/**
 	 * 
@@ -51,12 +52,12 @@ public class Account implements Serializable ,Identifiable {
 	private Role role = Role.USER;
 
 	//
-
+	@GsonExclude
+	@ToString.Exclude
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
 
 	//
-	
-	
+
 }

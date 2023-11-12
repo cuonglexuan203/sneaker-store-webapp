@@ -1,0 +1,10 @@
+[
+	{
+		"type": "FLASH_SALE",
+		"percentage": 0.5
+	},
+	{
+		"type": "BLACK_FRIDAY",
+		"percentage": 0.8
+	}
+]

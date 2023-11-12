@@ -1,8 +1,11 @@
 package com.hcmute.sneakerstore.controllers;
 
+import com.hcmute.sneakerstore.business.Location;
 import com.hcmute.sneakerstore.business.User;
 import com.hcmute.sneakerstore.data.DBUtils;
 import com.hcmute.sneakerstore.data.JpaProvider;
+import com.hcmute.sneakerstore.data.DAOs.UserDao;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -38,6 +41,7 @@ public class TestUserDaoServlet extends HttpServlet {
                                .gender(true)
                                .birthday(LocalDate.of(2003, 2, 18))
                                .phoneNumber("1234567890")
+                               .address(Location.builder().city("HCM").country("VN").district("Q9").build())
                                .build();
             
             em.persist(newUser);
@@ -61,17 +65,10 @@ public class TestUserDaoServlet extends HttpServlet {
             output.append("update: Updated user email").append("\n");
 
             // Test delete User
-            tran.begin();
-            TypedQuery<User> deleteQuery = em.createQuery("DELETE FROM User u WHERE u.id = :id", User.class);
-            deleteQuery.setParameter("id", newUser.getId());
-            long deleteCount = DBUtils.executeUpdateOrDelete(em, deleteQuery);
-            tran.commit();
-            output.append("delete: ").append(deleteCount == 1 ? "Success" : "Failed").append("\n");
-
+            long deleteManyCount = UserDao.deleteMany();
+            output.append("deleteMany: Deleted ").append(deleteManyCount).append(" users").append("\n");
+            
         } catch (Exception e) {
-            if (tran.isActive()) {
-                tran.rollback();
-            }
             output.append("An error occurred: ").append(e.getMessage());
         }
 
