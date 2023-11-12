@@ -148,18 +148,30 @@ public class Product implements Serializable, Identifiable {
 	}
 
 	public void addCategory(String category) {
+		if (this.categories == null) {
+			this.categories = new HashSet<>();
+		}
 		categories.add(category);
 	}
 
 	public void removeCategory(String category) {
+		if (this.categories == null) {
+			return;
+		}
 		categories.removeIf(s -> s.equalsIgnoreCase(category));
 	}
 
 	public void addCategories(List<String> categories) {
+		if (this.categories == null) {
+			this.categories = new HashSet<>();
+		}
 		this.categories.addAll(categories);
 	}
 
 	public void removeCategories(List<String> categories) {
+		if (this.categories == null) {
+			return;
+		}
 		this.categories.removeIf(s -> categories.contains(s));
 	}
 
