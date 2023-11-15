@@ -8,11 +8,11 @@ import java.util.Set;
 import com.hcmute.sneakerstore.business.enums.DeliveryStatus;
 import com.hcmute.sneakerstore.business.enums.PaymentStatus;
 import com.hcmute.sneakerstore.utils.CollectionUtils;
-import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +25,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @Builder
@@ -63,20 +62,16 @@ public class Invoice implements Serializable, Identifiable {
 	@Column(name = "total_amount")
 	private float totalAmount;
 
-	//
+	////
 
 	// User
-	@GsonExclude
-	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "user_id", foreignKey = @jakarta.persistence.ForeignKey(name = "USER_ID_FK"))
 	private User user;
 
 	// LineItem
-	@GsonExclude
-	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -93,13 +88,13 @@ public class Invoice implements Serializable, Identifiable {
 
 	//
 	public float getTotalPrice() {
-		return CollectionUtils.<LineItem>aggregate(this.getLineItems()
-				.iterator(), (acc, i) -> acc + i.getLineItemPrice());
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
+				(acc, i) -> acc + i.getLineItemPrice());
 	}
 
 	public float getTotalSalePrice() {
-		return CollectionUtils.<LineItem>aggregate(this.getLineItems()
-				.iterator(), (acc, i) -> acc + i.getSaleLineItemPrice());
+		return CollectionUtils.<LineItem>aggregate(this.getLineItems().iterator(),
+				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
 
 }
