@@ -2,8 +2,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/shadcn/ui_components/avatar"
-import { Button } from "@/shadcn/ui_components/button"
+} from "@/shadcn/core/ui_components/avatar"
+import { Button } from "@/shadcn/core/ui_components/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/shadcn/ui_components/dropdown-menu"
+} from "@/shadcn/core/ui_components/dropdown-menu"
 
 export function UserNav() {
   return (
