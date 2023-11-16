@@ -22,7 +22,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -31,18 +30,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Table(name = "USER")
 public class User implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3211725346777768171L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@EqualsAndHashCode.Include
 	private long id;
 
 	@NotNull

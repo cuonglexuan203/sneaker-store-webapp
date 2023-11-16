@@ -25,6 +25,11 @@
 		"role": "ADMIN"
 	},
 	{
+		"user": "thong",
+		"password": "thong123",
+		"role": "USER"
+	},
+	{
 		"username": "smithmaria",
 		"password": "UoGtXNV9&2",
 		"role": "ADMIN"

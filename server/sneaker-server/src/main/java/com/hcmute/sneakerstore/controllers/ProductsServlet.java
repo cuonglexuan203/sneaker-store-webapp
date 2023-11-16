@@ -15,16 +15,10 @@ import com.hcmute.sneakerstore.utils.GsonProvider;
 @WebServlet("/products")
 public class ProductsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-    	res.setContentType("application/json");
-    	
-    	res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Allow only your frontend
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
     	
     	List<Product> ps = ProductDao.selectMany();
-//        Product ps = Product.builder().name("LXC").category("men").build();
     	res.getWriter().write(GsonProvider.getGsonInstance().toJson(ps));
     }
 

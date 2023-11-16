@@ -31,9 +31,7 @@ import lombok.ToString;
 @Table(name = "CART")
 public class Cart implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1936956525338503426L;
 
 	@Id
@@ -47,7 +45,6 @@ public class Cart implements Serializable, Identifiable {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@ToString.Exclude
 	@Builder.Default
 	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();

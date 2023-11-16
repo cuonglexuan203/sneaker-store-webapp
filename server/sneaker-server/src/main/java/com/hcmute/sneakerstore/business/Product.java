@@ -41,9 +41,7 @@ import lombok.ToString;
 @Table(name = "PRODUCT")
 public class Product implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -7328997558903962833L;
 
 	@Id

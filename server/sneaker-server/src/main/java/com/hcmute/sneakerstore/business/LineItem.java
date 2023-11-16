@@ -27,9 +27,7 @@ import lombok.ToString;
 @Table(name = "LINEITEM")
 public class LineItem implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -3950211052516485067L;
 
 	@Id

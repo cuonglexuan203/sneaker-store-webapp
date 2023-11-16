@@ -11,6 +11,7 @@ export const productsApi = createApi({
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8080/sneaker-server/",
+    credentials: "include"
   }),
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], null>({

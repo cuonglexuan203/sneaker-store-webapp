@@ -31,9 +31,6 @@ import lombok.ToString;
 @Table(name = "ACCOUNT")
 public class Account implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6363446764553001684L;
 
 	@Id
@@ -54,7 +51,7 @@ public class Account implements Serializable, Identifiable {
 	//
 	@GsonExclude
 	@ToString.Exclude
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
 

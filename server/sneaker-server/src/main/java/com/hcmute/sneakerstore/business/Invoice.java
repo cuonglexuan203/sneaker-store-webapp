@@ -10,7 +10,6 @@ import com.hcmute.sneakerstore.business.enums.PaymentStatus;
 import com.hcmute.sneakerstore.utils.CollectionUtils;
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,9 +34,7 @@ import lombok.ToString;
 @Table(name = "INVOICE")
 public class Invoice implements Serializable, Identifiable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 7781909304560806023L;
 
 	@Id
@@ -73,10 +70,8 @@ public class Invoice implements Serializable, Identifiable {
 	private User user;
 
 	// LineItem
-	@GsonExclude
-	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "invoice")
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
