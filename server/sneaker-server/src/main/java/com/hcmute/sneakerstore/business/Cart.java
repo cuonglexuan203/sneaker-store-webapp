@@ -58,7 +58,7 @@ public class Cart implements Serializable, Identifiable {
 
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
-		lineItem.setCart(null);
+		lineItem.getCart(null);
 	}
 
 	//
@@ -76,5 +76,6 @@ public class Cart implements Serializable, Identifiable {
 		return CollectionUtils.aggregate(this.lineItems.iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
+
 
 }
