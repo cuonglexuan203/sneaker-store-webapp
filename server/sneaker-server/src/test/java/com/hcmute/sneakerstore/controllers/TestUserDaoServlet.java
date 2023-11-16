@@ -2,7 +2,6 @@ package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.Location;
 import com.hcmute.sneakerstore.business.User;
-import com.hcmute.sneakerstore.data.DBUtils;
 import com.hcmute.sneakerstore.data.JpaProvider;
 import com.hcmute.sneakerstore.data.DAOs.UserDao;
 
@@ -28,22 +27,23 @@ public class TestUserDaoServlet extends HttpServlet {
         response.setContentType("text/plain");
         StringBuilder output = new StringBuilder();
 
-        @Cleanup EntityManager em = JpaProvider.getEntityManager();
+        @Cleanup
+        EntityManager em = JpaProvider.getEntityManager();
         EntityTransaction tran = em.getTransaction();
 
         try {
             // Test insert (create) User
             tran.begin();
             User newUser = User.builder()
-                               .firstName("Huy")
-                               .lastName("Tran")
-                               .email("huycatlo@example.com")
-                               .gender(true)
-                               .birthday(LocalDate.of(2003, 2, 18))
-                               .phoneNumber("1234567890")
-                               .address(Location.builder().city("HCM").country("VN").district("Q9").build())
-                               .build();
-            
+                    .firstName("Huy")
+                    .lastName("Tran")
+                    .email("huycatlo@example.com")
+                    .gender(true)
+                    .birthday(LocalDate.of(2003, 2, 18))
+                    .phoneNumber("1234567890")
+                    .address(Location.builder().city("HCM").country("VN").district("Q9").build())
+                    .build();
+
             em.persist(newUser);
             tran.commit();
             output.append("insert: Created user with ID: ").append(newUser.getId()).append("\n");
@@ -54,7 +54,8 @@ public class TestUserDaoServlet extends HttpServlet {
             query.setParameter("id", newUser.getId());
             User selectedUser = query.getSingleResult();
             tran.commit();
-            output.append("select: ").append(selectedUser != null ? selectedUser.toString() : "No user found").append("\n");
+            output.append("select: ").append(selectedUser != null ? selectedUser.toString() : "No user found")
+                    .append("\n");
 
             // Test update User
             tran.begin();
@@ -67,7 +68,7 @@ public class TestUserDaoServlet extends HttpServlet {
             // Test delete User
             long deleteManyCount = UserDao.deleteMany();
             output.append("deleteMany: Deleted ").append(deleteManyCount).append(" users").append("\n");
-            
+
         } catch (Exception e) {
             output.append("An error occurred: ").append(e.getMessage());
         }
