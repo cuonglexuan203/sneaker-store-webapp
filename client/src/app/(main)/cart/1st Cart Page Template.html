@@ -1,0 +1,321 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style type="text/tailwindcss">
+        @layer utilities {
+ #summary {
+            background-color: #f6f6f6;
+        }
+        .dropdown:focus-within .dropdown-menu {
+  opacity:1;
+  transform: translate(0) scale(1);
+  visibility: visible;
+}
+        }
+      </style>
+    <style>
+       
+    </style>
+</head>
+
+<!-- Nguồn tham khảo:
+    - https://codepen.io/abdelrhman/pen/BaNPVJO
+    - https://tailwindcomponents.com/component/pure-css-dropdown-using-focus-within-with-animation
+-->
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+        <div class="flex shadow-md my-10">
+            <div class="w-3/4 bg-white px-10 py-10">
+                <div class="flex justify-between border-b pb-8">
+                    <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+                    <h2 class="font-semibold text-2xl">3 Items</h2>
+                </div>
+                <!-- Cart Heading -->
+                <div class="flex mt-10 mb-5">
+                    <input type="checkbox" class="border-gray-300 rounded h-5 w-5" />  
+                    <!--Product details đã bao gồm size-color --> 
+                    <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity
+                    </h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Remove</h3>
+                </div>
+                <!--LineItem-->
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">               
+                    <div class="flex w-2/5"> <!-- product details-->
+                        <input type="checkbox" class="border-gray-300 rounded h-5 w-5" />
+                        <div class="w-20">
+                            <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v"
+                                alt="">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm">Product Name</span>
+                            <span class="text-red-500 text-xs">Product Category</span>
+                        </div>
+                    </div>
+                    <div class="min-h-screen bg-white py-6 flex flex-col justify-center sm:py-12"> <!-- product details: Size-Color-->
+                        <div class="flex items-center justify-center p-12">
+                            <div class=" relative inline-block text-left dropdown">
+                                <span class="rounded-md shadow-sm"><button
+                                        class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                                        type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                                        <span>Size - Color</span>
+                                        <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button></span>
+                                <div
+                                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                                        aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                                        <div class="py-1">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Account settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                        <div class="py-2">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">Account
+                                                settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$123</span>
+                    <div class="flex justify-center w-1/5"> <!-- Quanity -->
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                        <input class="mx-2 border text-center w-8" type="text" value="1">
+
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$456</span>
+                    <div class="w-full px-4 mb-6 xl:w-auto xl:mb-0 xl:mt-0"> <!-- Remove-->
+                        <a class="inline-block px-8 py-4 font-bold text-white uppercase bg-red-500 rounded-md hover:bg-red-600"
+                            href="#">Remove</a>
+                    </div>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5"> <!-- product details-->
+                        <input type="checkbox" class="border-gray-300 rounded h-5 w-5" />
+                        <div class="w-20">
+                            <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm">Product Name</span>
+                            <span class="text-red-500 text-xs">Product Category</span>
+                        </div>
+                    </div>
+                    <div class="min-h-screen bg-white py-6 flex flex-col justify-center sm:py-12"> <!-- product details: Size-Color-->
+                        <div class="flex items-center justify-center p-12">
+                            <div class=" relative inline-block text-left dropdown">
+                                <span class="rounded-md shadow-sm"><button
+                                        class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                                        type="button" aria-haspopup="true" aria-expanded="true"
+                                        aria-controls="headlessui-menu-items-117">
+                                        <span>Size - Color</span>
+                                        <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button></span>
+                                <div
+                                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                                        aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                                        <div class="py-1">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Account settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                        <div class="py-2">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Account
+                                                settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$123</span>
+                    <div class="flex justify-center w-1/5"> <!-- Quanity -->
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                        <input class="mx-2 border text-center w-8" type="text" value="1">
+                
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$456</span>
+                    <div class="w-full px-4 mb-6 xl:w-auto xl:mb-0 xl:mt-0"> <!-- Remove-->
+                        <a class="inline-block px-8 py-4 font-bold text-white uppercase bg-red-500 rounded-md hover:bg-red-600"
+                            href="#">Remove</a>
+                    </div>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5"> <!-- product details-->
+                        <input type="checkbox" class="border-gray-300 rounded h-5 w-5" />
+                        <div class="w-20">
+                            <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm">Product Name</span>
+                            <span class="text-red-500 text-xs">Product Category</span>
+                        </div>
+                    </div>
+                    <div class="min-h-screen bg-white py-6 flex flex-col justify-center sm:py-12"> <!-- product details: Size-Color-->
+                        <div class="flex items-center justify-center p-12">
+                            <div class=" relative inline-block text-left dropdown">
+                                <span class="rounded-md shadow-sm"><button
+                                        class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                                        type="button" aria-haspopup="true" aria-expanded="true"
+                                        aria-controls="headlessui-menu-items-117">
+                                        <span>Size - Color</span>
+                                        <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button></span>
+                                <div
+                                    class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+                                    <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                                        aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                                        <div class="py-1">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Account settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                        <div class="py-2">
+                                            <a href="javascript:void(0)" tabindex="0"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Account
+                                                settings</a>
+                                            <a href="javascript:void(0)" tabindex="1"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">Support</a>
+                                            <span role="menuitem" tabindex="-1"
+                                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                                                aria-disabled="true">New feature (soon)</span>
+                                            <a href="javascript:void(0)" tabindex="2"
+                                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+                                                role="menuitem">License</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$123</span>
+                    <div class="flex justify-center w-1/5"> <!-- Quanity -->
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                        <input class="mx-2 border text-center w-8" type="text" value="1">
+                
+                        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                            <path
+                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">$456</span>
+                    <div class="w-full px-4 mb-6 xl:w-auto xl:mb-0 xl:mt-0"> <!-- Remove-->
+                        <a class="inline-block px-8 py-4 font-bold text-white uppercase bg-red-500 rounded-md hover:bg-red-600"
+                            href="#">Remove</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="summary" class="w-1/4 px-8 py-10">
+                <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+                <div class="flex justify-between mt-10 mb-5">
+                    <span class="font-semibold text-sm uppercase">Subtotal (... items)</span>
+                    <span class="font-semibold text-sm">600$</span>
+                </div>
+                <div class="flex justify-between mt-10 mb-5">
+                    <span class="font-semibold text-sm uppercase">Shipping & Handling</span>
+                    <span class="font-semibold text-sm">590$</span>
+                </div>
+                <div class="flex justify-between mt-10 mb-5">
+                    <span class="font-semibold text-sm uppercase">Sales Tax</span>
+                    <span class="font-semibold text-sm">20$</span>
+                </div>
+                <div class="border-t mt-8">
+                    <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                        <span>Grand Total</span>
+                        <span>$1000</span>
+                    </div>
+                    <button
+                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
