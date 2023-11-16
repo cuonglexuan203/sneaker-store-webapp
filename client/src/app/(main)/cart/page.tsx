@@ -15,9 +15,9 @@ import path from "path"
 import { Metadata } from "next"
 import { z } from "zod"
 
-import { columns } from "../../../shadcn/example/tasks/components/columns"
-import { DataTable } from "../../../shadcn/example/tasks/components/data-table"
-import { taskSchema } from "../../../shadcn/example/tasks/data/schema"
+import { columns } from "../_components/cart_page_components/components/columns"
+import { DataTable } from "../_components/cart_page_components/components/data-table"
+import { taskSchema } from "../_components/cart_page_components//data/schema"
 
 export const metadata: Metadata = {
   title: "Tasks",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 // Simulate a database read for tasks.
 async function getTasks() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "src/shadcn/example/tasks/data/tasks.json")
+    path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/tasks.json")
   )
 
 

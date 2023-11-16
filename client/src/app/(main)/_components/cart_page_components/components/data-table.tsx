@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/shadcn/core/ui_components/table"
+} from "@/app/(main)/_components/shadcn/core/ui_components/table"
 
 import { DataTablePagination } from "../components/data-table-pagination"
 import { DataTableToolbar } from "../components/data-table-toolbar"
@@ -37,6 +37,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  //TODO: Xử lí 3 trạng thái: Col có được nhìn thấy, được filter không? Row có được Select không?
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
@@ -44,7 +45,8 @@ export function DataTable<TData, TValue>({
     []
   )
   const [sorting, setSorting] = React.useState<SortingState>([])
-
+  
+  //TODO: Khỏi tạo 1 Instance của Table 
   const table = useReactTable({
     data,
     columns,
