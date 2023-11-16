@@ -3,20 +3,23 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from "next/image";
+import { useState } from "react";
 
 const NavBar = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     return (
-        <nav className="sticky z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <nav className="sticky top-0 z-[1000] w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div className="px-3 py-3 lg:px-5 lg:pl-3">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between relative">
                     {/* Logo part */}
                     <div className="flex items-center justify-start">
-                        {/* Logo */}
+                        {/* Mobile Menu logo */}
                         <button
                             id="toggleSidebarMobile"
                             aria-expanded="true"
                             aria-controls="sidebar"
-                            className="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            className="p-2 text-gray-600 rounded cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            onClick={() => setIsMobileMenuOpen((s) => !s)}
                         >
                             <svg
                                 id="toggleSidebarMobileHamburger"
@@ -45,7 +48,7 @@ const NavBar = () => {
                                 ></path>
                             </svg>
                         </button>
-                        {/* Page name */}
+                        {/* Logo & Page name */}
                         <a href="" className="flex ml-2 md:mr-24">
                             <Image
                                 alt="Logo"
@@ -82,8 +85,12 @@ const NavBar = () => {
                         </form>
                     </div>
                     {/* Menu part */}
-                    <div className="flex items-center justify-start">
-                        <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <div
+                        className={`${
+                            !isMobileMenuOpen && "hidden "
+                        } absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
+                    >
+                        <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 md:rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
                                 <a
                                     href="#"
@@ -116,7 +123,7 @@ const NavBar = () => {
                                         />
                                     </svg>
                                 </button>
-                                {/* Dropdown */}
+                                {/* News Dropdown */}
                                 <div
                                     id="dropdownNavbar"
                                     className="group-hover:block absolute z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
@@ -182,7 +189,7 @@ const NavBar = () => {
                         </button>
                         {/* Notification */}
                         <button
-                            className="group relative
+                            className="hidden lg:block group relative
                         p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600
                         "
                         >
@@ -448,7 +455,7 @@ const NavBar = () => {
                             data-tooltip-target="tooltip-toggle"
                             type="button"
                             className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
-                            hover:text-gray-900 dark:hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                            hover:text-gray-900 dark:hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1 sm:p-2.5"
                         >
                             <svg
                                 id="theme-toggle-dark-icon"
@@ -569,6 +576,52 @@ const NavBar = () => {
                         </div>
                     </div>
                 </div>
+                {/*  */}
+                {/* <div className="w-full md:block md:w-auto" id="navbar-default">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <a
+                                href="#"
+                                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                                aria-current="page"
+                            >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Pricing
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div> */}
             </div>
         </nav>
     );
