@@ -107,7 +107,7 @@ public class TestInvoiceDaoServlet extends HttpServlet {
                         }
                         //
                         // // Test deleteMany
-                        long deleteManyCount = InvoiceDao.deleteAll();
+                        long deleteManyCount = InvoiceDao.deleteMany();
                         output.append("deleteMany: Deleted ").append(deleteManyCount).append(" invoices").append("\n");
 
                 } catch (Exception e) {
