@@ -28,7 +28,7 @@ public class PopulateData {
 		List<String> fileName = Arrays.asList("accounts.json", "products.json",
 				"productInventories.json", "users.json",
 				"discountedSales.json");
-		
+
 		//
 		List<Type> types = Arrays.asList(new TypeToken<List<Account>>() {
 		}.getType(), new TypeToken<List<Product>>() {
@@ -49,31 +49,31 @@ public class PopulateData {
 					.getFileContent(preparedDataPath + fileName.get(i));
 
 			switch (i) {
-			case 0: {
-				accounts = GsonProvider.getGsonInstance()
-						.fromJson(fileContent, types.get(i));
-				break;
-			}
-			case 1: {
-				products = GsonProvider.getGsonInstance()
-						.fromJson(fileContent, types.get(i));
-				break;
-			}
-			case 2: {
-				productInventories = GsonProvider.getGsonInstance()
-						.fromJson(fileContent, types.get(i));
-				break;
-			}
-			case 3: {
-				users = GsonProvider.getGsonInstance()
-						.fromJson(fileContent, types.get(i));
-				break;
-			}
-			case 4: {
-				sales = GsonProvider.getGsonInstance()
-						.fromJson(fileContent, types.get(i));
-				break;
-			}
+				case 0: {
+					accounts = GsonProvider.getGsonInstance()
+							.fromJson(fileContent, types.get(i));
+					break;
+				}
+				case 1: {
+					products = GsonProvider.getGsonInstance()
+							.fromJson(fileContent, types.get(i));
+					break;
+				}
+				case 2: {
+					productInventories = GsonProvider.getGsonInstance()
+							.fromJson(fileContent, types.get(i));
+					break;
+				}
+				case 3: {
+					users = GsonProvider.getGsonInstance()
+							.fromJson(fileContent, types.get(i));
+					break;
+				}
+				case 4: {
+					sales = GsonProvider.getGsonInstance()
+							.fromJson(fileContent, types.get(i));
+					break;
+				}
 
 			}
 		}
@@ -92,14 +92,12 @@ public class PopulateData {
 
 		// mapping
 		for (int i = 0; i < 20; i++) {
-			
+
 			products.get(i).addProductInventory(productInventories.get(i));
 			sales.get(i % 2).addProduct(products.get(i));
 			users.get(i).addAccount(accounts.get(i));
 			users.get(i).addCart(carts.get(i));
 		}
-		
-		
 
 		// persist into database
 		ProductDao.insertMany(products);

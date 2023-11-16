@@ -31,7 +31,6 @@ import lombok.ToString;
 @Table(name = "CART")
 public class Cart implements Serializable, Identifiable {
 
-	
 	private static final long serialVersionUID = 1936956525338503426L;
 
 	@Id
@@ -44,7 +43,7 @@ public class Cart implements Serializable, Identifiable {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@Builder.Default
 	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<LineItem> lineItems = new HashSet<>();
@@ -58,7 +57,7 @@ public class Cart implements Serializable, Identifiable {
 
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
-		lineItem.getCart(null);
+		lineItem.setCart(null);
 	}
 
 	//
@@ -76,6 +75,5 @@ public class Cart implements Serializable, Identifiable {
 		return CollectionUtils.aggregate(this.lineItems.iterator(),
 				(acc, i) -> acc + i.getSaleLineItemPrice());
 	}
-
 
 }
