@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore.utils.filters;
+package com.hcmute.sneakerstore.filters;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;

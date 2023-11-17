@@ -21,7 +21,9 @@ import com.hcmute.sneakerstore.utils.GsonProvider;
 public class PopulateData {
 
 	public static void main(String[] args) {
-		String rootDataPath = "D:\\WorkSpace\\Projects\\sneaker-web-app\\server\\sneaker-server\\src\\main\\java\\com\\hcmute\\sneakerstore\\data\\prepareddata\\";
+
+		String projectPath = System.getProperty("user.dir");
+		String preparedDataPath = projectPath + "/src/main/java/com/hcmute/sneakerstore/data/prepareddata/";
 		List<String> fileName = Arrays.asList("accounts.json", "products.json",
 				"productInventories.json", "users.json",
 				"discountedSales.json");
@@ -43,7 +45,7 @@ public class PopulateData {
 
 		for (int i = 0; i < fileName.size(); i++) {
 			String fileContent = FileUtils
-					.getFileContent(rootDataPath + fileName.get(i));
+					.getFileContent(preparedDataPath + fileName.get(i));
 
 			switch (i) {
 			case 0: {
