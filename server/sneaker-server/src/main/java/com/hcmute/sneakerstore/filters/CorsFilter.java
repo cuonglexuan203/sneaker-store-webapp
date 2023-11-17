@@ -22,14 +22,14 @@ public class CorsFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		// 
-		String host = req.getHeader("Host");
+		String origin = req.getHeader("Origin");
 		System.out.println("Receive a request!");
-		System.out.println("Host: " + host);
+		System.out.println("Origin: " + origin);
 		//
-//		String acceptedDomain = "http://localhost:3000";
+		String acceptedDomain = origin;
 
 		// Accept all origin
-		res.setHeader("Access-Control-Allow-Origin", host);
+		res.setHeader("Access-Control-Allow-Origin", acceptedDomain);
 		res.setHeader("Access-Control-Allow-Credentials", "true");
 		//
 		res.setHeader("Access-Control-Allow-Methods",

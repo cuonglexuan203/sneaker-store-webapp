@@ -32,6 +32,7 @@ public class ProductsServlet extends HttpServlet {
 		//
 		HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_OK,
 				ps);
+		
 	}
 
 }

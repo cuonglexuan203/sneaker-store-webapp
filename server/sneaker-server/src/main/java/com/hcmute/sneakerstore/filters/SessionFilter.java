@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import com.hcmute.sneakerstore.utils.CookieUtil;
 import com.hcmute.sneakerstore.utils.CrossSiteCookie;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
@@ -26,8 +27,20 @@ public class SessionFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		//
 		HttpSession session = req.getSession();
-		if (ValidationUtils.isNullOrEmpty(session.getId())) {
-			String sessionId = session.getId();
+		String sessionId = "";
+		//
+		if(ValidationUtils.isNullOrEmpty(sessionId)) {
+			sessionId = CookieUtil.getCookie(req.getCookies(), "JSESSIONID");
+		}
+		//
+		System.out.println("Existing Session ID: " + sessionId);
+		
+		//
+		if(ValidationUtils.isNullOrEmpty(sessionId)) {
+			sessionId = session.getId();
+			//
+			System.out.println("New Session ID: " + sessionId);
+			//
 			int maxAge = 1 * 24 * 60 * 60;
 			String path = "/";
 			boolean httpOnly = true;
@@ -40,8 +53,8 @@ public class SessionFilter implements Filter {
 					.httpOnly(httpOnly)
 					.response(res)
 					.build();
-			
 		}
+
 		chain.doFilter(req, res);
 
 	}
