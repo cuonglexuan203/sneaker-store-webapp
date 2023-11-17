@@ -16,7 +16,7 @@ export const productsApi = createApi({
     reducerPath: "productApi",
     refetchOnFocus: true,
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8080/sneaker-server/",
+        baseUrl: "http://192.168.1.5:8080/sneaker-server/",
         credentials: "include",
     }),
     endpoints: (builder) => ({
