@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { FormEvent, MouseEvent } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from "next/image";
@@ -7,6 +9,15 @@ import { useState } from "react";
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const router = useRouter();
+
+    const handleSearchSubmit = (
+        e: FormEvent<HTMLFormElement> | MouseEvent<HTMLDivElement>
+    ) => {
+        e.preventDefault();
+        router.push(`/search?q=${searchQuery}`);
+    };
     return (
         <nav className="sticky top-0 z-[1000] w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -49,7 +60,7 @@ const NavBar = () => {
                             </svg>
                         </button>
                         {/* Logo & Page name */}
-                        <a href="" className="flex ml-2 md:mr-24">
+                        <a href="/" className="flex ml-2 md:mr-24">
                             <Image
                                 alt="Logo"
                                 src="/images/logo/logo.svg"
@@ -63,23 +74,29 @@ const NavBar = () => {
                         </a>
                         {/* Search bar */}
                         <form
+                            onSubmit={handleSearchSubmit}
                             action="#"
                             method="GET"
-                            className="hidden lg:block lg:pl-3.5"
+                            className="hidden lg:block lg:pl-3.5 select-none"
                         >
                             <label htmlFor="topbar-search" className="sr-only">
                                 Search
                             </label>
                             <div className="relative mt-1 lg:w-96">
-                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <div
+                                    className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer"
+                                    onClick={handleSearchSubmit}
+                                >
                                     <FaMagnifyingGlass />
                                 </div>
                                 <input
                                     type="text"
-                                    name="email"
                                     id="topbar-search"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Search"
+                                    onChange={(e) =>
+                                        setSearchQuery(e.target.value)
+                                    }
                                 />
                             </div>
                         </form>

@@ -3,12 +3,12 @@ import { type Sneaker } from "../_store/services/productsApi";
 
 const Product = ({ product: p }: { product: Sneaker }) => {
     return (
-        <div className="mx-auto group relative w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
+        <div className="mx-auto group relative w-full h-fit max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
             {/* Image */}
             <a href="#">
-                <div className="overflow-hidden h-60">
+                <div className="overflow-hidden h-48 md:h-52 lg:h-60">
                     <Image
-                        className="w-full rounded-t-lg object-cover object-center transition-all duration-300 group-hover:scale-90"
+                        className="w-full h-full rounded-t-lg object-fill transition-all duration-300 group-hover:scale-90"
                         width={0}
                         height={0}
                         sizes="100%"

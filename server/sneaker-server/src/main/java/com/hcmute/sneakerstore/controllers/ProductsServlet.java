@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import com.hcmute.sneakerstore.business.Product;
-import com.hcmute.sneakerstore.data.DAOs.ProductDao;
+import com.hcmute.sneakerstore.business.*;
+import com.hcmute.sneakerstore.data.DAOs.*;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.ProductStatusMessage;
 import com.hcmute.sneakerstore.utils.ValidationUtils;

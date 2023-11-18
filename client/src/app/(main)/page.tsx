@@ -27,15 +27,15 @@ export default function Home() {
                     disableOnInteraction: false,
                 }}
                 loop={true}
-                spaceBetween={50}
+                spaceBetween={0}
                 modules={[Autoplay]}
             >
                 {slides.map((slide, idx) => (
                     <SwiperSlide key={idx}>
-                        <div className="select-none">
+                        <div className="select-none aspect-video">
                             <Image
                                 src={"/images/slider/" + slide}
-                                className="w-full h-[40vh] lg:h-[90vh] object-fill"
+                                className="w-full aspect-video object-fill"
                                 width={0}
                                 height={0}
                                 sizes="100vw"
