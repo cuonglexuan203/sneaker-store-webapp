@@ -1,4 +1,4 @@
-package com.hcmute.sneakerstore.utils.filters;
+package com.hcmute.sneakerstore.filters;
 
 import java.io.IOException;
 
@@ -14,16 +14,21 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebFilter(filterName="CorsFilter")
 public class CorsFilter implements Filter {
 
+	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
+		// 
+		String origin = req.getHeader("Origin");
+		System.out.println("Receive a request!");
+		System.out.println("Origin: " + origin);
 		//
-		String acceptedDomain = "http://localhost:3000";
+		String acceptedDomain = origin;
 
-		//
+		// Accept all origin
 		res.setHeader("Access-Control-Allow-Origin", acceptedDomain);
 		res.setHeader("Access-Control-Allow-Credentials", "true");
 		//
