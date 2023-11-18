@@ -21,7 +21,7 @@ import com.hcmute.sneakerstore.utils.GsonProvider;
 public class PopulateData {
 
 	public static void main(String[] args) {
-		String rootDataPath = "D:\\WorkSpace\\Projects\\sneaker-web-app\\server\\sneaker-server\\src\\main\\java\\com\\hcmute\\sneakerstore\\data\\prepareddata\\";
+		String rootDataPath = "D:\\Workspace\\sneaker-store-webapp\\server\\sneaker-server\\src\\main\\java\\com\\hcmute\\sneakerstore\\data\\prepareddata\\";
 		List<String> fileName = Arrays.asList("accounts.json", "products.json",
 				"productInventories.json", "users.json",
 				"discountedSales.json");
@@ -90,8 +90,6 @@ public class PopulateData {
 			users.get(i).addCart(carts.get(i));
 		}
 		
-		
-
 		// persist into database
 		ProductDao.insertMany(products);
 		SaleDao.insertMany(sales);
