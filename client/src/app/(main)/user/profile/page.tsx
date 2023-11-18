@@ -1,75 +1,83 @@
-import { GetServerSideProps } from 'next';
-import { useDispatch, useSelector } from 'react-redux';
-import { saveProfile, selectUserProfile } from '../redux/userSlice';
+  import React from 'react';
 
-// Fetch user data server-side
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // Replace with actual user data fetching logic
-  const userData = {
-    // Example user data
-    name: 'John Doe',
-    phone: '123-456-7890',
-    email: 'john@example.com',
-    address: '123 Main St',
-  };
+  const UserProfile: React.FC = () => {
+    return (
+      <div className="bg-white p-6 rounded-xl shadow-xl mx-auto my-10 max-w-5xl">
+        <div className="flex flex-wrap md:flex-nowrap">
+          {/* Personal Information Section */}
+          <div className="w-full md:w-3/5 p-4 space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-700">Thông tin cá nhân</h2>
+            <br/>
+            <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
+                  <div className="flex justify-center md:justify-start mb-4 md:mb-0">
+                      <div className="w-24 h-24 rounded-full overflow-hidden bg-blue-100 flex justify-center items-center">
+                          <span className="text-blue-300 font-bold">Avatar</span>
+                      </div>
+                  </div>
+                  <div className="flex-grow">
+                      <input type="text" placeholder="Họ & Tên" className="w-full p-2 border border-gray-300 rounded-md" />
+                      
+                      <input type="text" placeholder="Nickname" className="w-full p-2 border border-gray-300 rounded-md mt-3" />
+                  </div>
+            </div>
+            <br/>
+            <div className="flex flex-col md:flex-row gap-3 md:items-center">
+              <label className="md:min-w-max">Date of birth:</label>
+              <div className="flex-grow flex flex-col md:flex-row md:gap-3">
+                <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0">
+                  <option>Ngày</option>
+                  {/* Add options for days */}
+                </select>
+                <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0">
+                  <option>Tháng</option>
+                  {/* Add options for months */}
+                </select>
+                <select className="p-2 border border-gray-300 rounded-md flex-grow">
+                  <option>Năm</option>
+                  {/* Add options for years */}
+                </select>
+              </div>
+            </div>
+            <br/> 
+            <div className="flex flex-col md:flex-row gap-4 md:items-center">
+              <label className="block mb-2 md:mb-0">Gender:</label>
+              <div className="flex-grow flex flex-col md:flex-row md:gap-4">
+                <label className="flex items-center mb-2 md:mb-0">
+                  <input type="radio" name="gender" className="text-blue-600" />
+                  Nam
+                </label>
+                <label className="flex items-center mb-2 md:mb-0">
+                  <input type="radio" name="gender" className="text-blue-600" />
+                  Nữ
+                </label>
+                <label className="flex items-center">
+                  <input type="radio" name="gender" className="text-blue-600" />
+                  Khác
+                </label>
+              </div>
+            </div>
+            <br />
+            <select className="p-2 border border-gray-300 rounded-md w-full mb-3 md:mb-0">
+              <option>Chọn quốc tịch</option>
+            </select>
+            <br />
+            <div>
+            <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Lưu thay đổi</button>
+            </div>
+          </div>
 
-  return { props: { initialProfile: userData } };
-};
+          {/* Divider */}
+          <div className="w-full md:w-px bg-gray-200 my-4 md:my-0 md:mx-4"></div>
 
-type ProfileProps = {
-  initialProfile: {
-    name: string;
-    phone: string;
-    email: string;
-    address: string;
-  };
-};
-
-const UserProfile = ({ initialProfile }: ProfileProps) => {
-  const dispatch = useDispatch();
-  const userProfile = useSelector(selectUserProfile);
-  const [profile, setProfile] = useState(initialProfile);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
-  };
-
-  const handleSave = async () => {
-    dispatch(saveProfile(profile));
-    // You would typically have some API call here to save the profile
-  };
-
-  // Additional methods for password change and account deletion would go here
-
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-xl font-bold mb-4">User Profile</h1>
-      <form>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={profile.name}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+          {/* Security Section */}
+          <div className="w-full md:w-2/5 p-4 space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-700">Security</h2>
+            <button className="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">Delete Account</button>
+            <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Change password</button>
+          </div>
         </div>
-        {/* Repeat for other fields */}
-        <button
-          type="button"
-          onClick={handleSave}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-        >
-          Save
-        </button>
-      </form>
-    </div>
-  );
-};
+      </div>
+    );
+  };
 
-export default UserProfile;
+  export default UserProfile;
