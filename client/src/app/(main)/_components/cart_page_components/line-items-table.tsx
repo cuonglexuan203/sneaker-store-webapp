@@ -65,7 +65,7 @@ export function LineItemTable({data}:LineItemTableProps){
         }
     }
 
-    // ------Total Product Incart and Total Price of cart
+    // -------Total Product Incart and Total Price of cart
     const cartTotalQty = products.reduce((acc: number, data: { quanity: any; }) => acc + Number(data.quanity), 0);
     const cartTotalAmount = products.reduce((acc: number, data: { price: any; quanity: any; }) => acc + Number(data.price) * Number(data.quanity), 0);
     

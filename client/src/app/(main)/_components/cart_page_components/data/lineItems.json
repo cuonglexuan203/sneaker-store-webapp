@@ -1,7 +1,7 @@
 [{"id":1,"product_name":"Butorides striatus","imageURL":"http://dummyimage.com/213x100.png/ff4444/ffffff","size":"XS","color":"Orange","price":"999","quanity":"12"},
 {"id":2,"product_name":"Priodontes maximus","imageURL":"http://dummyimage.com/168x100.png/cc0000/ffffff","size":"XS","color":"Crimson","price":"464646","quanity":"55"},
 {"id":3,"product_name":"Mungos mungo","imageURL":"http://dummyimage.com/114x100.png/5fa2dd/ffffff","size":"XL","color":"Purple","price":"848484","quanity":"85122"},
-{"id":4,"product_name":"Oxybelis fulgidus","imageURL":"http://dummyimage.com/246x100.png/dddddd/000000","size":"2XL","color":"Aquamarine","price":"426774267742677","quanity":"2413"},
+{"id":4,"product_name":"Oxybelis fulgiduss","imageURL":"http://dummyimage.com/246x100.png/dddddd/000000","size":"2XL","color":"Aquamarine","price":"426774267742677","quanity":"2413"},
 {"id":5,"product_name":"Uraeginthus granatina","imageURL":"http://dummyimage.com/250x100.png/dddddd/000000","size":"L","color":"Violet","price":"343434","quanity":"306"},
 {"id":6,"product_name":"Parus atricapillus","imageURL":"http://dummyimage.com/216x100.png/ff4444/ffffff","size":"XS","color":"Crimson","price":"936936936","quanity":"29"},
 {"id":7,"product_name":"Pycnonotus nigricans","imageURL":"http://dummyimage.com/158x100.png/ff4444/ffffff","size":"S","color":"Crimson","price":"111","quanity":"77947"},
