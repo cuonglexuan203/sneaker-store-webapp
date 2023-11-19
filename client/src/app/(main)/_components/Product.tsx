@@ -3,7 +3,7 @@ import { type Sneaker } from "../_store/services/productsApi";
 
 const Product = ({ product: p }: { product: Sneaker }) => {
     return (
-        <div className="mx-auto group relative w-full h-fit max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
+        <div className="mx-auto group relative w-full h-fit lg:min-h-[27.5rem] max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
             {/* Image */}
             <a href="#">
                 <div className="overflow-hidden h-48 md:h-52 lg:h-60">
@@ -23,7 +23,7 @@ const Product = ({ product: p }: { product: Sneaker }) => {
             {/* Infor */}
             <div className="mt-4 px-5 pb-5">
                 <p className="mt-1 text-sm text-gray-400">{p.brand}</p>
-                <h5 className="text-xl font-semibold tracking-tight text-slate-900">
+                <h5 className="text-xl font-semibold tracking-tight text-slate-900 line-clamp-2">
                     {p.name}
                 </h5>
                 <p className="mt-2.5 mb-5 flex items-center text-gray-700">

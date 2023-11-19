@@ -1,17 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./features/counterSlice";
-import { userApi } from "./services/userApi";
+import { EnhancedStore, configureStore } from "@reduxjs/toolkit";
+import navBarReducer from "./features/navBarSlice"
 import { productsApi } from "./services/productsApi";
 
-export const store = configureStore({
+export const store: EnhancedStore = configureStore({
     reducer: {
-        counter: counterReducer,
-        [userApi.reducerPath]: userApi.reducer,
+        navbar: navBarReducer,
         [productsApi.reducerPath]: productsApi.reducer,
     },
     middleware: (getDefaultMiddleWare) =>
         getDefaultMiddleWare()
-            .concat(userApi.middleware)
             .concat(productsApi.middleware),
 });
 

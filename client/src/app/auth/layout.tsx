@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import ReduxProvider from "./_components/ReduxProvider";
-import SessionProvider from "./_components/SessionProvider";
-import NavBar from "./_components/NavBar";
-import Footer from "./_components/Footer";
+import "../(main)/globals.css";
 import { getServerSession } from "next-auth";
+import SessionProvider from "../(main)/_components/SessionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +20,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <SessionProvider session={session}>
-                    <ReduxProvider>
-                        <NavBar />
-                        {children}
-                        <Footer />
-                    </ReduxProvider>
-                </SessionProvider>
+                <SessionProvider session={session}>{children}</SessionProvider>
             </body>
         </html>
     );

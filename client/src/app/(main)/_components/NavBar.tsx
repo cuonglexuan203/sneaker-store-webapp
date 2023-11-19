@@ -6,23 +6,57 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from "react";
-
+import { useSession } from "next-auth/react";
+import { signOut, signIn } from "next-auth/react";
+import { useAppDispatch, useAppSelector } from "../_store/hooks";
+import { RootState } from "../_store/store";
+import {
+    toggleIsNotificationOpen,
+    toggleIsUserMenuOpen,
+    toggleIsSearching,
+} from "../_store/features/navBarSlice";
+//
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
-    const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const router = useRouter();
-
+    const { data: session, status } = useSession();
+    //
+    const dispatch = useAppDispatch();
+    const isNotificationOpen = useAppSelector(
+        (state: RootState) => state.navbar.isNotificationOpen
+    );
+    const isUserMenuOpen = useAppSelector(
+        (state: RootState) => state.navbar.isUserMenuOpen
+    );
+    //
     const handleSearchSubmit = (
         e: FormEvent<HTMLFormElement> | MouseEvent<HTMLDivElement>
     ) => {
         e.preventDefault();
         router.push(`/search?q=${searchQuery}`);
     };
+
+    const handleCloseNotification = () => {
+        if (isNotificationOpen) {
+            dispatch(toggleIsNotificationOpen());
+        }
+    };
+    const handleCloseUserMenu = () => {
+        if (isUserMenuOpen) {
+            dispatch(toggleIsUserMenuOpen());
+        }
+    };
+
     return (
-        <nav className="sticky top-0 z-[1000] w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <nav
+            className="sticky top-0 z-[1000] w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+            onClick={() => {
+                handleCloseNotification();
+                handleCloseUserMenu();
+            }}
+        >
             <div className="px-3 py-3 lg:px-5 lg:pl-3">
                 <div className="flex items-center justify-between relative">
                     {/* Logo part */}
@@ -214,9 +248,10 @@ const NavBar = () => {
                                     ? "bg-sky-500 text-white"
                                     : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                             } rounded-lg`}
-                            onClick={() =>
-                                setIsNotificationOpen(!isNotificationOpen)
-                            }
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                dispatch(toggleIsNotificationOpen());
+                            }}
                         >
                             <div>
                                 <span className="sr-only">
@@ -518,140 +553,111 @@ const NavBar = () => {
                             ></div>
                         </div>
                         {/* User */}
-                        <div className="relative flex items-center ml-3">
-                            {/* Avatar */}
-                            <div>
-                                <button
-                                    type="button"
-                                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                    id="user-menu-button-2"
-                                    aria-expanded="false"
-                                    data-dropdown-toggle="dropdown-2"
-                                    onClick={() =>
-                                        setIsUserMenuOpen(!isUserMenuOpen)
-                                    }
-                                >
-                                    <span className="sr-only">
-                                        Open user menu
-                                    </span>
-                                    <Image
-                                        width={32}
-                                        height={32}
-                                        className="rounded-full"
-                                        src="/images/logo/logo.svg"
-                                        alt="user photo"
-                                    />
-                                </button>
-                            </div>
-                            {/* User dropdown */}
-                            <div
-                                className={`${
-                                    isUserMenuOpen ? "h-fit translate-y-5" : ""
-                                } h-0 transition-all duration-150 ease-out absolute top-0 overflow-hidden right-0 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                                id="dropdown-2`}
-                            >
-                                <div className="px-4 py-3" role="none">
-                                    <p
-                                        className="text-sm text-gray-900 dark:text-white font-bold"
-                                        role="none"
+                        {session ? (
+                            <div className="relative flex items-center ml-3">
+                                {/* Avatar */}
+                                <div>
+                                    <button
+                                        type="button"
+                                        className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                                        id="user-menu-button-2"
+                                        aria-expanded="false"
+                                        data-dropdown-toggle="dropdown-2"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            dispatch(toggleIsUserMenuOpen());
+                                        }}
                                     >
-                                        Le Xuan Cuong
-                                    </p>
-                                    <p
-                                        className="text-sm font-medium text-sky-600 truncate dark:text-gray-300"
-                                        role="none"
-                                    >
-                                        lxc@student.hcmute.edu.vn
-                                    </p>
+                                        <span className="sr-only">
+                                            Open user menu
+                                        </span>
+                                        <img
+                                            width={32}
+                                            height={32}
+                                            className="rounded-full"
+                                            src={
+                                                session?.user?.image ||
+                                                "/images/log/logo.svg"
+                                            }
+                                            alt="user photo"
+                                        />
+                                    </button>
                                 </div>
-                                <ul className="py-1" role="none">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            role="menuitem"
+                                {/* User dropdown */}
+                                <div
+                                    className={`${
+                                        isUserMenuOpen
+                                            ? "h-fit translate-y-5"
+                                            : ""
+                                    } h-0 transition-all duration-150 ease-out absolute top-0 overflow-hidden right-0 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown-2`}
+                                >
+                                    <div className="px-4 py-3" role="none">
+                                        <p
+                                            className="text-sm text-gray-900 dark:text-white font-bold"
+                                            role="none"
                                         >
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            role="menuitem"
+                                            {session?.user?.name}
+                                        </p>
+                                        <p
+                                            className="text-sm font-medium text-sky-600 truncate dark:text-gray-300"
+                                            role="none"
                                         >
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            role="menuitem"
-                                        >
-                                            Earnings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            role="menuitem"
-                                        >
-                                            Sign out
-                                        </a>
-                                    </li>
-                                </ul>
+                                            {session?.user?.email}
+                                        </p>
+                                    </div>
+                                    <ul className="py-1" role="none">
+                                        <li>
+                                            <a
+                                                href="#"
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem"
+                                            >
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem"
+                                            >
+                                                Settings
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem"
+                                            >
+                                                Earnings
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem"
+                                                onClick={() => signOut()}
+                                            >
+                                                Sign out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <button
+                                type="button"
+                                className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-4 py-2 text-center"
+                                onClick={() => signIn()}
+                            >
+                                Sign In/Up
+                            </button>
+                        )}
                     </div>
                 </div>
-                {/*  */}
-                {/* <div className="w-full md:block md:w-auto" id="navbar-default">
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                                aria-current="page"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                            >
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div> */}
             </div>
         </nav>
     );

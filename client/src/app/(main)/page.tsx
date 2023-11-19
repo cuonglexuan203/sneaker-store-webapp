@@ -8,6 +8,12 @@ import Image from "next/image";
 import Product from "./_components/Product";
 import { useGetProductsQuery } from "./_store/services/productsApi";
 import { FaThumbsUp } from "react-icons/fa6";
+import { useAppDispatch, useAppSelector } from "./_store/hooks";
+import { RootState } from "./_store/store";
+import {
+    toggleIsNotificationOpen,
+    toggleIsUserMenuOpen,
+} from "./_store/features/navBarSlice";
 //
 const slides = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png", "7.png"];
 
@@ -18,8 +24,27 @@ export default function Home() {
         data: products = [],
         error,
     } = useGetProductsQuery(null);
+    const dispatch = useAppDispatch();
+    const isNotificationOpen = useAppSelector(
+        (state: RootState) => state.navbar.isNotificationOpen
+    );
+    const isUserMenuOpen = useAppSelector(
+        (state: RootState) => state.navbar.isUserMenuOpen
+    );
+
     return (
-        <main className="min-h-screen container mx-auto">
+        <main
+            className="min-h-screen container mx-auto"
+            onClick={(e) => {
+                e.stopPropagation();
+                if (isUserMenuOpen) {
+                    dispatch(toggleIsUserMenuOpen());
+                }
+                if (isNotificationOpen) {
+                    dispatch(toggleIsNotificationOpen());
+                }
+            }}
+        >
             {/* Slider */}
             <Swiper
                 autoplay={{
