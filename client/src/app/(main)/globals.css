@@ -155,7 +155,7 @@ input[type=number] {
           display: flex;
           align-items: center;
           justify-content: space-between;
-        }
+        };
     
         .prdct-delete {
           width: 40px;

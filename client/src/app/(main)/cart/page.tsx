@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   description: "A shopping cart build using Tanstack Table.",
 }
 
-// Simulate a database read for tasks.
-//async function getTasks() {
+// Simulate a database read for line Items.
 async function getLineItems() {
   const data = await fs.readFile(
     path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/lineItems.json")
