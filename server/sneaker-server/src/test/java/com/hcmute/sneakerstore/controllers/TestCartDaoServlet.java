@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import com.hcmute.sneakerstore.business.Cart;
+import com.hcmute.sneakerstore.business.LineItem;
+import com.hcmute.sneakerstore.business.enums.Color;
 import com.hcmute.sneakerstore.data.DAOs.CartDao;
 
 import jakarta.servlet.ServletException;
@@ -12,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @WebServlet("/testCartDao")
 public class TestCartDaoServlet extends HttpServlet {
@@ -43,6 +46,7 @@ public class TestCartDaoServlet extends HttpServlet {
 					.build();
 			long insertManyCount = CartDao.insertMany(Arrays.asList(newCart2,
 					newCart3, newCart4, newCart5, newCart6));
+
 			output.append("insertMany: Inserted count: ")
 					.append(insertManyCount)
 					.append("\n");
@@ -50,6 +54,9 @@ public class TestCartDaoServlet extends HttpServlet {
 			// Test selectOne
 			Cart cart = CartDao.selectOne(newCartId); // Use the ID from the
 														// insert test
+
+			output.append("selectOne: Selected cart with the following lineItem:")
+					.append(cart.getLineItems().toString());
 			output.append("selectOne: ")
 					.append(cart != null ? cart.toString() : "No cart found")
 					.append("\n");

@@ -16,36 +16,42 @@ import { Metadata } from "next"
 import { z } from "zod"
 
 import { columns } from "../_components/cart_page_components/components/columns"
-import { DataTable } from "../_components/cart_page_components/components/data-table"
-import { taskSchema } from "../_components/cart_page_components//data/schema"
+//import { DataTable } from "../_components/cart_page_components/components/data-table"
+import { LineItemTable } from "../_components/cart_page_components/components/lineItem-table"
+//import { taskSchema } from "../_components/cart_page_components//data/schema"
+import { lineItemSchema } from "../_components/cart_page_components//data/lineItemSchema"
 
 export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
+  title: "Line Items",
+  description: "A shopping cart build using Tanstack Table.",
 }
 
 // Simulate a database read for tasks.
-async function getTasks() {
+//async function getTasks() {
+async function getLineItems() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/tasks.json")
+    // path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/tasks.json")
+    path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/lineItems.json")
   )
 
 
-  const tasks = JSON.parse(data.toString())
-
-  return z.array(taskSchema).parse(tasks)
+  // const tasks = JSON.parse(data.toString())
+  const lineItems = JSON.parse(data.toString())
+  // return z.array(taskSchema).parse(tasks)
+  return z.array(lineItemSchema).parse(lineItems)
 }
 
 export default async function CartPage() {
-  const tasks = await getTasks()
-
+  //const tasks = await getTasks()
+  const lineItems = await getLineItems()
   return (
     <>
     <div className="container mx-auto mt-10">
     <div className="flex shadow-md my-10">
       <div className="w-3/4 bg-white px-10 py-10">
         <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
-          <DataTable data={tasks} columns={columns} />
+          {/* <DataTable data={tasks} columns={columns} /> */}
+          <LineItemTable data={lineItems} columns={columns}/>
         </div>
       </div>
       <div id="summary" className="w-1/4 px-8 py-10">

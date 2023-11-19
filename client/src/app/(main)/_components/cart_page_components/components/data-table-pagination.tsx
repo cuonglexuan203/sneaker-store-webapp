@@ -27,11 +27,11 @@ export function DataTablePagination<TData>({
       <div className="flex-1 text-sm text-muted-foreground">
         
         {table.getFilteredSelectedRowModel().rows.length} of{" "} 
-        {table.getFilteredRowModel().rows.length} row(s) selected.
+        {table.getFilteredRowModel().rows.length} item(s) selected.
       </div>
       <div className="flex items-center space-x-6 lg:space-x-8">
         <div className="flex items-center space-x-2">
-          <p className="text-sm font-medium">Rows per page</p>
+          <p className="text-sm font-medium">Items per page</p>
           <Select
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
@@ -79,7 +79,7 @@ export function DataTablePagination<TData>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            <span className="sr-only">Go to next page</span>
+            <span className="sr-only">Go to next product</span>
             <ChevronRightIcon className="h-4 w-4" />
           </Button>
           <Button
@@ -88,7 +88,7 @@ export function DataTablePagination<TData>({
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >
-            <span className="sr-only">Go to last page</span>
+            <span className="sr-only">Go to last product</span>
             <DoubleArrowRightIcon className="h-4 w-4" />
           </Button>
         </div>

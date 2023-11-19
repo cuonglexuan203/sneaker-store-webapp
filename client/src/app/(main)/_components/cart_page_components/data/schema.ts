@@ -11,14 +11,3 @@ export const taskSchema = z.object({
 })
 
 export type Task = z.infer<typeof taskSchema>
-
-
-export const lineItemSchema = z.object({
-  id: z.string(),
-  imageURL: z.string(),
-  size: z.string(),
-  color: z.string(),
-  price: z.string(),
-  count: z.string(),
-})
-export type LineItem = z.infer<typeof lineItemSchema>
