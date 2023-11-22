@@ -44,8 +44,8 @@ const handleChangeEmail = (e) => {
 
 // // State for nationality
 // const [nationality, setNationality] = useState('');
-
 // List of nationalities (can be expanded)
+
 const nationalities = ['American', 'British', 'Canadian', 'French', 'German', 'Indian', 'Japanese'];
 
 // Handler for nationality change
@@ -69,12 +69,12 @@ const handleAvatarChange = (e) => {
 };
 
 const [editMode, setEditMode] = useState(false);
-  const [fullName, setFullName] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState({ day: '', month: '', year: '' });
-  const [gender, setGender] = useState('');
-  const [nationality, setNationality] = useState('');
-  const handleEditt = () => {
+const [fullName, setFullName] = useState('');
+const [nickname, setNickname] = useState('');
+const [dateOfBirth, setDateOfBirth] = useState({ day: '', month: '', year: '' });
+const [gender, setGender] = useState('');
+const [nationality, setNationality] = useState('');
+const handleEditt = () => {
     setEditMode(true);
   };
 
@@ -95,6 +95,10 @@ const [editMode, setEditMode] = useState(false);
     setGender(e.target.value); 
   };
 
+  const toggleEditMode = () => {
+    setEditMode(prev => !prev);
+  };
+
 return (
     <div className="bg-white p-6 rounded-xl shadow-xl mx-auto my-10 max-w-5xl">
 <div className="flex flex-wrap md:flex-nowrap">
@@ -107,8 +111,7 @@ return (
                 <div className="flex justify-center md:justify-start mb-4 md:mb-0">
                  <div
                   className="w-24 h-24 rounded-full overflow-hidden bg-blue-100 flex justify-center items-center cursor-pointer"
-                  onClick={triggerFileInput}
-                  >
+                  onClick={triggerFileInput} >
                   {avatar ? (
                   <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
                   ) : (
@@ -121,27 +124,29 @@ return (
           style={{ display: 'none' }}
           accept="image/*"
           onChange={handleAvatarChange}
+          disabled={!editMode}
           />
         </div>
                 <div className="flex-grow">
-                    <input type="text" placeholder="Full Name " className="w-full p-2 border border-gray-300 rounded-md" />
+                    <input type="text" placeholder="Full Name " className="w-full p-2 border border-gray-300 rounded-md" disabled={!editMode} />
                     
-                    <input type="text" placeholder="Nickname" className="w-full p-2 border border-gray-300 rounded-md mt-3" />
+                    <input type="text" placeholder="Nickname" className="w-full p-2 border border-gray-300 rounded-md mt-3" disabled={!editMode} />
                 </div>
       </div>
           <br/>
       <div className="flex flex-col md:flex-row gap-3 md:items-center">
           <label className="md:min-w-max">Date of birth:</label>
             <div className="flex-grow flex flex-col md:flex-row md:gap-3">
-              <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0">
-                <option value=""></option>
+              <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0" disabled={!editMode} >
+                <option value="" ></option>
                   {days.map(day => (
                     <option key={day} value={day}>
                       {day}
                 </option>
+                
                   ))}
               </select>
-              <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0">
+              <select className="p-2 border border-gray-300 rounded-md flex-grow mb-3 md:mb-0" disabled={!editMode} >
                 <option value=""></option>
                   {months.map((month, index) => (
                 <option key={month} value={month}>
@@ -149,7 +154,7 @@ return (
                 </option>
                    ))}
               </select>
-              <select className="p-2 border border-gray-300 rounded-md flex-grow">
+              <select className="p-2 border border-gray-300 rounded-md flex-grow" disabled={!editMode} >
                 <option value=""></option>
                   {years.map(year => (
                 <option key={year} value={year}>
@@ -163,12 +168,12 @@ return (
           <div className="flex flex-col md:flex-row gap-4 md:items-center">
             <label className="block mb-2 md:mb-0">Gender:</label>
             <div className="flex-grow flex flex-col md:flex-row md:gap-4">
-<label className="flex items-center mb-2 md:mb-0">
-              <input type="radio" name="gender" className="text-blue-600 mr-1" /> Male </label>
               <label className="flex items-center mb-2 md:mb-0">
-                <input type="radio" name="gender" className="text-blue-600 mr-1" /> Femal </label>
+              <input type="radio" name="gender" className="text-blue-600 mr-1" disabled={!editMode} /> Male </label>
               <label className="flex items-center mb-2 md:mb-0">
-                <input type="radio" name="gender" className="text-blue-600 mr-1" /> Other </label>
+                <input type="radio" name="gender" className="text-blue-600 mr-1" disabled={!editMode} /> Femal </label>
+              <label className="flex items-center mb-2 md:mb-0">
+                <input type="radio" name="gender" className="text-blue-600 mr-1" disabled={!editMode} /> Other </label>
             </div>
           </div>
           <br />
@@ -178,6 +183,7 @@ return (
           value={nationality}
           onChange={handleChangeNationality}
           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          disabled={!editMode}
           >
           <option value="">Select a nationality</option>
           {nationalities.map((nat) => (
@@ -228,7 +234,7 @@ return (
             type="email"
             id="email"
             className="flex-1 block w-full rounded-none rounded-l-md border-gray-300"
-placeholder="Your email"
+            placeholder="Your email"
             value={email}
             onChange={handleChangeEmail}
             disabled={!isEditingEmail}
