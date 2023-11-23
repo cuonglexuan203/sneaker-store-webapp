@@ -17,6 +17,7 @@ import com.hcmute.sneakerstore.data.DAOs.SaleDao;
 import com.hcmute.sneakerstore.data.DAOs.UserDao;
 import com.hcmute.sneakerstore.utils.FileUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
+import com.hcmute.sneakerstore.utils.PasswordVerification;
 
 public class PopulateData {
 
@@ -76,7 +77,13 @@ public class PopulateData {
 
 			}
 		}
-
+		
+		// Hashing password
+		for(int i = 0; i < accounts.size(); i++) {
+			Account acc = accounts.get(i);
+			acc.setPassword(PasswordVerification.hashPassword(acc.getPassword()));
+		}
+		//
 		for (int i = 0; i < 20; i++) {
 			Cart foo = Cart.builder()
 					.build();

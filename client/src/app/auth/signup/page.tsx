@@ -5,7 +5,13 @@ import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/(main)/_store/hooks";
 import OAuthButton from "@/app/(main)/_components/OAuthButton";
-import { Account } from "@/app/(main)/_store/services/userApi";
+import {
+    Account,
+    SignUpRequestBody,
+    useSignUpMutation,
+} from "@/app/(main)/_store/services/userApi";
+import { updateUser } from "@/app/(main)/_store/features/userSlice";
+import { signIn as signInter } from "@/app/(main)/_store/features/authSlice";
 
 const oAuthOptions = [
     {
@@ -35,11 +41,18 @@ const SignInPage = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
     const [repeatPw, setRepeatPw] = useState("");
+    const [gender, setGender] = useState(false);
+    const [birthday, setBirthday] = useState("2023-11-23");
+    const [country, setCountry] = useState("VietNam");
+    const [city, setCity] = useState("TP HCM");
+    const [district, setDistrict] = useState("Thu Duc");
     const router = useRouter();
     //
     const dispatch = useAppDispatch();
     const isLogging = useAppSelector((state) => state.auth.isLogging);
-
+    //
+    const [signUpTrigger, { data, isLoading, error }] = useSignUpMutation();
+    //
     if (session || isLogging) {
         // dispatch action along with session changes here
         redirect("/");
@@ -48,25 +61,39 @@ const SignInPage = () => {
     //
     const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const inputedLogInData: Account = {
-            id: 0,
-            username,
-            password,
+        const inputedSignUpData: SignUpRequestBody = {
+            user: {
+                firstName,
+                lastName,
+                email,
+                gender,
+                birthday,
+                phoneNumber,
+                address: {
+                    country,
+                    city,
+                    district,
+                },
+            },
+            account: {
+                username,
+                password,
+            },
         };
+
+        const signUpResponse = await signUpTrigger(inputedSignUpData).unwrap();
         //
-        // const signInResponse = await signInTrigger(inputedLogInData).unwrap();
-        // //
-        // if (signInResponse) {
-        //     dispatch(updateUser(signInResponse.user));
-        //     dispatch(
-        //         signInter({
-        //             accountId: signInResponse.id,
-        //             isLogging: true,
-        //             isOAuth: false,
-        //             isAccount: true,
-        //         })
-        //     );
-        // }
+        if (signUpResponse) {
+            dispatch(updateUser(signUpResponse.user));
+            dispatch(
+                signInter({
+                    accountId: signUpResponse.accountId,
+                    isLogging: true,
+                    isOAuth: false,
+                    isAccount: true,
+                })
+            );
+        }
     };
     const authForm = (
         <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">

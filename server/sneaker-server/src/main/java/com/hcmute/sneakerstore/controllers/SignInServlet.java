@@ -16,12 +16,14 @@ import com.hcmute.sneakerstore.data.DAOs.AccountDao;
 import com.hcmute.sneakerstore.data.DAOs.UserDao;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
+import com.hcmute.sneakerstore.utils.PasswordVerification;
 import com.hcmute.sneakerstore.utils.StatusMessage;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 @WebServlet("/auth/signin")
 public class SignInServlet extends HttpServlet {
-
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String body = (String) req.getAttribute("body");
@@ -52,13 +54,15 @@ public class SignInServlet extends HttpServlet {
 			}
 
 			// Success
-			if (managedAccount.getPassword()
-					.equals(account.getPassword())) {
+			String hashedPassword = managedAccount.getPassword();
+			String password = account.getPassword();
+			//
+			if (PasswordVerification.verifyPassword(password, hashedPassword)) {
 				//
 				User authenticatedUser = managedAccount.getUser();
 				Map<String, Object> jsonResponse = new HashMap<>();
 				//
-				jsonResponse.put("id", Long.toString(managedAccount.getId()));
+				jsonResponse.put("accountId", Long.toString(managedAccount.getId()));
 				jsonResponse.put("role", managedAccount.getRole()
 						.toString());
 				jsonResponse.put("user", authenticatedUser);

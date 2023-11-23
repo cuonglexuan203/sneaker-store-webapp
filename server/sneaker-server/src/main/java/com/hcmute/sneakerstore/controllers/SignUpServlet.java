@@ -72,7 +72,7 @@ public class SignUpServlet extends HttpServlet {
 						if (insertedUserId != DBUtils.FAILED_ID) {
 							Map<String, Object> jsonResponse = new HashMap<>();
 							//
-							jsonResponse.put("id", Long.toString(insertedUserId));
+							jsonResponse.put("accountId", Long.toString(insertedUserId));
 							jsonResponse.put("role", newAccount.getRole()
 									.toString());
 							jsonResponse.put("user", newUser);

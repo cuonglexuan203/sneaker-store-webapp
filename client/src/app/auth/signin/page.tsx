@@ -47,7 +47,6 @@ export default function SignIn() {
     const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const inputedLogInData: Account = {
-            id: 0,
             username,
             password,
         };

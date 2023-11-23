@@ -3,15 +3,34 @@ import { User, UserInfo } from "../features/userSlice";
 
 
 export interface Account {
-    id: number,
     username: string,
     password: string
 }
-export interface AuthResponse {
-    id: number,
+export interface AuthResponseBody {
+    accountId: number,
     role: string,
     user: UserInfo
 }
+
+export interface SignUpRequestBody {
+    user: {
+        id?: string,
+        firstName: string,
+        lastName: string,
+        email: string,
+        gender: boolean,
+        birthday: string,
+        phoneNumber: string,
+        address: {
+            country: string,
+            city: string,
+            district: string,
+        },
+        imageUrl?: string
+    },
+    account: Account
+}
+
 
 export const userApi = createApi({
     reducerPath: 'userApi',
@@ -26,27 +45,27 @@ export const userApi = createApi({
             query: (id) => `users/${id}`,
             providesTags: ['user'],
         }),
-        signUp: builder.mutation<AuthResponse, User>({
+        signUp: builder.mutation<AuthResponseBody, SignUpRequestBody>({
             query: (user) => ({
-                url: "users",
+                url: "auth/signup",
                 method: "POST",
                 body: user,
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
             }),
-            invalidatesTags: ["account"]
+            invalidatesTags: ["account", "user"]
         }),
-        signIn: builder.mutation<AuthResponse, Account>({
-            query: ({ id, ...rest }) => ({
+        signIn: builder.mutation<AuthResponseBody, Account>({
+            query: (account) => ({
                 url: "auth/signin",
                 method: "POST",
-                body: rest,
+                body: account,
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
             }),
-            invalidatesTags: ["account"]
+            invalidatesTags: ["account", "user"]
         })
     })
 })
