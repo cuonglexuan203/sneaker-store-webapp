@@ -50,7 +50,7 @@ public class Account implements Serializable, Identifiable {
 	//
 	@GsonExclude
 	@ToString.Exclude
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 

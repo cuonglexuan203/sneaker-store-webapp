@@ -53,7 +53,7 @@ public class SearchServlet extends HttpServlet {
 		if (!ValidationUtils.isNullOrEmpty(yearStr)) {
 			result = filterByYear(result, yearStr);
 		}
-
+		
 		// sort
 		if (!ValidationUtils.isNullOrEmpty(sortIn)) {
 			if (sortIn.equalsIgnoreCase("asc")) {

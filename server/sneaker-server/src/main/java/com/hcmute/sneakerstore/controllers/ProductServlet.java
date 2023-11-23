@@ -5,7 +5,8 @@ import java.io.IOException;
 import com.hcmute.sneakerstore.business.Product;
 import com.hcmute.sneakerstore.data.DAOs.ProductDao;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
-import com.hcmute.sneakerstore.utils.ProductStatusMessage;
+import com.hcmute.sneakerstore.utils.PathParams;
+import com.hcmute.sneakerstore.utils.StatusMessage;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -21,15 +22,13 @@ public class ProductServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws IOException {
-		
-		String pathInfor = req.getPathInfo();
-		String[] pathInforArr = pathInfor.split("/");
-		String productIdStr = (pathInforArr.length > 1 ? pathInforArr[1]
-				: null);
+	
+		PathParams pathParams = new PathParams(req);
+		String productIdStr = pathParams.get(0);
 		//
 		if (ValidationUtils.isNullOrEmpty(productIdStr)) {
 			HttpResponseHandler.sendErrorResponse(res, res.SC_NOT_FOUND,
-					ProductStatusMessage.SM_NOT_FOUND.getDescription());
+					StatusMessage.SM_NOT_FOUND.getDescription());
 			return;
 		}
 		//
@@ -38,7 +37,7 @@ public class ProductServlet extends HttpServlet {
 			productId = Long.parseLong(productIdStr);
 		} catch (NumberFormatException err) {
 			HttpResponseHandler.sendErrorResponse(res, res.SC_NOT_FOUND,
-					ProductStatusMessage.SM_NOT_FOUND.getDescription());
+					StatusMessage.SM_NOT_FOUND.getDescription());
 			return;
 		}
 		//
@@ -47,7 +46,7 @@ public class ProductServlet extends HttpServlet {
 		if (product == null) {
 
 			HttpResponseHandler.sendErrorResponse(res, res.SC_NOT_FOUND,
-					ProductStatusMessage.SM_NOT_FOUND.getDescription());
+					StatusMessage.SM_NOT_FOUND.getDescription());
 			return;
 		}
 		//

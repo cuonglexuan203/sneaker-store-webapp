@@ -18,6 +18,16 @@ public class AccountDao {
 		return DBUtils.selectOne(Account.class, id);
 	}
 
+	public static Account selectOne(String username) {
+		@Cleanup
+		EntityManager em = JpaProvider.getEntityManager();
+		TypedQuery<Account> query = em.createQuery(
+				"select a from Account a where username = :username",
+				Account.class);
+		query.setParameter("username", username);
+		return DBUtils.getSingleResult(query);
+	}
+
 	public static List<Account> selectMany() {
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();

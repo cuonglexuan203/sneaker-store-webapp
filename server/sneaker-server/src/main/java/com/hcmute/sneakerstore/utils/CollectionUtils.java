@@ -22,6 +22,20 @@ public class CollectionUtils {
 		return aggregate(iter, func, 0.f);
 	}
 	
-	
+	public static <T> T get(T[] arr, int index) {
+		
+		if(ValidationUtils.isNullOrEmpty(arr)) {
+			return null;
+		}
+		
+		if(index < 0 ) {
+			return null;
+		}
+		if(index >= arr.length) {
+			return null;
+		}
+		//
+		return arr[index];
+	}
 	
 }

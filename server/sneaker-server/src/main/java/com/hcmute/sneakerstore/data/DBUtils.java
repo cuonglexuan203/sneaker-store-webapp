@@ -32,12 +32,8 @@ public class DBUtils {
 	public static <T extends Identifiable> List<T> getResultList(
 			TypedQuery<T> query) {
 
-		try {
-			if (query == null)
-				return null;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (query == null) {
+			return null;
 		}
 
 		List<T> result = null;
@@ -304,31 +300,31 @@ public class DBUtils {
 
 		//
 		if (id <= 0)
-			return 0;
+			return FAILED_ID;
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
 		EntityTransaction tran = em.getTransaction();
-
+		long deletedEntityId = FAILED_ID;
+		//
 		tran.begin();
 		try {
 //			The entity must be managed in the current persistence context: the entity must be either retrieved from the database in the current transaction 
 //			or made managed via merge() if it's detached
 			T managedEntity = em.find(entityClass, id);
 			if (managedEntity != null) {
+				deletedEntityId = managedEntity.getId();
 				em.remove(managedEntity);
+				tran.commit();
 			}
-			tran.commit();
 		} catch (PersistenceException e) {
 
 			tran.rollback();
-			return 0;
 		} catch (Exception e) {
 //			e.printStackTrace();
 			tran.rollback();
-			return 0;
 		}
-		return 1;
+		return deletedEntityId;
 	}
 
 	/**

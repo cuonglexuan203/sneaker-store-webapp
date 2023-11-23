@@ -65,6 +65,10 @@ public class User implements Serializable, Identifiable {
 	@NotNull
 	@Embedded
 	private Location address;
+	
+	@Builder.Default
+	@Column(name = "avatar")
+	private String imageUrl = "/images/auth/unknown_user.jpg";
 
 	// => convert to embeddable values
 	@Column(name = "credit_card_type")
@@ -127,5 +131,5 @@ public class User implements Serializable, Identifiable {
 	}
 
 	//
-
+	
 }

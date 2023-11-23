@@ -1,4 +1,4 @@
- package com.hcmute.sneakerstore.utils;
+package com.hcmute.sneakerstore.utils;
 
 import java.util.List;
 
@@ -14,10 +14,20 @@ public class ValidationUtils {
 		}
 		return false;
 	}
-	
+
 	public static <T> boolean isNullOrEmpty(List<T> list) {
-		if(list == null) return true;
-		if(list.size() == 0) return true;
+		if (list == null)
+			return true;
+		if (list.size() == 0)
+			return true;
+		return false;
+	}
+
+	public static <T> boolean isNullOrEmpty(T[] list) {
+		if (list == null)
+			return true;
+		if (list.length == 0)
+			return true;
 		return false;
 	}
 	
