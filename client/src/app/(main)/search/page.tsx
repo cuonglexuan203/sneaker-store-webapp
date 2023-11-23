@@ -192,7 +192,6 @@ const Search = () => {
     );
     const handleSortHref = (param: string, value: string) =>
         pathname + "?" + createQueryString(param, value);
-
     //
     return (
         <section className="mx-auto min-h-screen mt-12">

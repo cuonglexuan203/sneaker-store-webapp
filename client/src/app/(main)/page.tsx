@@ -31,6 +31,9 @@ export default function Home() {
     const isUserMenuOpen = useAppSelector(
         (state: RootState) => state.navbar.isUserMenuOpen
     );
+    const user = useAppSelector((state) => state.user);
+    const authlog = useAppSelector((state) => state.auth);
+    //
 
     return (
         <main

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, MouseEvent } from "react";
+import { FormEvent, MouseEvent, useEffect } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import Image from "next/image";
@@ -15,13 +15,14 @@ import {
     toggleIsUserMenuOpen,
     toggleIsSearching,
 } from "../_store/features/navBarSlice";
+import { removeUser, updateUser } from "../_store/features/userSlice";
+import { signOut as signOuter } from "../_store/features/authSlice";
 //
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [isDarkMode, setIsDarkMode] = useState(false);
     const router = useRouter();
-    const { data: session, status } = useSession();
     //
     const dispatch = useAppDispatch();
     const isNotificationOpen = useAppSelector(
@@ -30,6 +31,25 @@ const NavBar = () => {
     const isUserMenuOpen = useAppSelector(
         (state: RootState) => state.navbar.isUserMenuOpen
     );
+
+    const authData = useAppSelector((state) => state.auth);
+    const userInfo = useAppSelector((state) => state.user.info);
+    //
+    const { data: session } = useSession();
+    useEffect(() => {
+        if (session) {
+            dispatch(
+                updateUser({
+                    user: {
+                        name: session?.user?.name!,
+                        email: session?.user?.email!,
+                        image: session?.user?.image!,
+                    },
+                    expires: session?.expires || "",
+                })
+            );
+        }
+    }, [session]);
     //
     const handleSearchSubmit = (
         e: FormEvent<HTMLFormElement> | MouseEvent<HTMLDivElement>
@@ -553,7 +573,7 @@ const NavBar = () => {
                             ></div>
                         </div>
                         {/* User */}
-                        {session ? (
+                        {authData.isLogging || authData.isOAuth ? (
                             <div className="relative flex items-center ml-3">
                                 {/* Avatar */}
                                 <div>
@@ -576,8 +596,8 @@ const NavBar = () => {
                                             height={32}
                                             className="rounded-full"
                                             src={
-                                                session?.user?.image ||
-                                                "/images/log/logo.svg"
+                                                userInfo.imageUrl ||
+                                                "/images/auth/unknown_user.jpg"
                                             }
                                             alt="user photo"
                                         />
@@ -597,13 +617,16 @@ const NavBar = () => {
                                             className="text-sm text-gray-900 dark:text-white font-bold"
                                             role="none"
                                         >
-                                            {session?.user?.name}
+                                            {userInfo.firstName +
+                                            userInfo.lastName
+                                                ? userInfo.firstName
+                                                : ""}
                                         </p>
                                         <p
                                             className="text-sm font-medium text-sky-600 truncate dark:text-gray-300"
                                             role="none"
                                         >
-                                            {session?.user?.email}
+                                            {userInfo.email}
                                         </p>
                                     </div>
                                     <ul className="py-1" role="none">
@@ -639,7 +662,13 @@ const NavBar = () => {
                                                 href="#"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                                 role="menuitem"
-                                                onClick={() => signOut()}
+                                                onClick={() => {
+                                                    if (authData.isOAuth) {
+                                                        signOut();
+                                                    }
+                                                    dispatch(removeUser());
+                                                    dispatch(signOuter());
+                                                }}
                                             >
                                                 Sign out
                                             </a>

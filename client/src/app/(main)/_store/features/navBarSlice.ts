@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface NavBarState {
-    isNotificationOpen : boolean;
+    isNotificationOpen: boolean;
     isUserMenuOpen: boolean;
-    isSearching: boolean;   
+    isSearching: boolean;
 }
 
 
@@ -13,7 +13,7 @@ const initialState: NavBarState = {
     isSearching: false,
 }
 
-export const navBar = createSlice({
+export const navBarSlice = createSlice({
     name: "navbar",
     initialState,
     reducers: {
@@ -30,5 +30,5 @@ export const navBar = createSlice({
 })
 
 
-export const {toggleIsNotificationOpen, toggleIsUserMenuOpen, toggleIsSearching} = navBar.actions;
-export default navBar.reducer;
+export const { toggleIsNotificationOpen, toggleIsUserMenuOpen, toggleIsSearching } = navBarSlice.actions;
+export default navBarSlice.reducer;
