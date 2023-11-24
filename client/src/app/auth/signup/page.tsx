@@ -14,7 +14,6 @@ import {
 import { updateUser } from "@/app/(main)/_store/features/userSlice";
 import { signIn as signInter } from "@/app/(main)/_store/features/authSlice";
 import React from "react";
-import { Datepicker } from "flowbite-react";
 
 const oAuthOptions = [
   {
@@ -144,7 +143,13 @@ const SignInPage = () => {
           <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
             Birthday
           </label>
-          <Datepicker />
+          <input
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+            required
+            type="date"
+            className="block w-full px-5 py-3 mt-2 bg-white border border-gray-200 rounded-md"
+          />
         </div>
         <div>
           <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
