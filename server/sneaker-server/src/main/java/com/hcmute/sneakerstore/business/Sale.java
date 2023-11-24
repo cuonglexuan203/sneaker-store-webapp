@@ -7,6 +7,7 @@ import java.util.Set;
 import com.hcmute.sneakerstore.business.enums.SaleType;
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +18,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -46,7 +48,7 @@ public class Sale implements Serializable, Identifiable {
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Product> products = new HashSet<>();
 
 	//

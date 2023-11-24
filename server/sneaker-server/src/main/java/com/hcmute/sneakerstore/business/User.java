@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.NaturalId;
+
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
 import jakarta.persistence.CascadeType;
@@ -22,6 +24,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -29,6 +32,7 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "USER")
 public class User implements Serializable, Identifiable {
@@ -58,6 +62,7 @@ public class User implements Serializable, Identifiable {
 	@Builder.Default
 	private LocalDate birthday = LocalDate.now();
 
+	@NaturalId
 	@NotNull
 	@Column(name = "phone_number")
 	private String phoneNumber;

@@ -16,6 +16,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -46,18 +47,21 @@ public class LineItem implements Serializable, Identifiable {
 	private int quantity = 0;
 
 	//
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "invoice_id")
 	private Invoice invoice;
 	
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "cart_id")
 	private Cart cart;
 	
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@ManyToOne

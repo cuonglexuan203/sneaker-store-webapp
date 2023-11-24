@@ -10,6 +10,7 @@ import com.hcmute.sneakerstore.business.enums.PaymentStatus;
 import com.hcmute.sneakerstore.utils.CollectionUtils;
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -71,7 +73,7 @@ public class Invoice implements Serializable, Identifiable {
 
 	// LineItem
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice")
+	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
@@ -79,11 +81,14 @@ public class Invoice implements Serializable, Identifiable {
 	public void addLineItem(LineItem lineItem) {
 		lineItems.add(lineItem);
 		lineItem.setInvoice(this);
+		this.totalAmount += lineItem.getLineItemPrice();
 	}
 
 	public void removeLineItem(LineItem lineItem) {
 		lineItems.remove(lineItem);
 		lineItem.setInvoice(null);
+		// Validate for the existence
+		this.totalAmount -= lineItem.getLineItemPrice();
 	}
 
 	//

@@ -1,101 +1,101 @@
 [
 	{
-		"color": "Fuscia",
+		"color": "BLUE",
 		"size": 44,
 		"quanity": 938
 	},
 	{
-		"color": "Khaki",
+		"color": "YELLOW",
 		"size": 30,
 		"quanity": 980
 	},
 	{
-		"color": "Pink",
+		"color": "GRAY",
 		"size": 41,
 		"quanity": 350
 	},
 	{
-		"color": "Blue",
+		"color": "BLUE",
 		"size": 44,
 		"quanity": 93
 	},
 	{
-		"color": "Turquoise",
+		"color": "PINK",
 		"size": 40,
 		"quanity": 117
 	},
 	{
-		"color": "Blue",
+		"color": "ORANGE",
 		"size": 37,
 		"quanity": 413
 	},
 	{
-		"color": "Aquamarine",
+		"color": "PINK",
 		"size": 31,
 		"quanity": 680
 	},
 	{
-		"color": "Orange",
+		"color": "ORANGE",
 		"size": 45,
 		"quanity": 434
 	},
 	{
-		"color": "Crimson",
+		"color": "BLACK",
 		"size": 43,
 		"quanity": 775
 	},
 	{
-		"color": "Aquamarine",
+		"color": "YELLOW",
 		"size": 31,
 		"quanity": 986
 	},
 	{
-		"color": "Crimson",
+		"color": "ORANGE",
 		"size": 32,
 		"quanity": 984
 	},
 	{
-		"color": "Puce",
+		"color": "ORANGE",
 		"size": 39,
 		"quanity": 466
 	},
 	{
-		"color": "Mauv",
+		"color": "PURPLE",
 		"size": 44,
 		"quanity": 454
 	},
 	{
-		"color": "Crimson",
+		"color": "PURPLE",
 		"size": 40,
 		"quanity": 847
 	},
 	{
-		"color": "Aquamarine",
+		"color": "WHITE",
 		"size": 40,
 		"quanity": 507
 	},
 	{
-		"color": "Yellow",
+		"color": "GREEN",
 		"size": 36,
 		"quanity": 302
 	},
 	{
-		"color": "Indigo",
+		"color": "ORANGE",
 		"size": 40,
 		"quanity": 425
 	},
 	{
-		"color": "Mauv",
+		"color": "PINK",
 		"size": 37,
 		"quanity": 100
 	},
 	{
-		"color": "Purple",
+		"color": "PINK",
 		"size": 42,
 		"quanity": 158
 	},
 	{
-		"color": "Puce",
+		"color": "GRAY",
 		"size": 45,
 		"quanity": 465
 	}
