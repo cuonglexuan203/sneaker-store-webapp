@@ -30,7 +30,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
- 
+}
 @layer base {
         body {
           font-family: "Rubik", sans-serif;
