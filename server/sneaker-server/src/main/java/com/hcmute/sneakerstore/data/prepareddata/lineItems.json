@@ -1,102 +1,186 @@
 [
 	{
+<<<<<<< HEAD
 		"color": "BLUE",
+=======
+		"color": "Fuscia",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 44,
 		"quanity": 938
 	},
 	{
+<<<<<<< HEAD
 		"color": "YELLOW",
+=======
+		"color": "Khaki",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 30,
 		"quanity": 980
 	},
 	{
+<<<<<<< HEAD
 		"color": "GRAY",
+=======
+		"color": "Pink",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 41,
 		"quanity": 350
 	},
 	{
+<<<<<<< HEAD
 		"color": "BLUE",
+=======
+		"color": "Blue",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 44,
 		"quanity": 93
 	},
 	{
+<<<<<<< HEAD
 		"color": "PINK",
+=======
+		"color": "Turquoise",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 40,
 		"quanity": 117
 	},
 	{
+<<<<<<< HEAD
 		"color": "ORANGE",
+=======
+		"color": "Blue",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 37,
 		"quanity": 413
 	},
 	{
+<<<<<<< HEAD
 		"color": "PINK",
+=======
+		"color": "Aquamarine",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 31,
 		"quanity": 680
 	},
 	{
+<<<<<<< HEAD
 		"color": "ORANGE",
+=======
+		"color": "Orange",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 45,
 		"quanity": 434
 	},
 	{
+<<<<<<< HEAD
 		"color": "BLACK",
+=======
+		"color": "Crimson",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 43,
 		"quanity": 775
 	},
 	{
+<<<<<<< HEAD
 		"color": "YELLOW",
+=======
+		"color": "Aquamarine",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 31,
 		"quanity": 986
 	},
 	{
+<<<<<<< HEAD
 		"color": "ORANGE",
+=======
+		"color": "Crimson",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 32,
 		"quanity": 984
 	},
 	{
+<<<<<<< HEAD
 		"color": "ORANGE",
+=======
+		"color": "Puce",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 39,
 		"quanity": 466
 	},
 	{
+<<<<<<< HEAD
 		"color": "PURPLE",
+=======
+		"color": "Mauv",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 44,
 		"quanity": 454
 	},
 	{
+<<<<<<< HEAD
 		"color": "PURPLE",
+=======
+		"color": "Crimson",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 40,
 		"quanity": 847
 	},
 	{
+<<<<<<< HEAD
 		"color": "WHITE",
+=======
+		"color": "Aquamarine",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 40,
 		"quanity": 507
 	},
 	{
+<<<<<<< HEAD
 		"color": "GREEN",
+=======
+		"color": "Yellow",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 36,
 		"quanity": 302
 	},
 	{
+<<<<<<< HEAD
 		"color": "ORANGE",
+=======
+		"color": "Indigo",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 40,
 		"quanity": 425
 	},
 	{
+<<<<<<< HEAD
 		"color": "PINK",
+=======
+		"color": "Mauv",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 37,
 		"quanity": 100
 	},
 	{
+<<<<<<< HEAD
 		"color": "PINK",
+=======
+		"color": "Purple",
+>>>>>>> f35389d (move sneaker-server to the right place in server)
 		"size": 42,
 		"quanity": 158
 	},
 	{
+<<<<<<< HEAD
 		"color": "GRAY",
 		"size": 45,
 		"quanity": 465
 	}
 ]
+=======
+		"color": "Puce",
+		"size": 45,
+		"quanity": 465
+	}
+]
+>>>>>>> f35389d (move sneaker-server to the right place in server)
