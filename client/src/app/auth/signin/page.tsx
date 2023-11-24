@@ -57,7 +57,7 @@ export default function SignIn() {
             dispatch(updateUser(signInResponse.user));
             dispatch(
                 signInter({
-                    accountId: signInResponse.id,
+                    accountId: signInResponse.accountId,
                     isLogging: true,
                     isOAuth: false,
                     isAccount: true,
