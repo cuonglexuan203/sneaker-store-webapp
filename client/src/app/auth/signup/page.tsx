@@ -56,7 +56,7 @@ const SignInPage = () => {
   const router = useRouter();
   //
   const dispatch = useAppDispatch();
-  const isLogging = useAppSelector((state) => state.auth.isLogging);
+  const isLogging = useAppSelector((state: any) => state.auth.isLogging);
 
   if (session || isLogging) {
     // dispatch action along with session changes here
@@ -144,7 +144,7 @@ const SignInPage = () => {
           <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
             Birthday
           </label>
-          <Datepicker className="block w-full m-0 h-fit  text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-md shadow-sm dark:placeholder-gray-500 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-50 transition duration-300 ease-in-out" />
+          <Datepicker />
         </div>
         <div>
           <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
