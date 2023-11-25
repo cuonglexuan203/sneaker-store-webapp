@@ -153,12 +153,6 @@ export function LineItemTable({data}:LineItemTableProps){
                                             </tbody>
                                             
                                             <tfoot>
-                                                <tr>
-                                                    <th>&nbsp;</th>
-                                                    <th colSpan={3}>&nbsp;</th>
-                                                    <th>Items in Cart<span className="ml-2 mr-2">:</span><span className="text-red-600"></span></th>
-                                                    <th className="text-right">Total Price<span className="ml-2 mr-2">:</span><span className="text-red-600"></span></th>
-                                                </tr>
                                             </tfoot>
                                         </table>
                                 }
@@ -174,16 +168,16 @@ export function LineItemTable({data}:LineItemTableProps){
         </div>
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Shipping & Handling</span>
-          <span className="font-semibold text-sm">590$</span>
+          <span className="font-semibold text-sm">20$</span>
         </div>
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Sales Tax</span>
-          <span className="font-semibold text-sm">20$</span>
+          <span className="font-semibold text-sm">5$</span>
         </div>
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Grand Total</span>
-            <span>$1000</span>
+            <span>${cartTotalAmount + 20 + 5}</span>
           </div>
           <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
