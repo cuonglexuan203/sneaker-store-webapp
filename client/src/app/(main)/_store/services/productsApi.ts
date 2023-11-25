@@ -7,7 +7,7 @@ export interface Cart {
     lineItems: LineItem[]
 }
 
-export type Sneaker = {
+export interface Sneaker {
     id: number;
     brand: string;
     name: string;
@@ -23,7 +23,7 @@ export interface AddToCartRequestBody {
     color: string,
     size: number,
     quantity: number,
-    productId: number,
+    product: Sneaker,
     userId: number
 }
 

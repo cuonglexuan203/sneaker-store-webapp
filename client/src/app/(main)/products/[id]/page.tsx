@@ -95,7 +95,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             color,
             size,
             quantity: productCount,
-            productId: params.id,
+            product: product!,
             userId,
         };
         try {

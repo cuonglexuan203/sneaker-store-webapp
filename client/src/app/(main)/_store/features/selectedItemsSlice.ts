@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Sneaker } from "../services/productsApi";
 
 export interface SelectedItems {
     lineItems: LineItem[]
@@ -8,7 +9,7 @@ export interface LineItem {
     color: string,
     size: number,
     quantity: number,
-    productId: number,
+    product: Sneaker,
 }
 
 const initialState: SelectedItems = {
@@ -27,7 +28,7 @@ export const selectedItemsSlice = createSlice({
             state.lineItems = initialState.lineItems;
         },
         addLineItem: (state, action: PayloadAction<LineItem>) => {
-            const idx = state.lineItems.findIndex(i => i.color === action.payload.color && i.size === action.payload.size && i.productId === action.payload.productId);
+            const idx = state.lineItems.findIndex(i => i.color === action.payload.color && i.size === action.payload.size && i.product.id === action.payload.product.id);
             if (idx >= 0) {
                 state.lineItems.at(idx)!.quantity += action.payload.quantity;
             } else {
@@ -36,7 +37,7 @@ export const selectedItemsSlice = createSlice({
         },
         removeLineItem: (state, action: PayloadAction<LineItem>) => {
 
-            const deletedItemIdx = state.lineItems.findIndex(i => i.color === action.payload.color && i.size === action.payload.size && i.productId === action.payload.productId);
+            const deletedItemIdx = state.lineItems.findIndex(i => i.color === action.payload.color && i.size === action.payload.size && i.product.id === action.payload.product.id);
             if (deletedItemIdx >= 0) {
                 state.lineItems.splice(deletedItemIdx, 1);
             }
@@ -44,5 +45,5 @@ export const selectedItemsSlice = createSlice({
     }
 })
 
-export const { updateSelectedItems, clearSelectedItems, addLineItem } = selectedItemsSlice.actions;
+export const { updateSelectedItems, clearSelectedItems, addLineItem, removeLineItem } = selectedItemsSlice.actions;
 export default selectedItemsSlice.reducer;
