@@ -2,7 +2,7 @@ import { promises as fs } from "fs"
 import path from "path"
 import { Metadata } from "next"
 
-import { LineItemTable } from "../_components/cart_page_components/LineItemsTable"
+import { LineItemTable } from "../_components/LineItemsTable"
 
 export const metadata: Metadata = {
   title: "Shopping Cart",
