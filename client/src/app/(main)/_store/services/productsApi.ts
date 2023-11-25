@@ -1,4 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ResponseData } from "../../_utils/responseData";
+import { LineItem } from "../features/selectedItemsSlice";
+
+export interface Cart {
+    id: number,
+    lineItems: LineItem[]
+}
 
 export type Sneaker = {
     id: number;
@@ -20,10 +27,7 @@ export interface AddToCartRequestBody {
     userId: number
 }
 
-export interface Cart {
-    id: string,
-    lineItems: Sneaker[]
-}
+
 
 
 export const productsApi = createApi({
@@ -52,7 +56,7 @@ export const productsApi = createApi({
             providesTags: ["cart"]
         })
         ,
-        addToCart: builder.mutation<null, AddToCartRequestBody>({
+        addToCart: builder.mutation<ResponseData, AddToCartRequestBody>({
             query: (body) => ({
                 url: "/cart",
                 body: body,
