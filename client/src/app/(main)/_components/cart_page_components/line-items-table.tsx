@@ -13,11 +13,9 @@ export function LineItemTable({data}:LineItemTableProps){
         SetProducts((preValue: any[]) =>
             preValue.map((data, o) => {
                 if (i === o) {
-                    return {
-                        ...data,
-                        quanity: Number(data.quanity) + 1
-                    };
+                     return { ...data, quantity: data.quantity + 1 };
                 }
+                console.log(data.quantity)
                 return data;
             })
         );
@@ -28,8 +26,8 @@ export function LineItemTable({data}:LineItemTableProps){
         SetProducts((preValue: any[]) =>
             preValue.map((data, o) => {
                 if (i === o) {
-                    if (data.quanity > 1) {
-                        return { ...data, quanity: data.quanity - 1 };
+                    if (data.quantity > 1) {
+                        return { ...data, quantity: data.quantity - 1 };
                     } else {
                         return data;
                     }
@@ -66,8 +64,8 @@ export function LineItemTable({data}:LineItemTableProps){
     }
 
     // -------Total Product Incart and Total Price of cart
-    const cartTotalQty = products.reduce((acc: number, data: { quanity: any; }) => acc + Number(data.quanity), 0);
-    const cartTotalAmount = products.reduce((acc: number, data: { price: any; quanity: any; }) => acc + Number(data.price) * Number(data.quanity), 0);
+    const cartTotalQty = products.reduce((acc: number, data: { quantity: any; }) => acc + data.quantity, 0);
+    const cartTotalAmount = products.reduce((acc: number, data: { product: any; quantity: any; }) => acc + data.product.price * data.quantity, 0);
     
     // ------Hancle quanity change
 
@@ -77,7 +75,7 @@ export function LineItemTable({data}:LineItemTableProps){
                 if (i === o) {
                     console.log(e.target.value)
                     if (data.quanity > -1) {
-                        return { ...data, quanity: Number(e.target.value)};
+                        return { ...data, quantity: Number(e.target.value)};
                     } else {
                         return data;
                     }
@@ -127,26 +125,26 @@ export function LineItemTable({data}:LineItemTableProps){
                                                 {
                                                     products.map((data, index) => {
                                                        // const { id, image, name, price, qty } = data;
-                                                        const { id, product_name, imageURL, size, color, price, quanity } = data; 
-                                                       return (
+                                                        const { id, color, size, quantity, product } = data; 
+                                                        return (
                                                             <tr key={index}>
-                                                                <td className="px-6 py-4"><div className="product-img"><img src={imageURL} alt="" /></div></td>
-                                                                <td className="px-6 py-4"><div className="product-name"><p>{product_name}</p></div></td>
+                                                                <td className="px-6 py-4"><div className="product-img"><img src={product.imageUrl} alt="" /></div></td>
+                                                                <td className="px-6 py-4"><div className="product-name"><p>{product.name}</p></div></td>
                                                                 <td className="px-6 py-4"><div className="product-size"><p>{size}</p></div></td>
                                                                 <td className="px-6 py-4"><div className="product-color"><p>{color}</p></div></td>
-                                                                <td className="px-6 py-4"><div className="product-price">${Number(price)}</div></td>
+                                                                <td className="px-6 py-4"><div className="product-price">${Number(product.price)}</div></td>
                                                                 <td>
                                                                     <div className="prdct-qty-container">
                                                                         <button className="prdct-qty-btn" type="button" onClick={() => decreaseQuantity(index)}>
                                                                             <i className="fa fa-minus"></i>
                                                                         </button>
-                                                                        <input type="text" onChange={()=> handleQuantityChange(index,event)} name="qty" className="qty-input-box" value={quanity}  />
+                                                                        <input type="text" onChange={()=> handleQuantityChange(index,event)} name="qty" className="qty-input-box" value={quantity}  />
                                                                         <button className="prdct-qty-btn" type="button" onClick={() => increaseQuantity(index)}>
                                                                             <i className="fa fa-plus"></i>
                                                                         </button>
                                                                     </div>
                                                                 </td>
-                                                                <td className="text-justify px-6 py-4">${(Number(quanity) * Number(price)).toFixed(0)}</td>
+                                                                <td className="text-justify px-6 py-4">${(Number(quantity) * Number(product.price)).toFixed(0)}</td>
                                                                 <td className="px-6 py-4"><button className="prdct-delete" onClick={() => removeFromCart(index)}><i className="fa fa-trash-alt"></i></button></td>
                                                             </tr>
                                                         )
