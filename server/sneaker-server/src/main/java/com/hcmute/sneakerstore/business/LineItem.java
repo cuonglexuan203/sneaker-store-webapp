@@ -62,8 +62,6 @@ public class LineItem implements Serializable, Identifiable {
 	private Cart cart;
 	
 	@EqualsAndHashCode.Exclude
-	@GsonExclude
-	@ToString.Exclude
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;

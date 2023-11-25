@@ -46,10 +46,10 @@ export const userApi = createApi({
             providesTags: ['user'],
         }),
         signUp: builder.mutation<AuthResponseBody, SignUpRequestBody>({
-            query: (user) => ({
+            query: (body) => ({
                 url: "auth/signup",
                 method: "POST",
-                body: user,
+                body: body,
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
