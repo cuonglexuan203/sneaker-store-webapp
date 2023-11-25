@@ -34,7 +34,7 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 public class SignUpServlet extends HttpServlet {
 
 	@Data
-	private class SignUpData {
+	private class SignUpRequestBody {
 		private User user;
 		private Account account;
 	}
@@ -47,8 +47,8 @@ public class SignUpServlet extends HttpServlet {
 
 			//
 			try {
-				SignUpData signUpData = GsonProvider.getGsonInstance()
-						.fromJson(body, SignUpData.class);
+				SignUpRequestBody signUpData = GsonProvider.getGsonInstance()
+						.fromJson(body, SignUpRequestBody.class);
 
 				// Add new user
 				User newUser = signUpData.getUser();

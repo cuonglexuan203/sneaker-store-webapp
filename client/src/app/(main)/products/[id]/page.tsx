@@ -1,53 +1,118 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState, useEffect } from "react";
+import { useAppSelector } from "../../_store/hooks";
+import { useRouter } from "next/navigation";
+import {
+    AddToCartRequestBody,
+    useAddToCartMutation,
+    useGetProductByIdQuery,
+} from "../../_store/services/productsApi";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const colors = [
     {
-        value: "white",
+        value: "WHITE",
         bgColor: "bg-white",
     },
     {
-        value: "gray",
+        value: "GRAY",
         bgColor: "bg-gray-200",
     },
     {
-        value: "black",
+        value: "BLACK",
         bgColor: "bg-black",
     },
     {
-        value: "yellow",
+        value: "YELLOW",
         bgColor: "bg-yellow-200",
     },
     {
-        value: "red",
+        value: "RED",
         bgColor: "bg-red-200",
     },
     {
-        value: "purple",
+        value: "PURPLE",
         bgColor: "bg-purple-200",
     },
     {
-        value: "orange",
+        value: "ORANGE",
         bgColor: "bg-orange-200",
     },
     {
-        value: "blue",
+        value: "BLUE",
         bgColor: "bg-blue-200",
     },
 ];
 
 const sizes = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
-const ProductDetail = ({ params }: { params: { id: string } }) => {
+const ProductDetail = ({ params }: { params: { id: number } }) => {
     const [isShippingOpen, setIsShippingOpen] = useState(false);
     const [isReturnOpen, setIsReturnOpen] = useState(false);
     const [color, setColor] = useState("");
     const [size, setSize] = useState(0);
     const [productCount, setProductCount] = useState(1);
+    const [isLiked, setIsLiked] = useState(false);
+    const [isToastVisible, setIsToastVisible] = useState(false);
+    const router = useRouter();
+    const [addToCart, { data, isLoading, error }] = useAddToCartMutation();
+    const {
+        isLoading: isProductLoading,
+        isFetching: isProductFetching,
+        data: product,
+        error: productError,
+    } = useGetProductByIdQuery(params.id);
     //
+    const isLogging = useAppSelector((state) => state.auth.isLogging);
+    const userId = useAppSelector((state) => state.user.info.id);
+    //
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (isToastVisible) {
+                setIsToastVisible(false);
+            }
+        }, 3000);
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [isToastVisible]);
+    //
+    const handleAddToCart = async () => {
+        if (!isLogging) {
+            router.push("/auth/signin");
+            return;
+        }
+        //
+        const body: AddToCartRequestBody = {
+            color,
+            size,
+            quantity: productCount,
+            productId: params.id,
+            userId,
+        };
+        try {
+            const response = await addToCart(body).unwrap();
+            //
+            if (error) {
+                console.error(response);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        setIsToastVisible(false);
+        setIsToastVisible(true);
+    };
+    if (productError) {
+        return "Error";
+    }
+    if (isProductLoading || isProductFetching) {
+        return "Loading...";
+    }
     return (
-        <section className="py-10 font-poppins dark:bg-gray-800">
+        <section className="relative py-10 font-poppins dark:bg-gray-800">
             <div className="max-w-6xl px-4 mx-auto">
                 {/* Product */}
                 <div className="flex flex-wrap mb-24 -mx-4">
@@ -74,9 +139,12 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                                         ></path>
                                     </svg>
                                 </a>
-                                <img
-                                    className="object-contain rounded-lg w-full lg:h-5/6"
-                                    src="/images/products/1.webp"
+                                <Image
+                                    className="object-fill rounded-lg w-full lg:h-[550px]"
+                                    width={0}
+                                    height={0}
+                                    sizes="100%"
+                                    src={`${product?.imageUrl}`}
                                     alt=""
                                 />
                                 <a
@@ -100,7 +168,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                             </div>
                             {/* Subimages */}
                             <div className="flex-wrap hidden -mx-2 md:flex md:flex-col">
-                                <div className="w-1/2 p-2">
+                                <div className="w-1/2">
                                     <a
                                         className="block hover: rounded-lg"
                                         href="#"
@@ -112,6 +180,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                                         />
                                     </a>
                                 </div>
+
                                 <div className="w-1/2 p-2">
                                     <a
                                         className="block hover: rounded-lg"
@@ -154,16 +223,17 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                     {/* Detail */}
                     <div className="w-full px-4 md:w-1/2">
                         <div className="lg:pl-20">
+                            {/* Info */}
                             <div className="mb-6 ">
                                 {/* <span className="px-2.5 py-0.5 text-xs text-blue-600 bg-blue-100 dark:bg-gray-700 rounded-xl dark:text-gray-200">
                                     New Arrival
                                 </span> */}
                                 <h2 className="max-w-xl mt-6 mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
-                                    Nike InfinityRN 4 GORE-TEX
+                                    {product?.name}
                                 </h2>
 
                                 <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
-                                    <span>500$</span>
+                                    <span>{product?.price}$</span>
                                     <span className="ml-3 text-base font-normal text-gray-500 line-through dark:text-gray-400">
                                         986$
                                     </span>
@@ -349,25 +419,58 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                                     </div>
                                 </div>
                                 <div className="mb-4 lg:mb-0">
-                                    <button className="flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 border border-gray-300 lg:w-11 hover:text-gray-50 dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 dark:hover:border-blue-500 dark:hover:text-gray-100">
+                                    <button
+                                        onClick={() => setIsLiked(!isLiked)}
+                                        className="hover:text-red-200 flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 lg:w-11 dark:text-gray-200"
+                                    >
                                         <svg
+                                            width="220px"
+                                            height="220px"
+                                            viewBox="-2.4 -2.4 28.80 28.80"
+                                            fill="none"
                                             xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            fill="currentColor"
-                                            className=" bi bi-heart"
-                                            viewBox="0 0 16 16"
+                                            stroke="#ffffff"
                                         >
-                                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+                                            <g
+                                                id="SVGRepo_bgCarrier"
+                                                stroke-width="0"
+                                                transform="translate(0,0), scale(1)"
+                                            >
+                                                <rect
+                                                    x="-2.4"
+                                                    y="-2.4"
+                                                    width="28.80"
+                                                    height="28.80"
+                                                    rx="14.4"
+                                                    fill="#7ed0ec"
+                                                    strokeWidth="0"
+                                                ></rect>
+                                            </g>
+                                            <g
+                                                id="SVGRepo_tracerCarrier"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            ></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                {" "}
+                                                <path
+                                                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                                                    fill={
+                                                        isLiked
+                                                            ? "#fe2a2a"
+                                                            : "#f8f7f7"
+                                                    }
+                                                ></path>{" "}
+                                            </g>
                                         </svg>
                                     </button>
                                 </div>
-                                <a
-                                    href="#"
+                                <button
+                                    onClick={handleAddToCart}
                                     className="w-full px-4 py-3 text-center text-blue-600 bg-blue-100 border border-blue-600 dark:hover:bg-gray-900 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-700 hover:bg-blue-600 hover:text-gray-100 lg:w-1/2 rounded-xl"
                                 >
                                     Add to cart
-                                </a>
+                                </button>
                             </div>
                             <div className="flex gap-4 mb-6">
                                 <a
@@ -918,6 +1021,100 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="bottom-8 right-8 fixed">
+                {isToastVisible && (
+                    <motion.div
+                        initial={{
+                            translateX: 400,
+                        }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 10,
+                            duration: 1,
+                            delay: 0.5,
+                        }}
+                        animate={{
+                            translateX: 0,
+                        }}
+                        id="toast-default"
+                        className="flex items-center w-full mb-4 max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-xl dark:text-gray-400 dark:bg-gray-800"
+                        role="alert"
+                    >
+                        <div role="status">
+                            <svg
+                                viewBox="0 0 1024 1024"
+                                version="1.1"
+                                className="w-8 h-8 mr-2"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                    fill="#FFF59D"
+                                />
+                                <path
+                                    d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                    fill="#FBC02D"
+                                />
+                                <path
+                                    d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                    fill="#FFF59D"
+                                />
+                                <path
+                                    d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                    fill="#5C6BC0"
+                                />
+                                <path
+                                    d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                    fill="#9FA8DA"
+                                />
+                                <path
+                                    d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                    fill="#5C6BC0"
+                                />
+                            </svg>
+                            <span className="sr-only">Loading...</span>
+                        </div>
+
+                        <div className="ml-3 text-sm font-normal">
+                            <em className="text-amber-500">
+                                Successfully add item into cart
+                            </em>
+                            <br />
+                            <Link
+                                className="text-xs font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                href={"#"}
+                            >
+                                View Your Cart Here
+                            </Link>
+                        </div>
+                        <button
+                            type="button"
+                            className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                            data-dismiss-target="#toast-default"
+                            aria-label="Close"
+                            onClick={() => setIsToastVisible(false)}
+                        >
+                            <span className="sr-only">Close</span>
+                            <svg
+                                className="w-3 h-3"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 14 14"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                />
+                            </svg>
+                        </button>
+                    </motion.div>
+                )}
             </div>
         </section>
     );

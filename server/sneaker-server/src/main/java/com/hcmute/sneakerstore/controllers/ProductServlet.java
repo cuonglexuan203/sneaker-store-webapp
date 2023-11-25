@@ -36,8 +36,8 @@ public class ProductServlet extends HttpServlet {
 		try {
 			productId = Long.parseLong(productIdStr);
 		} catch (NumberFormatException err) {
-			HttpResponseHandler.sendErrorResponse(res, res.SC_NOT_FOUND,
-					StatusMessage.SM_NOT_FOUND.getDescription());
+			HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST,
+					StatusMessage.SM_BAD_REQUEST.getDescription());
 			return;
 		}
 		//

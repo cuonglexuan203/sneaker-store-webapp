@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { type Sneaker } from "../_store/services/productsApi";
+import Link from "next/link";
 
 const Product = ({ product: p }: { product: Sneaker }) => {
     return (
         <div className="mx-auto group relative w-full h-fit lg:min-h-[27.5rem] max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
             {/* Image */}
-            <a href="#">
+            <Link href={`/products/${p.id}`}>
                 <div className="overflow-hidden h-48 md:h-52 lg:h-60">
                     <Image
                         className="w-full h-full rounded-t-lg object-fill transition-all duration-300 group-hover:scale-90"
@@ -16,7 +17,7 @@ const Product = ({ product: p }: { product: Sneaker }) => {
                         alt="product image"
                     />
                 </div>
-            </a>
+            </Link>
             <span className="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-black text-center text-sm text-white">
                 Sale
             </span>
