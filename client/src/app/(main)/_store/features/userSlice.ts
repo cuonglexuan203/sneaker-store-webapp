@@ -22,8 +22,14 @@ export interface UserInfo {
     gender: boolean,
     birthday: string,
     phoneNumber: string,
-    address: string,
-    imageUrl: string
+    address: {
+        country: string,
+        city: string,
+        district: string
+    },
+    imageUrl: string,
+    creditCardNumber?: string,
+    creditCardType?: string
 }
 
 const initialInfo = {
@@ -34,8 +40,15 @@ const initialInfo = {
     gender: false,
     birthday: "2023-11-21",
     phoneNumber: "",
-    address: "",
-    imageUrl: ""
+    address: {
+        country: "",
+        city: "",
+        district: "",
+    },
+    imageUrl: "",
+    creditCardNumber: "",
+    creditCardType: ""
+
 }
 
 
@@ -59,7 +72,7 @@ export const userSlice = createSlice({
                 state.info.imageUrl = action.payload.user.image;
             }
             else {
-                state.info = action.payload;
+                state.info = {...state.info,...action.payload}
             }
         },
         removeUser: (state) => {

@@ -4,103 +4,9 @@ import Link from "next/link";
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import Product from "../_components/Product";
-
-const selectedItems = [
-  {
-    id: 1,
-    color: "BLUE",
-    size: 44,
-    quantity: 1,
-    product: {
-      id: 1,
-      brand: "Nike",
-      name: "Nike Air Max 1 SC Light Bone Violet Dust",
-      ean: "FB9660-002",
-      price: 126.5,
-      releaseDate: "2022-11-09",
-      categories: ["Men"],
-      description:
-        "This new rendition of Nike's classic Air Max 1 model showcases a neutral color scheme of cream, purple, and tan...",
-      imageUrl: "/images/sneakers/1.png",
-    },
-  },
-  {
-    id: 2,
-    color: "GREY",
-    size: 45,
-    quantity: 3,
-    product: {
-      id: 2,
-      brand: "Nike",
-      name: "Nike Air Max 97 Multi-Corduroy (Women's)",
-      ean: "FB8454-300",
-      price: 153.5,
-      releaseDate: "2023-10-09",
-      categories: ["Women"],
-      description:
-        "The Nike Air Max 97 is a running shoe that debuted in 1997...",
-      imageUrl: "/images/sneakers/2.png",
-    },
-  },
-  {
-    id: 3,
-    color: "BLACK",
-    size: 40,
-    quantity: 5,
-    product: {
-      id: 3,
-      name: "Rivalry 86 Low 'Class of '86'",
-      brand: "adidas",
-      ean: "IE7160",
-      price: 196.4,
-      releaseDate: "2023-11-03",
-      categories: ["Men"],
-      description:
-        "An iconic silhouette that gained traction in the mid-80's basketball scene, the Adidas Rivalry Low Consortium...",
-      imageUrl: "/images/sneakers/8.png",
-    },
-  },
-  {
-    id: 4,
-    color: "BLACK",
-    size: 40,
-    quantity: 5,
-    product: {
-      id: 3,
-      name: "Air Jordan 5 Retro SE TD 'Midnight Navy'",
-      brand: "Jordan",
-      ean: "FN5454-400",
-      price: 500,
-      releaseDate: "2023-01-10",
-      categories: ["Infant"],
-      description:
-        "Following in its predecessors' footsteps, the iconic Air Jordan 5 is joining in on the 'Craft' pack...",
-      imageUrl: "/images/sneakers/5.png",
-    },
-  },
-  {
-    id: 5,
-    color: "BLACK",
-    size: 40,
-    quantity: 1,
-    product: {
-      id: 3,
-      name: "The Apartment x 576 Made in England 'Evergreen'",
-      brand: "New Balance",
-      ean: "OU576AME",
-      price: 243.5,
-      releaseDate: "2023-06-10",
-      categories: ["Men"],
-      description:
-        "Following in its predecessors' footsteps, the iconic Air Jordan 6 is joining in on the 'Craft' pack...",
-      imageUrl: "/images/sneakers/6.png",
-    },
-  },
-];
-
-const total = selectedItems.reduce((accumulator, item) => {
-  return accumulator + item.product.price * item.quantity;
-}, 0);
+import { useAppSelector } from "../_store/hooks";
+import { LineItem } from "../_store/features/selectedItemsSlice";
+import { useRouter } from "next/navigation";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -124,6 +30,11 @@ const dummyPaymentInfo = {
 };
 
 const Checkout = () => {
+  const user = useAppSelector((state) => state.user.info);
+  const selectedItems = useAppSelector((state) => state.tempCart.lineItems);
+  const total = selectedItems.reduce((accumulator: number, item: LineItem) => {
+    return accumulator + item.product.price * item.quantity;
+  }, 0);
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
 
   const handleConfirmClick = () => {
@@ -131,11 +42,20 @@ const Checkout = () => {
     // Handle the purchase confirmation logic here
     setPurchaseConfirmed(true); // Update the state to indicate purchase is confirmed
   };
+  const router = useRouter();
 
   if (purchaseConfirmed) {
     return (
       <div className="container mx-auto p-4 text-center">
         <h1 className="text-2xl font-bold py-4">Thank you for your order!</h1>
+        <div className="flex justify-center">
+          <button
+            className="bg-gray-900 text-white py-3 px-6 font-bold rounded hover:bg-gray-700"
+            onClick={() => router.push("/")}
+          >
+            Continue Shopping
+          </button>
+        </div>
       </div>
     );
   }
@@ -242,9 +162,12 @@ const Checkout = () => {
           <div className="gap-4">
             <div className="mb-6">
               <h2 className="text-xl font-semibold">Shipping Information</h2>
-              <span className="text-gray-700">{dummyShippingInfo.address}</span>
               <span className="text-gray-700">
-                {dummyShippingInfo.city}, {dummyShippingInfo.zip},
+                {user.address.district +
+                  " " +
+                  user.address.city +
+                  " " +
+                  user.address.country}
               </span>
               <span className="text-gray-700">
                 {" "}
@@ -254,12 +177,10 @@ const Checkout = () => {
 
             <div className="mb-6">
               <h2 className="text-xl font-semibold">Payment Method</h2>
-              <p className="text-gray-700">Email: {dummyPaymentInfo.email}</p>
+              <p className="text-gray-700">Email: {user.email}</p>
+              <p className="text-gray-700">Card Method: Credit Card</p>
               <p className="text-gray-700">
-                Card Method: {dummyPaymentInfo.method}
-              </p>
-              <p className="text-gray-700">
-                Card Number: {dummyPaymentInfo.cardNumber}
+                Card Number: {user.creditCardNumber}
               </p>
             </div>
             <div className="mb-6 py-2">
@@ -273,7 +194,7 @@ const Checkout = () => {
           <h2 className="text-xl font-semibold">Order Summary</h2>
           <div className="mb-6">
             <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6 overflow-y-auto max-h-96">
-              {selectedItems.map((item, index) => (
+              {selectedItems.map((item: LineItem, index: number) => (
                 <div
                   key={index}
                   className="flex flex-col sm:flex-row items-center rounded-lg bg-white"
@@ -311,7 +232,7 @@ const Checkout = () => {
               ))}
             </div>
             <h1 className="text-2xl font-semibold mb-4 py-4">
-              Total: ${total.toFixed(2)}
+              Total: ${(total + shipCost).toFixed(2)}
             </h1>
           </div>
           <div className="flex justify-center">
