@@ -25,6 +25,7 @@ import com.hcmute.sneakerstore.data.DAOs.AccountDao;
 import com.hcmute.sneakerstore.data.DAOs.UserDao;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
+import com.hcmute.sneakerstore.utils.PasswordVerification;
 import com.hcmute.sneakerstore.utils.StatusMessage;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
@@ -41,6 +42,7 @@ public class SignUpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String body = (String) req.getAttribute("body");
+		//
 		if (!ValidationUtils.isNullOrEmpty(body)) {
 
 			//
@@ -50,34 +52,37 @@ public class SignUpServlet extends HttpServlet {
 
 				// Add new user
 				User newUser = signUpData.getUser();
+				Account newAccount = signUpData.getAccount();
 
 				//
 				if (newUser != null) {
 
-					// Add account for user
-					Account newAccount = signUpData.getAccount();
-					//
 					if (newAccount != null) {
-
+						//Hashing password
+						String hasedPassword = PasswordVerification.hashPassword(newAccount.getPassword());
+						newAccount.setPassword(hasedPassword);
+						// Add account for user
 						newUser.addAccount(newAccount);
 						// Validate new User data, Account data
 
 						// add cart for user
-						Cart newCart = Cart.builder().build();
+						Cart newCart = Cart.builder()
+								.build();
 						newUser.addCart(newCart);
-						//
+						// persist user
 						long insertedUserId = UserDao.insertOne(newUser);
 						//
-						
+
 						if (insertedUserId != DBUtils.FAILED_ID) {
 							Map<String, Object> jsonResponse = new HashMap<>();
 							//
-							jsonResponse.put("accountId", Long.toString(insertedUserId));
+							jsonResponse.put("accountId",
+									Long.toString(insertedUserId));
 							jsonResponse.put("role", newAccount.getRole()
 									.toString());
 							jsonResponse.put("user", newUser);
-							HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_CREATED,
-									jsonResponse);
+							HttpResponseHandler.sendSuccessJsonResponse(res,
+									res.SC_CREATED, jsonResponse);
 							return;
 						}
 					}

@@ -16,7 +16,7 @@ const OAuthButton = ({
 
     return (
         <button
-            className="group w-full h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+            className="group w-full h-12 px-6 border-2 border-gray-300 rounded-3xl transition duration-300 
          hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
             onClick={async () => {
                 await signIn(name, { callbackUrl: callbackUrl });

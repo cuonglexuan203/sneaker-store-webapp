@@ -29,7 +29,7 @@ const oAuthOptions = [
 ];
 
 export default function SignIn() {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [signInTrigger, { data, isLoading, error }] = useSignInMutation();
@@ -51,18 +51,24 @@ export default function SignIn() {
             password,
         };
         //
-        const signInResponse = await signInTrigger(inputedLogInData).unwrap();
-        //
-        if (signInResponse) {
-            dispatch(updateUser(signInResponse.user));
-            dispatch(
-                signInter({
-                    accountId: signInResponse.accountId,
-                    isLogging: true,
-                    isOAuth: false,
-                    isAccount: true,
-                })
-            );
+        try {
+            const signInResponse = await signInTrigger(
+                inputedLogInData
+            ).unwrap();
+            //
+            if ((status as any) === "authenticated" && session) {
+                dispatch(updateUser(signInResponse.user));
+                dispatch(
+                    signInter({
+                        accountId: signInResponse.accountId,
+                        isLogging: true,
+                        isOAuth: false,
+                        isAccount: true,
+                    })
+                );
+            }
+        } catch (err) {
+            console.error(err);
         }
     };
     const authForm = (
