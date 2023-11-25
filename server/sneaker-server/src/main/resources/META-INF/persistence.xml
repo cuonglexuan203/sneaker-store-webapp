@@ -15,18 +15,13 @@
 			<!-- Credentials -->
 			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="Nam0394887656!" />
+				value="123456" />
 
 			<!-- Automatic schema export -->
-<<<<<<< HEAD:server/sneaker-server/src/main/resources/META-INF/persistence.xml
 			<!-- 
 			 <property name="jakarta.persistence.schema-generation.database.action"
                       value="drop-and-create"/>
                        -->
-=======
-			 <!-- <property name="jakarta.persistence.schema-generation.database.action"
-                      value="drop-and-create"/> -->
->>>>>>> 6d5ffb3 (delete old backend server, add the latest one):sneaker-server/src/main/resources/META-INF/persistence.xml
 			<!-- SQL statement logging -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
