@@ -180,9 +180,8 @@ const NavBar = () => {
                     </div>
                     {/* Menu part */}
                     <div
-                        className={`${
-                            !isMobileMenuOpen && "hidden "
-                        } absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
+                        className={`${!isMobileMenuOpen && "hidden "
+                            } absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
                     >
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 md:rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
@@ -283,11 +282,10 @@ const NavBar = () => {
                         </button>
                         {/* Notification */}
                         <button
-                            className={`hidden lg:block relative p-2 ${
-                                isNotificationOpen
-                                    ? "bg-sky-500 text-white"
-                                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
-                            } rounded-lg`}
+                            className={`hidden lg:block relative p-2 ${isNotificationOpen
+                                ? "bg-sky-500 text-white"
+                                : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
+                                } rounded-lg`}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 dispatch(toggleIsNotificationOpen());
@@ -308,11 +306,10 @@ const NavBar = () => {
                             </div>
                             {/* Notification dropdown */}
                             <div
-                                className={`transition-all duration-150 ease-out h-0 absolute z-50  w-96 -translate-x-1/2 my-4 overflow-hidden text-base text-left list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700 ${
-                                    isNotificationOpen
-                                        ? "h-auto translate-y-0"
-                                        : "-translate-y-8"
-                                }`}
+                                className={`transition-all duration-150 ease-out h-0 absolute z-50  w-96 -translate-x-1/2 my-4 overflow-hidden text-base text-left list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700 ${isNotificationOpen
+                                    ? "h-auto translate-y-0"
+                                    : "-translate-y-8"
+                                    }`}
                             >
                                 <div className="block px-4 py-2 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     Notifications
@@ -544,14 +541,13 @@ const NavBar = () => {
                             </div>
                         </button>
                         {/* Cart */}
-                        <button
-                            type="button"
-                            data-dropdown-toggle="apps-dropdown"
+                        <Link
+                            href={"/cart"}
                             className="hidden p-2 text-gray-500 rounded-lg sm:flex hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                         >
                             <span className="sr-only">View notifications</span>
                             <FaShoppingCart className="h-6 w-6" />
-                        </button>
+                        </Link>
                         {/* Theme toggle */}
                         <button
                             className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
@@ -625,11 +621,10 @@ const NavBar = () => {
                                 </div>
                                 {/* User dropdown */}
                                 <div
-                                    className={`${
-                                        isUserMenuOpen
-                                            ? "h-fit translate-y-5"
-                                            : ""
-                                    } h-0 transition-all duration-150 ease-out absolute top-0 overflow-hidden right-0 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                                    className={`${isUserMenuOpen
+                                        ? "h-fit translate-y-5"
+                                        : ""
+                                        } h-0 transition-all duration-150 ease-out absolute top-0 overflow-hidden right-0 z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                             id="dropdown-2`}
                                 >
                                     <div className="px-4 py-3" role="none">
@@ -638,7 +633,7 @@ const NavBar = () => {
                                             role="none"
                                         >
                                             {userInfo.firstName +
-                                            userInfo.lastName
+                                                userInfo.lastName
                                                 ? userInfo.firstName
                                                 : ""}
                                         </p>
@@ -651,19 +646,17 @@ const NavBar = () => {
                                     </div>
                                     <ul className="py-1" role="none">
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/user/profile"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                role="menuitem"
                                             >
-                                                Dashboard
-                                            </a>
+                                                Profile
+                                            </Link>
                                         </li>
                                         <li>
                                             <a
                                                 href="#"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                role="menuitem"
                                             >
                                                 Settings
                                             </a>
@@ -672,7 +665,6 @@ const NavBar = () => {
                                             <a
                                                 href="#"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                role="menuitem"
                                             >
                                                 Earnings
                                             </a>
@@ -681,7 +673,6 @@ const NavBar = () => {
                                             <a
                                                 href="#"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                role="menuitem"
                                                 onClick={() => {
                                                     if (authData.isOAuth) {
                                                         signOut();

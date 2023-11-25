@@ -19,7 +19,7 @@ const rootPersistConfig = {
 const tempCartPersistConfig = {
     key: 'tempCart',
     storage: sessionStorage,
-    version: 2,
+    version: 1,
 }
 
 const rootReducer = combineReducers({

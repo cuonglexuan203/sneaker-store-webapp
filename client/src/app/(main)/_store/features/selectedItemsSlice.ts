@@ -12,6 +12,10 @@ export interface LineItem {
     product: Sneaker,
 }
 
+export interface IndexedLineItem extends LineItem {
+    id: number
+}
+
 const initialState: SelectedItems = {
     lineItems: [],
 }

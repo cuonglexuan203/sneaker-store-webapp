@@ -22,8 +22,12 @@ export interface UserInfo {
     gender: boolean,
     birthday: string,
     phoneNumber: string,
-    address: string,
-    imageUrl: string
+    address: {
+        country: string,
+        city: string,
+        district: string
+    },
+    imageUrl: string,
 }
 
 const initialInfo = {
@@ -34,8 +38,13 @@ const initialInfo = {
     gender: false,
     birthday: "2023-11-21",
     phoneNumber: "",
-    address: "",
-    imageUrl: ""
+    address: {
+        country: "",
+        city: "",
+        district: "",
+    },
+    imageUrl: "",
+
 }
 
 
