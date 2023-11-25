@@ -16,7 +16,10 @@ import {
     toggleIsSearching,
 } from "../_store/features/navBarSlice";
 import { removeUser, updateUser } from "../_store/features/userSlice";
-import { signOut as signOuter } from "../_store/features/authSlice";
+import {
+    signOut as signOuter,
+    signIn as signInter,
+} from "../_store/features/authSlice";
 //
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,6 +40,7 @@ const NavBar = () => {
     //
     const { data: session } = useSession();
     useEffect(() => {
+        //* Update user information by session
         if (session) {
             dispatch(
                 updateUser({
@@ -49,6 +53,21 @@ const NavBar = () => {
                 })
             );
         }
+        //* Validate isLogging state
+        // if (
+        //     userInfo.firstName === null ||
+        //     userInfo.firstName === undefined ||
+        //     userInfo.firstName === ""
+        // ) {
+        //     dispatch(
+        //         signInter({
+        //             accountId: 0,
+        //             isLogging: false,
+        //             isOAuth: false,
+        //             isAccount: false,
+        //         })
+        //     );
+        // }
     }, [session]);
     //
     const handleSearchSubmit = (

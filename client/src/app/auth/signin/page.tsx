@@ -56,7 +56,7 @@ export default function SignIn() {
                 inputedLogInData
             ).unwrap();
             //
-            if ((status as any) === "authenticated" && session) {
+            if (signInResponse) {
                 dispatch(updateUser(signInResponse.user));
                 dispatch(
                     signInter({

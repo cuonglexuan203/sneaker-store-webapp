@@ -2,6 +2,8 @@ import Image from "next/image";
 import { signIn } from "next-auth/react";
 import { useDispatch } from "react-redux";
 import { signIn as signInter } from "../_store/features/authSlice";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 //
 const OAuthButton = ({
     name,
@@ -13,6 +15,7 @@ const OAuthButton = ({
     callbackUrl: string;
 }) => {
     const dispatch = useDispatch();
+    const { data: session, status } = useSession();
 
     return (
         <button
