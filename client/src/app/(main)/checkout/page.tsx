@@ -69,6 +69,45 @@ const lineItems = [
   },
 ];
 
+const selectedItems = [
+  {
+    id: 1,
+    color: "BLUE",
+    size: 44,
+    quantity: 1,
+    product: {
+      id: 1,
+      brand: "Nike",
+      name: "Nike Air Max 1 SC Light Bone Violet Dust",
+      ean: "FB9660-002",
+      price: 126.5,
+      releaseDate: "2022-11-09",
+      categories: ["Men"],
+      description:
+        "This new rendition of Nike's classic Air Max 1 model showcases a neutral color scheme of cream, purple, and tan...",
+      imageUrl: "/images/sneakers/1.png",
+    },
+  },
+  {
+    id: 2,
+    color: "GREY",
+    size: 45,
+    quantity: 3,
+    product: {
+      id: 2,
+      brand: "Nike",
+      name: "Nike Air Max 97 Multi-Corduroy (Women's)",
+      ean: "FB8454-300",
+      price: 153.5,
+      releaseDate: "2023-10-09",
+      categories: ["Women"],
+      description:
+        "The Nike Air Max 97 is a running shoe that debuted in 1997...",
+      imageUrl: "/images/sneakers/2.png",
+    },
+  },
+];
+
 const total = lineItems.reduce((accumulator, item) => {
   return accumulator + item.product.price * item.quantity;
 }, 0);
