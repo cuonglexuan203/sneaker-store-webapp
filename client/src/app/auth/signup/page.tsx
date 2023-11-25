@@ -5,9 +5,13 @@ import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/(main)/_store/hooks";
 import OAuthButton from "@/app/(main)/_components/OAuthButton";
-
-import { Account } from "@/app/(main)/_store/services/userApi";
+import {
+    SignUpRequestBody,
+    useSignUpMutation,
+} from "@/app/(main)/_store/services/userApi";
 import React from "react";
+import { updateUser } from "@/app/(main)/_store/features/userSlice";
+import { signIn as signInter } from "@/app/(main)/_store/features/authSlice";
 
 const oAuthOptions = [
     {
@@ -47,11 +51,10 @@ const SignInPage = () => {
     const [repeatPw, setRepeatPw] = useState("");
     const [gender, setGender] = useState("");
     const [birthday, setBirthday] = useState("");
-    const [selectedCountries, setSelectedCountries] = React.useState<string[]>(
-        []
-    );
-    const [city, setCity] = React.useState<string>("");
+    const [country, setCountry] = useState("");
+    const [city, setCity] = useState("");
     const [district, setDistrict] = useState("");
+    const [signUpTrigger, { data, isLoading, error }] = useSignUpMutation();
 
     const router = useRouter();
     //
@@ -62,27 +65,55 @@ const SignInPage = () => {
         // dispatch action along with session changes here
         redirect("/");
     }
-
     const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedOptions = Array.from(
-            e.target.selectedOptions,
-            (option) => option.value
-        );
-        setSelectedCountries(selectedOptions);
-        setCity("");
+        const selectedOption = e.target.value;
+        setCountry(selectedOption);
     };
 
-    const cities = selectedCountries.flatMap(
-        (country) => countryCities[country] || []
-    );
+    const cities = countryCities[country] || [];
 
     //
     const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const inputedLogInData: Account = {
-            username,
-            password,
+        const signUpRequestBody: SignUpRequestBody = {
+            user: {
+                firstName,
+                lastName,
+                email,
+                gender: gender === "male",
+                birthday,
+                phoneNumber,
+                address: {
+                    country,
+                    city,
+                    district,
+                },
+            },
+            account: {
+                username,
+                password,
+            },
         };
+        //
+        try {
+            const signUpResponse = await signUpTrigger(
+                signUpRequestBody
+            ).unwrap();
+            //
+            if (signUpResponse) {
+                dispatch(updateUser(signUpResponse.user));
+                dispatch(
+                    signInter({
+                        accountId: signUpResponse.accountId,
+                        isLogging: true,
+                        isOAuth: false,
+                        isAccount: true,
+                    })
+                );
+            }
+        } catch (err) {
+            console.error(err);
+        }
     };
     const authForm = (
         <div className="grid grid-cols-1 gap-6 mt-8">
@@ -192,7 +223,7 @@ const SignInPage = () => {
                         Country
                     </label>
                     <select
-                        value={selectedCountries}
+                        value={country}
                         onChange={handleCountryChange}
                         required
                         className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -219,11 +250,11 @@ const SignInPage = () => {
                             setCity(e.target.value)
                         }
                         required
-                        disabled={selectedCountries.length === 0}
+                        disabled={country.length === 0}
                         className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     >
                         <option value="">
-                            {selectedCountries.length > 0
+                            {country.length > 0
                                 ? "Select a city"
                                 : "Select countries first"}
                         </option>

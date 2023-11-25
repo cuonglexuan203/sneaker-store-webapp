@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import Product from "../_components/Product";
 
@@ -106,9 +106,63 @@ const selectedItems = [
       imageUrl: "/images/sneakers/2.png",
     },
   },
+  {
+    id: 3,
+    color: "BLACK",
+    size: 40,
+    quantity: 5,
+    product: {
+      id: 3,
+      name: "Rivalry 86 Low 'Class of '86'",
+      brand: "adidas",
+      ean: "IE7160",
+      price: 196.4,
+      releaseDate: "2023-11-03",
+      categories: ["Men"],
+      description:
+        "An iconic silhouette that gained traction in the mid-80's basketball scene, the Adidas Rivalry Low Consortium...",
+      imageUrl: "/images/sneakers/8.png",
+    },
+  },
+  {
+    id: 4,
+    color: "BLACK",
+    size: 40,
+    quantity: 5,
+    product: {
+      id: 3,
+      name: "Air Jordan 5 Retro SE TD 'Midnight Navy'",
+      brand: "Jordan",
+      ean: "FN5454-400",
+      price: 500,
+      releaseDate: "2023-01-10",
+      categories: ["Infant"],
+      description:
+        "Following in its predecessors' footsteps, the iconic Air Jordan 5 is joining in on the 'Craft' pack...",
+      imageUrl: "/images/sneakers/5.png",
+    },
+  },
+  {
+    id: 5,
+    color: "BLACK",
+    size: 40,
+    quantity: 1,
+    product: {
+      id: 3,
+      name: "The Apartment x 576 Made in England 'Evergreen'",
+      brand: "New Balance",
+      ean: "OU576AME",
+      price: 243.5,
+      releaseDate: "2023-06-10",
+      categories: ["Men"],
+      description:
+        "Following in its predecessors' footsteps, the iconic Air Jordan 6 is joining in on the 'Craft' pack...",
+      imageUrl: "/images/sneakers/6.png",
+    },
+  },
 ];
 
-const total = lineItems.reduce((accumulator, item) => {
+const total = selectedItems.reduce((accumulator, item) => {
   return accumulator + item.product.price * item.quantity;
 }, 0);
 
@@ -165,7 +219,9 @@ const Checkout = () => {
                   >
                     2
                   </a>
-                  <span className="font-semibold text-gray-900">Shipping</span>
+                  <span className="font-semibold text-gray-900">
+                    Payment & Shipping
+                  </span>
                 </li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +244,9 @@ const Checkout = () => {
                   >
                     3
                   </a>
-                  <span className="font-semibold text-gray-500">Payment</span>
+                  <span className="font-semibold text-gray-500">
+                    Confirm Purchase
+                  </span>
                 </li>
               </ul>
             </div>
@@ -201,14 +259,14 @@ const Checkout = () => {
               Check your items. And select a suitable shipping method.
             </p>
             <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6 overflow-y-auto max-h-96">
-              {lineItems.map((item, index) => (
+              {selectedItems.map((item, index) => (
                 <div
                   key={index}
                   className="flex flex-col sm:flex-row items-center rounded-lg bg-white"
                 >
                   <div className="m-2 h-24 w-28 flex-shrink-0">
                     <img
-                      className="h-full w-full rounded-md border object-cover"
+                      className="h-full object-contain w-full rounded-md border"
                       src={item.product.imageUrl}
                       alt={item.product.name}
                     />
@@ -259,7 +317,7 @@ const Checkout = () => {
                     alt=""
                   />
                   <div className="ml-5">
-                    <span className="mt-2 font-semibold">Fedex Delivery</span>
+                    <span className="mt-2 font-semibold">DHL Delivery</span>
                     <p className="text-slate-500 text-sm leading-6">
                       Delivery: 2-4 Days
                     </p>
