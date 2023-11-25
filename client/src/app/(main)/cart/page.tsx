@@ -2,24 +2,37 @@ import { promises as fs } from "fs"
 import path from "path"
 import { Metadata } from "next"
 
-import { LineItemTable } from "../_components/cart_page_components/line-items-table"
+import { LineItemTable } from "../_components/cart_page_components/LineItemsTable"
 
 export const metadata: Metadata = {
-  title: "Line Items",
+  title: "Shopping Cart",
   description: "A shopping cart build using Tanstack Table.",
 }
 
-// Simulate a database read for line Items.
-async function getLineItems() {
-  const data = await fs.readFile(
-    path.join(process.cwd(), "src/app/(main)/_components/cart_page_components/data/lineItems.json")
-  )
-  return JSON.parse(data.toString())
-}
+const lineItems = [
+        {
+            "id": 1,
+            "color": "BLUE",
+            "size": 44,
+            "quantity": 20,
+            "product": {
+                "id": 1,
+                "brand": "Nike",
+                "name": "Nike Air Max 1 SC Light Bone Violet Dust",
+                "ean": "FB9660-002",
+                "price": 126.5,
+                "releaseDate": "2022-11-09",
+                "categories": [
+                    "Men"
+                ],
+                "description": "This new rendition of Nike's classic Air Max 1 model showcases a neutral color scheme of cream, purple, and tan...",
+                "imageUrl": "/images/sneakers/1.png"
+            }
+        }
+]
 
 export default async function CartPage() {
 
-  const lineItems = await getLineItems()
   return (
     <>
           <LineItemTable data={lineItems}/>
