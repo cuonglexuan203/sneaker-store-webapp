@@ -13,7 +13,7 @@ export interface Sneaker {
     name: string;
     ean: string;
     price: number;
-    releaseDate: Date;
+    releaseDate: string;
     categories: string[];
     description: string;
     imageUrl: string;

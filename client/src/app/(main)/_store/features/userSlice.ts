@@ -28,6 +28,8 @@ export interface UserInfo {
         district: string
     },
     imageUrl: string,
+    creditCardNumber?: string,
+    creditCardType?: string
 }
 
 const initialInfo = {
@@ -44,6 +46,8 @@ const initialInfo = {
         district: "",
     },
     imageUrl: "",
+    creditCardNumber: "",
+    creditCardType: ""
 
 }
 
@@ -68,7 +72,7 @@ export const userSlice = createSlice({
                 state.info.imageUrl = action.payload.user.image;
             }
             else {
-                state.info = action.payload;
+                state.info = {...state.info,...action.payload}
             }
         },
         removeUser: (state) => {
