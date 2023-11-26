@@ -26,7 +26,7 @@ const dummyShippingInfo = {
 const dummyPaymentInfo = {
   email: "johnsnow@gmail.com",
   method: "Credit Card",
-  cardNumber: "**** **** **** 1234", // Only display the last 4 digits for security
+  cardNumber: "**** **** **** 1234",
 };
 
 const Checkout = () => {
@@ -38,15 +38,16 @@ const Checkout = () => {
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
 
   const handleConfirmClick = () => {
-    console.log("Purchase confirmed");
-    // Handle the purchase confirmation logic here
-    setPurchaseConfirmed(true); // Update the state to indicate purchase is confirmed
+    const answer = confirm("Are you sure you want to purchase?");
+    if (answer) {
+      setPurchaseConfirmed(true);
+    }
   };
   const router = useRouter();
 
   if (purchaseConfirmed) {
     return (
-      <div className="container mx-auto p-4 text-center">
+      <div className="container mx-auto p-4 text-center min-h-[60vh]">
         <h1 className="text-2xl font-bold py-4">Thank you for your order!</h1>
         <div className="flex justify-center">
           <button
@@ -185,7 +186,7 @@ const Checkout = () => {
             </div>
             <div className="mb-6 py-2">
               <h2 className="text-xl font-semibold">Shipping Method</h2>
-              <span className="mt-2 font-semibold">Fedex Delivery</span>
+              <span className="mt-2 text-gray-500">Fedex Delivery</span>
               <p className="text-slate-500 text-sm leading-6">
                 Delivery: 2-4 Days
               </p>
@@ -200,7 +201,10 @@ const Checkout = () => {
                   className="flex flex-col sm:flex-row items-center rounded-lg bg-white"
                 >
                   <div className="m-2 h-24 w-28 flex-shrink-0">
-                    <img
+                    <Image
+                      width={0}
+                      height={0}
+                      sizes="100%"
                       className="h-full object-contain w-full rounded-md border"
                       src={item.product.imageUrl}
                       alt={item.product.name}

@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IndexedLineItem } from "../_store/features/selectedItemsSlice";
 import {
     useUpdateLineItemQuantityMutation,
     useRemoveFromCartMutation,
 } from "../_store/services/productsApi";
+import Image from "next/image";
+import { useAppDispatch } from "../_store/hooks";
+import { addLineItem, removeLineItem } from "../_store/features/selectedItemsSlice";
 
-const LineItem = ({ lineItem }: { lineItem: IndexedLineItem }) => {
+const LineItem = ({ lineItem, isChecked: isCheckedAll }: { lineItem: IndexedLineItem, isChecked: boolean }) => {
     const [quantity, setQuantity] = useState(lineItem.quantity);
+    const [isChecked, setIsChecked] = useState(isCheckedAll);
     const [updateQuantityTrigger, { isLoading, error, data }] =
         useUpdateLineItemQuantityMutation();
     const [
@@ -14,6 +18,17 @@ const LineItem = ({ lineItem }: { lineItem: IndexedLineItem }) => {
         { isLoading: isRemoveLoading, error: removeError, data: removeData },
     ] = useRemoveFromCartMutation();
     //
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (isChecked) {
+            dispatch(addLineItem(lineItem));
+        }
+        else {
+            dispatch(removeLineItem(lineItem));
+        }
+    }, [isChecked])
+
     const product = lineItem.product;
     const handleUpdateQuantity = async (num: number) => {
         const response = await updateQuantityTrigger({
@@ -46,15 +61,20 @@ const LineItem = ({ lineItem }: { lineItem: IndexedLineItem }) => {
         }
     };
     //
+
+
     return (
         <>
+            <td className="px-3">
+                <input type="checkbox" className="form-checkbox rounded bg-gray-300 border-none text-pink-500 focus:ring-0 focus:border-none w-4 h-4" checked={isChecked || isCheckedAll} onChange={(e) => { setIsChecked(e.target.checked) }} />
+            </td>
             <td className="px-6 py-4">
-                <div className="product-img">
-                    <img src={product.imageUrl} alt="" />
+                <div className="w-full h-full">
+                    <Image sizes="100%" width={0} height={0} className="w-full block rounded-xl" src={product.imageUrl} alt="sneaker image" />
                 </div>
             </td>
             <td className="px-6 py-4">
-                <div className="product-name">
+                <div className="product-name line-clamp-4">
                     <p>{product.name}</p>
                 </div>
             </td>
@@ -98,9 +118,9 @@ const LineItem = ({ lineItem }: { lineItem: IndexedLineItem }) => {
                     </button>
                 </div>
             </td>
-            <td className="text-justify px-6 py-4">
+            <td className="px-6 py-4 font-semibold">
                 $
-                {(Number(lineItem.quantity) * Number(product.price)).toFixed(0)}
+                {lineItem.quantity * product.price}
             </td>
             <td className="px-6 py-4">
                 <button className="prdct-delete" onClick={handleRemoveFromCart}>

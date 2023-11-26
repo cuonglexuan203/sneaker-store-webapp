@@ -5,11 +5,16 @@ import {
     useGetCartQuery,
 } from "../_store/services/productsApi";
 import LineItem from "../_components/LineItem";
+import Link from "next/link"
+import { useEffect, useState } from "react";
+import { useAppDispatch } from "../_store/hooks";
+import { updateSelectedItems, clearSelectedItems } from "../_store/features/selectedItemsSlice";
 //
 
 
 
 const CartPage = () => {
+    const [isChecked, setIsChecked] = useState(false);
     const userId = useAppSelector((state) => state.user.info.id);
     const {
         data: cart,
@@ -19,6 +24,21 @@ const CartPage = () => {
     } = useGetCartQuery(userId);
     const [emptyCartTrigger, { isLoading, error, data }] =
         useEmptyCartMutation();
+    const dispatch = useAppDispatch();
+    //
+    const products = cart?.lineItems || [];
+    let sortedProducts = [...products].sort((a, b) => b.id - a.id);
+    //
+    useEffect(() => {
+        if (isChecked) {
+            dispatch(updateSelectedItems({
+                lineItems: sortedProducts
+            }))
+        }
+        else {
+            dispatch(clearSelectedItems());
+        }
+    }, [isChecked])
     //
     if (cartError) {
         return "Error!";
@@ -27,8 +47,8 @@ const CartPage = () => {
         return "Loading...";
     }
     //
-    const products = cart?.lineItems || [];
-    let sortedProducts = [...products].sort((a, b) => b.id - a.id);
+
+    //
     const emptycart = async () => {
         const response = await emptyCartTrigger(userId).unwrap();
 
@@ -38,30 +58,31 @@ const CartPage = () => {
             console.error(data?.message);
         }
     };
-
+    const shippingPrice = sortedProducts.length > 0 ? 20 : 0;
+    const tax = sortedProducts.length > 0 ? 5 : 0;
     // -------Total Product Incart and Total Price of cart
     const cartTotalQty = sortedProducts?.reduce((acc, i) => acc + i.quantity, 0);
     const cartTotalAmount = sortedProducts?.reduce(
         (acc, i) => acc + i.product.price * i.quantity,
         0
-    );
+    ) || 0;
 
     return (
-        <div className="container mx-auto mt-10">
-            <div className="flex shadow-md my-10">
-                <div className=" bg-white px-1 py-3 w-3/4">
-                    <div className="hidden h-full flex-1 flex-col space-y-8 p-5 md:flex">
-                        <div className="flex flex-col h-screen">
-                            <div className="flex-grow overflow-auto">
+        <div className="container mx-auto mt-10 rounded-xl">
+            <div className="grid grid-col-1 lg:flex gap-2 my-10 rounded-xl">
+                <div className=" bg-white py-3 w-3/4">
+                    <div className="hidden h-full flex-1 flex-col px-2 space-y-8 md:flex rounded-xl">
+                        <div className="flex flex-col h-screen rounded-xl">
+                            <div className="flex-grow overflow-auto rounded-xl">
                                 {sortedProducts?.length === 0 ? (
-                                    <table className="bg-transparent cart-table mb-0">
+                                    <table className="bg-transparent cart-table mb-0 flex items-center justify-center">
                                         <tbody>
                                             <tr>
                                                 <td colSpan={8}>
                                                     <div className="cart-empty">
                                                         <i className="fa fa-shopping-cart"></i>
-                                                        <p>
-                                                            Your Cart Is empty
+                                                        <p className="capitalize select-none">
+                                                            Your Cart is empty!
                                                         </p>
                                                     </div>
                                                 </td>
@@ -71,10 +92,16 @@ const CartPage = () => {
                                 ) : (
                                     <table className="relative border">
                                         <thead>
-                                            <tr>
+                                            <tr className="text-left">
+                                                <th className="sticky top-0 px-3 py-3 text-white bg-black">
+                                                    <input type="checkbox" className="form-checkbox rounded border-none text-pink-500 focus:ring-0 focus:border-none w-4 h-4" checked={isChecked}
+                                                        onChange={(e) => setIsChecked(e.target.checked)}
+                                                    />
+                                                </th>
                                                 <th className="sticky top-0 px-6 py-3 text-white bg-black">
-                                                    Product&nbsp;
+                                                    Product&nbsp;(&nbsp;
                                                     <span className="text-base">{`${sortedProducts?.length} available`}</span>
+                                                    )
                                                 </th>
                                                 <th className="sticky top-0 px-6 py-3 text-white bg-black">
                                                     Name
@@ -112,10 +139,10 @@ const CartPage = () => {
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y">
-                                            {/* <tbody className="absolute flex flex-col overflow-y-scroll" style={{height: '50vh'}}> */}
                                             {sortedProducts?.map((i) => (
                                                 <tr key={i.id}>
                                                     <LineItem
+                                                        isChecked={isChecked}
                                                         lineItem={i}
                                                     />
                                                 </tr>
@@ -129,17 +156,17 @@ const CartPage = () => {
                         </div>
                     </div>
                 </div>
-                <div id="summary" className="w-2/4 px-8 py-10">
-                    <h1 className="font-semibold text-2xl border-b pb-8">
+                <div id="summary" className="flex-1 px-2 py-3">
+                    <h1 className="font-bold text-2xl border-b pb-8">
                         Order Summary
                     </h1>
                     <div className="flex justify-between space-x-3 mt-10 mb-5">
                         <span className="font-semibold text-sm uppercase">
                             Subtotal (
-                            <span className=" font-light">{cartTotalQty} </span>
+                            <span className="font-bold text-blue-500">{cartTotalQty} </span>
                             items)
                         </span>
-                        <span className="font-light text-sm">
+                        <span className="font-medium text-sm">
                             {cartTotalAmount}$
                         </span>
                     </div>
@@ -147,22 +174,22 @@ const CartPage = () => {
                         <span className="font-semibold text-sm uppercase">
                             Shipping & Handling
                         </span>
-                        <span className="font-semibold text-sm">20$</span>
+                        <span className="font-semibold text-sm">{shippingPrice}$</span>
                     </div>
                     <div className="flex justify-between mt-10 mb-5">
                         <span className="font-semibold text-sm uppercase">
                             Sales Tax
                         </span>
-                        <span className="font-semibold text-sm">5$</span>
+                        <span className="font-semibold text-sm">{tax}$</span>
                     </div>
                     <div className="border-t mt-8">
-                        <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+                        <div className="flex font-bold items-end justify-between py-4 text-sm uppercase">
                             <span>Grand Total</span>
-                            <span>${cartTotalAmount || 0 + 20 + 5}</span>
+                            <span className="text-2xl">${cartTotalAmount + shippingPrice + tax}</span>
                         </div>
-                        <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+                        <Link href={"/checkout"} className="text-center block w-full rounded-xl bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase">
                             Checkout
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -10,15 +10,15 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            
+
         },
-        colors:{
-          ...colors,
-          primary: colors.black,
-          secondary: colors.gray
+        colors: {
+            ...colors,
+            primary: colors.black,
+            secondary: colors.gray
         },
 
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/forms')],
 };
 export default config;

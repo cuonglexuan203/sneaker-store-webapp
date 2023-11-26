@@ -436,8 +436,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                             <li key={c.value} className="">
                                                 <label
                                                     className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${color === c.value
-                                                            ? "ring-blue-400 ring-2"
-                                                            : ""
+                                                        ? "ring-blue-400 ring-2"
+                                                        : ""
                                                         }`}
                                                 >
                                                     <input
@@ -490,8 +490,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                             >
                                                 <label
                                                     className={`group relative flex items-center justify-center rounded-md border ${size === s
-                                                            ? "border-black"
-                                                            : ""
+                                                        ? "border-black"
+                                                        : ""
                                                         } py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm`}
                                                 >
                                                     <input
@@ -580,7 +580,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                                     )
                                                 }
                                                 type="number"
-                                                className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
+                                                className="form-input border-none flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
                                                 value={productCount}
                                             />
                                             <button
