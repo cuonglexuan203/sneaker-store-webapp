@@ -177,7 +177,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                 <br />
                 <Link
                     className="text-xs font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    href={"#"}
+                    href={"/cart"}
                 >
                     View Your Cart Here
                 </Link>
@@ -435,11 +435,10 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                         {colors.map((c) => (
                                             <li key={c.value} className="">
                                                 <label
-                                                    className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${
-                                                        color === c.value
+                                                    className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${color === c.value
                                                             ? "ring-blue-400 ring-2"
                                                             : ""
-                                                    }`}
+                                                        }`}
                                                 >
                                                     <input
                                                         type="radio"
@@ -490,11 +489,10 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                                 onClick={() => setSize(s)}
                                             >
                                                 <label
-                                                    className={`group relative flex items-center justify-center rounded-md border ${
-                                                        size === s
+                                                    className={`group relative flex items-center justify-center rounded-md border ${size === s
                                                             ? "border-black"
                                                             : ""
-                                                    } py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm`}
+                                                        } py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm`}
                                                 >
                                                     <input
                                                         type="radio"
@@ -704,9 +702,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     >
                                         <span>Shipping</span>
                                         <svg
-                                            className={`w-3 h-3 rotate-180 shrink-0 transition-all duration-200 ease-in-out ${
-                                                isShippingOpen ? "rotate-0" : ""
-                                            }`}
+                                            className={`w-3 h-3 rotate-180 shrink-0 transition-all duration-200 ease-in-out ${isShippingOpen ? "rotate-0" : ""
+                                                }`}
                                             aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -723,9 +720,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     </button>
                                 </h2>
                                 <div
-                                    className={`${
-                                        isShippingOpen ? "" : "hidden"
-                                    } p-6`}
+                                    className={`${isShippingOpen ? "" : "hidden"
+                                        } p-6`}
                                     aria-labelledby="accordion-flush-heading-1"
                                 >
                                     <ul className="list-disc list-inside">
@@ -751,9 +747,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     >
                                         <span>Return</span>
                                         <svg
-                                            className={`w-3 h-3 rotate-180 shrink-0 transition-all duration-200 ease-in-out ${
-                                                isReturnOpen ? "rotate-0" : ""
-                                            }`}
+                                            className={`w-3 h-3 rotate-180 shrink-0 transition-all duration-200 ease-in-out ${isReturnOpen ? "rotate-0" : ""
+                                                }`}
                                             aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -770,9 +765,8 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     </button>
                                 </h2>
                                 <div
-                                    className={`${
-                                        isReturnOpen ? "" : "hidden"
-                                    } p-6`}
+                                    className={`${isReturnOpen ? "" : "hidden"
+                                        } p-6`}
                                     aria-labelledby="accordion-flush-heading-1"
                                 >
                                     <ul className="list-disc list-inside">
