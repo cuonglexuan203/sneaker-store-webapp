@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { type Compartment } from "./FilterAccordion";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { ChangeEvent, MouseEvent, useCallback, useEffect, useState } from "react";
 
 const FilterCompartment = ({
     accordionParam,
@@ -31,7 +31,9 @@ const FilterCompartment = ({
     );
 
     //
-    const toggleCheckbox = () => setIsChecked(!isChecked);
+    const toggleCheckbox = () => {
+        setIsChecked(!isChecked)
+    };
 
     const handlePathname = () => {
         const oldParamArr = searchParams.get(accordionParam)?.split(",");
@@ -57,10 +59,9 @@ const FilterCompartment = ({
                     <input
                         id={accordionParam + "-" + compartment.value}
                         type="checkbox"
-                        className="w-5 h-5 text-white checked:bg-sky-300 hover:bg-gray-100 checked:hover:bg-sky-400 cursor-pointer rounded"
+                        className="w-5 h-5 text-white focus:ring-0 checked:bg-sky-300 hover:bg-gray-100 checked:hover:bg-sky-400 cursor-pointer rounded"
                         checked={isChecked}
                         onChange={toggleCheckbox}
-                        onClick={(e) => e.stopPropagation()}
                     />
                     <label
                         htmlFor={accordionParam + "-" + compartment.value}

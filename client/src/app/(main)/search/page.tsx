@@ -34,12 +34,12 @@ const accordions: Accordion[] = [
         param: "gender",
         compartments: [
             {
-                name: "Male",
-                value: "male",
+                name: "Men",
+                value: "men",
             },
             {
-                name: "Female",
-                value: "female",
+                name: "Women",
+                value: "women",
             },
         ],
     },
@@ -258,16 +258,14 @@ const Search = () => {
                             <div className="space-x-1 p-2">
                                 <span>Sort By</span>
                                 <FaChevronDown
-                                    className={`inline transition-all duration-500 ease-out ${
-                                        isSortByOpen ? " rotateX-all" : ""
-                                    }`}
+                                    className={`inline transition-all duration-500 ease-out ${isSortByOpen ? " rotateX-all" : ""
+                                        }`}
                                 />
                             </div>
                             <ul
                                 dir="rtl"
-                                className={`w-36 flex flex-col shadow-lg rounded-lg box-content absolute bottom-0 right-0 translate-y-full gap-4 bg-white transition-all duration-100 ease-out h-0 overflow-hidden ${
-                                    isSortByOpen ? "p-4 h-auto" : ""
-                                }`}
+                                className={`w-36 flex flex-col shadow-lg rounded-lg box-content absolute bottom-0 right-0 translate-y-full gap-4 bg-white transition-all duration-100 ease-out h-0 overflow-hidden ${isSortByOpen ? "p-4 h-auto" : ""
+                                    }`}
                             >
                                 {sortOptions.map((i, idx) => {
                                     const href = handleSortHref(
@@ -292,9 +290,8 @@ const Search = () => {
             <div className="mt-2 flex relative">
                 {/* Filter bar */}
                 <div
-                    className={`sticky hide-scrollbar overflow-y-scroll pl-12 w-80 h-[80vh] top-28 z-10 transition-all duration-300 ease-in-out ${
-                        isFilterOpen ? "-ml-0" : "-ml-80"
-                    }`}
+                    className={`sticky hide-scrollbar overflow-y-scroll pl-12 w-80 h-[80vh] top-28 z-10 transition-all duration-300 ease-in-out ${isFilterOpen ? "-ml-0" : "-ml-80"
+                        }`}
                 >
                     {accordions.map((acc, idx) => (
                         <FilterAccordion key={idx} accordion={acc} />
@@ -305,10 +302,10 @@ const Search = () => {
                     {error
                         ? "Error!"
                         : isLoading || isFetching
-                        ? "Loading..."
-                        : products?.map((p) => (
-                              <Product key={p.id} product={p} />
-                          ))}
+                            ? "Loading..."
+                            : products?.map((p) => (
+                                <Product key={p.id} product={p} />
+                            ))}
                 </div>
             </div>
         </section>
