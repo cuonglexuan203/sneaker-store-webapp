@@ -32,6 +32,9 @@ export interface UpdateLineItemQuantityRequestBody {
     quantity: number
 }
 
+export interface RemoveManyFromCartRequestBody {
+    lineItemIds: number[];
+}
 
 export const productsApi = createApi({
     reducerPath: "productsApi",
@@ -75,6 +78,15 @@ export const productsApi = createApi({
             }),
             invalidatesTags: ['cart']
         }),
+        removeManyFromCart: builder.mutation<ResponseData, RemoveManyFromCartRequestBody>({
+            query: (body) => ({
+                url: `/lineitems/0`,
+                method: "DELETE",
+                body,
+                headers: { "Content-Type": "application/json" },
+            }),
+            invalidatesTags: ['cart']
+        }),
         emptyCart: builder.mutation<ResponseData, number>({
             query: (userId) => (
                 {
@@ -96,10 +108,10 @@ export const productsApi = createApi({
                 method: "POST",
                 headers: { "Content-Type": "application/json" }
             }),
-            invalidatesTags: ["cart", "lineItem"]
+            invalidatesTags: ["lineItem"]
         }),
 
     }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation } = productsApi;

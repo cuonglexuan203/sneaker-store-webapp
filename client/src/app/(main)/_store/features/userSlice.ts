@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Address } from "../../_utils/types";
 
 
 export interface User {
@@ -22,11 +23,7 @@ export interface UserInfo {
     gender: boolean,
     birthday: string,
     phoneNumber: string,
-    address: {
-        country: string,
-        city: string,
-        district: string
-    },
+    address: Address,
     imageUrl: string,
     creditCardNumber?: string,
     creditCardType?: string
@@ -72,7 +69,7 @@ export const userSlice = createSlice({
                 state.info.imageUrl = action.payload.user.image;
             }
             else {
-                state.info = {...state.info,...action.payload}
+                state.info = { ...action.payload }
             }
         },
         removeUser: (state) => {

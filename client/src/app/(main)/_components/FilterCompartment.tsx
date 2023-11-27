@@ -57,7 +57,7 @@ const FilterCompartment = ({
                     <input
                         id={accordionParam + "-" + compartment.value}
                         type="checkbox"
-                        className="w-5 h-5 text-white accent-sky-300 cursor-pointer rounded"
+                        className="w-5 h-5 text-white checked:bg-sky-300 hover:bg-gray-100 checked:hover:bg-sky-400 cursor-pointer rounded"
                         checked={isChecked}
                         onChange={toggleCheckbox}
                         onClick={(e) => e.stopPropagation()}

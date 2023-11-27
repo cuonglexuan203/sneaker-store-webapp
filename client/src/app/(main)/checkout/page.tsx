@@ -1,26 +1,51 @@
 "use client";
 
-import Link from "next/link";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Product from "../_components/Product";
 import { LineItem } from "../_store/features/selectedItemsSlice";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "../_store/hooks";
-import { updateUser } from "../_store/features/userSlice";
+import { UserInfo, updateUser } from "../_store/features/userSlice";
+import { Address } from "../_utils/types";
 
 
 let shipCost: number = 8.0;
 
 const Checkout = () => {
-  const [creditCardNumber, setCreditCardNumber] = useState("");
-  const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user.info);
+
+  const user: UserInfo = useAppSelector((state) => state.user.info);
+  const [creditCardNumber, setCreditCardNumber] = useState(user.creditCardNumber);
+  const [shippingEmail, setShippingEmail] = useState(user.email);
+  const [cardHolder, setCardHolder] = useState(user.firstName + " " + user.lastName);
+  const [address, setAddress] = useState({ ...user.address });
+  //
   const selectedItems = useAppSelector((state) => state.tempCart.lineItems);
-  const total = selectedItems.reduce((accumulator: number, item: LineItem) => {
-    return accumulator + item.product.price * item.quantity;
-  }, 0);
+  //
+  const dispatch = useAppDispatch();
   const router = useRouter();
+  //
+  if (selectedItems == null || selectedItems.length <= 0) {
+    router.replace("/");
+    return <div className="min-h-screen"></div>;
+  }
+  //
+  const isValidAddress = (aress: Address) => {
+    if (aress) {
+      if (aress.country && aress.city && aress.district) {
+        if (aress.country.trim() === "" || aress.city.trim() === "" || aress.district.trim() === "") {
+          return false;
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+  const isValidEmail = (email: string) => {
+    return email && email.trim() !== "" && email.includes("@") && email.includes(".");
+  }
+  const isValidCheckoutInfo = (creditCardNumber?.length || 0 > 0) && isValidEmail(shippingEmail) && cardHolder.length > 0 && isValidAddress(address);
+  //
+  const total = selectedItems.reduce((accumulator: number, item: LineItem) => accumulator + item.product.price * item.quantity, 0);
   //
   return (
     <section>
@@ -228,10 +253,10 @@ const Checkout = () => {
                 <input
                   type="text"
                   id="email"
-                  name="email"
                   className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="your.email@gmail.com"
-                  value={user.email}
+                  onChange={e => setShippingEmail(e.target.value)}
+                  value={shippingEmail}
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
@@ -260,9 +285,10 @@ const Checkout = () => {
                 <input
                   type="text"
                   id="card-holder"
-                  name="card-holder"
                   className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="Your full name here"
+                  onChange={e => setCardHolder(e.target.value)}
+                  value={cardHolder}
                 />
                 <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                   <svg
@@ -334,19 +360,18 @@ const Checkout = () => {
                 Billing Address
               </label>
               <div className="flex flex-col sm:flex-row">
-                <div className="relative flex-shrink-0 sm:w-7/12">
+                <div className="relative flex-1">
                   <input
                     type="text"
                     id="billing-address"
-                    name="billing-address"
                     className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="Street Address"
+                    placeholder="country,city,district"
+                    onChange={e => {
+                      const [country, city, district] = e.target.value.split(',');
+                      setAddress({ country, city, district });
+                    }}
                     value={
-                      user.address.district +
-                      " " +
-                      user.address.city +
-                      " " +
-                      user.address.country
+                      Object.values(address).join(",")
                     }
                   />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -360,7 +385,7 @@ const Checkout = () => {
                     />
                   </div>
                 </div>
-                <select
+                {/* <select
                   name="billing-state"
                   className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                 >
@@ -371,7 +396,7 @@ const Checkout = () => {
                   name="billing-zip"
                   className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="ZIP"
-                />
+                /> */}
               </div>
               {/* Total */}
               <div className="mt-6 border-t border-b py-2">
@@ -396,11 +421,12 @@ const Checkout = () => {
               </div>
             </div>
             <button
-              className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white"
+              className={`${isValidCheckoutInfo ? "bg-gray-900" : "bg-gray-300"} mt-4 mb-8 w-full rounded-md px-6 py-3 font-medium text-white`}
               onClick={() => {
                 dispatch(updateUser({ ...user, creditCardNumber }));
-                router.push("/purchase");
+                router.push(`/purchase?creditCardNumber=${creditCardNumber}&shippingEmail=${shippingEmail}&cardHolder=${cardHolder}&address=${Object.values(address).join(",")}`);
               }}
+              disabled={!isValidCheckoutInfo}
             >
               Place Order
             </button>

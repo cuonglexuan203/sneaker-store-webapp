@@ -30,30 +30,32 @@ const LineItem = ({ lineItem, isChecked: isCheckedAll }: { lineItem: IndexedLine
     }, [isChecked])
 
     const product = lineItem.product;
-    const handleUpdateQuantity = async (num: number) => {
-        const response = await updateQuantityTrigger({
+    const handleUpdateQuantity = (num: number) => {
+        updateQuantityTrigger({
             lineItemId: lineItem.id,
             quantity: num,
-        }).unwrap();
-        if (data?.statusCode === 200) {
-            setQuantity(num);
-            console.log(data.message);
-        } else {
-            console.error(data?.message);
-        }
+        }).unwrap()
+            .then(payload => {
+                console.log(payload.statusCode, payload.message);
+            })
+            .catch(err => {
+                console.error(err);
+                setQuantity(q => q - 1);
+            });
+        setQuantity(num);
     };
-    const handleIncreaseQuantity = async () => {
+    const handleIncreaseQuantity = () => {
         const num = quantity + 1;
-        await handleUpdateQuantity(num);
+        handleUpdateQuantity(num);
     };
-    const handleDecreaseQuantity = async () => {
+    const handleDecreaseQuantity = () => {
         const num = quantity - 1;
         if (num > 0) {
-            await handleUpdateQuantity(num);
+            handleUpdateQuantity(num);
         }
     };
-    const handleRemoveFromCart = async () => {
-        const response = await removeLineItemTrigger(lineItem.id).unwrap();
+    const handleRemoveFromCart = () => {
+        removeLineItemTrigger(lineItem.id).unwrap();
         if (removeData?.statusCode === 200) {
             console.log(removeData.message);
         } else {

@@ -9,6 +9,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../_store/hooks";
 import { updateSelectedItems, clearSelectedItems } from "../_store/features/selectedItemsSlice";
+import { useRouter } from "next/navigation";
 //
 
 
@@ -25,6 +26,7 @@ const CartPage = () => {
     const [emptyCartTrigger, { isLoading, error, data }] =
         useEmptyCartMutation();
     const dispatch = useAppDispatch();
+    const router = useRouter();
     //
     const products = cart?.lineItems || [];
     let sortedProducts = [...products].sort((a, b) => b.id - a.id);
@@ -46,8 +48,6 @@ const CartPage = () => {
     if (isCartLoading || isCartFetching) {
         return "Loading...";
     }
-    //
-
     //
     const emptycart = async () => {
         const response = await emptyCartTrigger(userId).unwrap();
@@ -187,9 +187,11 @@ const CartPage = () => {
                             <span>Grand Total</span>
                             <span className="text-2xl">${cartTotalAmount + shippingPrice + tax}</span>
                         </div>
-                        <Link href={"/checkout"} className="text-center block w-full rounded-xl bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase">
+                        <button onClick={() => {
+                            router.push("/checkout");
+                        }} disabled={sortedProducts.length <= 0} className={`text-center block w-full rounded-xl font-semibold ${sortedProducts.length <= 0 ? "bg-gray-300" : "bg-indigo-500  hover:bg-indigo-600"} py-3 text-sm text-white uppercase`}>
                             Checkout
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>

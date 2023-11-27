@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.JsonSyntaxException;
 import com.hcmute.sneakerstore.business.Cart;
@@ -91,6 +93,11 @@ public class LineItemServlet extends HttpServlet {
 		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST, StatusMessage.SM_BAD_REQUEST.getDescription());
 	}
 
+	@Data
+	private class DeleteManyRequestBody {
+		private long[] lineItemIds;
+	}
+
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		PathParams pathParam = new PathParams(req);
@@ -107,6 +114,34 @@ public class LineItemServlet extends HttpServlet {
 						HttpResponseHandler.sendSuccessResponse(res, res.SC_OK, StatusMessage.SM_OK.getDescription());
 						return;
 					}
+				} else if (lineItemId == 0) {
+					
+					String body = (String) req.getAttribute("body");
+					if (!ValidationUtils.isNullOrEmpty(body)) {
+						DeleteManyRequestBody deleteManyRequestBody = GsonProvider.getGsonInstance().fromJson(body,
+								DeleteManyRequestBody.class);
+						//
+						if (deleteManyRequestBody != null) {
+							long[] lineItemIds = deleteManyRequestBody.getLineItemIds();
+							if (lineItemIds != null) {
+								for (long l : lineItemIds) {
+									if (l > 0) {
+										LineItem lineItem = LineItemDao.selectOne(l);
+										if (lineItem != null) {
+											Cart cart = lineItem.getCart();
+											cart.removeLineItem(lineItem);
+											CartDao.updateOne(cart);
+										}
+									}
+								}
+								HttpResponseHandler.sendSuccessResponse(res, res.SC_OK,
+										StatusMessage.SM_OK.getDescription());
+								return;
+							}
+						}
+
+					}
+
 				}
 			} catch (NumberFormatException err) {
 				HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST,

@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Product from "../_components/Product";
 import { useAppSelector } from "../_store/hooks";
-import { LineItem } from "../_store/features/selectedItemsSlice";
-import { useRouter } from "next/navigation";
+import { IndexedLineItem, LineItem } from "../_store/features/selectedItemsSlice";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Address } from "../_utils/types";
+import { RemoveManyFromCartRequestBody, useRemoveFromCartMutation, useRemoveManyFromCartMutation } from "../_store/services/productsApi";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -16,34 +16,69 @@ const handleConfirmClick = () => {
 
 let shipCost: number = 8.0;
 
-const dummyShippingInfo = {
-  address: "123 Main St",
-  city: "Anytown",
-  zip: "12345",
-  country: "USA",
-};
-
-const dummyPaymentInfo = {
-  email: "johnsnow@gmail.com",
-  method: "Credit Card",
-  cardNumber: "**** **** **** 1234",
-};
 
 const Checkout = () => {
-  const user = useAppSelector((state) => state.user.info);
-  const selectedItems = useAppSelector((state) => state.tempCart.lineItems);
+  const selectedItems: IndexedLineItem[] = useAppSelector((state) => state.tempCart.lineItems);
+  const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [removeManyTrigger, { isLoading, error, data }] =
+    useRemoveManyFromCartMutation();
+  //
+  const creditCardNumber = searchParams.get("creditCardNumber");
+  const shippingEmail = searchParams.get("shippingEmail");
+  const cardHolder = searchParams.get("cardHolder");
+  const address = searchParams.get("address");
+
+  //
+  const isValidAddress = (aressStr: string) => {
+    if (aressStr) {
+      const [country, city, district] = aressStr.split(",");
+      const aress: Address = { country, city, district };
+      //
+      if (aress) {
+        if (aress.country && aress.city && aress.district) {
+          if (aress.country.trim() === "" || aress.city.trim() === "" || aress.district.trim() === "") {
+            return false;
+          }
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+  const isValidEmail = (email: string) => {
+    return email && email.trim() !== "" && email.includes("@") && email.includes(".");
+  }
+  const isValidCheckoutInfo = (creditCardNumber?.length || 0 > 0) && isValidEmail(shippingEmail as string) && (cardHolder?.length || 0 > 0) && isValidAddress(address as string);
+  //
+  if (!isValidCheckoutInfo || selectedItems.length <= 0) {
+    router.replace("/");
+    return <div className="min-h-screen"></div>
+  }
+  //
   const total = selectedItems.reduce((accumulator: number, item: LineItem) => {
     return accumulator + item.product.price * item.quantity;
   }, 0);
-  const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
-
-  const handleConfirmClick = () => {
+  const handleConfirmClick = async () => {
     const answer = confirm("Are you sure you want to purchase?");
     if (answer) {
-      setPurchaseConfirmed(true);
+      const deleteManyBody: RemoveManyFromCartRequestBody = {
+        lineItemIds: selectedItems.map(i => i.id)
+      };
+      if (deleteManyBody.lineItemIds.length > 0) {
+        await removeManyTrigger(deleteManyBody).unwrap();
+        setPurchaseConfirmed(true);
+      }
     }
   };
-  const router = useRouter();
+  //
+  if (selectedItems == null || selectedItems.length <= 0) {
+    router.replace("/");
+    return <div className="min-h-screen"></div>;
+  }
+  //
 
   if (purchaseConfirmed) {
     return (
@@ -164,24 +199,20 @@ const Checkout = () => {
             <div className="mb-6">
               <h2 className="text-xl font-semibold">Shipping Information</h2>
               <span className="text-gray-700">
-                {user.address.district +
-                  " " +
-                  user.address.city +
-                  " " +
-                  user.address.country}
+                {address}
               </span>
               <span className="text-gray-700">
                 {" "}
-                {dummyShippingInfo.country}
+                {address}
               </span>
             </div>
 
             <div className="mb-6">
               <h2 className="text-xl font-semibold">Payment Method</h2>
-              <p className="text-gray-700">Email: {user.email}</p>
+              <p className="text-gray-700">Email: {shippingEmail}</p>
               <p className="text-gray-700">Card Method: Credit Card</p>
               <p className="text-gray-700">
-                Card Number: {user.creditCardNumber}
+                Card Number: {creditCardNumber}
               </p>
             </div>
             <div className="mb-6 py-2">
