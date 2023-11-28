@@ -59,7 +59,7 @@
 		"price": 500,
 		"releaseDate": "2023-01-10",
 		"categories": [
-			"Infant"
+			"Women"
 		],
 		"description": "Following in its predecessors' footsteps, the iconic Air Jordan 5 is joining in on the 'Craft' pack...",
 		"imageUrl": "/images/sneakers/5.png"
@@ -85,7 +85,7 @@
 		"price": 183.5,
 		"releaseDate": "2023-11-11",
 		"categories": [
-			"Men"
+			"Younger Boy"
 		],
 		"description": "Following in its predecessors' footsteps, the iconic Air Jordan 7 is joining in on the 'Craft' pack...",
 		"imageUrl": "/images/sneakers/7.png"
@@ -124,7 +124,7 @@
 		"price": 100.4,
 		"releaseDate": "2023-02-10",
 		"categories": [
-			"Men"
+			"Younger Girl"
 		],
 		"description": "An iconic silhouette that gained traction in the mid-82's basketball scene, the Adidas Rivalry Low Consortium...",
 		"imageUrl": "/images/sneakers/10.png"
@@ -176,7 +176,7 @@
 		"price": 323.5,
 		"releaseDate": "2023-10-10",
 		"categories": [
-			"Men"
+			"Younger Girl"
 		],
 		"description": "An iconic silhouette that gained traction in the mid-86's basketball scene, the Adidas Rivalry Low Consortium...",
 		"imageUrl": "/images/sneakers/14.png"
@@ -202,7 +202,7 @@
 		"price": 83.5,
 		"releaseDate": "2023-07-10",
 		"categories": [
-			"Child"
+			"Women"
 		],
 		"description": "Built for big kids, the Air Jordan 5 Retro SE GS ‘Midnight Navy’ utilizes textile paneling on the midfoot and toe box...",
 		"imageUrl": "/images/sneakers/16.png"
@@ -215,7 +215,7 @@
 		"price": 63.5,
 		"releaseDate": "2023-11-29",
 		"categories": [
-			"Preschool"
+			"Women"
 		],
 		"description": "Made for little kids, the Air Jordan 5 Retro SE PS ‘Midnight Navy’ features an upper built with a combination of textile and suede...",
 		"imageUrl": "/images/sneakers/17.png"
@@ -228,7 +228,7 @@
 		"price": 335.6,
 		"releaseDate": "2021-02-10",
 		"categories": [
-			"Men"
+			"Younger Boy"
 		],
 		"description": "Made for little kids, the Air Jordan 6 Retro SE PS ‘Midnight Navy’ features an upper built with a combination of textile and suede...",
 		"imageUrl": "/images/sneakers/18.png"

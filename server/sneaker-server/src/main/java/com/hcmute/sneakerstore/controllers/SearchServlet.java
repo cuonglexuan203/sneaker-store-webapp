@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -38,7 +39,8 @@ public class SearchServlet extends HttpServlet {
 		String sortIn = req.getParameter("sort");
 		String priceStr = req.getParameter("prices");
 		String yearStr = req.getParameter("years");
-		String genderStr = req.getParameter("gender");
+		String genderStr = req.getParameter("genders");
+		String kidStr = req.getParameter("kids");
 		//
 		List<Product> result = new ArrayList<>();
 		// search
@@ -46,18 +48,26 @@ public class SearchServlet extends HttpServlet {
 		result = searchProducts(ps, q);
 
 		// filter
+		String splitStr = ",";
 		if (!ValidationUtils.isNullOrEmpty(genderStr)) {
-			result = filterByGender(result, genderStr);
+			String[] genders = { "men", "women" };
+			result = filterByLabelQuery(result, genders, genderStr, splitStr, this::labelByCategories);
 		}
-		
+
 		if (!ValidationUtils.isNullOrEmpty(priceStr)) {
-			result = filterByPriceRanges(result, priceStr);
+			String[] defaultPriceRanges = { "0-99", "100-199", "200-299", "300-399", "400-499", "500-999999" };
+			result = filterByLabelQuery(result, defaultPriceRanges, priceStr, splitStr, this::labelByPriceRanges);
 		}
 
 		if (!ValidationUtils.isNullOrEmpty(yearStr)) {
-			result = filterByYear(result, yearStr);
+			String[] defaultYears = { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
+			result = filterByLabelQuery(result, defaultYears, yearStr, splitStr, this::labelByYears);
 		}
 		
+		if (!ValidationUtils.isNullOrEmpty(kidStr)) {
+			String[] kids = { "younger boy", "younger girl" };
+			result = filterByLabelQuery(result, kids, kidStr, splitStr, this::labelByCategories);
+		}
 		// sort
 		if (!ValidationUtils.isNullOrEmpty(sortIn)) {
 			if (sortIn.equalsIgnoreCase("asc")) {
@@ -74,54 +84,45 @@ public class SearchServlet extends HttpServlet {
 
 	}
 
-	private String labelByGenders(String[] genders, Product p) {
-
-		String unlabeled = "";
-		if (p == null || genders == null) {
-			return unlabeled;
-		}
-		//
-		for (String gender : genders) {
-			for (String g : p.getCategories()) {
-				if (gender.equalsIgnoreCase(g)) {
-					return gender;
-				}
-			}
-		}
-
-		return unlabeled;
-	}
-
-	private Map<String, List<Product>> groupProductsByGender(List<Product> ps, String[] genders) {
-		//
-		Map<String, List<Product>> groupedProducts = Optional.ofNullable(ps).map(List::stream).orElseGet(Stream::empty)
-				.collect(Collectors.groupingBy((p) -> labelByGenders(genders, p)));
-		return groupedProducts;
-	}
-
-	private List<Product> filterByGender(List<Product> ps, String genderStr) {
+	private List<Product> filterByLabelQuery(List<Product> ps, String[] labels, String labelQuery, String splitStr,
+			BiFunction<String[], Product, String> classifyByLabel) {
 		if (ValidationUtils.isNullOrEmpty(ps)) {
 			return ps;
+		}
+		if (ValidationUtils.isNullOrEmpty(labels)) {
+			return List.of();
+		}
+
+		if (ValidationUtils.isNullOrEmpty(labelQuery)) {
+			return ps;
+		}
+
+		if (classifyByLabel == null) {
+			return List.of();
+		}
+
+		if (splitStr == null) {
+			splitStr = "";
 		}
 		//
 		List<Product> clonedPs = new ArrayList<>(ps); // shadow copy
 		List<Product> result = new ArrayList<>();
 		//
-		if (!ValidationUtils.isNullOrEmpty(genderStr)) {
+		if (!ValidationUtils.isNullOrEmpty(labelQuery)) {
 
-			String[] defaultGenders = { "men", "women" }; // as client side
+			String[] defaultLabels = labels; // as client side
 			//
-			String splitChar = ",";
-			String[] filterdGenders = genderStr.split(splitChar);
+			String[] filterdLabels = labelQuery.split(splitStr);
 			//
-			Map<String, List<Product>> groupedProducts = groupProductsByGender(clonedPs, defaultGenders);
+			Map<String, List<Product>> groupedProducts = groupProducts(clonedPs, defaultLabels, classifyByLabel);
 			//
-			for (String gender : filterdGenders) {
-				if (!ValidationUtils.isNullOrEmpty(gender)) {
-					List<Product> productsByGender = groupedProducts.getOrDefault(gender, List.of());
+			for (String label : filterdLabels) {
+				if (!ValidationUtils.isNullOrEmpty(label)) {
+					//
+					List<Product> labeledProducts = groupedProducts.getOrDefault(label, List.of());
 					//
 					for (int i = 0; i < clonedPs.size(); i++) {
-						for (Product p : productsByGender) {
+						for (Product p : labeledProducts) {
 							if (p.getId() == clonedPs.get(i).getId()) {
 								result.add(clonedPs.get(i));
 								break;
@@ -152,48 +153,22 @@ public class SearchServlet extends HttpServlet {
 		return unlabeled;
 	}
 
-	private Map<String, List<Product>> groupProductsByYear(List<Product> ps, String[] years) {
-		//
-		Map<String, List<Product>> groupedProducts = Optional.ofNullable(ps).map(List::stream).orElseGet(Stream::empty)
-				.collect(Collectors.groupingBy((p) -> labelByYears(years, p)));
-		return groupedProducts;
-	}
+	private String labelByCategories(String[] categories, Product p) {
 
-	private List<Product> filterByYear(List<Product> ps, String yearStr) {
-		if (ValidationUtils.isNullOrEmpty(ps)) {
-			return ps;
+		String unlabeled = "";
+		if (p == null || categories == null) {
+			return unlabeled;
 		}
 		//
-		List<Product> clonedPs = new ArrayList<>(ps);
-		List<Product> result = new ArrayList<>();
-		//
-		if (!ValidationUtils.isNullOrEmpty(yearStr)) {
-
-			String[] defaultYears = { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
-			//
-			String splitChar = ",";
-			String[] filterdYears = yearStr.split(splitChar);
-			//
-			Map<String, List<Product>> groupedProducts = groupProductsByYear(clonedPs, defaultYears);
-			//
-			for (String year : filterdYears) {
-				if (!ValidationUtils.isNullOrEmpty(year)) {
-					List<Product> productsInYear = groupedProducts.getOrDefault(year, List.of());
-					//
-					for (int i = 0; i < clonedPs.size(); i++) {
-						for (Product p : productsInYear) {
-							if (p.getId() == clonedPs.get(i).getId()) {
-								result.add(clonedPs.get(i));
-								break;
-							}
-						}
-
-					}
+		for (String cate : categories) {
+			for (String c : p.getCategories()) {
+				if (cate.equalsIgnoreCase(c)) {
+					return cate;
 				}
-
 			}
 		}
-		return result;
+
+		return unlabeled;
 	}
 
 	private String labelByPriceRanges(String[] ranges, Product p) {
@@ -236,50 +211,16 @@ public class SearchServlet extends HttpServlet {
 		return unlabeled;
 	}
 
-	private Map<String, List<Product>> groupProductsByPriceRange(List<Product> ps, String[] ranges) {
+	private Map<String, List<Product>> groupProducts(List<Product> ps, String[] labels,
+			BiFunction<String[], Product, String> classifyByLabel) {
 		//
 		Map<String, List<Product>> groupedProducts = Optional.ofNullable(ps).map(List::stream).orElseGet(Stream::empty)
-				.collect(Collectors.groupingBy((p) -> labelByPriceRanges(ranges, p)));
+				.collect(Collectors.groupingBy((p) -> {
+					String label = classifyByLabel.apply(labels, p);
+					return label;
+				}));
+
 		return groupedProducts;
-	}
-
-	private List<Product> filterByPriceRanges(List<Product> ps, String priceStr) {
-		if (ValidationUtils.isNullOrEmpty(ps)) {
-			return ps;
-		}
-		//
-		List<Product> clonedPs = new ArrayList<>(ps);
-		List<Product> result = new ArrayList<>();
-		//
-		if (!ValidationUtils.isNullOrEmpty(priceStr)) {
-
-			String[] defaultPriceRanges = { "0-99", "100-199", "200-299", "300-399", "400-499", "500-999999" };
-			//
-			String splitChar = ",";
-			String[] filterdPriceRanges = priceStr.split(splitChar);
-			//
-			Map<String, List<Product>> groupedProducts = groupProductsByPriceRange(clonedPs, defaultPriceRanges);
-			//
-			for (String range : filterdPriceRanges) {
-				if (!ValidationUtils.isNullOrEmpty(range)) {
-
-					List<Product> productsInRange = groupedProducts.getOrDefault(range, List.of());
-					if (ValidationUtils.isNullOrEmpty(productsInRange)) {
-					}
-					//
-					for (int i = 0; i < clonedPs.size(); i++) {
-						for (Product p : productsInRange) {
-							if (p.getId() == clonedPs.get(i).getId()) {
-								result.add(clonedPs.get(i));
-								break;
-							}
-						}
-					}
-				}
-
-			}
-		}
-		return result;
 	}
 
 	private List<Product> sortProducts(List<Product> ps, Comparator<Product> comparator) {

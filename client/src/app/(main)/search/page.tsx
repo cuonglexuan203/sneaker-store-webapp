@@ -31,7 +31,7 @@ const sortOptions = [
 const accordions: Accordion[] = [
     {
         name: "Gender",
-        param: "gender",
+        param: "genders",
         compartments: [
             {
                 name: "Men",
@@ -42,6 +42,20 @@ const accordions: Accordion[] = [
                 value: "women",
             },
         ],
+    },
+    {
+        name: "Kid",
+        param: "kids",
+        compartments: [
+            {
+                name: "Boys",
+                value: "younger boy"
+            },
+            {
+                name: "Girls",
+                value: "younger girl"
+            }
+        ]
     },
     {
         name: "Price",
