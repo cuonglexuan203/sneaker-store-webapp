@@ -59,9 +59,9 @@ const FilterCompartment = ({
                     <input
                         id={accordionParam + "-" + compartment.value}
                         type="checkbox"
-                        className="w-5 h-5 text-white focus:ring-0 checked:bg-sky-300 hover:bg-gray-100 checked:hover:bg-sky-400 cursor-pointer rounded"
+                        className="form-input w-5 h-5 text-white focus:ring-0 checked:focus:bg-sky-300 hover:bg-gray-100 checked:bg-sky-300 checked:hover:bg-sky-400 cursor-pointer rounded"
                         checked={isChecked}
-                        onChange={toggleCheckbox}
+                    // onChange={toggleCheckbox}
                     />
                     <label
                         htmlFor={accordionParam + "-" + compartment.value}

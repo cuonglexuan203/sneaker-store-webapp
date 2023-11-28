@@ -89,17 +89,21 @@ const accordions: Accordion[] = [
     },
     {
         name: "Sale & Offers",
-        param: "sale",
+        param: "sales",
         compartments: [
             {
-                name: "Sale",
-                value: "sale",
+                name: "Flash Sale",
+                value: "FLASH_SALE",
+            },
+            {
+                name: "Black Friday",
+                value: "BLACK_FRIDAY",
             },
         ],
     },
     {
         name: "Color",
-        param: "color",
+        param: "colors",
         compartments: [
             {
                 name: "Blue",

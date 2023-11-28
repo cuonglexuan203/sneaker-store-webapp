@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,8 @@ import java.util.stream.Stream;
 import org.hibernate.internal.build.AllowSysOut;
 
 import com.hcmute.sneakerstore.business.Product;
+import com.hcmute.sneakerstore.business.ProductInventory;
+import com.hcmute.sneakerstore.business.Sale;
 import com.hcmute.sneakerstore.data.DAOs.ProductDao;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
@@ -41,6 +44,8 @@ public class SearchServlet extends HttpServlet {
 		String yearStr = req.getParameter("years");
 		String genderStr = req.getParameter("genders");
 		String kidStr = req.getParameter("kids");
+		String colorStr = req.getParameter("colors");
+		String saleStr = req.getParameter("sales");
 		//
 		List<Product> result = new ArrayList<>();
 		// search
@@ -63,10 +68,21 @@ public class SearchServlet extends HttpServlet {
 			String[] defaultYears = { "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
 			result = filterByLabelQuery(result, defaultYears, yearStr, splitStr, this::labelByYears);
 		}
-		
+
 		if (!ValidationUtils.isNullOrEmpty(kidStr)) {
 			String[] kids = { "younger boy", "younger girl" };
 			result = filterByLabelQuery(result, kids, kidStr, splitStr, this::labelByCategories);
+		}
+
+		if (!ValidationUtils.isNullOrEmpty(colorStr)) {
+			String[] colors = { "white", "black", "blue", "red", "purple", "yellow", "orange", "green", "pink", "brown",
+					"gray" };
+			result = filterByLabelQuery(result, colors, colorStr, splitStr, this::labelByColors);
+		}
+
+		if (!ValidationUtils.isNullOrEmpty(saleStr)) {
+			String[] sales = { "FLASH_SALE", "BLACK_FRIDAY" };
+			result = filterByLabelQuery(result, sales, saleStr, splitStr, this::labelBySale);
 		}
 		// sort
 		if (!ValidationUtils.isNullOrEmpty(sortIn)) {
@@ -112,7 +128,7 @@ public class SearchServlet extends HttpServlet {
 
 			String[] defaultLabels = labels; // as client side
 			//
-			String[] filterdLabels = labelQuery.split(splitStr);
+			Set<String> filterdLabels = new HashSet<>(Arrays.asList(labelQuery.split(splitStr)));
 			//
 			Map<String, List<Product>> groupedProducts = groupProducts(clonedPs, defaultLabels, classifyByLabel);
 			//
@@ -145,8 +161,50 @@ public class SearchServlet extends HttpServlet {
 		}
 		//
 		for (String year : years) {
-			if (Integer.parseInt(year) == p.getReleaseDate().getYear()) {
-				return year;
+			if (!ValidationUtils.isNullOrEmpty(year)) {
+				if (Integer.parseInt(year) == p.getReleaseDate().getYear()) {
+					return year;
+				}
+			}
+		}
+
+		return unlabeled;
+	}
+
+	private String labelBySale(String[] sales, Product p) {
+
+		String unlabeled = "";
+		if (p == null || sales == null) {
+			return unlabeled;
+		}
+		//
+		for (String sale : sales) {
+			if (!ValidationUtils.isNullOrEmpty(sale)) {
+				for(Sale s: p.getDiscountedSales()) {
+					if(s.getType().toString().equalsIgnoreCase(sale)) {
+						return sale;
+					}
+				}
+			}
+		}
+
+		return unlabeled;
+	}
+
+	private String labelByColors(String[] colors, Product p) {
+
+		String unlabeled = "";
+		if (p == null || colors == null) {
+			return unlabeled;
+		}
+		//
+		for (String color : colors) {
+			if (!ValidationUtils.isNullOrEmpty(color)) {
+				for (ProductInventory pri : p.getProductInventories()) {
+					if (pri.getColor().toString().equalsIgnoreCase(color)) {
+						return color;
+					}
+				}
 			}
 		}
 

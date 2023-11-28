@@ -5,49 +5,52 @@ import { useAppSelector } from "../../_store/hooks";
 import { useRouter } from "next/navigation";
 import {
     AddToCartRequestBody,
+    ProductInventory,
     useAddToCartMutation,
     useGetProductByIdQuery,
 } from "../../_store/services/productsApi";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useAppDispatch } from "../../_store/hooks";
+import { addLineItem } from "../../_store/features/selectedItemsSlice";
 
-const colors = [
-    {
-        value: "WHITE",
-        bgColor: "bg-white",
-    },
-    {
-        value: "GRAY",
-        bgColor: "bg-gray-200",
-    },
-    {
-        value: "BLACK",
-        bgColor: "bg-black",
-    },
-    {
-        value: "YELLOW",
-        bgColor: "bg-yellow-200",
-    },
-    {
-        value: "RED",
-        bgColor: "bg-red-200",
-    },
-    {
-        value: "PURPLE",
-        bgColor: "bg-purple-200",
-    },
-    {
-        value: "ORANGE",
-        bgColor: "bg-orange-200",
-    },
-    {
-        value: "BLUE",
-        bgColor: "bg-blue-200",
-    },
-];
+// const colors = [
+//     {
+//         value: "WHITE",
+//         bgColor: "bg-white",
+//     },
+//     {
+//         value: "GRAY",
+//         bgColor: "bg-gray-200",
+//     },
+//     {
+//         value: "BLACK",
+//         bgColor: "bg-black",
+//     },
+//     {
+//         value: "YELLOW",
+//         bgColor: "bg-yellow-200",
+//     },
+//     {
+//         value: "RED",
+//         bgColor: "bg-red-200",
+//     },
+//     {
+//         value: "PURPLE",
+//         bgColor: "bg-purple-200",
+//     },
+//     {
+//         value: "ORANGE",
+//         bgColor: "bg-orange-200",
+//     },
+//     {
+//         value: "BLUE",
+//         bgColor: "bg-blue-200",
+//     },
+// ];
 
-const sizes = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+// const sizes = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
 const ProductDetail = ({ params }: { params: { id: number } }) => {
     const [isShippingOpen, setIsShippingOpen] = useState(false);
@@ -59,14 +62,17 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
     const [isSuccessfulToastVisible, setIsSuccessfulToastVisible] =
         useState(false);
     const [isFailedToastVisible, setIsFailedToastVisible] = useState(false);
+    //
     const router = useRouter();
+    //
     const [addToCart, { data, isLoading, error }] = useAddToCartMutation();
     const {
         isLoading: isProductLoading,
         isFetching: isProductFetching,
-        data: product,
+        data: productResponse,
         error: productError,
     } = useGetProductByIdQuery(params.id);
+    const dispatch = useAppDispatch();
     //
     const isLogging = useAppSelector((state) => state.auth.isLogging);
     const userId = useAppSelector((state) => state.user.info.id);
@@ -79,11 +85,31 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             if (isFailedToastVisible) {
                 setIsFailedToastVisible(false);
             }
-        }, 3000);
+        }, 2500);
         return () => {
             clearTimeout(timeout);
         };
     }, [isSuccessfulToastVisible, isFailedToastVisible]);
+    // check response status
+    if (productError) {
+        return "Error";
+    }
+    if (isProductLoading || isProductFetching) {
+        return "Loading...";
+    }
+    // extract data
+    const { product, productInventories } = productResponse!;
+    const colors = productInventories.map((p: ProductInventory) => {
+        let bgColor = `bg-${p.color.toLowerCase()}`;
+        if (p.color !== "BLACK" && p.color !== "WHITE") {
+            bgColor += "-200";
+        }
+        return ({
+            value: p.color,
+            bgColor
+        })
+    });
+    const sizes = productInventories.map(p => p.size);
     //
     const handleAddToCart = async () => {
         if (!isLogging) {
@@ -110,12 +136,22 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             setIsFailedToastVisible(true);
         }
     };
-    if (productError) {
-        return "Error";
+
+    const handleBuyNow = () => {
+        if (!isLogging) {
+            router.push("/auth/signin");
+            return;
+        }
+        //
+        dispatch(addLineItem({
+            color,
+            size,
+            quantity: productCount,
+            product
+        }))
+        router.push("/checkout")
     }
-    if (isProductLoading || isProductFetching) {
-        return "Loading...";
-    }
+
     const successfulToast = (
         <motion.div
             initial={{
@@ -544,6 +580,11 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                         </label>
                                     </div>
                                 </fieldset>
+                                {size > 0 && color !== "" && (
+                                    <div className="mt-2 text-xs text-blue-400">
+                                        <span>{productInventories.find(p => p.color === color && p.size === size)?.productAmount}&nbsp;available in stock</span>
+                                    </div>
+                                )}
                             </div>
                             <div className="py-6 mb-6 border-t border-b border-gray-200 dark:border-gray-700">
                                 <span className="text-base text-gray-600 dark:text-gray-400">
@@ -653,12 +694,12 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                 </button>
                             </div>
                             <div className="flex gap-4 mb-6">
-                                <a
-                                    href="#"
+                                <button
+                                    onClick={handleBuyNow}
                                     className="w-full px-4 py-3 text-center text-gray-100 bg-blue-600 border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl"
                                 >
                                     Buy now
-                                </a>
+                                </button>
                             </div>
                             {/* Description */}
                             <div className="mt-12 text-justify">

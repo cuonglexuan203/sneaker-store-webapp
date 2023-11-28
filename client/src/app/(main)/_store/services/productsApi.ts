@@ -19,6 +19,18 @@ export interface Sneaker {
     imageUrl: string;
 };
 
+export interface ProductInventory {
+    id: number;
+    productAmount: number;
+    color: string;
+    size: number;
+}
+
+export interface GetProductByIdResponseBody {
+    product: Sneaker,
+    productInventories: ProductInventory[];
+}
+
 export interface AddToCartRequestBody {
     color: string,
     size: number,
@@ -49,7 +61,7 @@ export const productsApi = createApi({
             query: () => "products",
             providesTags: ["products"]
         }),
-        getProductById: builder.query<Sneaker, number>({
+        getProductById: builder.query<GetProductByIdResponseBody, number>({
             query: (id) => `products/${id}`,
             providesTags: ["product"]
         }),

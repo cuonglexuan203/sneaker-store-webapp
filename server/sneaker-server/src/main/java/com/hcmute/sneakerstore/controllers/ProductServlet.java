@@ -1,8 +1,10 @@
 package com.hcmute.sneakerstore.controllers;
 
 import java.io.IOException;
+import java.util.Set;
 
 import com.hcmute.sneakerstore.business.Product;
+import com.hcmute.sneakerstore.business.ProductInventory;
 import com.hcmute.sneakerstore.data.DAOs.ProductDao;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.PathParams;
@@ -13,12 +15,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Data;
 
 @WebServlet("/products/*")
 public class ProductServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3359810340026853619L;
 
+	
+	@Data
+	private class ProductReponseBody{
+		private Product product;
+		private Set<ProductInventory> productInventories;
+	}
+	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws IOException {
@@ -43,14 +53,17 @@ public class ProductServlet extends HttpServlet {
 		//
 		Product product = ProductDao.selectOne(productId);
 		//
-		if (product == null) {
-
+		if (product == null) {			
 			HttpResponseHandler.sendErrorResponse(res, res.SC_NOT_FOUND,
 					StatusMessage.SM_NOT_FOUND.getDescription());
 			return;
 		}
 		//
-		HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_OK, product);
+		ProductReponseBody body = new ProductReponseBody();
+		body.setProduct(product);
+		body.setProductInventories(product.getProductInventories());
+		//
+		HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_OK, body);
 	}
 	
 	@Override
