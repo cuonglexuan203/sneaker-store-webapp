@@ -8,11 +8,9 @@ import java.io.IOException;
 import java.util.List;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.DAOs.UserDao;
 import com.hcmute.sneakerstore.model.Identifiable;
 import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.services.UserService;
-import com.hcmute.sneakerstore.utils.DBUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.StatusMessage;
@@ -42,6 +40,7 @@ public class UsersServlet extends HttpServlet {
 				StatusMessage.SM_INTERNAL_SERVER_ERROR.getDescription());
 	}
 
+	// Add new user
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		//
@@ -55,7 +54,7 @@ public class UsersServlet extends HttpServlet {
 		try {
 			User newUser = GsonProvider.getGsonInstance().fromJson(body, User.class);
 			if (newUser != null) {
-				//
+				// Business processing
 				long insertedUserId = userService.addUser(newUser);
 				if (insertedUserId != 0) {
 					HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_CREATED, insertedUserId);
@@ -71,6 +70,7 @@ public class UsersServlet extends HttpServlet {
 		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST, StatusMessage.SM_BAD_REQUEST.getDescription());
 	}
 
+	// Update user
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		// preprocessing raw request
@@ -95,6 +95,7 @@ public class UsersServlet extends HttpServlet {
 				//
 			}
 		} catch (JsonSyntaxException err) {
+			System.out.println("json");
 			HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST,
 					StatusMessage.SM_BAD_REQUEST.getDescription());
 			return;
@@ -102,7 +103,7 @@ public class UsersServlet extends HttpServlet {
 		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST, StatusMessage.SM_BAD_REQUEST.getDescription());
 	}
 
-//
+	// Delete user
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String body = (String) req.getAttribute("body");

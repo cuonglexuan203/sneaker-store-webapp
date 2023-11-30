@@ -104,7 +104,7 @@ public class PopulateData {
 
 		// Persist into database
 		
-		DaoFactory.getProductDao().addMany(products);
+		DaoFactory.getProductDao().addMany(products);	
 		DaoFactory.getUserDao().addMany(users);
 
 	}

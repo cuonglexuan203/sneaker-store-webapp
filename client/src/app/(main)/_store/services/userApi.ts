@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { User, UserInfo } from "../features/userSlice";
+import { ResponseData } from "../../_utils/responseData";
 
 
 export interface Account {
@@ -31,6 +32,12 @@ export interface SignUpRequestBody {
     account: Account
 }
 
+export interface ChangePasswordRequestBody {
+    userId: number,
+    currentPassword: string,
+    newPassword: string
+
+}
 
 export const userApi = createApi({
     reducerPath: 'userApi',
@@ -45,6 +52,18 @@ export const userApi = createApi({
             query: (id) => `users/${id}`,
             providesTags: ['user'],
         }),
+        updateUser: builder.mutation<ResponseData, UserInfo>({
+            query: (userInfo) => ({
+                url: `users`,
+                method: 'PUT',
+                body: userInfo,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                }
+            }),
+            invalidatesTags: ["account", "user"]
+        })
+        ,
         signUp: builder.mutation<AuthResponseBody, SignUpRequestBody>({
             query: (body) => ({
                 url: "auth/signup",
@@ -66,8 +85,18 @@ export const userApi = createApi({
                 }
             }),
             invalidatesTags: ["account", "user"]
-        })
+        }),
+        changePassword: builder.mutation<ResponseData, ChangePasswordRequestBody>({
+            query: (body) => ({
+                url: "changepassword",
+                method: "PUT",
+                body,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                }
+            })
+        }),
     })
 })
 
-export const { useGetUserQuery, useSignUpMutation, useSignInMutation } = userApi;
+export const { useGetUserQuery, useUpdateUserMutation, useSignUpMutation, useSignInMutation, useChangePasswordMutation } = userApi;

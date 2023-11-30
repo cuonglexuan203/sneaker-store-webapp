@@ -15,7 +15,7 @@ export interface Accordion {
 }
 
 const FilterAccordion = ({ accordion }: { accordion: Accordion }) => {
-    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+    const [isAccordionOpen, setIsAccordionOpen] = useState(true);
     //
     return (
         <div className="">
@@ -28,9 +28,8 @@ const FilterAccordion = ({ accordion }: { accordion: Accordion }) => {
                     {accordion.name}
                 </span>
                 <svg
-                    className={`w-3 h-3 inline transition-all duration-500 ease-out ${
-                        isAccordionOpen ? " rotateX-all" : ""
-                    }`}
+                    className={`w-3 h-3 inline transition-all duration-500 ease-out ${isAccordionOpen ? " rotateX-all" : ""
+                        }`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -46,9 +45,8 @@ const FilterAccordion = ({ accordion }: { accordion: Accordion }) => {
                 </svg>
             </button>
             <ul
-                className={`h-0 overflow-hidden transition-all duration-100 ease-out space-y-2 ${
-                    isAccordionOpen ? "p-2 h-auto" : ""
-                }`}
+                className={`h-0 overflow-hidden transition-all duration-100 ease-out space-y-2 ${isAccordionOpen ? "p-2 h-auto" : ""
+                    }`}
             >
                 {accordion.compartments.map((i, idx) => (
                     <li key={idx}>

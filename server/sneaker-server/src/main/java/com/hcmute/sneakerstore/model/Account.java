@@ -18,6 +18,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -47,6 +48,7 @@ public class Account implements Serializable, Identifiable {
 	private Role role = Role.USER;
 
 	//
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@OneToOne

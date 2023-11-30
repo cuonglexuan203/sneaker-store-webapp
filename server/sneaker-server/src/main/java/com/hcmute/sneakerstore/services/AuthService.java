@@ -10,7 +10,6 @@ import com.hcmute.sneakerstore.model.Account;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.utils.DBUtils;
-import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.PasswordVerification;
 
 public class AuthService {

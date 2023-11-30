@@ -5,32 +5,17 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.DAOs.AccountDao;
-import com.hcmute.sneakerstore.DAOs.UserDao;
 import com.hcmute.sneakerstore.DTOs.SignUpReqDto;
-import com.hcmute.sneakerstore.model.Account;
-import com.hcmute.sneakerstore.model.Cart;
-import com.hcmute.sneakerstore.model.Identifiable;
-import com.hcmute.sneakerstore.model.Invoice;
-import com.hcmute.sneakerstore.model.Location;
-import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.services.AuthService;
-import com.hcmute.sneakerstore.utils.DBUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
-import com.hcmute.sneakerstore.utils.PasswordVerification;
 import com.hcmute.sneakerstore.utils.StatusMessage;
 import com.hcmute.sneakerstore.utils.ValidationUtils;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 
 @WebServlet("/auth/signup")
 public class SignUpServlet extends HttpServlet {

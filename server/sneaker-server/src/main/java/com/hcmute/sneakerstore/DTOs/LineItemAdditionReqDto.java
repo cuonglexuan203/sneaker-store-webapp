@@ -1,6 +1,5 @@
 package com.hcmute.sneakerstore.DTOs;
 
-import com.hcmute.sneakerstore.DAOs.DaoFactory;
 import com.hcmute.sneakerstore.DAOs.UserDao;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.LineItem;

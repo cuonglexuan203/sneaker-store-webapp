@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hibernate.annotations.NaturalId;
 
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
@@ -32,7 +31,6 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "USER")
 public class User implements Serializable, Identifiable {
@@ -62,7 +60,6 @@ public class User implements Serializable, Identifiable {
 	@Builder.Default
 	private LocalDate birthday = LocalDate.now();
 
-	@NaturalId
 	@NotNull
 	@Column(name = "phone_number")
 	private String phoneNumber;
@@ -85,6 +82,7 @@ public class User implements Serializable, Identifiable {
 	//
 
 	// Invoice
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
@@ -92,12 +90,14 @@ public class User implements Serializable, Identifiable {
 	private Set<Invoice> invoices = new HashSet<>();
 
 	// Cart
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Cart cart;
 
 	// Account
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
