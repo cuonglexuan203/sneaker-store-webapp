@@ -6,7 +6,8 @@ import { useAppSelector } from "../_store/hooks";
 import { IndexedLineItem, LineItem } from "../_store/features/selectedItemsSlice";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Address } from "../_utils/types";
-import { RemoveManyFromCartRequestBody, useRemoveFromCartMutation, useRemoveManyFromCartMutation } from "../_store/services/productsApi";
+import { PurchaseRequestBody, RemoveManyFromCartRequestBody, usePurchaseMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation } from "../_store/services/productsApi";
+import { UserInfo } from "../_store/features/userSlice";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -19,16 +20,21 @@ let shipCost: number = 8.0;
 
 const Checkout = () => {
   const selectedItems: IndexedLineItem[] = useAppSelector((state) => state.tempCart.lineItems);
+  const userInfo: UserInfo = useAppSelector((state) => state.user.info);
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
+  //
   const [removeManyTrigger, { isLoading, error, data }] =
     useRemoveManyFromCartMutation();
+  const [purchaseTrigger, { isLoading: isPurchasing, error: purchaseError, data: puchaseData }] = usePurchaseMutation();
   //
   const creditCardNumber = searchParams.get("creditCardNumber");
   const shippingEmail = searchParams.get("shippingEmail");
   const cardHolder = searchParams.get("cardHolder");
-  const address = searchParams.get("address");
+  const addressStr = searchParams.get("address");
+  const [country, city, district] = addressStr!.split(',');
+  const address = { country, city, district }
 
   //
   const isValidAddress = (aressStr: string) => {
@@ -51,7 +57,7 @@ const Checkout = () => {
   const isValidEmail = (email: string) => {
     return email && email.trim() !== "" && email.includes("@") && email.includes(".");
   }
-  const isValidCheckoutInfo = (creditCardNumber?.length || 0 > 0) && isValidEmail(shippingEmail as string) && (cardHolder?.length || 0 > 0) && isValidAddress(address as string);
+  const isValidCheckoutInfo = (creditCardNumber?.length || 0 > 0) && isValidEmail(shippingEmail as string) && (cardHolder?.length || 0 > 0) && isValidAddress(addressStr as string);
   //
   if (!isValidCheckoutInfo || selectedItems.length <= 0) {
     router.replace("/");
@@ -64,13 +70,33 @@ const Checkout = () => {
   const handleConfirmClick = async () => {
     const answer = confirm("Are you sure you want to purchase?");
     if (answer) {
-      const deleteManyBody: RemoveManyFromCartRequestBody = {
-        lineItemIds: selectedItems.map(i => i.id)
-      };
-      if (deleteManyBody.lineItemIds.length > 0) {
-        await removeManyTrigger(deleteManyBody).unwrap();
-        setPurchaseConfirmed(true);
+      // Remove purchased line items in cart by client
+      // const deleteManyBody: RemoveManyFromCartRequestBody = {
+      //   lineItemIds: selectedItems.map(i => i.id)
+      // };
+      // if (deleteManyBody.lineItemIds.length > 0) {
+      //   await removeManyTrigger(deleteManyBody).unwrap();
+      //   setPurchaseConfirmed(true);
+      // }
+      //
+      const purchaseBody: PurchaseRequestBody = {
+        lineItems: selectedItems,
+        creditCardNumber: creditCardNumber!,
+        shippingEmail: shippingEmail!,
+        cardHolder: cardHolder!,
+        address,
+        userId: userInfo.id,
       }
+      await purchaseTrigger(purchaseBody).unwrap();
+      //
+      if (purchaseError) {
+        console.error(purchaseError);
+      }
+      else if (isPurchasing) {
+        console.log("Purchasing...");
+      }
+      //
+      setPurchaseConfirmed(true);
     }
   };
   //
@@ -199,11 +225,11 @@ const Checkout = () => {
             <div className="mb-6">
               <h2 className="text-xl font-semibold">Shipping Information</h2>
               <span className="text-gray-700">
-                {address}
+                {addressStr}
               </span>
               <span className="text-gray-700">
                 {" "}
-                {address}
+                {addressStr}
               </span>
             </div>
 

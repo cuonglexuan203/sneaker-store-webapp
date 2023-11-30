@@ -654,12 +654,12 @@ const NavBar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/orders"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
-                                                Settings
-                                            </a>
+                                                Order History
+                                            </Link>
                                         </li>
                                         <li>
                                             <a

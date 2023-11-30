@@ -74,7 +74,7 @@ public class Invoice implements Serializable, Identifiable {
 
 	// LineItem
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "invoice", cascade = CascadeType.MERGE)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//
