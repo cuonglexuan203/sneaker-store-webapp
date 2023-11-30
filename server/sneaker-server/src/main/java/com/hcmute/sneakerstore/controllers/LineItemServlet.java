@@ -1,16 +1,12 @@
 package com.hcmute.sneakerstore.controllers;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.business.Cart;
-import com.hcmute.sneakerstore.business.LineItem;
-import com.hcmute.sneakerstore.business.User;
-import com.hcmute.sneakerstore.data.DAOs.CartDao;
-import com.hcmute.sneakerstore.data.DAOs.LineItemDao;
-import com.hcmute.sneakerstore.data.DAOs.UserDao;
+import com.hcmute.sneakerstore.DTOs.LineItemDelReqDto;
+import com.hcmute.sneakerstore.DTOs.LineItemQtyUpdateReqDto;
+import com.hcmute.sneakerstore.model.LineItem;
+import com.hcmute.sneakerstore.services.LineItemService;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.PathParams;
@@ -25,7 +21,14 @@ import lombok.Data;
 
 @WebServlet("/lineitems/*")
 public class LineItemServlet extends HttpServlet {
+	private LineItemService lineItemService;
 
+	@Override
+	public void init() {
+		lineItemService = new LineItemService();
+	}
+
+	// get line item
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		PathParams pathParam = new PathParams(req);
 		String lineItemIdStr = pathParam.get(0);
@@ -40,7 +43,8 @@ public class LineItemServlet extends HttpServlet {
 						StatusMessage.SM_BAD_REQUEST.getDescription());
 				return;
 			}
-			LineItem lineItem = LineItemDao.selectOne(lineItemId);
+			// Business processing
+			LineItem lineItem = lineItemService.getLineItem(lineItemId);
 			if (lineItem != null) {
 				HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_OK, lineItem);
 				return;
@@ -51,36 +55,22 @@ public class LineItemServlet extends HttpServlet {
 
 	}
 
-	@Data
-	private class UpdateQuantityRequestBody {
-		private long lineItemId;
-		private int quantity;
-	}
-
 	// Update lineItem quantity
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		// Preprocessing raw request
 		String bodyStr = (String) req.getAttribute("body");
 		if (!ValidationUtils.isNullOrEmpty(bodyStr)) {
 			try {
-				UpdateQuantityRequestBody bodyObj = GsonProvider.getGsonInstance().fromJson(bodyStr,
-						UpdateQuantityRequestBody.class);
+				LineItemQtyUpdateReqDto bodyObj = GsonProvider.getGsonInstance().fromJson(bodyStr,
+						LineItemQtyUpdateReqDto.class);
 				if (bodyObj != null) {
-					long lineItemId = bodyObj.getLineItemId();
-					int quantity = bodyObj.getQuantity();
-					//
-					if (lineItemId > 0 && quantity > 0) {
-						LineItem lineItem = LineItemDao.selectOne(lineItemId);
-						if (lineItem != null) {
-							lineItem.setQuantity(quantity);
-							LineItem updatedLineItem = LineItemDao.updateOne(lineItem);
-							if (updatedLineItem != null) {
-								HttpResponseHandler.sendSuccessResponse(res, res.SC_OK,
-										StatusMessage.SM_UPDATED.getDescription());
-								return;
-							}
-
-						}
+					// Business processing
+					boolean result = lineItemService.updateLineItemQuantity(bodyObj);
+					if (result) {
+						HttpResponseHandler.sendSuccessResponse(res, res.SC_OK,
+								StatusMessage.SM_UPDATED.getDescription());
+						return;
 					}
 				}
 			} catch (JsonSyntaxException err) {
@@ -93,11 +83,6 @@ public class LineItemServlet extends HttpServlet {
 		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST, StatusMessage.SM_BAD_REQUEST.getDescription());
 	}
 
-	@Data
-	private class DeleteManyRequestBody {
-		private long[] lineItemIds;
-	}
-
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		PathParams pathParam = new PathParams(req);
@@ -105,35 +90,27 @@ public class LineItemServlet extends HttpServlet {
 		if (!ValidationUtils.isNullOrEmpty(lineItemIdStr)) {
 			try {
 				long lineItemId = Long.parseLong(lineItemIdStr);
+				// Business processing
+				// delete one
 				if (lineItemId > 0) {
-					LineItem lineItem = LineItemDao.selectOne(lineItemId);
-					if (lineItem != null) {
-						Cart cart = lineItem.getCart();
-						cart.removeLineItem(lineItem);
-						CartDao.updateOne(cart);
+					boolean result = lineItemService.deleteLineItem(lineItemId);
+					if (result) {
 						HttpResponseHandler.sendSuccessResponse(res, res.SC_OK, StatusMessage.SM_OK.getDescription());
 						return;
 					}
-				} else if (lineItemId == 0) {
-					
+
+				}
+				// delete many
+				else if (lineItemId == 0) {
+
 					String body = (String) req.getAttribute("body");
 					if (!ValidationUtils.isNullOrEmpty(body)) {
-						DeleteManyRequestBody deleteManyRequestBody = GsonProvider.getGsonInstance().fromJson(body,
-								DeleteManyRequestBody.class);
+						LineItemDelReqDto deleteManyRequestBody = GsonProvider.getGsonInstance().fromJson(body,
+								LineItemDelReqDto.class);
 						//
 						if (deleteManyRequestBody != null) {
-							long[] lineItemIds = deleteManyRequestBody.getLineItemIds();
-							if (lineItemIds != null) {
-								for (long l : lineItemIds) {
-									if (l > 0) {
-										LineItem lineItem = LineItemDao.selectOne(l);
-										if (lineItem != null) {
-											Cart cart = lineItem.getCart();
-											cart.removeLineItem(lineItem);
-											CartDao.updateOne(cart);
-										}
-									}
-								}
+							boolean result = lineItemService.deleteLineItems(deleteManyRequestBody);
+							if (result) {
 								HttpResponseHandler.sendSuccessResponse(res, res.SC_OK,
 										StatusMessage.SM_OK.getDescription());
 								return;

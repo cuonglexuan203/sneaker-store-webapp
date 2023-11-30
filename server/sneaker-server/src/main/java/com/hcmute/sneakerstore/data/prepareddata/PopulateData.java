@@ -6,18 +6,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.reflect.TypeToken;
-import com.hcmute.sneakerstore.business.Account;
-import com.hcmute.sneakerstore.business.Cart;
-import com.hcmute.sneakerstore.business.Identifiable;
-import com.hcmute.sneakerstore.business.Invoice;
-import com.hcmute.sneakerstore.business.LineItem;
-import com.hcmute.sneakerstore.business.Product;
-import com.hcmute.sneakerstore.business.ProductInventory;
-import com.hcmute.sneakerstore.business.Sale;
-import com.hcmute.sneakerstore.business.User;
-import com.hcmute.sneakerstore.data.DAOs.ProductDao;
-import com.hcmute.sneakerstore.data.DAOs.SaleDao;
-import com.hcmute.sneakerstore.data.DAOs.UserDao;
+import com.hcmute.sneakerstore.DAOs.DaoFactory;
+import com.hcmute.sneakerstore.model.Account;
+import com.hcmute.sneakerstore.model.Cart;
+import com.hcmute.sneakerstore.model.Identifiable;
+import com.hcmute.sneakerstore.model.Invoice;
+import com.hcmute.sneakerstore.model.LineItem;
+import com.hcmute.sneakerstore.model.Product;
+import com.hcmute.sneakerstore.model.ProductInventory;
+import com.hcmute.sneakerstore.model.Sale;
+import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.utils.FileUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.PasswordVerification;
@@ -105,8 +103,9 @@ public class PopulateData {
 		}
 
 		// Persist into database
-		ProductDao.insertMany(products);
-		UserDao.insertMany(users);
+		
+		DaoFactory.getProductDao().addMany(products);
+		DaoFactory.getUserDao().addMany(users);
 
 	}
 }

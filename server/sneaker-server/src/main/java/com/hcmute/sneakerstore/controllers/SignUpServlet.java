@@ -14,15 +14,17 @@ import java.util.Map;
 import java.util.Set;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.business.Account;
-import com.hcmute.sneakerstore.business.Cart;
-import com.hcmute.sneakerstore.business.Identifiable;
-import com.hcmute.sneakerstore.business.Invoice;
-import com.hcmute.sneakerstore.business.Location;
-import com.hcmute.sneakerstore.business.User;
-import com.hcmute.sneakerstore.data.DBUtils;
-import com.hcmute.sneakerstore.data.DAOs.AccountDao;
-import com.hcmute.sneakerstore.data.DAOs.UserDao;
+import com.hcmute.sneakerstore.DAOs.AccountDao;
+import com.hcmute.sneakerstore.DAOs.UserDao;
+import com.hcmute.sneakerstore.DTOs.SignUpReqDto;
+import com.hcmute.sneakerstore.model.Account;
+import com.hcmute.sneakerstore.model.Cart;
+import com.hcmute.sneakerstore.model.Identifiable;
+import com.hcmute.sneakerstore.model.Invoice;
+import com.hcmute.sneakerstore.model.Location;
+import com.hcmute.sneakerstore.model.User;
+import com.hcmute.sneakerstore.services.AuthService;
+import com.hcmute.sneakerstore.utils.DBUtils;
 import com.hcmute.sneakerstore.utils.GsonProvider;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.PasswordVerification;
@@ -33,62 +35,30 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 @WebServlet("/auth/signup")
 public class SignUpServlet extends HttpServlet {
 
-	@Data
-	private class SignUpRequestBody {
-		private User user;
-		private Account account;
+	private AuthService authService;
+
+	@Override
+	public void init() {
+		authService = new AuthService();
 	}
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
+	// add new user
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// Preprocessing raw request
 		String body = (String) req.getAttribute("body");
 		//
 		if (!ValidationUtils.isNullOrEmpty(body)) {
-
 			//
 			try {
-				SignUpRequestBody signUpData = GsonProvider.getGsonInstance()
-						.fromJson(body, SignUpRequestBody.class);
-
-				// Add new user
-				User newUser = signUpData.getUser();
-				Account newAccount = signUpData.getAccount();
-
-				//
-				if (newUser != null) {
-
-					if (newAccount != null) {
-						//Hashing password
-						String hasedPassword = PasswordVerification.hashPassword(newAccount.getPassword());
-						newAccount.setPassword(hasedPassword);
-						// Add account for user
-						newUser.addAccount(newAccount);
-						// Validate new User data, Account data
-
-						// add cart for user
-						Cart newCart = Cart.builder()
-								.build();
-						newUser.addCart(newCart);
-						// persist user
-						long insertedUserId = UserDao.insertOne(newUser);
-						//
-
-						if (insertedUserId != DBUtils.FAILED_ID) {
-							Map<String, Object> jsonResponse = new HashMap<>();
-							//
-							jsonResponse.put("accountId",
-									Long.toString(insertedUserId));
-							jsonResponse.put("role", newAccount.getRole()
-									.toString());
-							jsonResponse.put("user", newUser);
-							HttpResponseHandler.sendSuccessJsonResponse(res,
-									res.SC_CREATED, jsonResponse);
-							return;
-						}
+				SignUpReqDto signUpData = GsonProvider.getGsonInstance().fromJson(body, SignUpReqDto.class);
+				if (signUpData != null) {
+					// Business processing
+					Map<String, Object> jsonResponse = authService.signUp(signUpData);
+					if (jsonResponse.get("user") != null) {
+						HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_CREATED, jsonResponse);
+						return;
 					}
-
 				}
-
 			} catch (JsonSyntaxException err) {
 				// Give more information ...
 				HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST,
@@ -96,8 +66,7 @@ public class SignUpServlet extends HttpServlet {
 				return;
 			}
 		}
-		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST,
-				StatusMessage.SM_BAD_REQUEST.getDescription());
+		HttpResponseHandler.sendErrorResponse(res, res.SC_BAD_REQUEST, StatusMessage.SM_BAD_REQUEST.getDescription());
 	}
 
 }
