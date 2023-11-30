@@ -86,7 +86,7 @@ public class User implements Serializable, Identifiable {
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Invoice> invoices = new HashSet<>();
 
 	// Cart
