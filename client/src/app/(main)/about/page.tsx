@@ -28,7 +28,7 @@ const AboutUsPage = () => {
           <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
             From a small startup manufacturing facility in 2023 with only 4 employees, but with high determination, strong will, and a constant humility to innovate and progress, Sneaker Store has navigated through the challenges of the 4.0 economic era to assert its position.</p>
                     <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
-            For over a millennium, like an 'untiring step,' Sneaker Store has relentlessly evolved and innovated, strategically crafting an e-commerce brand in the realm of diverse and stylish footwear. Every step of the way, our dynamic resources - material, financial, and human - infused with contemporary production and global trade strategies, empower us to compete fiercely with major brands worldwide.</p>
+            For over a millennium, like an &lsquo;untiring step,&lsquo; Sneaker Store has relentlessly evolved and innovated, strategically crafting an e-commerce brand in the realm of diverse and stylish footwear. Every step of the way, our dynamic resources - material, financial, and human - infused with contemporary production and global trade strategies, empower us to compete fiercely with major brands worldwide.</p>
           <div className="relative flex flex-col sm:flex-row sm:space-x-4">
             <a href="#_" className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
               Buy Now
@@ -106,7 +106,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
       <div className="order-1 w-full px-3 lg:w-1/2 lg:order-0">
         <div className="w-full lg:max-w-md">
           <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading">Sneaker store online with all features you need to have spenlid footwears!</h2>
-          <p className="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">It's never been easier to buy a pair of sneakers. Our platform will help you with the following:</p>
+          <p className="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">It&lsquo;s never been easier to buy a pair of sneakers. Our platform will help you with the following:</p>
           <ul>
             <li className="flex items-center py-2 space-x-4 xl:py-3">
               <svg className="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
@@ -131,7 +131,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
 <section className="flex items-center justify-center py-20 bg-white min-w-screen">
     <div className="px-16 bg-white">
         <div className="container flex flex-col items-start mx-auto lg:items-center">
-            <p className="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-purple-500 uppercase lg:justify-center lg:items-center">Don't just take our word for it</p>
+            <p className="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-purple-500 uppercase lg:justify-center lg:items-center">Don&lsquo;t just take our word for it</p>
 
 
             <h2 className="relative flex items-start justify-start w-full max-w-3xl text-5xl font-bold lg:justify-center">
@@ -153,7 +153,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                             <p className="text-gray-600">CEO of Straw Dolls, True Detective</p>
                         </div>
                     </div>
-                    <blockquote className="mt-8 text-lg text-gray-500">"This is a no-brainer if you want to take your business to the next level. If you are looking for the ultimate toolset, this is it!"</blockquote>
+                    <blockquote className="mt-8 text-lg text-gray-500">&#34;This is a no-brainer if you want to take your business to the next level. If you are looking for the ultimate toolset, this is it!&#34;</blockquote>
                 </div>
                 <div className="flex flex-col items-start justify-start w-full h-auto px-0 mx-0 mb-12 border-l border-r border-transparent lg:w-1/3 lg:mb-0 lg:px-8 lg:mx-8 lg:border-gray-200">
                     <div className="flex items-center justify-center">
@@ -165,9 +165,9 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                             <p className="text-gray-600">Top 1 Slide-reader</p>
                         </div>
                     </div>
-                    <blockquote className="mt-8 text-lg text-gray-500">"Thanks for creating this service. My life is so much
+                    <blockquote className="mt-8 text-lg text-gray-500">&#34;Thanks for creating this service. My life is so much
                         easier.
-                        Thanks for making such a great product."</blockquote>
+                        Thanks for making such a great product.&#34;</blockquote>
                 </div>
                 <div className="flex flex-col items-start justify-start w-full h-auto lg:w-1/3">
                     <div className="flex items-center justify-center">
@@ -179,9 +179,9 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                             <p className="text-gray-600">Creator of Dua Leo</p>
                         </div>
                     </div>
-                    <blockquote className="mt-8 text-lg text-gray-500">"Packed with awesome content and exactly what I was
+                    <blockquote className="mt-8 text-lg text-gray-500">&#34;Packed with awesome content and exactly what I was
                         looking
-                        for. I would highly recommend this to anyone."</blockquote>
+                        for. I would highly recommend this to anyone.&#34;</blockquote>
                 </div>
             </div>
         </div>
@@ -197,7 +197,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                 WIDESPREAD SCALE
             </h2>
             <p className="box-border mt-4 text-2xl leading-normal text-gray-900 border-solid">
-                25,000,000!! It is The number of products Sneaker Store's provides annually, featuring a rich, diverse, and fresh selection.
+                25,000,000!! It is The number of products Sneaker Store&lsquo;s provides annually, featuring a rich, diverse, and fresh selection.
             </p>
         </div>
         <div className="grid max-w-md mx-auto mt-6 overflow-hidden leading-7 text-gray-900 border border-b-4 border-gray-300 border-blue-600 rounded-xl md:max-w-lg lg:max-w-none sm:mt-10 lg:grid-cols-3">
@@ -206,7 +206,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                     Domestic
                 </h3>
                 <p className="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                    The total number of Sneaker Store's authorized stores nationwide
+                    The total number of Sneaker Store&lsquo;s authorized stores nationwide
                 </p>
                 <div className="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
                     <p className="box-border m-0 text-6xl font-semibold leading-normal text-center border-0 border-gray-200">
@@ -223,7 +223,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                     Worldwide
                 </h3>
                 <p className="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                    The number of state or city all over the world where Sneaker Store's has left its footprint.
+                    The number of state or city all over the world where Sneaker Store&lsquo;s has left its footprint.
                 </p>
                 <div className="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
                     <p className="box-border m-0 text-6xl font-semibold leading-normal text-center border-0 border-gray-200">
@@ -242,7 +242,7 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                     Company Scale
                 </h3>
                 <p className="mt-3 leading-7 text-gray-900 border-0 border-solid">
-                        Sneaker store's workforce, equipped with skills, passion, and a high level of determination.
+                        Sneaker store&lsquo;s workforce, equipped with skills, passion, and a high level of determination.
                 </p>
                 <div className="flex items-center justify-center mt-6 leading-7 text-gray-900 border-0 border-solid sm:mt-8">
                     <p className="box-border m-0 text-6xl font-semibold leading-normal text-center border-0 border-gray-200">
