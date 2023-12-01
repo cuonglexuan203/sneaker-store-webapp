@@ -47,8 +47,12 @@ public class LineItemService {
 		LineItem lineItem = lineItemDao.findById(id);
 		if (lineItem != null) {
 			Cart cart = lineItem.getCart();
+			// remove constraint(relationship)
 			cart.removeLineItem(lineItem);
 			cartDao.update(cart);
+			lineItemDao.update(lineItem);
+			// Delete lineItem
+			lineItemDao.delete(id);
 			return true;
 		}
 		return false;
@@ -62,8 +66,12 @@ public class LineItemService {
 					LineItem lineItem = lineItemDao.findById(l);
 					if (lineItem != null) {
 						Cart cart = lineItem.getCart();
+						// remove constraint(relationship)
 						cart.removeLineItem(lineItem);
 						cartDao.update(cart);
+						lineItemDao.update(lineItem);
+						// Delete lineItem
+						lineItemDao.delete(l);
 					}
 				}
 			}

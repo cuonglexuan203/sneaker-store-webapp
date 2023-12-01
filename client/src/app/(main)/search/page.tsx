@@ -8,6 +8,8 @@ import { useGetProductBySearchQuery } from "../_store/services/productsApi";
 import { usePathname, useSearchParams } from "next/navigation";
 import Product from "../_components/Product";
 import Link from "next/link";
+import { useAppDispatch } from "../_store/hooks";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
 //
 
 const sortOptions = [
@@ -189,6 +191,7 @@ const Search = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const dispatch = useAppDispatch();
     //
     const createQueryString = useCallback(
         (name: string, value: string) => {
@@ -203,11 +206,23 @@ const Search = () => {
     const {
         isLoading,
         isFetching,
+        isSuccess,
         data: products,
         error,
     } = useGetProductBySearchQuery(
         new URLSearchParams(searchParams).toString()
     );
+    if (error) {
+        console.error(error);
+    }
+    else if (isLoading) {
+        dispatch(showLoading());
+    }
+    else if (isSuccess) {
+        setInterval(() => {
+            dispatch(hideLoading())
+        }, 500);
+    }
     const handleSortHref = (param: string, value: string) =>
         pathname + "?" + createQueryString(param, value);
     //

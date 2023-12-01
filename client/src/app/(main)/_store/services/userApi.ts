@@ -74,8 +74,7 @@ export const userApi = createApi({
                 }
             }),
             invalidatesTags: ["account", "user"]
-        })
-        ,
+        }),
         signUp: builder.mutation<AuthResponseBody, SignUpRequestBody>({
             query: (body) => ({
                 url: "auth/signup",
@@ -106,7 +105,8 @@ export const userApi = createApi({
                 headers: {
                     "Content-Type": "application/json; charset=utf-8",
                 }
-            })
+            }),
+            invalidatesTags: [],
         }),
         getInvoices: builder.query<Invoice[], number>({
             query: (userId) => `invoices?userId=${userId}`,

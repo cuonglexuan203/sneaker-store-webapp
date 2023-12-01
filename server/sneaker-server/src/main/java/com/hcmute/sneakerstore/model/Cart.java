@@ -48,7 +48,7 @@ public class Cart implements Serializable, Identifiable {
 	private User user;
 	
 	@Builder.Default
-	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = {CascadeType.DETACH,CascadeType.PERSIST, CascadeType.MERGE})
+	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//

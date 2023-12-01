@@ -77,10 +77,10 @@ Deciding to establish a vision and affirming our identity in order to develop Sn
                 MISSION
             </h2>
             <p className="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-10 lg:text-lg">
-                Unwavering commitment to continuous improvement, elevating the quality of the footwear shopping experience in line with the essence of the Sneaker Store brand: "Reputation - Quality."
+                Unwavering commitment to continuous improvement, elevating the quality of the footwear shopping experience in line with the essence of the Sneaker Store brand: &#34;Reputation - Quality.&#34;
             </p>
                         <p className="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-10 lg:text-lg">
-                Sneaker Store High-Tech Company pledges relentless advancement, enhancing the quality of product offerings to better meet the increasingly high and diverse demands of our valued customers. True to the essence of our brand, synonymous with "Reputation - Quality," we aim to foster enduring trust with all customers.
+                Sneaker Store High-Tech Company pledges relentless advancement, enhancing the quality of product offerings to better meet the increasingly high and diverse demands of our valued customers. True to the essence of our brand, synonymous with &#34;Reputation - Quality&#34;, we aim to foster enduring trust with all customers.
             </p>
             <ul className="p-0 m-0 leading-6 border-0 border-gray-300">
                 <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">

@@ -1,5 +1,6 @@
 import NavBar from "./_components/NavBar";
 import Footer from "./_components/Footer";
+import LoadingModal from "./_components/LoadingModal";
 
 export default function RootLayout({
     children,
@@ -11,6 +12,7 @@ export default function RootLayout({
             <NavBar />
             {children}
             <Footer />
+            <LoadingModal />
         </main>
     );
 }

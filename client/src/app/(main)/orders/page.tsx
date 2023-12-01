@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import { useGetInvoicesQuery } from "../_store/services/userApi";
-import { useAppSelector } from "../_store/hooks";
+import { useAppSelector, useAppDispatch } from "../_store/hooks";
 import { UserInfo } from "../_store/features/userSlice";
 import { IndexedLineItem } from "../_store/features/selectedItemsSlice";
 import LineItem from "../_components/LineItem";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
 
 const Orders = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.info);
@@ -13,9 +14,65 @@ const Orders = () => {
     isFetching,
     data: invoices,
     error,
+    isSuccess,
   } = useGetInvoicesQuery(userInfo.id);
 
-  const shipCost = 8;
+  const dispatch = useAppDispatch();
+  if (error) {
+    console.error(error);
+  } else if (isLoading) {
+    dispatch(showLoading());
+  } else if (isSuccess) {
+    setInterval(() => {
+      dispatch(hideLoading());
+    }, 500);
+  }
+
+  const formatDateTime = (dateTimeString: string): string => {
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const [datePart, timePart] = dateTimeString.split(" ");
+    const [dayStr, monthStr, yearStr] = datePart.split("::");
+    const [hourStr, minuteStr, secondStr] = timePart.split("::");
+
+    const month = monthNames.indexOf(monthStr); // Convert month name to month number
+    const day = parseInt(dayStr, 10);
+    const year = parseInt(yearStr, 10);
+    const hour = parseInt(hourStr, 10);
+    const minute = parseInt(minuteStr, 10);
+    const second = parseInt(secondStr, 10);
+
+    // Create a Date object
+    const date = new Date(year, month, day);
+    date.setHours(hour, minute, second);
+
+    // Format the date and time
+    const formattedDate = date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    const formattedTime = date.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    return `${formattedDate} at ${formattedTime}`;
+  };
+
+  let shipCost: number = 8.0;
   if (error) {
     return <div>Error!</div>;
   }
@@ -26,6 +83,8 @@ const Orders = () => {
     return <div>No invoices available.</div>; // Handling empty invoices
   }
 
+  const sortedInvoices = invoices.slice().sort((a, b) => a.id - b.id);
+
   return (
     <section className="container mx-auto">
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
@@ -33,8 +92,8 @@ const Orders = () => {
           Customer’s Cart
         </p>
 
-        {invoices.map((invoice, index) => {
-          let invoiceSubtotal = 0; // Subtotal for each invoice
+        {sortedInvoices.map((invoice, index) => {
+          let invoiceSubtotal = 0;
 
           return (
             <div
@@ -46,7 +105,7 @@ const Orders = () => {
                   Order #{invoice.id}
                 </h1>
                 <p className="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">
-                  Time Oder: {invoice?.paymentTime}
+                  Time Oder: {formatDateTime(invoice.paymentTime)}
                 </p>
               </div>
               <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
@@ -115,7 +174,7 @@ const Orders = () => {
                             Subtotal
                           </p>
                           <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                            ${invoiceSubtotal}
+                            ${invoiceSubtotal.toFixed(2)}
                           </p>
                         </div>
 
@@ -133,7 +192,7 @@ const Orders = () => {
                           Total
                         </p>
                         <p className="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                          ${invoiceSubtotal + shipCost}
+                          ${(invoiceSubtotal + shipCost).toFixed(2)}
                         </p>
                       </div>
                     </div>

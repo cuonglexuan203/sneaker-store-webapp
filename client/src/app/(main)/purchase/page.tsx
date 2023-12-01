@@ -2,12 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { useAppSelector } from "../_store/hooks";
+import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { IndexedLineItem, LineItem } from "../_store/features/selectedItemsSlice";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Address } from "../_utils/types";
 import { PurchaseRequestBody, RemoveManyFromCartRequestBody, usePurchaseMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation } from "../_store/services/productsApi";
 import { UserInfo } from "../_store/features/userSlice";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -21,13 +22,14 @@ let shipCost: number = 8.0;
 const Checkout = () => {
   const selectedItems: IndexedLineItem[] = useAppSelector((state) => state.tempCart.lineItems);
   const userInfo: UserInfo = useAppSelector((state) => state.user.info);
+  const dispatch = useAppDispatch();
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
   //
-  const [removeManyTrigger, { isLoading, error, data }] =
+  const [removeManyTrigger, { isLoading, error, data, isSuccess }] =
     useRemoveManyFromCartMutation();
-  const [purchaseTrigger, { isLoading: isPurchasing, error: purchaseError, data: puchaseData }] = usePurchaseMutation();
+  const [purchaseTrigger, { isLoading: isPurchasing, error: purchaseError, data: puchaseData, isSuccess: isPurchaseSuccess }] = usePurchaseMutation();
   //
   const creditCardNumber = searchParams.get("creditCardNumber");
   const shippingEmail = searchParams.get("shippingEmail");
@@ -35,7 +37,15 @@ const Checkout = () => {
   const addressStr = searchParams.get("address");
   const [country, city, district] = addressStr!.split(',');
   const address = { country, city, district }
-
+  //
+  if (isLoading || isPurchasing) {
+    dispatch(showLoading());
+  }
+  else if (isSuccess || isPurchaseSuccess) {
+    setInterval(() => {
+      dispatch(hideLoading())
+    }, 500);
+  }
   //
   const isValidAddress = (aressStr: string) => {
     if (aressStr) {

@@ -5,6 +5,7 @@ import { useAppSelector } from "../../_store/hooks";
 import { User, UserInfo, updateUser } from "../../_store/features/userSlice";
 import { ChangePasswordRequestBody, useChangePasswordMutation, useUpdateUserMutation } from "../../_store/services/userApi";
 import { useAppDispatch } from "../../_store/hooks";
+import { hideLoading, showLoading } from "../../_store/features/statusSlice";
 
 const UserProfile = () => {
   const user: UserInfo = useAppSelector((state) => state.user.info);
@@ -23,10 +24,21 @@ const UserProfile = () => {
   //
   const dispatch = useAppDispatch();
   //
-  const [updateUserTrigger, { isLoading, isError, data }] =
+  const [updateUserTrigger, { isLoading, isError, data, isSuccess }] =
     useUpdateUserMutation();
-  const [changePasswordTrigger, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, data: changePasswordData }] = useChangePasswordMutation();
+  const [changePasswordTrigger, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, data: changePasswordData, isSuccess: isChangePasswordSuccess }] = useChangePasswordMutation();
   //
+  if (isError) {
+
+  }
+  else if (isLoading || isChangePasswordLoading) {
+    dispatch(showLoading());
+  }
+  else if (isSuccess || isChangePasswordSuccess) {
+    setInterval(() => {
+      dispatch(hideLoading())
+    }, 500);
+  }
 
   const handleSaveUserInfo = async () => {
     const updatedUserInfo: UserInfo = {
@@ -47,7 +59,7 @@ const UserProfile = () => {
       console.log("Updating...");
     } else {
       dispatch(updateUser(updatedUserInfo));
-      setIsEditingMode(!isEditingMode);
+      setIsEditingMode(s => !s);
       console.log("Updated");
     }
   };
@@ -81,7 +93,7 @@ const UserProfile = () => {
       console.log("Changing...");
     }
     else {
-      setIsEditingMode(!isEditingMode);
+      setIsEditingMode(s => !s);
       console.log("Success");
     }
   };

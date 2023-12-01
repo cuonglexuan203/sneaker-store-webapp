@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useAppDispatch } from "../../_store/hooks";
 import { addLineItem } from "../../_store/features/selectedItemsSlice";
+import { hideLoading, showLoading } from "../../_store/features/statusSlice";
 
 // const colors = [
 //     {
@@ -65,10 +66,11 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
     //
     const router = useRouter();
     //
-    const [addToCart, { data, isLoading, error }] = useAddToCartMutation();
+    const [addToCart, { data, isLoading, error, isSuccess }] = useAddToCartMutation();
     const {
         isLoading: isProductLoading,
         isFetching: isProductFetching,
+        isSuccess: isProductSuccess,
         data: productResponse,
         error: productError,
     } = useGetProductByIdQuery(params.id);
@@ -91,11 +93,22 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
         };
     }, [isSuccessfulToastVisible, isFailedToastVisible]);
     // check response status
-    if (productError) {
-        return "Error";
+    // mutation
+    if (isLoading) {
+        dispatch(showLoading());
     }
+    else if (isSuccess) {
+        dispatch(hideLoading())
+    }
+    // query
     if (isProductLoading || isProductFetching) {
-        return "Loading...";
+        dispatch(showLoading());
+        return <div className="h-screen"></div>
+    }
+    else if (isProductSuccess) {
+        setInterval(() => {
+            dispatch(hideLoading())
+        }, 500);
     }
     // extract data
     const { product, productInventories } = productResponse!;
