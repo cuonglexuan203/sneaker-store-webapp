@@ -2,7 +2,6 @@ package com.hcmute.sneakerstore.services;
 
 import java.util.List;
 
-import com.hcmute.sneakerstore.DAOs.AccountDao;
 import com.hcmute.sneakerstore.DAOs.DaoFactory;
 import com.hcmute.sneakerstore.DAOs.UserDao;
 import com.hcmute.sneakerstore.model.Account;
