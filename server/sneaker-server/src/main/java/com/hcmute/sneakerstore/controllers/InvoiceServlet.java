@@ -1,8 +1,6 @@
 package com.hcmute.sneakerstore.controllers;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.DAOs.DaoFactory;

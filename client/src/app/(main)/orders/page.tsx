@@ -1,22 +1,31 @@
 'use client'
 import React from 'react'
 import { useGetInvoicesQuery } from '../_store/services/userApi';
-import { useAppSelector } from '../_store/hooks';
+import { useAppDispatch, useAppSelector } from '../_store/hooks';
 import { UserInfo } from '../_store/features/userSlice';
+import { hideLoading, showLoading } from '../_store/features/statusSlice';
 
 const Orders = () => {
     const userInfo: UserInfo = useAppSelector(state => state.user.info);
+    const dispatch = useAppDispatch();
     const {
         isLoading,
         isFetching,
+        isSuccess,
         data: invoices,
         error,
     } = useGetInvoicesQuery(userInfo.id);
+    //
     if (error) {
-        return <div>Error!</div>
+        console.error(error);
     }
-    if (isLoading || isFetching) {
-        return <div>Loading...</div>
+    else if (isLoading) {
+        dispatch(showLoading());
+    }
+    else if (isSuccess) {
+        setInterval(() => {
+            dispatch(hideLoading())
+        }, 500);
     }
 
     if (invoices) {

@@ -8,6 +8,8 @@ import { persistReducer } from "redux-persist";
 import { productsApi } from "./services/productsApi";
 import { userApi } from "./services/userApi";
 import selectedItemsReducer from "./features/selectedItemsSlice";
+import statusReducer from "./features/statusSlice";
+
 
 const rootPersistConfig = {
     key: 'root',
@@ -26,6 +28,7 @@ const rootReducer = combineReducers({
     navbar: navBarReducer,
     user: userReducer,
     auth: authReducer,
+    status: statusReducer,
     tempCart: persistReducer(tempCartPersistConfig, selectedItemsReducer),
     [productsApi.reducerPath]: productsApi.reducer,
     [userApi.reducerPath]: userApi.reducer

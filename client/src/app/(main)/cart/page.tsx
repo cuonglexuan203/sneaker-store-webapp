@@ -8,8 +8,9 @@ import LineItem from "../_components/LineItem";
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../_store/hooks";
-import { updateSelectedItems, clearSelectedItems } from "../_store/features/selectedItemsSlice";
+import { updateSelectedItems, clearSelectedItems, SelectedItems } from "../_store/features/selectedItemsSlice";
 import { useRouter } from "next/navigation";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
 //
 
 
@@ -17,13 +18,15 @@ import { useRouter } from "next/navigation";
 const CartPage = () => {
     const [isChecked, setIsChecked] = useState(false);
     const userId = useAppSelector((state) => state.user.info.id);
+    const selectedItems: SelectedItems = useAppSelector(state => state.tempCart);
     const {
         data: cart,
         isLoading: isCartLoading,
         isFetching: isCartFetching,
+        isSuccess: isCartSuccess,
         error: cartError,
     } = useGetCartQuery(userId);
-    const [emptyCartTrigger, { isLoading, error, data }] =
+    const [emptyCartTrigger, { isLoading, error, data, isSuccess }] =
         useEmptyCartMutation();
     const dispatch = useAppDispatch();
     const router = useRouter();
@@ -45,8 +48,13 @@ const CartPage = () => {
     if (cartError) {
         return "Error!";
     }
-    if (isCartLoading || isCartFetching) {
-        return "Loading...";
+    if (isCartLoading || isCartFetching || isLoading) {
+        dispatch(showLoading())
+    }
+    else if (isCartSuccess || isSuccess) {
+        setInterval(() => {
+            dispatch(hideLoading());
+        }, 500);
     }
     //
     const emptycart = async () => {
@@ -189,7 +197,7 @@ const CartPage = () => {
                         </div>
                         <button onClick={() => {
                             router.push("/checkout");
-                        }} disabled={sortedProducts.length <= 0} className={`text-center block w-full rounded-xl font-semibold ${sortedProducts.length <= 0 ? "bg-gray-300" : "bg-indigo-500  hover:bg-indigo-600"} py-3 text-sm text-white uppercase`}>
+                        }} disabled={selectedItems.lineItems.length <= 0} className={`text-center block w-full rounded-xl font-semibold ${selectedItems.lineItems?.length <= 0 ? "bg-gray-300 cursor-not-allowed" : "bg-indigo-500  hover:bg-indigo-600"} py-3 text-sm text-white uppercase`}>
                             Checkout
                         </button>
                     </div>

@@ -1,6 +1,8 @@
 package com.hcmute.sneakerstore.services;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.hcmute.sneakerstore.DAOs.CartDao;
@@ -80,10 +82,21 @@ public class CartService {
 	public boolean emptyCart(long userId) {
 		User user = userDao.findById(userId);
 		if (user != null) {
+			List<Long> deletedIds = new ArrayList<>();
 			Cart cart = user.getCart();
+			for (Iterator<LineItem> iter = cart.getLineItems().iterator(); iter.hasNext();) {
+				LineItem temp = iter.next();
+				// remove relationship
+				temp.setCart(null);
+				lineItemDao.update(temp);
+				//
+				deletedIds.add(temp.getId());
+			}
+			// remove relationship
 			cart.getLineItems().clear();
 			cartDao.update(cart);
-			
+			// delete line items
+			lineItemDao.deleteMany(deletedIds);
 			return true;
 		}
 		return false;

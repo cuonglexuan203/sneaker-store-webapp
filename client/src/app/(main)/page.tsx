@@ -14,6 +14,7 @@ import {
     toggleIsNotificationOpen,
     toggleIsUserMenuOpen,
 } from "./_store/features/navBarSlice";
+import { showToast, hideToast, showLoading, hideLoading } from "./_store/features/statusSlice";
 //
 const slides = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png", "7.png"];
 
@@ -22,6 +23,7 @@ export default function Home() {
         isLoading,
         isFetching,
         data: products = [],
+        isSuccess,
         error,
     } = useGetProductsQuery(null);
     const dispatch = useAppDispatch();
@@ -34,7 +36,15 @@ export default function Home() {
     const user = useAppSelector((state) => state.user);
     const authlog = useAppSelector((state) => state.auth);
     //
-
+    if (isLoading || isFetching) {
+        dispatch(showLoading());
+    }
+    else if (isSuccess) {
+        setInterval(() => {
+            dispatch(hideLoading())
+        }, 500);
+    }
+    //
     return (
         <main
             className="min-h-screen container mx-auto"

@@ -92,6 +92,7 @@ public class LineItemServlet extends HttpServlet {
 				// Business processing
 				// delete one
 				if (lineItemId > 0) {
+					System.out.println("ok");
 					boolean result = lineItemService.deleteLineItem(lineItemId);
 					if (result) {
 						HttpResponseHandler.sendSuccessResponse(res, res.SC_OK, StatusMessage.SM_OK.getDescription());

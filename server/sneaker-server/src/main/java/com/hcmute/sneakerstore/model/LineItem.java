@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.hcmute.sneakerstore.model.enums.Color;
 import com.hcmute.sneakerstore.utils.annotations.GsonExclude;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -57,7 +58,7 @@ public class LineItem implements Serializable, Identifiable {
 	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "cart_id")
 	private Cart cart;
 	

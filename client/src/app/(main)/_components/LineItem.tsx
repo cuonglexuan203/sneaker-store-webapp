@@ -7,15 +7,16 @@ import {
 import Image from "next/image";
 import { useAppDispatch } from "../_store/hooks";
 import { addLineItem, removeLineItem } from "../_store/features/selectedItemsSlice";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
 
 const LineItem = ({ lineItem, isChecked: isCheckedAll }: { lineItem: IndexedLineItem, isChecked: boolean }) => {
     const [quantity, setQuantity] = useState(lineItem.quantity);
     const [isChecked, setIsChecked] = useState(isCheckedAll);
-    const [updateQuantityTrigger, { isLoading, error, data }] =
+    const [updateQuantityTrigger, { isLoading, error, data, isSuccess }] =
         useUpdateLineItemQuantityMutation();
     const [
         removeLineItemTrigger,
-        { isLoading: isRemoveLoading, error: removeError, data: removeData },
+        { isLoading: isRemoving, error: removeError, data: removeData, isSuccess: isRemoveSuccess },
     ] = useRemoveFromCartMutation();
     //
     const dispatch = useAppDispatch();
@@ -28,6 +29,8 @@ const LineItem = ({ lineItem, isChecked: isCheckedAll }: { lineItem: IndexedLine
             dispatch(removeLineItem(lineItem));
         }
     }, [isChecked])
+    //
+
 
     const product = lineItem.product;
     const handleUpdateQuantity = (num: number) => {
