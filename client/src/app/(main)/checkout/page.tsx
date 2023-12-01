@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { LineItem } from "../_store/features/selectedItemsSlice";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { UserInfo, updateUser } from "../_store/features/userSlice";
 import { Address } from "../_utils/types";
+import { useSession } from "next-auth/react";
 
 
 let shipCost: number = 8.0;
@@ -23,6 +24,13 @@ const Checkout = () => {
   //
   const dispatch = useAppDispatch();
   const router = useRouter();
+  //
+  const { data: session, status } = useSession();
+  const isLogging = useAppSelector(state => state.auth.isLogging);
+  if (!session && !isLogging) {
+    // dispatch action along with session changes here
+    redirect("/");
+  }
   //
   if (selectedItems == null || selectedItems.length <= 0) {
     router.replace("/");

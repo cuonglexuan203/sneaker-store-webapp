@@ -6,6 +6,8 @@ import { User, UserInfo, updateUser } from "../../_store/features/userSlice";
 import { ChangePasswordRequestBody, useChangePasswordMutation, useUpdateUserMutation } from "../../_store/services/userApi";
 import { useAppDispatch } from "../../_store/hooks";
 import { hideLoading, showLoading } from "../../_store/features/statusSlice";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 const UserProfile = () => {
   const user: UserInfo = useAppSelector((state) => state.user.info);
@@ -27,6 +29,13 @@ const UserProfile = () => {
   const [updateUserTrigger, { isLoading, isError, data, isSuccess }] =
     useUpdateUserMutation();
   const [changePasswordTrigger, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, data: changePasswordData, isSuccess: isChangePasswordSuccess }] = useChangePasswordMutation();
+  //
+  const { data: session, status } = useSession();
+  const isLogging = useAppSelector(state => state.auth.isLogging);
+  if (!session && !isLogging) {
+    // dispatch action along with session changes here
+    redirect("/");
+  }
   //
   if (isError) {
 

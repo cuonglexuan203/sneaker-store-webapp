@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { IndexedLineItem, LineItem } from "../_store/features/selectedItemsSlice";
-import { useRouter, useSearchParams } from "next/navigation";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { Address } from "../_utils/types";
 import { PurchaseRequestBody, RemoveManyFromCartRequestBody, usePurchaseMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation } from "../_store/services/productsApi";
 import { UserInfo } from "../_store/features/userSlice";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
+import { useSession } from "next-auth/react";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -30,6 +31,13 @@ const Checkout = () => {
   const [removeManyTrigger, { isLoading, error, data, isSuccess }] =
     useRemoveManyFromCartMutation();
   const [purchaseTrigger, { isLoading: isPurchasing, error: purchaseError, data: puchaseData, isSuccess: isPurchaseSuccess }] = usePurchaseMutation();
+  //
+  const { data: session, status } = useSession();
+  const isLogging = useAppSelector(state => state.auth.isLogging);
+  if (!session && !isLogging) {
+    // dispatch action along with session changes here
+    redirect("/");
+  }
   //
   const creditCardNumber = searchParams.get("creditCardNumber");
   const shippingEmail = searchParams.get("shippingEmail");

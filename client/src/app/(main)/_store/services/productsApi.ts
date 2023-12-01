@@ -7,7 +7,15 @@ export interface Cart {
     id: number,
     lineItems: IndexedLineItem[]
 }
-
+export interface Invoice {
+    id: number,
+    status: string,
+    paymentTime: string,
+    address: Address,
+    deliveryStatus: string,
+    totalAmount: number,
+    lineItems: IndexedLineItem[]
+}
 export interface Sneaker {
     id: number;
     brand: string;
@@ -65,7 +73,7 @@ export const productsApi = createApi({
         credentials: "include",
     }),
     refetchOnReconnect: true,
-    tagTypes: ["products", "product", "cart", "lineItem"],
+    tagTypes: ["products", "product", "cart", "lineItem", "invoices"],
     endpoints: (builder) => ({
         getProducts: builder.query<Sneaker[], null>({
             query: () => "products",
@@ -142,10 +150,14 @@ export const productsApi = createApi({
                     "Content-Type": "application/json"
                 }
             }),
-            invalidatesTags: ["cart"]
+            invalidatesTags: ["cart", "invoices"]
+        }),
+        getInvoices: builder.query<Invoice[], number>({
+            query: (userId) => `invoices?userId=${userId}`,
+            providesTags: ['invoices'],
         })
 
     }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;

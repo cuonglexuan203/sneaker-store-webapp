@@ -8,38 +8,55 @@ import LineItem from "../_components/LineItem";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../_store/hooks";
-import {
-  updateSelectedItems,
-  clearSelectedItems,
-} from "../_store/features/selectedItemsSlice";
-import { useRouter } from "next/navigation";
+import { updateSelectedItems, clearSelectedItems, SelectedItems } from "../_store/features/selectedItemsSlice";
+import { redirect, useRouter } from "next/navigation";
+import { hideLoading, showLoading } from "../_store/features/statusSlice";
+import { useSession } from "next-auth/react";
 //
 
 const CartPage = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  const userId = useAppSelector((state) => state.user.info.id);
-  const {
-    data: cart,
-    isLoading: isCartLoading,
-    isFetching: isCartFetching,
-    error: cartError,
-  } = useGetCartQuery(userId);
-  const [emptyCartTrigger, { isLoading, error, data }] = useEmptyCartMutation();
-  const dispatch = useAppDispatch();
-  const router = useRouter();
-  //
-  const products = cart?.lineItems || [];
-  let sortedProducts = [...products].sort((a, b) => b.id - a.id);
-  //
-  useEffect(() => {
-    if (isChecked) {
-      dispatch(
-        updateSelectedItems({
-          lineItems: sortedProducts,
-        })
-      );
-    } else {
-      dispatch(clearSelectedItems());
+
+    const [isChecked, setIsChecked] = useState(false);
+    const userId = useAppSelector((state) => state.user.info.id);
+    const selectedItems: SelectedItems = useAppSelector(state => state.tempCart);
+    const {
+        data: cart,
+        isLoading: isCartLoading,
+        isFetching: isCartFetching,
+        isSuccess: isCartSuccess,
+        error: cartError,
+    } = useGetCartQuery(userId);
+    const [emptyCartTrigger, { isLoading, error, data, isSuccess }] =
+        useEmptyCartMutation();
+    const dispatch = useAppDispatch();
+    const router = useRouter();
+    //
+    const { data: session, status } = useSession();
+    const isLogging = useAppSelector(state => state.auth.isLogging);
+    if (!session && !isLogging) {
+        // dispatch action along with session changes here
+        redirect("/");
+    }
+    //
+    const products = cart?.lineItems || [];
+    let sortedProducts = [...products].sort((a, b) => b.id - a.id);
+    //
+    useEffect(() => {
+        if (isChecked) {
+            dispatch(updateSelectedItems({
+                lineItems: sortedProducts
+            }))
+        }
+        else {
+            dispatch(clearSelectedItems());
+        }
+    }, [isChecked])
+    //
+    if (cartError) {
+        return "Error!";
+    }
+    if (isCartLoading || isCartFetching || isLoading) {
+        dispatch(showLoading())
     }
   }, [isChecked]);
   //
