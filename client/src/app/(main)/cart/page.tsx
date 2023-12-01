@@ -9,8 +9,9 @@ import Link from "next/link"
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../_store/hooks";
 import { updateSelectedItems, clearSelectedItems, SelectedItems } from "../_store/features/selectedItemsSlice";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
+import { useSession } from "next-auth/react";
 //
 
 
@@ -30,6 +31,13 @@ const CartPage = () => {
         useEmptyCartMutation();
     const dispatch = useAppDispatch();
     const router = useRouter();
+    //
+    const { data: session, status } = useSession();
+    const isLogging = useAppSelector(state => state.auth.isLogging);
+    if (!session && !isLogging) {
+        // dispatch action along with session changes here
+        redirect("/");
+    }
     //
     const products = cart?.lineItems || [];
     let sortedProducts = [...products].sort((a, b) => b.id - a.id);

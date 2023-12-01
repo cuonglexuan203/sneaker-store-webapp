@@ -1,9 +1,11 @@
 'use client'
 import React from 'react'
-import { useGetInvoicesQuery } from '../_store/services/userApi';
+import { useGetInvoicesQuery } from '../_store/services/productsApi';
 import { useAppDispatch, useAppSelector } from '../_store/hooks';
 import { UserInfo } from '../_store/features/userSlice';
 import { hideLoading, showLoading } from '../_store/features/statusSlice';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 const Orders = () => {
     const userInfo: UserInfo = useAppSelector(state => state.user.info);
@@ -15,6 +17,13 @@ const Orders = () => {
         data: invoices,
         error,
     } = useGetInvoicesQuery(userInfo.id);
+    //
+    const { data: session, status } = useSession();
+    const isLogging = useAppSelector(state => state.auth.isLogging);
+    if (!session && !isLogging) {
+        // dispatch action along with session changes here
+        redirect("/");
+    }
     //
     if (error) {
         console.error(error);
