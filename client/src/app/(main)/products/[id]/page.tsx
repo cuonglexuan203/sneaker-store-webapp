@@ -13,7 +13,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useAppDispatch } from "../../_store/hooks";
-import { addLineItem } from "../../_store/features/selectedItemsSlice";
+import { LineItem, SelectedItems, updateSelectedItems } from "../../_store/features/selectedItemsSlice";
 import { hideLoading, showLoading } from "../../_store/features/statusSlice";
 
 // const colors = [
@@ -156,12 +156,17 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             return;
         }
         //
-        dispatch(addLineItem({
+        const buyNowProduct: LineItem = {
             color,
             size,
             quantity: productCount,
             product
-        }))
+        }
+        const buyNowProducts: SelectedItems = {
+            lineItems: [buyNowProduct]
+        }
+        dispatch(updateSelectedItems(buyNowProducts))
+        //
         router.push("/checkout")
     }
 

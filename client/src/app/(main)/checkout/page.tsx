@@ -55,6 +55,11 @@ const Checkout = () => {
   //
   const total = selectedItems.reduce((accumulator: number, item: LineItem) => accumulator + item.product.price * item.quantity, 0);
   //
+  const handlePlaceOrder = () => {
+    dispatch(updateUser({ ...user, creditCardNumber }));
+    router.push(`/purchase?creditCardNumber=${creditCardNumber}&shippingEmail=${shippingEmail}&cardHolder=${cardHolder}&address=${Object.values(address).join(",")}`);
+  }
+  //
   return (
     <section>
       <>
@@ -430,10 +435,7 @@ const Checkout = () => {
             </div>
             <button
               className={`${isValidCheckoutInfo ? "bg-gray-900" : "bg-gray-300"} mt-4 mb-8 w-full rounded-md px-6 py-3 font-medium text-white`}
-              onClick={() => {
-                dispatch(updateUser({ ...user, creditCardNumber }));
-                router.push(`/purchase?creditCardNumber=${creditCardNumber}&shippingEmail=${shippingEmail}&cardHolder=${cardHolder}&address=${Object.values(address).join(",")}`);
-              }}
+              onClick={handlePlaceOrder}
               disabled={!isValidCheckoutInfo}
             >
               Place Order

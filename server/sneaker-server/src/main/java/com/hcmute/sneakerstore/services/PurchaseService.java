@@ -34,23 +34,28 @@ public class PurchaseService {
 		//
 		Invoice invoice = createInvoice(lineItems, address);
 		user.addInvoice(invoice);
-		// Remove existing line items in cart
+		//
 		Set<LineItem> cartLineItemSet = cart.getLineItems();
 		//
 		for (int i = 0; i < lineItems.size(); i++) {
 			LineItem tempLineItem = lineItems.get(i);
-			//
-			for (Iterator<LineItem> itor = cartLineItemSet.iterator(); itor.hasNext();) {
-				LineItem tempCartLineItem = itor.next();
-				//
-				if (tempCartLineItem.getSize() == tempLineItem.getSize()
-						&& tempCartLineItem.getColor() == tempLineItem.getColor()
-						&& tempCartLineItem.getQuantity() == tempLineItem.getQuantity()
-						&& tempCartLineItem.getProduct().getId() == tempLineItem.getProduct().getId()) {
-					itor.remove();
-					break;
+			// check for buy now feature ( new line item )
+			if (tempLineItem.getId() > 0) {
+				// Remove existing line items in cart
+				for (Iterator<LineItem> itor = cartLineItemSet.iterator(); itor.hasNext();) {
+					LineItem tempCartLineItem = itor.next();
+					//
+					if (tempCartLineItem.getId() == tempLineItem.getId()
+							&& tempCartLineItem.getSize() == tempLineItem.getSize()
+							&& tempCartLineItem.getColor() == tempLineItem.getColor()
+							&& tempCartLineItem.getQuantity() == tempLineItem.getQuantity()
+							&& tempCartLineItem.getProduct().getId() == tempLineItem.getProduct().getId()) {
+						itor.remove();
+						break;
+					}
 				}
 			}
+
 		}
 
 		long id = invoiceDao.add(invoice);
