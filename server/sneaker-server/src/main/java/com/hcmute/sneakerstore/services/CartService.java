@@ -5,7 +5,6 @@ import java.util.Set;
 
 import com.hcmute.sneakerstore.DAOs.CartDao;
 import com.hcmute.sneakerstore.DAOs.DaoFactory;
-import com.hcmute.sneakerstore.DAOs.GenericDao;
 import com.hcmute.sneakerstore.DAOs.LineItemDao;
 import com.hcmute.sneakerstore.DAOs.UserDao;
 import com.hcmute.sneakerstore.DTOs.LineItemAdditionReqDto;
@@ -13,8 +12,6 @@ import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.LineItem;
 import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.utils.DBUtils;
-import com.hcmute.sneakerstore.utils.HttpResponseHandler;
-import com.hcmute.sneakerstore.utils.StatusMessage;
 
 public class CartService {
 

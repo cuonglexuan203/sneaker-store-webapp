@@ -1,12 +1,8 @@
 package com.hcmute.sneakerstore.controllers;
 
 import java.io.IOException;
-import java.util.Set;
 
-import com.hcmute.sneakerstore.DAOs.ProductDao;
 import com.hcmute.sneakerstore.DTOs.ProductResDto;
-import com.hcmute.sneakerstore.model.Product;
-import com.hcmute.sneakerstore.model.ProductInventory;
 import com.hcmute.sneakerstore.services.ProductService;
 import com.hcmute.sneakerstore.utils.HttpResponseHandler;
 import com.hcmute.sneakerstore.utils.PathParams;
@@ -17,7 +13,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
 
 @WebServlet("/products/*")
 public class ProductServlet extends HttpServlet {

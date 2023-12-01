@@ -18,6 +18,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -44,6 +45,7 @@ public class Sale implements Serializable, Identifiable {
 	private float percentage = 1.f;
 
 	//
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@Builder.Default

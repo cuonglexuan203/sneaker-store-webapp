@@ -20,6 +20,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -39,6 +40,7 @@ public class Cart implements Serializable, Identifiable {
 	private long id;
 
 	//
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@OneToOne
@@ -46,7 +48,7 @@ public class Cart implements Serializable, Identifiable {
 	private User user;
 	
 	@Builder.Default
-	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cart", fetch = FetchType.EAGER, cascade = {CascadeType.DETACH,CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//

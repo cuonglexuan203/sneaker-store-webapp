@@ -24,6 +24,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -64,6 +65,7 @@ public class Invoice implements Serializable, Identifiable {
 	//
 
 	// User
+	@EqualsAndHashCode.Exclude
 	@GsonExclude
 	@ToString.Exclude
 	@ManyToOne
@@ -72,7 +74,7 @@ public class Invoice implements Serializable, Identifiable {
 
 	// LineItem
 	@Builder.Default
-	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "invoice", cascade = CascadeType.MERGE)
 	private Set<LineItem> lineItems = new HashSet<>();
 
 	//

@@ -146,7 +146,7 @@ export default function SignIn() {
                                         router.replace("/auth/signup")
                                     }
                                 >
-                                    &nbsp;Sign Up here
+                                    &nbsp;Sign In here
                                 </span>
                             </p>
                             {/* Sign In button */}

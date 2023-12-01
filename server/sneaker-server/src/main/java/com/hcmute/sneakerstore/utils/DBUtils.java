@@ -23,14 +23,12 @@ public class DBUtils {
 	public final static long FAILED_ID = -1l;
 
 	/**
-	 * @param <T>   a generic type which extends Identifiable interface
-	 *              (Business entities contain getId() method )
-	 * @param query query a TypedQuery type object which contains the query
-	 *              string
+	 * @param <T>   a generic type which extends Identifiable interface (Business
+	 *              entities contain getId() method )
+	 * @param query query a TypedQuery type object which contains the query string
 	 * @return a result list which returned from the query
 	 */
-	public static <T extends Identifiable> List<T> getResultList(
-			TypedQuery<T> query) {
+	public static <T extends Identifiable> List<T> getResultList(TypedQuery<T> query) {
 
 		if (query == null) {
 			return null;
@@ -50,13 +48,12 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>   a generic type which extends Identifiable interface
-	 *              (Business entities contain getId() method )
+	 * @param <T>   a generic type which extends Identifiable interface (Business
+	 *              entities contain getId() method )
 	 * @param query a TypedQuery type object which contains the query string
 	 * @return a single result which is selected in the query
 	 */
-	public static <T extends Identifiable> T getSingleResult(
-			TypedQuery<T> query) {
+	public static <T extends Identifiable> T getSingleResult(TypedQuery<T> query) {
 
 		if (query == null)
 			return null;
@@ -115,8 +112,7 @@ public class DBUtils {
 	 * @param id          the id of selected entity
 	 * @return an entity contains id
 	 */
-	public static <T extends Identifiable> T selectOne(Class<T> entityClass,
-			long id) {
+	public static <T extends Identifiable> T selectOne(Class<T> entityClass, long id) {
 		if (id <= 0)
 			return null;
 
@@ -145,8 +141,7 @@ public class DBUtils {
 	 * @param ids         the id of selected entities
 	 * @return a result list contains ids being selected
 	 */
-	public static <T extends Identifiable> List<T> selectMany(
-			Class<T> entityClass, List<Long> ids) {
+	public static <T extends Identifiable> List<T> selectMany(Class<T> entityClass, List<Long> ids) {
 		if (ValidationUtils.isNullOrEmpty(ids))
 			return null;
 		//
@@ -172,16 +167,17 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>    a generic type which extends Identifiable interface
-	 *               (Business entities contain getId() method )
+	 * @param <T>    a generic type which extends Identifiable interface (Business
+	 *               entities contain getId() method )
 	 * @param entity the entity need to insert
 	 * @return the id of inserted entity
 	 */
 	public static <T extends Identifiable> long insertOne(T entity) {
 
 		//
-		if (entity == null)
+		if (entity == null) {
 			return FAILED_ID;
+		}
 		//
 		@Cleanup
 		EntityManager em = JpaProvider.getEntityManager();
@@ -192,11 +188,11 @@ public class DBUtils {
 			em.persist(entity);
 			tran.commit();
 		} catch (PersistenceException e) {
-
+			e.printStackTrace();
 			tran.rollback();
 			return FAILED_ID;
 		} catch (Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 			tran.rollback();
 			return FAILED_ID;
 		}
@@ -204,8 +200,8 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>      a generic type which extends Identifiable interface
-	 *                 (Business entities contain getId() method )
+	 * @param <T>      a generic type which extends Identifiable interface (Business
+	 *                 entities contain getId() method )
 	 * @param entities a list of entities need to insert
 	 * @return the number of inserted entities
 	 */
@@ -239,8 +235,8 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>    a generic type which extends Identifiable interface
-	 *               (Business entities contain getId() method )
+	 * @param <T>    a generic type which extends Identifiable interface (Business
+	 *               entities contain getId() method )
 	 * @param entity the entity need to update
 	 * @return the updated entity
 	 */
@@ -270,8 +266,8 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>      a generic type which extends Identifiable interface
-	 *                 (Business entities contain getId() method )
+	 * @param <T>      a generic type which extends Identifiable interface (Business
+	 *                 entities contain getId() method )
 	 * @param entities a list of entities need to update
 	 * @return the number of updated entities
 	 */
@@ -295,8 +291,7 @@ public class DBUtils {
 	 * @param id          id of the entity want to delete
 	 * @return status: 0: failure, 1: successful
 	 */
-	public static <T extends Identifiable> long deleteOne(Class<T> entityClass,
-			long id) {
+	public static <T extends Identifiable> long deleteOne(Class<T> entityClass, long id) {
 
 		//
 		if (id <= 0)
@@ -328,13 +323,12 @@ public class DBUtils {
 	}
 
 	/**
-	 * @param <T>      a generic type which extends Identifiable interface
-	 *                 (Business entities contain getId() method )
+	 * @param <T>      a generic type which extends Identifiable interface (Business
+	 *                 entities contain getId() method )
 	 * @param entities a list of entities need to delete
 	 * @return the number of deleted entities
 	 */
-	public static <T extends Identifiable> long deleteMany(Class<T> entityClass,
-			List<Long> ids) {
+	public static <T extends Identifiable> long deleteMany(Class<T> entityClass, List<Long> ids) {
 		long count = 0l;
 		//
 		if (ValidationUtils.isNullOrEmpty(ids))
