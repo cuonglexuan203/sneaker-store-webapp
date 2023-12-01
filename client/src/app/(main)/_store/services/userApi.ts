@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { User, UserInfo } from "../features/userSlice";
 import { ResponseData } from "../../_utils/responseData";
+import { Address } from "../../_utils/types";
+import { IndexedLineItem, LineItem } from "../features/selectedItemsSlice";
 
 
 export interface Account {
@@ -39,9 +41,19 @@ export interface ChangePasswordRequestBody {
 
 }
 
+export interface Invoice {
+    id: number,
+    status: string,
+    paymentTime: string,
+    address: Address,
+    deliveryStatus: string,
+    totalAmount: number,
+    lineItems: IndexedLineItem[]
+}
+
 export const userApi = createApi({
     reducerPath: 'userApi',
-    tagTypes: ['user', 'account'],
+    tagTypes: ['user', 'account', "invoices"],
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:8080/sneaker-server/",
         credentials: "include"
@@ -96,7 +108,11 @@ export const userApi = createApi({
                 }
             })
         }),
+        getInvoices: builder.query<Invoice[], number>({
+            query: (userId) => `invoices?userId=${userId}`,
+            providesTags: ['invoices'],
+        })
     })
 })
 
-export const { useGetUserQuery, useUpdateUserMutation, useSignUpMutation, useSignInMutation, useChangePasswordMutation } = userApi;
+export const { useGetUserQuery, useUpdateUserMutation, useSignUpMutation, useSignInMutation, useChangePasswordMutation, useGetInvoicesQuery } = userApi;

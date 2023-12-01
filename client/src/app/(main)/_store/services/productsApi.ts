@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ResponseData } from "../../_utils/responseData";
-import { IndexedLineItem } from "../features/selectedItemsSlice";
+import { IndexedLineItem, LineItem } from "../features/selectedItemsSlice";
+import { Address } from "../../_utils/types";
 
 export interface Cart {
     id: number,
@@ -48,6 +49,15 @@ export interface RemoveManyFromCartRequestBody {
     lineItemIds: number[];
 }
 
+export interface PurchaseRequestBody {
+    lineItems: IndexedLineItem[];
+    creditCardNumber: string;
+    shippingEmail: string;
+    cardHolder: string;
+    address: Address;
+    userId: number;
+}
+
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({
@@ -90,6 +100,7 @@ export const productsApi = createApi({
             }),
             invalidatesTags: ['cart']
         }),
+        //*
         removeManyFromCart: builder.mutation<ResponseData, RemoveManyFromCartRequestBody>({
             query: (body) => ({
                 url: `/lineitems/0`,
@@ -120,10 +131,21 @@ export const productsApi = createApi({
                 method: "POST",
                 headers: { "Content-Type": "application/json" }
             }),
-            invalidatesTags: ["lineItem"]
+            invalidatesTags: ["lineItem", "cart"]
         }),
+        purchase: builder.mutation<ResponseData, PurchaseRequestBody>({
+            query: (body) => ({
+                url: "purchase",
+                method: "POST",
+                body,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }),
+            invalidatesTags: ["cart"]
+        })
 
     }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation } = productsApi;
