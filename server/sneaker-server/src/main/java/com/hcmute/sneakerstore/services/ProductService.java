@@ -2,6 +2,7 @@ package com.hcmute.sneakerstore.services;
 
 import java.util.List;
 
+import com.hcmute.sneakerstore.DAOs.DaoFactory;
 import com.hcmute.sneakerstore.DAOs.ProductDao;
 import com.hcmute.sneakerstore.DTOs.ProductResDto;
 import com.hcmute.sneakerstore.model.Product;
@@ -10,7 +11,7 @@ public class ProductService {
 	private ProductDao productDao;
 
 	public ProductService() {
-		productDao = new ProductDao();
+		productDao = DaoFactory.getProductDao();
 	}
 	public List<Product> getAllProducts(){
 		return productDao.findAll();

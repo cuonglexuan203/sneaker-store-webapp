@@ -2,17 +2,16 @@ import Image from "next/image";
 import { type Sneaker } from "../_store/services/productsApi";
 import Link from "next/link";
 
-const TrendingProduct = ({ product: p, color }: { product: Sneaker, color: string }) => {
-    const bgColor = "bg-" + color + "-200";
-    const borderColor = "border-" + color + "-400";
+const TrendingProduct = ({ product: p, bgColor, borderColor }: { product: Sneaker, bgColor: string, borderColor: string }) => {
     const itemWidth = "433px";
     const itemHeight = "532px";
+    const imageSize = "324px";
     return (
-        <div className="snap-center shrink-0">
-            <Link href={`/products/${p.id}`}>
-                <div className={`w-[${itemWidth}] h-[${itemHeight}] flex items-center justify-center border-[18px] ${borderColor} ${bgColor} rounded-sm`}>
+        <div className={`snap-center shrink-0`}>
+            <Link href={`/products/${p.id}`} className={`w-[${itemWidth}]`}>
+                <div className={`w-[${itemWidth}] h-[${itemHeight}] flex items-center justify-center border-[18px] ${borderColor} ${bgColor} rounded-md`}>
                     <Image
-                        className="shrink-0 w-[324px] h-[324px]"
+                        className={`shrink-0 w-[${imageSize}] h-[${imageSize}]`}
                         width={0}
                         height={0}
                         sizes="100%"
