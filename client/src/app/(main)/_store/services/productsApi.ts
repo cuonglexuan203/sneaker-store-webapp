@@ -33,6 +33,17 @@ export interface AdminSneaker {
     productInventories: ProductInventory[]
 }
 
+export interface AddAdminProductRequestBody {
+    product: Sneaker,
+    productInventories: ProductInventory[]
+}
+
+export interface UpdateAdminProductRequestBody {
+    product: Sneaker,
+    productInventoryId: number,
+    productInventoryQty: number,
+}
+
 export interface ProductInventory {
     id: number;
     productAmount: number;
@@ -71,6 +82,8 @@ export interface PurchaseRequestBody {
     userId: number;
 }
 
+
+
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({
@@ -87,6 +100,35 @@ export const productsApi = createApi({
         getAdminProducts: builder.query<AdminSneaker[], null>({
             query: () => "admin/products",
             providesTags: ["admin_products"]
+        }),
+        // add new product and its product inventories ( id of them can be 0 )
+        addAdminProduct: builder.mutation<ResponseData, AddAdminProductRequestBody>({
+            query: (body) => ({
+                url: "admin/products",
+                method: "POST",
+                body: body,
+                headers: { "Content-Type": "application/json" },
+            }),
+            invalidatesTags: ["admin_products"]
+        }),
+        // update both a product information and a product inventory information ( id of them can not be 0 -> id of existing entity)
+        updateAdminProduct: builder.mutation<ResponseData, UpdateAdminProductRequestBody>({
+            query: (body) => ({
+                url: "admin/products",
+                method: "PUT",
+                body: body,
+                headers: { "Content-Type": "application/json" },
+            }),
+            invalidatesTags: ["admin_products"]
+        }),
+        // delete a product inventory by id
+        deleteAdminProduct: builder.mutation<ResponseData, number>({
+            query: (productInventoryId) => ({
+                url: `admin/products?id=${productInventoryId}`,
+                method: "DELETE",
+                headers: { "Content-Type": "application/plain" },
+            }),
+            invalidatesTags: ["admin_products"]
         }),
         getProductById: builder.query<GetProductByIdResponseBody, number>({
             query: (id) => `products/${id}`,

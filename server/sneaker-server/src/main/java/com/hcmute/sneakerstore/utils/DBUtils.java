@@ -186,6 +186,7 @@ public class DBUtils {
 		tran.begin();
 		try {
 			em.persist(entity);
+			em.flush();
 			tran.commit();
 		} catch (PersistenceException e) {
 			e.printStackTrace();
