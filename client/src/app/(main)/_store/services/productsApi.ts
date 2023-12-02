@@ -211,4 +211,4 @@ export const productsApi = createApi({
     }),
 });
 
-export const { useGetProductsQuery, useGetAdminProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;
+export const { useGetProductsQuery, useGetAdminProductsQuery, useAddAdminProductMutation, useUpdateAdminProductMutation, useDeleteAdminProductMutation, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;
