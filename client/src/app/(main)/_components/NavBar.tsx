@@ -15,15 +15,18 @@ import {
     toggleIsUserMenuOpen,
     toggleIsSearching,
 } from "../_store/features/navBarSlice";
-import { removeUser, updateUser } from "../_store/features/userSlice";
+import { UserInfo, removeUser, updateUser } from "../_store/features/userSlice";
 import {
     signOut as signOuter,
     signIn as signInter,
+    Auth,
 } from "../_store/features/authSlice";
 import Link from "next/link";
+import QuantityCart from "./QuantityCart";
 //
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [isDarkMode, setIsDarkMode] = useState(false);
     const router = useRouter();
@@ -36,8 +39,8 @@ const NavBar = () => {
         (state: RootState) => state.navbar.isUserMenuOpen
     );
 
-    const authData = useAppSelector((state) => state.auth);
-    const userInfo = useAppSelector((state) => state.user.info);
+    const authData: Auth = useAppSelector((state) => state.auth);
+    const userInfo: UserInfo = useAppSelector((state) => state.user.info);
     //
     const { data: session } = useSession();
     useEffect(() => {
@@ -154,12 +157,12 @@ const NavBar = () => {
                             onSubmit={handleSearchSubmit}
                             action="#"
                             method="GET"
-                            className="hidden lg:block lg:pl-3.5 select-none"
+                            className={`absolute -bottom-4 left-1/2 z-10 ${isSearchBarOpen ? "opacity-100 -translate-x-1/2 translate-y-full" : "opacity-0 -translate-x-0 translate-y-0"} transition-all duration-100 lg:opacity-100 lg:static lg:block lg:pl-3.5 select-none`}
                         >
                             <label htmlFor="topbar-search" className="sr-only">
                                 Search
                             </label>
-                            <div className="relative mt-1 lg:w-96">
+                            <div className="relative mt-1 lg:w-72 xl:w-96">
                                 <div
                                     className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer"
                                     onClick={handleSearchSubmit}
@@ -180,8 +183,7 @@ const NavBar = () => {
                     </div>
                     {/* Menu part */}
                     <div
-                        className={`${!isMobileMenuOpen && "hidden "
-                            } absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
+                        className={`${!isMobileMenuOpen ? "hidden " : ""} absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
                     >
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 md:rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
@@ -226,20 +228,20 @@ const NavBar = () => {
                                         aria-labelledby="dropdownLargeButton"
                                     >
                                         <li>
-                                            <a
+                                            <Link
                                                 href="#"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Latest
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 href="#"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Trending
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                     <div className="py-1">
@@ -271,10 +273,12 @@ const NavBar = () => {
                         </ul>
                     </div>
                     {/* User part */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 z-20">
+                        {/* Search Icon */}
                         <button
                             id="toggleSidebarMobileSearch"
                             type="button"
+                            onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
                             className="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
                             <span className="sr-only">Search</span>
@@ -282,7 +286,7 @@ const NavBar = () => {
                         </button>
                         {/* Notification */}
                         <button
-                            className={`hidden lg:block relative p-2 ${isNotificationOpen
+                            className={`hidden xl:block relative p-2 ${isNotificationOpen
                                 ? "bg-sky-500 text-white"
                                 : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                                 } rounded-lg`}
@@ -543,14 +547,15 @@ const NavBar = () => {
                         {/* Cart */}
                         <Link
                             href={"/cart"}
-                            className="hidden p-2 text-gray-500 rounded-lg sm:flex hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
+                            className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                         >
                             <span className="sr-only">View notifications</span>
-                            <FaShoppingCart className="h-6 w-6" />
+                            <QuantityCart isLogging={authData.isAccount} userId={userInfo.id} />
+
                         </Link>
                         {/* Theme toggle */}
                         <button
-                            className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
+                            className="hidden xl:block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
                             hover:text-gray-900 dark:hover:text-white rounded-lg text-sm p-1 sm:p-2.5"
                             onClick={() => setIsDarkMode(!isDarkMode)}
                         >

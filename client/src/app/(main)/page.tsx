@@ -15,10 +15,12 @@ import {
     toggleIsUserMenuOpen,
 } from "./_store/features/navBarSlice";
 import { showToast, hideToast, showLoading, hideLoading } from "./_store/features/statusSlice";
+import { AuthRequiredError } from "./lib/exception";
 //
 const slides = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png", "7.png"];
 
 export default function Home() {
+
     const {
         isLoading,
         isFetching,

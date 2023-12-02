@@ -16,6 +16,7 @@ import {
 import { redirect, useRouter } from "next/navigation";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
 import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 //
 
 const CartPage = () => {
@@ -40,7 +41,7 @@ const CartPage = () => {
   const isLogging = useAppSelector((state) => state.auth.isLogging);
   if (!session && !isLogging) {
     // dispatch action along with session changes here
-    redirect("/");
+    throw new AuthRequiredError();
   }
   //
   const products = cart?.lineItems || [];
@@ -89,9 +90,9 @@ const CartPage = () => {
   return (
     <div className="container mx-auto mt-10 rounded-xl">
       <div className="grid grid-col-1 lg:flex gap-2 my-10 rounded-xl">
-        <div className=" bg-white py-3 w-3/4">
-          <div className="hidden h-full flex-1 flex-col px-2 space-y-8 md:flex rounded-xl">
-            <div className="flex flex-col h-screen rounded-xl">
+        <div className=" bg-white w-screen py-3 md:w-3/4">
+          <div className="h-full flex-1 flex-col px-2 space-y-8 md:flex rounded-xl">
+            <div className="flex flex-col md:h-screen rounded-xl">
               <div className="flex-grow overflow-auto rounded-xl">
                 {sortedProducts?.length === 0 ? (
                   <table className="bg-transparent cart-table mb-0 flex items-center justify-center">
@@ -206,11 +207,10 @@ const CartPage = () => {
                 router.push("/checkout");
               }}
               disabled={selectedItems.lineItems.length <= 0}
-              className={`text-center block w-full rounded-xl font-semibold ${
-                selectedItems.lineItems?.length <= 0
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-indigo-500  hover:bg-indigo-600"
-              } py-3 text-sm text-white uppercase`}
+              className={`text-center block w-full rounded-xl font-semibold ${selectedItems.lineItems?.length <= 0
+                ? "bg-gray-300 cursor-not-allowed"
+                : "bg-indigo-500  hover:bg-indigo-600"
+                } py-3 text-sm text-white uppercase`}
             >
               Checkout
             </button>

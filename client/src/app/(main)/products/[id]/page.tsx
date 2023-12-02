@@ -13,7 +13,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useAppDispatch } from "../../_store/hooks";
-import { addLineItem } from "../../_store/features/selectedItemsSlice";
+import { LineItem, SelectedItems, updateSelectedItems } from "../../_store/features/selectedItemsSlice";
 import { hideLoading, showLoading } from "../../_store/features/statusSlice";
 
 // const colors = [
@@ -141,7 +141,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             const response = await addToCart(body).unwrap();
             //
             if (response.statusCode === 200 || response.statusCode === 201) {
-                console.log(response);
+                // console.log(response);
                 setIsSuccessfulToastVisible(true);
             }
         } catch (err) {
@@ -156,12 +156,17 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             return;
         }
         //
-        dispatch(addLineItem({
+        const buyNowProduct: LineItem = {
             color,
             size,
             quantity: productCount,
             product
-        }))
+        }
+        const buyNowProducts: SelectedItems = {
+            lineItems: [buyNowProduct]
+        }
+        dispatch(updateSelectedItems(buyNowProducts))
+        //
         router.push("/checkout")
     }
 
@@ -346,12 +351,12 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
         <section className="relative py-10 font-poppins dark:bg-gray-800">
             <div className="max-w-6xl px-4 mx-auto">
                 {/* Product */}
-                <div className="flex flex-wrap mb-24 -mx-4">
+                <div className="flex flex-wrap mb-24 -mx-4 gap-1 lg:gap-0">
                     {/* Image */}
-                    <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
-                        <div className="sticky top-32 mt-6 overflow-hidden flex flex-row-reverse gap-5">
+                    <div className="w-full px-4 lg:mb-8 lg:w-1/2 md:mb-0">
+                        <div className="lg:sticky top-32 lg:mt-6 overflow-hidden flex flex-col justify-center items-center lg:flex-row-reverse gap-5">
                             {/* Main image */}
-                            <div className="relative mb-6 lg:mb-10 lg:h-full flex items-center justify-center">
+                            <div className="relative lg:mb-10 lg:h-full flex items-center justify-center">
                                 <a
                                     className="absolute left-0 transform lg:ml-2 top-1/2 translate-1/2"
                                     href="#"
@@ -398,61 +403,73 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                 </a>
                             </div>
                             {/* Subimages */}
-                            <div className="flex-wrap hidden -mx-2 md:flex md:flex-col">
-                                <div className="w-1/2">
-                                    <a
+                            <div className="flex flex-wrap -mx-2 lg:flex-col gap-2 items-center justify-center">
+                                <div className="w-fit shadow-md rounded-lg ">
+                                    <Link
                                         className="block hover: rounded-lg"
                                         href="#"
                                     >
-                                        <img
-                                            className="h-20 aspect-square max-w-lg rounded-lg"
-                                            src="/images/products/1.webp"
+                                        <Image
+                                            width={0}
+                                            height={0}
+                                            sizes="100%"
+                                            className="ml-4 h-20 w-20 aspect-square max-w-lg rounded-md"
+                                            src={`${product.imageUrl}`}
                                             alt="image description"
                                         />
-                                    </a>
+                                    </Link>
                                 </div>
 
-                                <div className="w-1/2 p-2">
-                                    <a
+                                <div className="w-fit shadow-md rounded-lg ">
+                                    <Link
                                         className="block hover: rounded-lg"
                                         href="#"
                                     >
-                                        <img
-                                            className="h-20 aspect-square max-w-lg rounded-lg"
-                                            src="/images/products/1.webp"
+                                        <Image
+                                            width={0}
+                                            height={0}
+                                            sizes="100%"
+                                            className="ml-4 h-20 w-20 aspect-square max-w-lg rounded-md"
+                                            src={`${product.imageUrl}`}
                                             alt="image description"
                                         />
-                                    </a>
+                                    </Link>
                                 </div>
-                                <div className="w-1/2 p-2">
-                                    <a
+                                <div className="w-fit shadow-md rounded-lg ">
+                                    <Link
                                         className="block hover: rounded-lg"
                                         href="#"
                                     >
-                                        <img
-                                            className="h-20 aspect-square max-w-lg rounded-lg"
-                                            src="/images/products/1.webp"
+                                        <Image
+                                            width={0}
+                                            height={0}
+                                            sizes="100%"
+                                            className="ml-4 h-20 w-20 aspect-square max-w-lg rounded-md"
+                                            src={`${product.imageUrl}`}
                                             alt="image description"
                                         />
-                                    </a>
+                                    </Link>
                                 </div>
-                                <div className="w-1/2 p-2">
-                                    <a
+                                <div className="w-fit shadow-md rounded-lg ">
+                                    <Link
                                         className="block hover: rounded-lg"
                                         href="#"
                                     >
-                                        <img
-                                            className="h-20 aspect-square max-w-lg rounded-lg"
-                                            src="/images/products/1.webp"
+                                        <Image
+                                            width={0}
+                                            height={0}
+                                            sizes="100%"
+                                            className="ml-4 h-20 w-20 aspect-square max-w-lg rounded-md"
+                                            src={`${product.imageUrl}`}
                                             alt="image description"
                                         />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* Detail */}
-                    <div className="w-full px-4 md:w-1/2">
+                    <div className="w-full px-4 lg:w-1/2">
                         <div className="lg:pl-20">
                             {/* Info */}
                             <div className="mb-6 ">
@@ -481,7 +498,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                         Choose a color
                                     </legend>
                                     <ul className="flex items-center space-x-3 select-none">
-                                        {colors.map((c) => (
+                                        {colors.map((c, idx) => (
                                             <li key={c.value} className="">
                                                 <label
                                                     className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${color === c.value
@@ -655,7 +672,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                 <div className="mb-4 lg:mb-0">
                                     <button
                                         onClick={() => setIsLiked(!isLiked)}
-                                        className="hover:text-red-200 flex items-center justify-center w-full h-10 p-2 mr-4 text-gray-700 lg:w-11 dark:text-gray-200"
+                                        className="hover:text-red-200 flex items-center justify-center w-11 h-10 p-2 mr-4 text-gray-700 lg:w-11 dark:text-gray-200"
                                     >
                                         <svg
                                             width="220px"

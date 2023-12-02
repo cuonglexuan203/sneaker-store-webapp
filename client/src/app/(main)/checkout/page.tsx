@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { UserInfo, updateUser } from "../_store/features/userSlice";
 import { Address } from "../_utils/types";
 import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 
 
 let shipCost: number = 8.0;
@@ -29,7 +30,8 @@ const Checkout = () => {
   const isLogging = useAppSelector(state => state.auth.isLogging);
   if (!session && !isLogging) {
     // dispatch action along with session changes here
-    redirect("/");
+    throw new AuthRequiredError();
+
   }
   //
   if (selectedItems == null || selectedItems.length <= 0) {
@@ -54,6 +56,11 @@ const Checkout = () => {
   const isValidCheckoutInfo = (creditCardNumber?.length || 0 > 0) && isValidEmail(shippingEmail) && cardHolder.length > 0 && isValidAddress(address);
   //
   const total = selectedItems.reduce((accumulator: number, item: LineItem) => accumulator + item.product.price * item.quantity, 0);
+  //
+  const handlePlaceOrder = () => {
+    dispatch(updateUser({ ...user, creditCardNumber }));
+    router.push(`/purchase?creditCardNumber=${creditCardNumber}&shippingEmail=${shippingEmail}&cardHolder=${cardHolder}&address=${Object.values(address).join(",")}`);
+  }
   //
   return (
     <section>
@@ -430,10 +437,7 @@ const Checkout = () => {
             </div>
             <button
               className={`${isValidCheckoutInfo ? "bg-gray-900" : "bg-gray-300"} mt-4 mb-8 w-full rounded-md px-6 py-3 font-medium text-white`}
-              onClick={() => {
-                dispatch(updateUser({ ...user, creditCardNumber }));
-                router.push(`/purchase?creditCardNumber=${creditCardNumber}&shippingEmail=${shippingEmail}&cardHolder=${cardHolder}&address=${Object.values(address).join(",")}`);
-              }}
+              onClick={handlePlaceOrder}
               disabled={!isValidCheckoutInfo}
             >
               Place Order
