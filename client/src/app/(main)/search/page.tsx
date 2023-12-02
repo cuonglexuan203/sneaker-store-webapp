@@ -323,7 +323,7 @@ const Search = () => {
             <div className="mt-2 flex relative">
                 {/* Filter bar */}
                 <div
-                    className={`sticky hide-scrollbar overflow-y-scroll pl-12 w-80 h-[80vh] top-28 z-10 transition-all duration-300 ease-in-out ${isFilterOpen ? "-ml-0" : "-ml-80"
+                    className={`fixed w-full h-[87vh] overscroll-none pl-12 pr-12 bg-white md:pr-0 md:sticky md:w-80 md:h-[80vh] hide-scrollbar overflow-y-scroll top-28 z-10 transition-all duration-300 ease-in-out ${isFilterOpen ? "-ml-0" : "-ml-96 md:-ml-80"
                         }`}
                 >
                     {accordions.map((acc, idx) => (
