@@ -136,8 +136,8 @@ const Dashboard = () => {
             </tr>
           </thead>
 
-          {currentItems.map((p, index) => (
-            <AdminLineItem p={p} openModal={openModal} />
+          {currentItems.map((p, idx) => (
+            <AdminLineItem key={idx} p={p} openModal={openModal} />
           ))}
         </table>
       </div>
@@ -160,11 +160,10 @@ const Dashboard = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`py-2 px-4 rounded ${
-              i + 1 === currentPage
+            className={`py-2 px-4 rounded ${i + 1 === currentPage
                 ? "bg-blue-700 text-white"
                 : "bg-blue-500 text-white hover:bg-blue-700"
-            }`}
+              }`}
           >
             {i + 1}
           </button>

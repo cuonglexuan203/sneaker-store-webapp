@@ -28,6 +28,11 @@ export interface Sneaker {
     imageUrl: string;
 };
 
+export interface AdminSneaker {
+    product: Sneaker,
+    productInventories: ProductInventory[]
+}
+
 export interface ProductInventory {
     id: number;
     productAmount: number;
@@ -73,11 +78,15 @@ export const productsApi = createApi({
         credentials: "include",
     }),
     refetchOnReconnect: true,
-    tagTypes: ["products", "product", "cart", "lineItem", "invoices"],
+    tagTypes: ["products", "admin_products", "product", "cart", "line_item", "invoices"],
     endpoints: (builder) => ({
         getProducts: builder.query<Sneaker[], null>({
             query: () => "products",
             providesTags: ["products"]
+        }),
+        getAdminProducts: builder.query<AdminSneaker[], null>({
+            query: () => "admin/products",
+            providesTags: ["admin_products"]
         }),
         getProductById: builder.query<GetProductByIdResponseBody, number>({
             query: (id) => `products/${id}`,
@@ -130,7 +139,7 @@ export const productsApi = createApi({
         }),
         getLineItemById: builder.query<IndexedLineItem, number>({
             query: (id) => `/lineitems/${id}`,
-            providesTags: ["lineItem"]
+            providesTags: ["line_item"]
         }),
         updateLineItemQuantity: builder.mutation<ResponseData, UpdateLineItemQuantityRequestBody>({
             query: (body) => ({
@@ -139,7 +148,7 @@ export const productsApi = createApi({
                 method: "POST",
                 headers: { "Content-Type": "application/json" }
             }),
-            invalidatesTags: ["lineItem", "cart"]
+            invalidatesTags: ["line_item", "cart"]
         }),
         purchase: builder.mutation<ResponseData, PurchaseRequestBody>({
             query: (body) => ({
@@ -160,4 +169,4 @@ export const productsApi = createApi({
     }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;
+export const { useGetProductsQuery, useGetAdminProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;

@@ -16,6 +16,7 @@ import {
 } from "./_store/features/navBarSlice";
 import { showToast, hideToast, showLoading, hideLoading } from "./_store/features/statusSlice";
 import { AuthRequiredError } from "./lib/exception";
+import TrendingProduct from "./_components/TrendingProduct";
 //
 const slides = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png", "7.png"];
 
@@ -46,6 +47,8 @@ export default function Home() {
             dispatch(hideLoading())
         }, 500);
     }
+
+    const trendingProducts = products.slice(0, 10);
     //
     return (
         <main
@@ -88,7 +91,32 @@ export default function Home() {
             {/* Products */}
             <section>
                 <div className="mt-16">
-                    <h2 className="capitalize text-2xl font-semibold dark:text-white ">
+                    <h2 id="trending" className="capitalize text-2xl font-semibold dark:text-white ">
+                        Trending
+                        <FaThumbsUp className="inline text-blue-400 -translate-y-[3px]" />
+                    </h2>
+                    <div className="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-14 mt-8">
+                        {error ? (
+                            <p>Error!</p>
+                        ) : isLoading || isFetching ? (
+                            <p>Loading...</p>
+                        ) : (
+                            trendingProducts.map((p, idx) => {
+
+                                return (
+                                    idx % 3 === 0 ? (<TrendingProduct key={p.id} product={p} borderColor={`border-blue-400`} bgColor={`bg-blue-200`} />) :
+                                        idx % 3 === 1 ? (
+                                            <TrendingProduct key={p.id} product={p} borderColor={`border-purple-400`} bgColor={`bg-purple-200`} />
+                                        ) : (
+                                            <TrendingProduct key={p.id} product={p} borderColor={`border-yellow-400`} bgColor={`bg-yellow-200`} />
+                                        )
+                                )
+                            })
+                        )}
+                    </div>
+                </div>
+                <div className="mt-16">
+                    <h2 id="others" className="capitalize text-2xl font-semibold dark:text-white ">
                         Recommended for You{" "}
                         <FaThumbsUp className="inline text-blue-400 -translate-y-[3px]" />
                     </h2>

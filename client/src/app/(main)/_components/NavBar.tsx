@@ -229,7 +229,7 @@ const NavBar = () => {
                                     >
                                         <li>
                                             <Link
-                                                href="#"
+                                                href="/search?q=&sort=newest"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Latest
@@ -237,7 +237,7 @@ const NavBar = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                href="#"
+                                                href="/#trending"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Trending
@@ -246,7 +246,7 @@ const NavBar = () => {
                                     </ul>
                                     <div className="py-1">
                                         <a
-                                            href="#"
+                                            href="/#others"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Others
@@ -667,12 +667,12 @@ const NavBar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/admin"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Dash Board
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a
