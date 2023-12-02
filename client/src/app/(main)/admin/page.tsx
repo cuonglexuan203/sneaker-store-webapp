@@ -18,6 +18,7 @@ const Dashboard = () => {
     isSuccess,
     error,
   } = useGetProductsQuery(null);
+
   const dispatch = useAppDispatch();
   const isNotificationOpen = useAppSelector(
     (state: RootState) => state.navbar.isNotificationOpen
