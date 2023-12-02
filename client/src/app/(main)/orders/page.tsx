@@ -6,9 +6,12 @@ import { UserInfo } from "../_store/features/userSlice";
 import { IndexedLineItem } from "../_store/features/selectedItemsSlice";
 import LineItem from "../_components/LineItem";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
+import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 
 const Orders = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.info);
+  const { data: session } = useSession();
   const {
     isLoading,
     isFetching,
@@ -18,6 +21,14 @@ const Orders = () => {
   } = useGetInvoicesQuery(userInfo.id);
 
   const dispatch = useAppDispatch();
+  //
+  const isLogging = useAppSelector(state => state.auth.isLogging);
+  if (!session && !isLogging) {
+    // dispatch action along with session changes here
+    throw new AuthRequiredError();
+
+  }
+  //
   if (error) {
     console.error(error);
   } else if (isLoading) {

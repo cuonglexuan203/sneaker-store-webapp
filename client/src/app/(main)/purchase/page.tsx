@@ -10,6 +10,7 @@ import { PurchaseRequestBody, RemoveManyFromCartRequestBody, usePurchaseMutation
 import { UserInfo } from "../_store/features/userSlice";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
 import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 
 // Dummy handler for the confirm button
 const handleConfirmClick = () => {
@@ -20,7 +21,7 @@ const handleConfirmClick = () => {
 let shipCost: number = 8.0;
 
 
-const Checkout = () => {
+const Purchase = () => {
   const selectedItems: IndexedLineItem[] = useAppSelector((state) => state.tempCart.lineItems);
   const userInfo: UserInfo = useAppSelector((state) => state.user.info);
   const dispatch = useAppDispatch();
@@ -36,7 +37,8 @@ const Checkout = () => {
   const isLogging = useAppSelector(state => state.auth.isLogging);
   if (!session && !isLogging) {
     // dispatch action along with session changes here
-    redirect("/");
+    throw new AuthRequiredError();
+
   }
   //
   const creditCardNumber = searchParams.get("creditCardNumber");
@@ -328,4 +330,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Purchase;

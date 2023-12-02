@@ -25,11 +25,9 @@ public class PopulateData {
 	public static void main(String[] args) {
 
 		String projectPath = System.getProperty("user.dir");
-		String preparedDataPath = projectPath
-				+ "/src/main/java/com/hcmute/sneakerstore/data/prepareddata/";
-		List<String> fileName = Arrays.asList("accounts.json", "products.json",
-				"productInventories.json", "users.json", "discountedSales.json",
-				"lineItems.json", "invoices.json", "carts.json");
+		String preparedDataPath = projectPath + "/src/main/java/com/hcmute/sneakerstore/data/prepareddata/";
+		List<String> fileName = Arrays.asList("accounts.json", "products.json", "productInventories.json", "users.json",
+				"discountedSales.json", "lineItems.json", "invoices.json", "carts.json");
 
 		//
 		List<Type> types = Arrays.asList(new TypeToken<List<Account>>() {
@@ -51,60 +49,54 @@ public class PopulateData {
 		List<Invoice> invoices = new ArrayList<>();
 		List<Cart> carts = new ArrayList<>();
 
-		List<List<? extends Identifiable>> collections = Arrays.asList(accounts,
-				products, productInventories, users, sales, lineItems, invoices,
-				carts);
+		List<List<? extends Identifiable>> collections = Arrays.asList(accounts, products, productInventories, users,
+				sales, lineItems, invoices, carts);
 
 		// Loading data
 		for (int i = 0; i < fileName.size(); i++) {
-			String fileContent = FileUtils
-					.getFileContent(preparedDataPath + fileName.get(i));
+			String fileContent = FileUtils.getFileContent(preparedDataPath + fileName.get(i));
 
-			collections.get(i)
-					.addAll(GsonProvider.getGsonInstance()
-							.fromJson(fileContent, types.get(i)));
+			collections.get(i).addAll(GsonProvider.getGsonInstance().fromJson(fileContent, types.get(i)));
 
 		}
 
 		// Hashing password
 		for (int i = 0; i < accounts.size(); i++) {
 			Account acc = accounts.get(i);
-			acc.setPassword(
-					PasswordVerification.hashPassword(acc.getPassword()));
+			acc.setPassword(PasswordVerification.hashPassword(acc.getPassword()));
 		}
 		// Mapping
+		int productsSize = products.size();
+		int productInventoriesSize = productInventories.size();
+		for (int i = 0; i < productsSize; i++) {
+			sales.get(i % 2).addProduct(products.get(i));
+			
+			for (int j = 0; j < Math.ceil(productInventoriesSize / productsSize); j++) {
+				int idx = j * productsSize + i;
+				if (idx < productInventoriesSize) {
+					products.get(i).addProductInventory(productInventories.get(idx));
+				}
+			}
 
-		for (int i = 0; i < products.size(); i++) {
-			sales.get(i % 2)
-					.addProduct(products.get(i));
-			products.get(i)
-					.addProductInventory(productInventories.get(i));
-
-			products.get(i)
-					.addLineItem(lineItems.get(i));
+//			products.get(i).addLineItem(lineItems.get(i));
 		}
 
 		for (int i = 0; i < users.size(); i++) {
 
-			users.get(i)
-					.addAccount(accounts.get(i));
-			users.get(i)
-					.addCart(carts.get(i));
+			users.get(i).addAccount(accounts.get(i));
+			users.get(i).addCart(carts.get(i));
 
-			users.get(i)
-					.addInvoice(invoices.get(i));
+//			users.get(i).addInvoice(invoices.get(i));
 
-			invoices.get(i)
-					.addLineItem(lineItems.get(i));
+//			invoices.get(i).addLineItem(lineItems.get(i));
 
 			// Inconsistent
-			carts.get(i)
-					.addLineItem(lineItems.get(i));
+//			carts.get(i).addLineItem(lineItems.get(i));
 		}
 
 		// Persist into database
-		
-		DaoFactory.getProductDao().addMany(products);	
+
+		DaoFactory.getProductDao().addMany(products);
 		DaoFactory.getUserDao().addMany(users);
 
 	}

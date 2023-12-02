@@ -16,6 +16,7 @@ import {
 import { redirect, useRouter } from "next/navigation";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
 import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 //
 
 const CartPage = () => {
@@ -40,7 +41,7 @@ const CartPage = () => {
   const isLogging = useAppSelector((state) => state.auth.isLogging);
   if (!session && !isLogging) {
     // dispatch action along with session changes here
-    redirect("/");
+    throw new AuthRequiredError();
   }
   //
   const products = cart?.lineItems || [];

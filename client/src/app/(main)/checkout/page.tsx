@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { UserInfo, updateUser } from "../_store/features/userSlice";
 import { Address } from "../_utils/types";
 import { useSession } from "next-auth/react";
+import { AuthRequiredError } from "../lib/exception";
 
 
 let shipCost: number = 8.0;
@@ -29,7 +30,8 @@ const Checkout = () => {
   const isLogging = useAppSelector(state => state.auth.isLogging);
   if (!session && !isLogging) {
     // dispatch action along with session changes here
-    redirect("/");
+    throw new AuthRequiredError();
+
   }
   //
   if (selectedItems == null || selectedItems.length <= 0) {
