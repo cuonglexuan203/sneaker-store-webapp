@@ -4,20 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities{
-    .rotateX-all {
-        transform: rotateX(180deg);
-    }
+@layer utilities {
+  .rotateX-all {
+    transform: rotateX(180deg);
+  }
 }
 
-
 .hide-scrollbar::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
 .hide-scrollbar {
-    -ms-overflow-style: none;  /* for Internet Explorer, Edge */
-    scrollbar-width: none;  /* for Firefox */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -28,7 +27,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -52,7 +51,7 @@ input[type=number] {
   h4,
   h5,
   h6 {
-    color: #475F7B;
+    color: #475f7b;
   }
 
   a,
@@ -85,9 +84,9 @@ input[type=number] {
   }
 
   .btn-danger {
-    border-color: #FF2829 !important;
-    background-color: #FF5B5C !important;
-    color: #FFF;
+    border-color: #ff2829 !important;
+    background-color: #ff5b5c !important;
+    color: #fff;
   }
 
   .form-submit {
@@ -116,16 +115,16 @@ input[type=number] {
     text-align: center;
     display: inline-block;
     margin: 0px 5px;
-    color: #475F7B;
-    background-color: #FFF;
-    border: 1px solid #DFE3E7;
+    color: #475f7b;
+    background-color: #fff;
+    border: 1px solid #dfe3e7;
     transition: 0.3s;
   }
 
   .qty-input-box:focus {
-    color: #475F7B;
-    background-color: #FFF;
-    border-color: #5A8DEE;
+    color: #475f7b;
+    background-color: #fff;
+    border-color: #5a8dee;
     outline: 0;
     box-shadow: 0 3px 8px 0 rgb(0 0 0 / 10%);
   }
@@ -157,8 +156,6 @@ input[type=number] {
     align-items: center;
     justify-content: space-between;
   }
-
-  ;
 
   .prdct-delete {
     width: 40px;
@@ -197,5 +194,42 @@ input[type=number] {
   .cart-table td,
   .cart-table th {
     vertical-align: middle;
+  }
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Số lớn để nó nằm trên cùng */
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Hoặc bất kỳ kích thước nào bạn muốn */
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+  }
+
+  .modal-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 }
