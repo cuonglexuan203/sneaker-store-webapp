@@ -1,5 +1,8 @@
 import React, { FormEvent, useState } from "react";
 import { Sneaker } from "../_store/services/productsApi";
+
+
+
 const AdminLineItem = ({
   p,
   openModal,
@@ -7,6 +10,8 @@ const AdminLineItem = ({
   p: Sneaker;
   openModal: () => void;
 }) => {
+
+
   const handleDelete = () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       console.log("Product deleted:", p.name);

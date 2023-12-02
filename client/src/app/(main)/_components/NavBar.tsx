@@ -667,12 +667,12 @@ const NavBar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/admin"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Dash Board
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a
