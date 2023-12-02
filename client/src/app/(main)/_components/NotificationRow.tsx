@@ -21,6 +21,7 @@ export const NotificationRow = ({ notificationRow: nr }: { notificationRow: Noti
                                     >
                                         <div className="flex-shrink-0">
                                             <Image
+                                               sizes={"100%"}
                                                 width={0}
                                                 height={0}
                                                 className="rounded-full w-11 h-11"
@@ -40,7 +41,7 @@ export const NotificationRow = ({ notificationRow: nr }: { notificationRow: Noti
                                             </div>
                                         </div>
                                         <div className="w-full pl-3">
-                                            <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
+                                            <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400 text-justify">
                                                 { nr.paymentStatus === "SUCCESS" && `The Invoice ${nr.invoiceId} has been paid sucessfully so your `}
                                                 { nr.paymentStatus === "CANCEL" && `The Invoice ${nr.invoiceId} has been cancelled so your `}
                                                 { nr.paymentStatus === "WAITING FOR PAYMENT" && `The Invoice ${nr.invoiceId} is waiting for payment  so your `}
