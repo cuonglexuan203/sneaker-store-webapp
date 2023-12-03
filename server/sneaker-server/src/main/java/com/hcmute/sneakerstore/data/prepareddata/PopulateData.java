@@ -68,14 +68,12 @@ public class PopulateData {
 		// Mapping
 		int productsSize = products.size();
 		int productInventoriesSize = productInventories.size();
+		int limit = productInventoriesSize / productsSize;
 		for (int i = 0; i < productsSize; i++) {
 			sales.get(i % 2).addProduct(products.get(i));
-			
-			for (int j = 0; j < Math.ceil(productInventoriesSize / productsSize); j++) {
-				int idx = j * productsSize + i;
-				if (idx < productInventoriesSize) {
-					products.get(i).addProductInventory(productInventories.get(idx));
-				}
+
+			for (int j = 0; j < limit; j++) {
+				products.get(i).addProductInventory(productInventories.get(i * limit + j));
 			}
 
 //			products.get(i).addLineItem(lineItems.get(i));

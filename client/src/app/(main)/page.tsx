@@ -17,9 +17,19 @@ import {
 import { showToast, hideToast, showLoading, hideLoading } from "./_store/features/statusSlice";
 import { AuthRequiredError } from "./lib/exception";
 import TrendingProduct from "./_components/TrendingProduct";
+import Link from "next/link";
 //
 const slides = ["1.jpg", "2.jpg", "3.jpg", "4.png", "5.png", "6.png", "7.png"];
-
+const essentials = [{
+    name: "men",
+    value: ["men"]
+}, {
+    name: "women",
+    value: ["women"]
+}, {
+    name: "kid",
+    value: ["younger boy", "younger girl"]
+}]
 export default function Home() {
 
     const {
@@ -88,7 +98,7 @@ export default function Home() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {/* Products */}
+            {/* Trending */}
             <section>
                 <div className="mt-16">
                     <h2 id="trending" className="capitalize text-2xl font-semibold dark:text-white ">
@@ -115,6 +125,32 @@ export default function Home() {
                         )}
                     </div>
                 </div>
+                {/* The essentitals */}
+                <div className="mt-16">
+                    <h2 id="essentials" className="capitalize text-2xl font-semibold dark:text-white ">
+                        The essentials{" "}
+                    </h2>
+                    <div className="flex gap-3 mt-4 xl:basis-1/3 basis-full flex-col md:flex-row flex-grow">
+                        {essentials.map(i => (
+                            <div className="relative" key={i.name}>
+                                <Link href={i.name === "kid" ? `/search?q=&kids=${encodeURIComponent(i.value.join(","))}` : `/search?q=&genders=${encodeURIComponent(i.value.join(","))}`}>
+                                    <Image
+                                        className="w-full h-[33rem]"
+                                        width={0}
+                                        height={0}
+                                        sizes="100%"
+                                        src={`/images/home/${i.name}.png`}
+                                        alt={`${i.name} image`}
+                                    />
+                                    <button className="capitalize absolute px-4 py-2 bg-white opacity-70 text-md font-semibold rounded-3xl left-10 bottom-10 hover:bg-gray-500 hover:text-white">{i.name}&apos;s</button>
+                                </Link>
+                            </div>
+                        ))}
+
+
+                    </div>
+                </div>
+                {/* Products */}
                 <div className="mt-16">
                     <h2 id="others" className="capitalize text-2xl font-semibold dark:text-white ">
                         Recommended for You{" "}
@@ -132,6 +168,7 @@ export default function Home() {
                         )}
                     </div>
                 </div>
+
             </section>
         </main>
     );

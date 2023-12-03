@@ -25,8 +25,7 @@ public class SessionFilter implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		//
-		chain.doFilter(req, res);
+		
 		//
 
 		//
@@ -53,6 +52,10 @@ public class SessionFilter implements Filter {
 				CrossSiteCookie.builder().name("JSESSIONID").value(sessionId).maxAge(maxAge) //
 						.path(path).httpOnly(httpOnly).response(res).build();
 			}
+			
+			//
+			chain.doFilter(req, res);
+			
 		} catch (IllegalStateException err) {
 			err.printStackTrace();
 		}

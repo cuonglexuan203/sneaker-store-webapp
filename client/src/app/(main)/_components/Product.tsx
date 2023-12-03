@@ -7,7 +7,7 @@ const Product = ({ product: p }: { product: Sneaker }) => {
         <div className="mx-auto group relative w-full h-fit lg:min-h-[27.5rem] max-w-xs overflow-hidden rounded-lg bg-white shadow-md select-none">
             {/* Image */}
             <Link href={`/products/${p.id}`}>
-                <div className="overflow-hidden h-48 md:h-52 lg:h-60">
+                <div className="overflow-hidden h-48 md:h-52 lg:h-72">
                     <Image
                         className="w-full h-full rounded-t-lg object-fill transition-all duration-300 group-hover:scale-90"
                         width={0}
@@ -24,11 +24,11 @@ const Product = ({ product: p }: { product: Sneaker }) => {
             {/* Infor */}
             <div className="mt-4 px-5 pb-5">
                 <p className="mt-1 text-sm text-gray-400">{p.brand}</p>
-                <h5 className="text-xl font-semibold tracking-tight text-slate-900 line-clamp-2">
+                <h5 className="text-xl min-h-[56px] font-semibold tracking-tight text-slate-900 line-clamp-2">
                     {p.name}
                 </h5>
                 <p className="mt-2.5 mb-5 flex items-center text-gray-700">
-                    {p.categories.join(", ")}
+                    {p.categories.join(", ")}&nbsp;
                 </p>
                 <div className="flex items-center justify-between">
                     <p>

@@ -1,602 +1,10502 @@
 [
 	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 18
-	},
-	{
-		"productAmount": 15,
-		"color": "BLUE",
-		"size": 15
-	},
-	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 16
-	},
-	{
-		"productAmount": 1,
-		"color": "BLACK",
-		"size": 18
-	},
-	{
-		"productAmount": 100,
-		"color": "WHITE",
-		"size": 17
-	},
-	{
-		"productAmount": 15,
-		"color": "ORANGE",
-		"size": 17
-	},
-	{
-		"productAmount": 19,
-		"color": "BLACK",
-		"size": 12
-	},
-	{
-		"productAmount": 15,
-		"color": "BLACK",
-		"size": 18
-	},
-	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 18
-	},
-	{
-		"productAmount": 15,
-		"color": "BLUE",
-		"size": 15
-	},
-	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 16
-	},
-	{
-		"productAmount": 1,
-		"color": "BLACK",
-		"size": 18
-	},
-	{
-		"productAmount": 15,
-		"color": "WHITE",
-		"size": 17
-	},
-	{
-		"productAmount": 15,
-		"color": "ORANGE",
-		"size": 17
-	},
-	{
-		"productAmount": 19,
-		"color": "BLACK",
-		"size": 12
-	},
-	{
-		"productAmount": 15,
-		"color": "BLACK",
-		"size": 18
-	},
-	{
-		"productAmount": 15,
-		"color": "WHITE",
-		"size": 17
-	},
-	{
-		"productAmount": 15,
-		"color": "ORANGE",
-		"size": 17
-	},
-	{
-		"productAmount": 19,
-		"color": "BLACK",
-		"size": 12
-	},
-	{
-		"productAmount": 15,
-		"color": "BLACK",
-		"size": 18
-	},
-	{
-		"productAmount": 37,
-		"color": "GREEN",
-		"size": 30
-	},
-	{
-		"productAmount": 94,
-		"color": "RED",
-		"size": 29
-	},
-	{
-		"productAmount": 16,
-		"color": "PURPLE",
-		"size": 29
-	},
-	{
-		"productAmount": 77,
-		"color": "YELLOW",
-		"size": 26
-	},
-	{
-		"productAmount": 58,
-		"color": "PINK",
-		"size": 30
-	},
-	{
-		"productAmount": 95,
-		"color": "BLACK",
-		"size": 27
-	},
-	{
 		"productAmount": 34,
-		"color": "WHITE",
-		"size": 28
-	},
-	{
-		"productAmount": 27,
-		"color": "ORANGE",
-		"size": 25
-	},
-	{
-		"productAmount": 38,
-		"color": "GRAY",
-		"size": 28
-	},
-	{
-		"productAmount": 17,
 		"color": "BLUE",
-		"size": 30
+		"size": 13
 	},
 	{
-		"productAmount": 15,
-		"color": "GREEN",
-		"size": 28
-	},
-	{
-		"productAmount": 64,
-		"color": "RED",
-		"size": 29
-	},
-	{
-		"productAmount": 26,
-		"color": "PURPLE",
-		"size": 30
-	},
-	{
-		"productAmount": 40,
-		"color": "YELLOW",
-		"size": 25
-	},
-	{
-		"productAmount": 41,
-		"color": "PINK",
-		"size": 27
-	},
-	{
-		"productAmount": 61,
-		"color": "BLACK",
-		"size": 28
-	},
-	{
-		"productAmount": 72,
-		"color": "WHITE",
-		"size": 30
-	},
-	{
-		"productAmount": 97,
-		"color": "ORANGE",
-		"size": 29
-	},
-	{
-		"productAmount": 48,
-		"color": "GRAY",
-		"size": 30
-	},
-	{
-		"productAmount": 82,
+		"productAmount": 68,
 		"color": "BLUE",
-		"size": 27
-	},
-	{
-		"productAmount": 21,
-		"color": "GREEN",
-		"size": 28
-	},
-	{
-		"productAmount": 47,
-		"color": "RED",
-		"size": 29
-	},
-	{
-		"productAmount": 32,
-		"color": "PURPLE",
-		"size": 26
-	},
-	{
-		"productAmount": 33,
-		"color": "YELLOW",
-		"size": 28
-	},
-	{
-		"productAmount": 85,
-		"color": "PINK",
-		"size": 28
-	},
-	{
-		"productAmount": 30,
-		"color": "BLACK",
-		"size": 29
-	},
-	{
-		"productAmount": 45,
-		"color": "WHITE",
-		"size": 30
-	},
-	{
-		"productAmount": 89,
-		"color": "ORANGE",
-		"size": 28
-	},
-	{
-		"productAmount": 53,
-		"color": "GRAY",
-		"size": 25
-	},
-	{
-		"productAmount": 22,
-		"color": "BLUE",
-		"size": 26
-	},
-	{
-		"productAmount": 52,
-		"color": "GREEN",
-		"size": 28
-	},
-	{
-		"productAmount": 61,
-		"color": "RED",
-		"size": 30
-	},
-	{
-		"productAmount": 74,
-		"color": "PURPLE",
-		"size": 27
-	},
-	{
-		"productAmount": 97,
-		"color": "YELLOW",
-		"size": 26
-	},
-	{
-		"productAmount": 63,
-		"color": "PINK",
-		"size": 27
-	},
-	{
-		"productAmount": 54,
-		"color": "BLACK",
-		"size": 30
-	},
-	{
-		"productAmount": 43,
-		"color": "WHITE",
-		"size": 28
-	},
-	{
-		"productAmount": 72,
-		"color": "ORANGE",
-		"size": 29
-	},
-	{
-		"productAmount": 93,
-		"color": "GRAY",
-		"size": 28
-	},
-	{
-		"productAmount": 26,
-		"color": "BLUE",
-		"size": 25
-	},
-	{
-		"productAmount": 16,
-		"color": "GREEN",
-		"size": 25
-	},
-	{
-		"productAmount": 20,
-		"color": "RED",
-		"size": 30
-	},
-	{
-		"productAmount": 65,
-		"color": "PURPLE",
-		"size": 28
-	},
-	{
-		"productAmount": 61,
-		"color": "YELLOW",
-		"size": 25
-	},
-	{
-		"productAmount": 36,
-		"color": "PINK",
-		"size": 26
-	},
-	{
-		"productAmount": 26,
-		"color": "BLACK",
-		"size": 28
-	},
-	{
-		"productAmount": 27,
-		"color": "WHITE",
-		"size": 27
-	},
-	{
-		"productAmount": 46,
-		"color": "ORANGE",
-		"size": 27
-	},
-	{
-		"productAmount": 100,
-		"color": "GRAY",
-		"size": 28
-	},
-	{
-		"productAmount": 63,
-		"color": "BLUE",
-		"size": 27
-	},
-	{
-		"productAmount": 66,
-		"color": "GREEN",
-		"size": 29
-	},
-	{
-		"productAmount": 38,
-		"color": "RED",
-		"size": 25
-	},
-	{
-		"productAmount": 73,
-		"color": "PURPLE",
-		"size": 29
-	},
-	{
-		"productAmount": 87,
-		"color": "YELLOW",
-		"size": 27
-	},
-	{
-		"productAmount": 27,
-		"color": "PINK",
-		"size": 30
-	},
-	{
-		"productAmount": 61,
-		"color": "BLACK",
-		"size": 28
-	},
-	{
-		"productAmount": 99,
-		"color": "WHITE",
-		"size": 28
-	},
-	{
-		"productAmount": 58,
-		"color": "ORANGE",
-		"size": 28
-	},
-	{
-		"productAmount": 44,
-		"color": "GRAY",
-		"size": 29
-	},
-	{
-		"productAmount": 15,
-		"color": "BLUE",
-		"size": 27
-	},
-	{
-		"productAmount": 53,
-		"color": "GREEN",
-		"size": 25
-	},
-	{
-		"productAmount": 43,
-		"color": "RED",
-		"size": 30
-	},
-	{
-		"productAmount": 54,
-		"color": "PURPLE",
-		"size": 30
-	},
-	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 27
-	},
-	{
-		"productAmount": 35,
-		"color": "PINK",
-		"size": 29
-	},
-	{
-		"productAmount": 10,
-		"color": "BLACK",
-		"size": 26
-	},
-	{
-		"productAmount": 57,
-		"color": "WHITE",
-		"size": 27
-	},
-	{
-		"productAmount": 40,
-		"color": "ORANGE",
-		"size": 30
-	},
-	{
-		"productAmount": 20,
-		"color": "GRAY",
-		"size": 26
-	},
-	{
-		"productAmount": 41,
-		"color": "BLUE",
-		"size": 28
-	},
-	{
-		"productAmount": 76,
-		"color": "GREEN",
-		"size": 26
+		"size": 14
 	},
 	{
 		"productAmount": 96,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 26,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 0,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 34,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 53,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 6,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 45,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 38,
 		"color": "RED",
-		"size": 27
+		"size": 13
+	},
+	{
+		"productAmount": 34,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 7,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 43,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 89,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 97,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 21,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 76,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 12,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 27,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 85,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 78,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 46,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 13,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 11,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 57,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 1,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 14,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 76,
+		"color": "PURPLE",
+		"size": 15
 	},
 	{
 		"productAmount": 60,
 		"color": "PURPLE",
-		"size": 25
+		"size": 16
 	},
 	{
-		"productAmount": 35,
-		"color": "YELLOW",
-		"size": 26
-	},
-	{
-		"productAmount": 47,
-		"color": "PINK",
-		"size": 25
-	},
-	{
-		"productAmount": 42,
-		"color": "BLACK",
-		"size": 25
-	},
-	{
-		"productAmount": 42,
-		"color": "WHITE",
-		"size": 26
-	},
-	{
-		"productAmount": 37,
-		"color": "ORANGE",
-		"size": 27
-	},
-	{
-		"productAmount": 39,
-		"color": "GRAY",
-		"size": 27
-	},
-	{
-		"productAmount": 80,
-		"color": "BLUE",
-		"size": 27
-	},
-	{
-		"productAmount": 90,
-		"color": "GREEN",
-		"size": 25
-	},
-	{
-		"productAmount": 21,
-		"color": "RED",
-		"size": 27
-	},
-	{
-		"productAmount": 96,
+		"productAmount": 64,
 		"color": "PURPLE",
-		"size": 26
+		"size": 17
 	},
 	{
-		"productAmount": 27,
-		"color": "YELLOW",
-		"size": 25
-	},
-	{
-		"productAmount": 54,
-		"color": "PINK",
-		"size": 25
-	},
-	{
-		"productAmount": 47,
-		"color": "BLACK",
-		"size": 25
-	},
-	{
-		"productAmount": 54,
-		"color": "WHITE",
-		"size": 27
-	},
-	{
-		"productAmount": 52,
-		"color": "ORANGE",
-		"size": 25
-	},
-	{
-		"productAmount": 100,
-		"color": "GRAY",
-		"size": 26
-	},
-	{
-		"productAmount": 61,
-		"color": "BLUE",
-		"size": 26
-	},
-	{
-		"productAmount": 73,
-		"color": "GREEN",
-		"size": 28
-	},
-	{
-		"productAmount": 91,
-		"color": "RED",
-		"size": 28
-	},
-	{
-		"productAmount": 40,
+		"productAmount": 8,
 		"color": "PURPLE",
-		"size": 29
+		"size": 18
 	},
 	{
-		"productAmount": 15,
-		"color": "YELLOW",
-		"size": 27
+		"productAmount": 14,
+		"color": "BLUE",
+		"size": 13
 	},
 	{
-		"productAmount": 52,
-		"color": "PINK",
-		"size": 28
+		"productAmount": 23,
+		"color": "BLUE",
+		"size": 14
 	},
 	{
-		"productAmount": 69,
-		"color": "BLACK",
-		"size": 25
-	},
-	{
-		"productAmount": 18,
-		"color": "WHITE",
-		"size": 28
-	},
-	{
-		"productAmount": 100,
-		"color": "ORANGE",
-		"size": 28
-	},
-	{
-		"productAmount": 68,
-		"color": "GRAY",
-		"size": 27
+		"productAmount": 22,
+		"color": "BLUE",
+		"size": 15
 	},
 	{
 		"productAmount": 32,
 		"color": "BLUE",
-		"size": 29
+		"size": 16
+	},
+	{
+		"productAmount": 85,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 39,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 9,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 16,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 42,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 65,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 18,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 70,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 39,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 91,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 53,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 20,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 10,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 1,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 43,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 89,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 48,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 54,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 10,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 95,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 60,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 59,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 58,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 99,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 60,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 32,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 24,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 20,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 17,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 33,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 71,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 6,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 62,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 68,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 23,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 83,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 59,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 55,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 23,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 26,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 62,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 33,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 53,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 10,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 1,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 42,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 33,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 15,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 58,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 53,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 11,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 84,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 4,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 91,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 38,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 77,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 36,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 74,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 6,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 96,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 24,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 56,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 7,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 82,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 46,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 75,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 92,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 87,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 68,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 31,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 62,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 96,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 72,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 36,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 80,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 28,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 95,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 52,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 49,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 50,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 52,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 77,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 58,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 94,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 61,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 5,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 2,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 59,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 26,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 7,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 88,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 31,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 28,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 81,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 91,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 92,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 26,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 64,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 76,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 76,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 41,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 42,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 56,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 79,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 75,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 46,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 36,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 53,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 85,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 40,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 36,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 39,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 54,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 31,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 14,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 40,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 39,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 52,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 83,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 69,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 97,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 12,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 92,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 1,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 69,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 93,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 64,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 53,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 67,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 64,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 39,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 11,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 19,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 32,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 38,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 3,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 11,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 62,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 17,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 41,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 48,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 73,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 93,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 12,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 12,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 30,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 26,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 41,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 30,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 12,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 34,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 62,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 88,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 61,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 2,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 19,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 93,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 41,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 49,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 33,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 40,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 7,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 34,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 12,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 37,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 5,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 45,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 79,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 83,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 46,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 2,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 48,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 15,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 49,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 74,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 22,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 20,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 17,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 8,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 1,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 73,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 23,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 77,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 26,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 39,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 26,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 4,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 53,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 88,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 67,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 40,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 89,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 50,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 32,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 87,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 29,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 57,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 58,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 35,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 61,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 95,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 60,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 8,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 24,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 11,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 15,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 48,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 8,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 93,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 37,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 78,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 45,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 52,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 75,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 16,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 3,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 39,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 80,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 93,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 59,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 46,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 51,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 77,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 52,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 2,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 47,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 38,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 66,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 92,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 33,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 67,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 61,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 27,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 91,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 1,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 83,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 97,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 63,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 47,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 26,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 54,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 38,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 4,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 37,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 1,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 26,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 73,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 8,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 86,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 26,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 28,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 76,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 88,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 67,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 85,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 7,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 24,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 76,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 56,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 62,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 4,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 59,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 46,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 1,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 49,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 87,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 41,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 22,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 18,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 64,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 19,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 75,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 77,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 82,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 84,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 68,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 41,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 0,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 66,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 94,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 54,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 47,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 32,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 86,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 67,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 9,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 51,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 25,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 10,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 74,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 4,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 16,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 71,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 8,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 40,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 88,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 27,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 46,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 36,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 16,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 18,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 75,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 87,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 8,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 79,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 12,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 22,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 87,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 40,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 85,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 15,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 87,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 34,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 56,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 65,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 54,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 99,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 26,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 96,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 61,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 37,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 56,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 12,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 36,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 42,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 88,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 47,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 5,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 60,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 64,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 72,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 32,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 84,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 87,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 37,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 95,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 58,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 45,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 25,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 17,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 76,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 76,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 44,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 31,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 52,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 72,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 65,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 13,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 55,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 1,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 58,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 96,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 39,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 39,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 98,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 36,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 12,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 97,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 62,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 22,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 60,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 20,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 48,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 6,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 33,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 34,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 56,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 39,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 19,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 31,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 37,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 69,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 5,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 34,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 77,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 19,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 5,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 13,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 85,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 49,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 69,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 55,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 44,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 18,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 95,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 30,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 7,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 16,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 6,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 78,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 73,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 74,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 28,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 0,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 26,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 61,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 9,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 87,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 13,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 18,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 1,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 74,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 4,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 20,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 47,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 24,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 51,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 36,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 49,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 38,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 55,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 43,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 16,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 27,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 41,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 78,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 74,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 78,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 54,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 26,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 39,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 18,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 67,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 36,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 60,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 47,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 89,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 1,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 76,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 64,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 65,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 76,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 30,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 37,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 95,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 87,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 85,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 73,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 88,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 72,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 28,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 52,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 41,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 55,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 46,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 4,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 44,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 52,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 98,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 35,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 56,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 44,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 96,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 15,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 10,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 61,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 66,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 78,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 10,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 92,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 47,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 93,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 24,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 50,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 38,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 96,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 99,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 61,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 63,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 76,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 14,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 58,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 56,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 58,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 24,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 0,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 29,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 30,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 52,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 45,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 42,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 28,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 49,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 68,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 43,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 31,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 58,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 94,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 85,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 64,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 63,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 96,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 81,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 69,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 87,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 37,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 30,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 35,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 56,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 65,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 86,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 97,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 41,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 5,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 96,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 82,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 74,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 19,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 9,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 1,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 9,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 65,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 91,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 56,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 8,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 45,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 88,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 46,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 53,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 10,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 37,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 93,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 81,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 27,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 41,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 17,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 62,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 30,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 45,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 62,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 97,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 38,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 9,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 51,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 8,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 32,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 81,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 78,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 7,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 24,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 35,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 32,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 38,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 18,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 63,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 84,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 67,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 10,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 74,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 15,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 63,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 67,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 51,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 34,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 32,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 97,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 95,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 19,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 50,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 33,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 52,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 19,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 83,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 83,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 17,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 48,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 32,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 13,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 14,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 95,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 26,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 49,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 38,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 49,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 66,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 60,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 94,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 67,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 98,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 9,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 51,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 15,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 23,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 99,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 67,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 76,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 95,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 47,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 24,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 41,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 54,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 14,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 67,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 39,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 37,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 37,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 75,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 24,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 0,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 58,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 78,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 42,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 33,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 34,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 23,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 3,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 20,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 31,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 68,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 19,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 57,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 54,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 58,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 63,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 16,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 75,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 70,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 27,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 54,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 16,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 20,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 72,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 97,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 11,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 46,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 22,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 14,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 40,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 36,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 36,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 62,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 62,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 51,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 35,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 12,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 83,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 84,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 95,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 39,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 49,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 24,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 58,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 15,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 15,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 68,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 4,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 82,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 55,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 82,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 7,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 51,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 38,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 62,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 46,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 14,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 87,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 44,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 75,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 10,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 34,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 67,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 71,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 85,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 67,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 0,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 44,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 72,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 27,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 54,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 36,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 44,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 15,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 10,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 95,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 81,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 65,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 11,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 49,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 59,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 37,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 12,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 98,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 52,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 12,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 39,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 67,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 0,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 32,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 61,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 88,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 9,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 50,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 30,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 11,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 26,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 70,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 4,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 61,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 44,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 39,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 70,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 32,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 59,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 46,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 14,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 32,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 40,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 16,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 13,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 19,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 51,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 18,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 46,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 61,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 67,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 15,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 91,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 62,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 43,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 15,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 18,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 72,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 26,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 88,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 30,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 75,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 47,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 39,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 39,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 63,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 55,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 24,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 16,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 66,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 20,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 31,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 74,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 46,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 3,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 77,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 92,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 55,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 78,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 88,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 8,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 37,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 61,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 19,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 0,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 50,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 95,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 26,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 52,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 8,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 45,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 36,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 55,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 49,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 93,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 54,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 16,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 4,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 40,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 99,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 27,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 46,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 43,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 5,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 2,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 56,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 24,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 7,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 83,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 18,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 17,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 69,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 93,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 9,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 61,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 60,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 38,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 33,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 23,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 78,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 53,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 27,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 40,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 61,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 48,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 17,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 17,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 55,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 62,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 68,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 84,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 3,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 8,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 48,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 71,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 89,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 34,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 76,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 82,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 54,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 5,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 29,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 91,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 77,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 5,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 82,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 25,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 36,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 63,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 84,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 18,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 67,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 2,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 92,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 57,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 75,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 12,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 2,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 65,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 33,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 76,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 84,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 60,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 62,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 35,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 59,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 18,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 72,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 62,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 80,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 0,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 32,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 55,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 53,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 85,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 22,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 98,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 14,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 66,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 20,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 82,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 50,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 5,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 98,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 13,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 47,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 61,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 39,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 60,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 65,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 14,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 6,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 19,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 59,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 65,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 30,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 26,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 38,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 8,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 56,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 5,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 81,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 38,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 15,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 60,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 55,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 24,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 44,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 69,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 47,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 80,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 16,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 4,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 39,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 23,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 70,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 87,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 99,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 46,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 65,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 4,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 57,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 37,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 37,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 56,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 46,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 12,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 48,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 54,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 1,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 58,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 56,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 36,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 49,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 23,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 42,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 18,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 11,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 48,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 96,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 68,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 54,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 44,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 46,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 13,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 12,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 99,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 62,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 27,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 73,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 24,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 74,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 46,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 70,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 44,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 87,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 64,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 26,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 98,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 57,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 12,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 96,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 19,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 9,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 20,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 88,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 47,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 54,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 10,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 58,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 35,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 91,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 80,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 83,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 60,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 93,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 96,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 37,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 32,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 28,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 4,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 54,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 17,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 41,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 51,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 48,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 61,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 25,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 18,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 30,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 83,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 85,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 29,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 38,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 68,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 70,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 75,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 70,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 18,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 0,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 14,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 18,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 19,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 28,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 59,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 31,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 19,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 22,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 67,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 27,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 24,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 15,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 50,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 36,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 4,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 25,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 22,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 47,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 38,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 26,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 55,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 64,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 49,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 9,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 19,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 56,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 58,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 6,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 98,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 52,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 90,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 36,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 55,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 16,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 42,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 5,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 40,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 36,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 79,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 16,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 54,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 30,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 81,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 47,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 88,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 74,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 93,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 80,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 70,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 82,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 86,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 91,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 98,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 35,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 74,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 31,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 26,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 48,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 74,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 27,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 49,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 44,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 87,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 46,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 84,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 3,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 3,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 81,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 31,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 24,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 94,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 39,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 60,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 94,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 78,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 17,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 61,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 92,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 27,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 18,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 93,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 41,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 17,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 15,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 43,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 63,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 48,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 15,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 27,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 60,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 88,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 48,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 84,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 23,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 57,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 60,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 6,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 40,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 8,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 83,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 58,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 19,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 61,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 85,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 50,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 56,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 13,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 71,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 54,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 56,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 49,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 89,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 43,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 67,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 57,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 64,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 72,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 75,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 54,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 32,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 78,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 57,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 52,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 75,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 61,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 83,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 93,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 12,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 45,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 95,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 20,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 99,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 41,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 17,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 51,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 41,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 86,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 38,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 69,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 14,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 1,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 17,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 27,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 50,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 89,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 70,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 72,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 81,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 56,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 27,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 74,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 83,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 99,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 10,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 38,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 47,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 78,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 96,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 86,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 5,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 13,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 3,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 9,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 47,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 18,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 13,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 73,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 18,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 30,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 48,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 59,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 14,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 3,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 72,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 36,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 59,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 96,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 43,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 5,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 54,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 36,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 25,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 96,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 45,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 90,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 17,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 58,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 55,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 65,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 87,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 10,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 31,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 78,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 21,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 15,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 66,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 32,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 97,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 32,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 20,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 47,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 62,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 58,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 13,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 28,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 43,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 77,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 19,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 43,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 21,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 73,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 28,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 6,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 99,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 61,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 64,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 43,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 13,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 87,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 90,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 65,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 97,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 80,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 15,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 28,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 10,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 46,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 8,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 10,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 33,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 12,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 47,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 20,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 19,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 31,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 14,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 38,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 12,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 10,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 53,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 57,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 70,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 99,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 28,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 22,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 40,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 23,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 75,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 24,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 69,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 92,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 79,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 28,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 11,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 22,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 16,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 89,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 63,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 33,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 42,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 18,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 5,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 0,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 48,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 53,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 16,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 21,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 67,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 89,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 33,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 36,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 74,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 2,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 53,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 93,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 12,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 2,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 78,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 13,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 11,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 48,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 70,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 29,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 66,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 67,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 32,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 90,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 80,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 17,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 43,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 8,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 22,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 77,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 15,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 43,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 44,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 55,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 90,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 64,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 84,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 25,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 31,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 94,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 91,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 42,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 68,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 44,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 45,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 34,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 37,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 21,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 85,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 56,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 73,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 4,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 36,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 9,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 39,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 68,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 37,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 95,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 51,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 50,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 47,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 70,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 50,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 68,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 7,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 0,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 64,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 62,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 23,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 41,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 67,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 78,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 65,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 55,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 35,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 71,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 92,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 82,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 90,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 68,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 16,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 64,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 3,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 45,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 71,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 11,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 96,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 75,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 74,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 88,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 42,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 18,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 40,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 15,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 98,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 29,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 63,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 8,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 76,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 96,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 83,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 0,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 70,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 26,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 31,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 65,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 69,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 47,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 62,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 27,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 23,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 70,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 33,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 20,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 4,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 45,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 95,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 69,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 78,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 97,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 7,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 28,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 21,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 75,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 74,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 20,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 82,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 86,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 24,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 22,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 57,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 56,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 44,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 41,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 65,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 43,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 7,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 25,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 84,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 17,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 76,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 61,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 68,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 62,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 48,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 41,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 79,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 93,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 51,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 52,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 35,
+		"color": "PURPLE",
+		"size": 18
+	},
+	{
+		"productAmount": 81,
+		"color": "BLUE",
+		"size": 13
+	},
+	{
+		"productAmount": 3,
+		"color": "BLUE",
+		"size": 14
+	},
+	{
+		"productAmount": 29,
+		"color": "BLUE",
+		"size": 15
+	},
+	{
+		"productAmount": 33,
+		"color": "BLUE",
+		"size": 16
+	},
+	{
+		"productAmount": 86,
+		"color": "BLUE",
+		"size": 17
+	},
+	{
+		"productAmount": 79,
+		"color": "BLUE",
+		"size": 18
+	},
+	{
+		"productAmount": 17,
+		"color": "GREEN",
+		"size": 13
+	},
+	{
+		"productAmount": 53,
+		"color": "GREEN",
+		"size": 14
+	},
+	{
+		"productAmount": 67,
+		"color": "GREEN",
+		"size": 15
+	},
+	{
+		"productAmount": 63,
+		"color": "GREEN",
+		"size": 16
+	},
+	{
+		"productAmount": 66,
+		"color": "GREEN",
+		"size": 17
+	},
+	{
+		"productAmount": 34,
+		"color": "GREEN",
+		"size": 18
+	},
+	{
+		"productAmount": 2,
+		"color": "RED",
+		"size": 13
+	},
+	{
+		"productAmount": 39,
+		"color": "RED",
+		"size": 14
+	},
+	{
+		"productAmount": 12,
+		"color": "RED",
+		"size": 15
+	},
+	{
+		"productAmount": 42,
+		"color": "RED",
+		"size": 16
+	},
+	{
+		"productAmount": 25,
+		"color": "RED",
+		"size": 17
+	},
+	{
+		"productAmount": 50,
+		"color": "RED",
+		"size": 18
+	},
+	{
+		"productAmount": 34,
+		"color": "YELLOW",
+		"size": 13
+	},
+	{
+		"productAmount": 20,
+		"color": "YELLOW",
+		"size": 14
+	},
+	{
+		"productAmount": 79,
+		"color": "YELLOW",
+		"size": 15
+	},
+	{
+		"productAmount": 38,
+		"color": "YELLOW",
+		"size": 16
+	},
+	{
+		"productAmount": 96,
+		"color": "YELLOW",
+		"size": 17
+	},
+	{
+		"productAmount": 94,
+		"color": "YELLOW",
+		"size": 18
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 13
+	},
+	{
+		"productAmount": 59,
+		"color": "WHITE",
+		"size": 14
+	},
+	{
+		"productAmount": 26,
+		"color": "WHITE",
+		"size": 15
+	},
+	{
+		"productAmount": 53,
+		"color": "WHITE",
+		"size": 16
+	},
+	{
+		"productAmount": 60,
+		"color": "WHITE",
+		"size": 17
+	},
+	{
+		"productAmount": 22,
+		"color": "WHITE",
+		"size": 18
+	},
+	{
+		"productAmount": 48,
+		"color": "BLACK",
+		"size": 13
+	},
+	{
+		"productAmount": 22,
+		"color": "BLACK",
+		"size": 14
+	},
+	{
+		"productAmount": 24,
+		"color": "BLACK",
+		"size": 15
+	},
+	{
+		"productAmount": 89,
+		"color": "BLACK",
+		"size": 16
+	},
+	{
+		"productAmount": 97,
+		"color": "BLACK",
+		"size": 17
+	},
+	{
+		"productAmount": 77,
+		"color": "BLACK",
+		"size": 18
+	},
+	{
+		"productAmount": 90,
+		"color": "PURPLE",
+		"size": 13
+	},
+	{
+		"productAmount": 11,
+		"color": "PURPLE",
+		"size": 14
+	},
+	{
+		"productAmount": 33,
+		"color": "PURPLE",
+		"size": 15
+	},
+	{
+		"productAmount": 73,
+		"color": "PURPLE",
+		"size": 16
+	},
+	{
+		"productAmount": 13,
+		"color": "PURPLE",
+		"size": 17
+	},
+	{
+		"productAmount": 9,
+		"color": "PURPLE",
+		"size": 18
 	}
 ]
