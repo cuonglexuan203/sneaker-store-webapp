@@ -10,6 +10,7 @@ import com.hcmute.sneakerstore.model.Account;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.utils.DBUtils;
+import com.hcmute.sneakerstore.utils.EmailSender;
 import com.hcmute.sneakerstore.utils.PasswordVerification;
 
 public class AuthService {
@@ -70,6 +71,9 @@ public class AuthService {
 					jsonResponse.put("accountId", Long.toString(insertedUserId));
 					jsonResponse.put("role", newAccount.getRole().toString());
 					jsonResponse.put("user", newUser);
+					//
+					String htmlText = "<h1>Thanks for your Sign Up<h1>";
+					EmailSender.sendHtmlMail("cuongit2003@gmail.com", newUser.getEmail(), newUser.getFirstName() + " " + newUser.getLastName(), "Sneaker Store Sign Up Successfully", htmlText);
 				}
 			}
 

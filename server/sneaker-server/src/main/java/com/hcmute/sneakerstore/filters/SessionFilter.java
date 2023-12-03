@@ -20,46 +20,44 @@ import com.hcmute.sneakerstore.utils.ValidationUtils;
 public class SessionFilter implements Filter {
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {
-		
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		//
-		chain.doFilter(req, res);
+		
 		//
 
 		//
-		HttpSession session = req.getSession();
-		String sessionId = "";
-		//
-		if (ValidationUtils.isNullOrEmpty(sessionId)) {
-			sessionId = CookieUtil.getCookie(req.getCookies(), "JSESSIONID");
-		}
-		//
-		System.out.println("Existing Session ID: "
-				+ sessionId);
-
-		//
-		if (ValidationUtils.isNullOrEmpty(sessionId)
-				|| !sessionId.equals(session.getId())) {
-			sessionId = session.getId();
+		try {
+			HttpSession session = req.getSession();
+			String sessionId = "";
 			//
-			System.out.println("New Session ID: "
-					+ sessionId);
+			if (ValidationUtils.isNullOrEmpty(sessionId)) {
+				sessionId = CookieUtil.getCookie(req.getCookies(), "JSESSIONID");
+			}
 			//
-			int maxAge = 1 * 24 * 60 * 60;
-			String path = "/";
-			boolean httpOnly = true;
+			System.out.println("Existing Session ID: " + sessionId);
 
-			CrossSiteCookie.builder()
-					.name("JSESSIONID")
-					.value(sessionId)
-					.maxAge(maxAge) //
-					.path(path)
-					.httpOnly(httpOnly)
-					.response(res)
-					.build();
+			//
+			if (ValidationUtils.isNullOrEmpty(sessionId) || !sessionId.equals(session.getId())) {
+				sessionId = session.getId();
+				//
+				System.out.println("New Session ID: " + sessionId);
+				//
+				int maxAge = 1 * 24 * 60 * 60;
+				String path = "/";
+				boolean httpOnly = true;
+
+				CrossSiteCookie.builder().name("JSESSIONID").value(sessionId).maxAge(maxAge) //
+						.path(path).httpOnly(httpOnly).response(res).build();
+			}
+			
+			//
+			chain.doFilter(req, res);
+			
+		} catch (IllegalStateException err) {
+			err.printStackTrace();
 		}
 
 	}

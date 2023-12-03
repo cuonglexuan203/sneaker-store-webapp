@@ -28,6 +28,22 @@ export interface Sneaker {
     imageUrl: string;
 };
 
+export interface AdminSneaker {
+    product: Sneaker,
+    productInventories: ProductInventory[]
+}
+
+export interface AddAdminProductRequestBody {
+    product: Sneaker,
+    productInventories: ProductInventory[]
+}
+
+export interface UpdateAdminProductRequestBody {
+    product: Sneaker,
+    productInventoryId: number,
+    productInventoryQty: number,
+}
+
 export interface ProductInventory {
     id: number;
     productAmount: number;
@@ -66,6 +82,8 @@ export interface PurchaseRequestBody {
     userId: number;
 }
 
+
+
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({
@@ -73,11 +91,44 @@ export const productsApi = createApi({
         credentials: "include",
     }),
     refetchOnReconnect: true,
-    tagTypes: ["products", "product", "cart", "lineItem", "invoices"],
+    tagTypes: ["products", "admin_products", "product", "cart", "line_item", "invoices"],
     endpoints: (builder) => ({
         getProducts: builder.query<Sneaker[], null>({
             query: () => "products",
             providesTags: ["products"]
+        }),
+        getAdminProducts: builder.query<AdminSneaker[], null>({
+            query: () => "admin/products",
+            providesTags: ["admin_products"]
+        }),
+        // add new product and its product inventories ( id of them can be 0 )
+        addAdminProduct: builder.mutation<ResponseData, AddAdminProductRequestBody>({
+            query: (body) => ({
+                url: "admin/products",
+                method: "POST",
+                body: body,
+                headers: { "Content-Type": "application/json" },
+            }),
+            invalidatesTags: ["admin_products"]
+        }),
+        // update both a product information and a product inventory information ( id of them can not be 0 -> id of existing entity)
+        updateAdminProduct: builder.mutation<ResponseData, UpdateAdminProductRequestBody>({
+            query: (body) => ({
+                url: "admin/products",
+                method: "PUT",
+                body: body,
+                headers: { "Content-Type": "application/json" },
+            }),
+            invalidatesTags: ["admin_products"]
+        }),
+        // delete a product inventory by id
+        deleteAdminProduct: builder.mutation<ResponseData, number>({
+            query: (productInventoryId) => ({
+                url: `admin/products?id=${productInventoryId}`,
+                method: "DELETE",
+                headers: { "Content-Type": "application/plain" },
+            }),
+            invalidatesTags: ["admin_products"]
         }),
         getProductById: builder.query<GetProductByIdResponseBody, number>({
             query: (id) => `products/${id}`,
@@ -130,7 +181,7 @@ export const productsApi = createApi({
         }),
         getLineItemById: builder.query<IndexedLineItem, number>({
             query: (id) => `/lineitems/${id}`,
-            providesTags: ["lineItem"]
+            providesTags: ["line_item"]
         }),
         updateLineItemQuantity: builder.mutation<ResponseData, UpdateLineItemQuantityRequestBody>({
             query: (body) => ({
@@ -139,7 +190,7 @@ export const productsApi = createApi({
                 method: "POST",
                 headers: { "Content-Type": "application/json" }
             }),
-            invalidatesTags: ["lineItem", "cart"]
+            invalidatesTags: ["line_item", "cart"]
         }),
         purchase: builder.mutation<ResponseData, PurchaseRequestBody>({
             query: (body) => ({
@@ -160,4 +211,4 @@ export const productsApi = createApi({
     }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;
+export const { useGetProductsQuery, useGetAdminProductsQuery, useAddAdminProductMutation, useUpdateAdminProductMutation, useDeleteAdminProductMutation, useGetProductByIdQuery, useGetProductBySearchQuery, useGetCartQuery, useAddToCartMutation, useRemoveFromCartMutation, useRemoveManyFromCartMutation, useEmptyCartMutation, useGetLineItemByIdQuery, useUpdateLineItemQuantityMutation, usePurchaseMutation, useGetInvoicesQuery } = productsApi;

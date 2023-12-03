@@ -101,9 +101,17 @@ export default function Home() {
                         ) : isLoading || isFetching ? (
                             <p>Loading...</p>
                         ) : (
-                            trendingProducts.map((p, idx) => (
-                                <TrendingProduct key={p.id} product={p} color={idx % 2 == 0 ? "purple" : "sky"} />
-                            ))
+                            trendingProducts.map((p, idx) => {
+
+                                return (
+                                    idx % 3 === 0 ? (<TrendingProduct key={p.id} product={p} borderColor={`border-blue-400`} bgColor={`bg-blue-200`} />) :
+                                        idx % 3 === 1 ? (
+                                            <TrendingProduct key={p.id} product={p} borderColor={`border-purple-400`} bgColor={`bg-purple-200`} />
+                                        ) : (
+                                            <TrendingProduct key={p.id} product={p} borderColor={`border-yellow-400`} bgColor={`bg-yellow-200`} />
+                                        )
+                                )
+                            })
                         )}
                     </div>
                 </div>

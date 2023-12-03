@@ -90,6 +90,7 @@ const Purchase = () => {
   const handleConfirmClick = async () => {
     const answer = confirm("Are you sure you want to purchase?");
     if (answer) {
+      // dispatch(showLoading());
       // Remove purchased line items in cart by client
       // const deleteManyBody: RemoveManyFromCartRequestBody = {
       //   lineItemIds: selectedItems.map(i => i.id)
@@ -117,6 +118,7 @@ const Purchase = () => {
       }
       //
       setPurchaseConfirmed(true);
+      // dispatch(hideLoading());
     }
   };
   //
