@@ -22,84 +22,87 @@ import {
 } from "../_store/features/authSlice";
 import Link from "next/link";
 import { NotificationRow } from "./NotificationRow";
+import QuantityCart from "./QuantityCart";
 
 //
 const notificationInfo = [
     {
-  "id": 22,
-  "invoiceId": "12311FVEB4F1V",
-  "snearkerName": "Nike Crotaphytus collaris",
-  "paymentStatus": "SUCCESS",
-  "deliveryStatus": "SHIPPED",
-  "time": "2005-11-29 21:37:35"
-}, {
-  "id": 23,
-  "invoiceId": "22311FVEB4F1V",
-  "snearkerName": "Adidas Ammospermophilus nelsoni",
-  "paymentStatus": "PAYMENT EXPIRED",
-  "deliveryStatus": "IN TRANSIT",
-  "time": "2038-03-10 07:04:54"
-}, {
-  "id": 24,
-  "invoiceId": "32311FVEB4F1V",
-  "snearkerName": "New Balance Mustela nigripes",
-  "paymentStatus": "PAYMENT EXPIRED",
-  "deliveryStatus": "PENDING",
-  "time": "1932-01-16 05:18:59"}
-// }, {
-//   "id": 25,
-//   "invoiceId": "42311FVEB4F1V",
-//   "snearkerName": "Puma Pelecans onocratalus",
-//   "paymentStatus": "WAITING FOR PAYMENT",
-//   "deliveryStatus": "PENDING",
-//   "time": "2050-09-20 13:21:08"
-// }, {
-//   "id": 26,
-//   "invoiceId": "52311FVEB4F1V",
-//   "snearkerName": "Reebok Ramphastos tucanus",
-//   "paymentStatus": "WAITING FOR PAYMENT",
-//   "deliveryStatus": "PENDING",
-//   "time": "2012-10-09 18:59:56"
-// }, {
-//   "id": 27,
-//   "invoiceId": "62311FVEB4F1V",
-//   "snearkerName": "Nike Bison bison",
-//   "paymentStatus": "WAITING FOR PAYMENT",
-//   "deliveryStatus": "SHIPPED",
-//   "time": "1936-07-05 07:36:51"
-// }, {
-//   "id": 28,
-//   "invoiceId": "72311FVEB4F1V",
-//   "snearkerName": "Adidas Panthera pardus",
-//   "paymentStatus": "SUCCESS",
-//   "deliveryStatus": "SHIPPED",
-//   "time": "1971-12-31 19:59:53"
-// }, {
-//   "id": 29,
-//   "invoiceId": "82311FVEB4F1V",
-//   "snearkerName": "New Balance Pytilia melba",
-//   "paymentStatus": "PAYMENT EXPIRED",
-//   "deliveryStatus": "IN TRANSIT",
-//   "time": "1992-07-10 23:12:48"
-// }, {
-//   "id": 30,
-//   "invoiceId": "92311FVEB4F1V",
-//   "snearkerName": "Puma Carphophis sp.",
-//   "paymentStatus": "WAITING FOR PAYMENT",
-//   "deliveryStatus": "SHIPPED",
-//   "time": "2087-09-29 06:21:42"
-// }, {
-//   "id": 31,
-//   "invoiceId": "102311FVEB4F1V",
-//   "snearkerName": "Reebok Phoenicopterus chilensis",
-//   "paymentStatus": "CANCEL",
-//   "deliveryStatus": "SHIPPED",
-//   "time": "2080-02-06 14:45:09"
-// }
+        "id": 22,
+        "invoiceId": "12311FVEB4F1V",
+        "snearkerName": "Nike Crotaphytus collaris",
+        "paymentStatus": "SUCCESS",
+        "deliveryStatus": "SHIPPED",
+        "time": "2005-11-29 21:37:35"
+    }, {
+        "id": 23,
+        "invoiceId": "22311FVEB4F1V",
+        "snearkerName": "Adidas Ammospermophilus nelsoni",
+        "paymentStatus": "PAYMENT EXPIRED",
+        "deliveryStatus": "IN TRANSIT",
+        "time": "2038-03-10 07:04:54"
+    }, {
+        "id": 24,
+        "invoiceId": "32311FVEB4F1V",
+        "snearkerName": "New Balance Mustela nigripes",
+        "paymentStatus": "PAYMENT EXPIRED",
+        "deliveryStatus": "PENDING",
+        "time": "1932-01-16 05:18:59"
+    }
+    // }, {
+    //   "id": 25,
+    //   "invoiceId": "42311FVEB4F1V",
+    //   "snearkerName": "Puma Pelecans onocratalus",
+    //   "paymentStatus": "WAITING FOR PAYMENT",
+    //   "deliveryStatus": "PENDING",
+    //   "time": "2050-09-20 13:21:08"
+    // }, {
+    //   "id": 26,
+    //   "invoiceId": "52311FVEB4F1V",
+    //   "snearkerName": "Reebok Ramphastos tucanus",
+    //   "paymentStatus": "WAITING FOR PAYMENT",
+    //   "deliveryStatus": "PENDING",
+    //   "time": "2012-10-09 18:59:56"
+    // }, {
+    //   "id": 27,
+    //   "invoiceId": "62311FVEB4F1V",
+    //   "snearkerName": "Nike Bison bison",
+    //   "paymentStatus": "WAITING FOR PAYMENT",
+    //   "deliveryStatus": "SHIPPED",
+    //   "time": "1936-07-05 07:36:51"
+    // }, {
+    //   "id": 28,
+    //   "invoiceId": "72311FVEB4F1V",
+    //   "snearkerName": "Adidas Panthera pardus",
+    //   "paymentStatus": "SUCCESS",
+    //   "deliveryStatus": "SHIPPED",
+    //   "time": "1971-12-31 19:59:53"
+    // }, {
+    //   "id": 29,
+    //   "invoiceId": "82311FVEB4F1V",
+    //   "snearkerName": "New Balance Pytilia melba",
+    //   "paymentStatus": "PAYMENT EXPIRED",
+    //   "deliveryStatus": "IN TRANSIT",
+    //   "time": "1992-07-10 23:12:48"
+    // }, {
+    //   "id": 30,
+    //   "invoiceId": "92311FVEB4F1V",
+    //   "snearkerName": "Puma Carphophis sp.",
+    //   "paymentStatus": "WAITING FOR PAYMENT",
+    //   "deliveryStatus": "SHIPPED",
+    //   "time": "2087-09-29 06:21:42"
+    // }, {
+    //   "id": 31,
+    //   "invoiceId": "102311FVEB4F1V",
+    //   "snearkerName": "Reebok Phoenicopterus chilensis",
+    //   "paymentStatus": "CANCEL",
+    //   "deliveryStatus": "SHIPPED",
+    //   "time": "2080-02-06 14:45:09"
+    // }
 ]
 //
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [isDarkMode, setIsDarkMode] = useState(false);
     const router = useRouter();
@@ -230,7 +233,7 @@ const NavBar = () => {
                             onSubmit={handleSearchSubmit}
                             action="#"
                             method="GET"
-                            className="hidden lg:block lg:pl-3.5 select-none"
+                            className={`absolute -bottom-4 left-1/2 z-10 ${isSearchBarOpen ? "opacity-100 -translate-x-1/2 translate-y-full" : "opacity-0 -translate-x-0 translate-y-0"} transition-all duration-100 lg:opacity-100 lg:static lg:block lg:pl-3.5 select-none`}
                         >
                             <label htmlFor="topbar-search" className="sr-only">
                                 Search
@@ -256,8 +259,7 @@ const NavBar = () => {
                     </div>
                     {/* Menu part */}
                     <div
-                        className={`${!isMobileMenuOpen && "hidden "
-                            } absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
+                        className={`${!isMobileMenuOpen ? "hidden " : ""} absolute w-screen left-0 bottom-1 right-0 translate-y-full -translate-x-3 sm:w-auto sm:bottom-0 sm:translate-y-0 sm:translate-x-0 md:flex md:relative md:ml-2 items-center justify-start z-50`}
                     >
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 md:rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
@@ -302,25 +304,25 @@ const NavBar = () => {
                                         aria-labelledby="dropdownLargeButton"
                                     >
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/search?q=&sort=newest"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Latest
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/#trending"
                                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Trending
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                     <div className="py-1">
                                         <a
-                                            href="#"
+                                            href="/#others"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Others
@@ -347,10 +349,12 @@ const NavBar = () => {
                         </ul>
                     </div>
                     {/* User part */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 z-20">
+                        {/* Search Icon */}
                         <button
                             id="toggleSidebarMobileSearch"
                             type="button"
+                            onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
                             className="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
                             <span className="sr-only">Search</span>
@@ -358,7 +362,7 @@ const NavBar = () => {
                         </button>
                         {/* Notification */}
                         <button
-                            className={`hidden lg:block relative p-2 ${isNotificationOpen
+                            className={`hidden xl:block relative p-2 ${isNotificationOpen
                                 ? "bg-sky-500 text-white"
                                 : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                                 } rounded-lg`}
@@ -391,9 +395,9 @@ const NavBar = () => {
                                     Notifications
                                 </div>
                                 <div>
-                                     {notificationInfo.map((nr) => ( <NotificationRow key={nr.id} notificationRow={nr} />))}
+                                    {notificationInfo.map((nr) => (<NotificationRow key={nr.id} notificationRow={nr} />))}
                                 </div>
-                                                                                          <a
+                                <a
                                     href="#"
                                     className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline"
                                 >
@@ -413,20 +417,20 @@ const NavBar = () => {
                                         </svg>
                                         View all
                                     </div>
-                                </a>    
-                            </div>  
+                                </a>
+                            </div>
                         </button>
                         {/* Cart */}
                         <Link
                             href={"/cart"}
-                            className="hidden p-2 text-gray-500 rounded-lg sm:flex hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
+                            className="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700"
                         >
                             <span className="sr-only">View notifications</span>
-                            <FaShoppingCart className="h-6 w-6" />
+                            <QuantityCart isLogging={authData.isAccount} userId={userInfo.id} />
                         </Link>
                         {/* Theme toggle */}
                         <button
-                            className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
+                            className="hidden xl:block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 
                             hover:text-gray-900 dark:hover:text-white rounded-lg text-sm p-1 sm:p-2.5"
                             onClick={() => setIsDarkMode(!isDarkMode)}
                         >
@@ -483,9 +487,10 @@ const NavBar = () => {
                                         <span className="sr-only">
                                             Open user menu
                                         </span>
-                                        <img
+                                        <Image
                                             width={32}
                                             height={32}
+                                            sizes="100%"
                                             className="rounded-full"
                                             src={
                                                 userInfo.imageUrl ||
@@ -538,12 +543,12 @@ const NavBar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href="/admin"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 Dash Board
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a

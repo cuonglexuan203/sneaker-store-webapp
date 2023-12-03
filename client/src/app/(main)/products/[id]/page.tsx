@@ -128,7 +128,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             bgColor
         })
     });
-    const sizes = Array.from(sizeSet);
+    const sizes = Array.from(sizeSet).sort((a, b) => b - a);
     //
     const handleAddToCart = async () => {
         if (!isLogging) {

@@ -224,7 +224,7 @@ const Orders = () => {
                               sizes="100%"
                               className="w-full h-full"
                               alt="logo"
-                              src="https://i.ibb.co/L8KSdNQ/image-3.png"
+                              src="/images/orders/DHL.png"
                             />
                           </div>
                           <div className="flex flex-col justify-start items-center">
