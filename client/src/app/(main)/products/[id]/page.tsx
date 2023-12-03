@@ -112,17 +112,23 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
     }
     // extract data
     const { product, productInventories } = productResponse!;
-    const colors = productInventories.map((p: ProductInventory) => {
-        let bgColor = `bg-${p.color.toLowerCase()}`;
-        if (p.color !== "BLACK" && p.color !== "WHITE") {
+    const colorwaySet: Set<string> = new Set();
+    const sizeSet: Set<number> = new Set();
+    productInventories.forEach((pi: ProductInventory) => {
+        colorwaySet.add(pi.color)
+        sizeSet.add(pi.size);
+    })
+    const colors = Array.from(colorwaySet).map(i => {
+        let bgColor = `bg-${i.toLowerCase()}`;
+        if (i !== "BLACK" && i !== "WHITE") {
             bgColor += "-200";
         }
         return ({
-            value: p.color,
+            value: i,
             bgColor
         })
     });
-    const sizes = productInventories.map(p => p.size);
+    const sizes = Array.from(sizeSet);
     //
     const handleAddToCart = async () => {
         if (!isLogging) {

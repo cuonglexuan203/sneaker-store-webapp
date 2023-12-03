@@ -8,6 +8,7 @@ import LineItem from "../_components/LineItem";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
 import { useSession } from "next-auth/react";
 import { AuthRequiredError } from "../lib/exception";
+import Image from "next/image";
 
 const Orders = () => {
   const userInfo: UserInfo = useAppSelector((state) => state.user.info);
@@ -91,7 +92,7 @@ const Orders = () => {
     return <div>Loading...</div>;
   }
   if (!invoices || invoices.length === 0) {
-    return <div>No invoices available.</div>; // Handling empty invoices
+    return <div className="h-[50vh] text-center font-bold mt-16">No invoices available.</div>; // Handling empty invoices
   }
 
   const sortedInvoices = invoices.slice().sort((a, b) => a.id - b.id);
@@ -135,7 +136,10 @@ const Orders = () => {
                               className="flex flex-col sm:flex-row items-center rounded-lg bg-white"
                             >
                               <div className="m-2 h-24 w-28 flex-shrink-0">
-                                <img
+                                <Image
+                                  width={0}
+                                  height={0}
+                                  sizes="100%"
                                   className="h-full object-contain w-full rounded-md border"
                                   src={item.product.imageUrl}
                                   alt={item.product.name}
@@ -214,7 +218,10 @@ const Orders = () => {
                       <div className="flex justify-between items-start w-full">
                         <div className="flex justify-center items-center space-x-4">
                           <div className="w-8 h-8">
-                            <img
+                            <Image
+                              width={0}
+                              height={0}
+                              sizes="100%"
                               className="w-full h-full"
                               alt="logo"
                               src="https://i.ibb.co/L8KSdNQ/image-3.png"

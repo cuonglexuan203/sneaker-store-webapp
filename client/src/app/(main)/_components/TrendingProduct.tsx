@@ -8,10 +8,10 @@ const TrendingProduct = ({ product: p, bgColor, borderColor }: { product: Sneake
     const imageSize = "324px";
     return (
         <div className={`snap-center shrink-0`}>
-            <Link href={`/products/${p.id}`} className={`w-[${itemWidth}]`}>
+            <Link href={`/products/${p.id}`}>
                 <div className={`w-[${itemWidth}] h-[${itemHeight}] flex items-center justify-center border-[18px] ${borderColor} ${bgColor} rounded-md`}>
                     <Image
-                        className={`shrink-0 w-[${imageSize}] h-[${imageSize}]`}
+                        className={`shrink-0 w-[433px] h-[532px]`}
                         width={0}
                         height={0}
                         sizes="100%"
