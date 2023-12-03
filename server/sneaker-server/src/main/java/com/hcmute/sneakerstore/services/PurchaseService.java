@@ -15,19 +15,19 @@ import com.hcmute.sneakerstore.model.LineItem;
 import com.hcmute.sneakerstore.model.Location;
 import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.model.enums.PaymentStatus;
+import com.hcmute.sneakerstore.utils.EmailSender;
 
 public class PurchaseService {
 	private InvoiceDao invoiceDao;
 	private UserDao userDao;
 	private LineItemDao lineItemDao;
-
 	public PurchaseService() {
 		invoiceDao = DaoFactory.getInvoiceDao();
 		userDao = DaoFactory.getUserDao();
 		lineItemDao = DaoFactory.getLineItemDao();
 	}
 
-	public boolean purchase(long userId, List<LineItem> lineItems, Location address) {
+	public boolean purchase(long userId, List<LineItem> lineItems, Location address, String orderConfirmationPath) {
 		//
 		User user = userDao.findById(userId);
 		Cart cart = user.getCart();
@@ -62,6 +62,12 @@ public class PurchaseService {
 		userDao.update(user);
 		//
 		if (id > 0) {
+			String from = "cuongit2003@gmail.com";
+			String to = user.getEmail();
+			String emailName = user.getFirstName() + " " + user.getLastName();
+			String subject = "New order";
+			String htmlText = getConfirmationHtml();
+			EmailSender.sendHtmlMail(from, to, emailName, subject, htmlText);
 			return true;
 		}
 		return false;
@@ -79,5 +85,16 @@ public class PurchaseService {
 		//
 		return invoice;
 
+	}
+	
+	public String getConfirmationHtml() {
+		String htmlText = "\r\n"
+				+ "        <h2 class=\"capitalize font-semibold text-2xl text-green-600 p-4\">Thank you for your purchase</h2>\r\n"
+				+ "        <p>Visit your <span class=\"text-green-500 capitalize\">account & billing </span> page to manage your invoices,\r\n"
+				+ "            products, services.</p>\r\n"
+				+ "        <p>If you have any questions, please contact us at <a href=\"mailto:sneakerstore@gmail.com\"\r\n"
+				+ "                class=\"text-red-400\">sneakerstore@gmail.com</a>\r\n"
+				+ "        </p>";
+		return htmlText;
 	}
 }
