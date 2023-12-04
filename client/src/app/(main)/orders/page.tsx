@@ -91,7 +91,11 @@ const Orders = () => {
     return <div>Loading...</div>;
   }
   if (!invoices || invoices.length === 0) {
-    return <div className="h-[50vh] text-center font-bold mt-16">No invoices available.</div>; // Handling empty invoices
+    return (
+      <div className="h-[50vh] text-center font-bold mt-16">
+        No invoices available.
+      </div>
+    ); // Handling empty invoices
   }
 
   const sortedInvoices = invoices.slice().sort((a, b) => a.id - b.id);
@@ -100,7 +104,7 @@ const Orders = () => {
     <section className="container mx-auto">
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <p className="text-3xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800 text-center">
-          Customer's Purchase History
+          Customer Purchase History
         </p>
 
         {sortedInvoices.map((invoice, index) => {
