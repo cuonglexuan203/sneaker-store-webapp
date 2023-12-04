@@ -4,6 +4,7 @@ import {
   useDeleteAdminProductMutation,
 } from "../_store/services/productsApi";
 import ProductDetailsModal from "./ProductDetailsModal";
+import ProductEditModal from "./ProductEditModal";
 
 const AdminLineItem = ({
   p,
@@ -89,9 +90,10 @@ const AdminLineItem = ({
                 Edit
               </button>
               {isEditModalOpen && (
-                <ProductDetailsModal
+                <ProductEditModal
                   closeModal={closeModal}
                   initialPattern={p}
+                  inventoryId={p.productInventories[inventory.id].id}
                 />
               )}
               <button
