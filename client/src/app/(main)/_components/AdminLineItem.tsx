@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, ChangeEvent } from "react";
+import React, { FormEvent, useState, ChangeEvent, useEffect } from "react";
 import {
   AdminSneaker,
   useDeleteAdminProductMutation,
@@ -17,6 +17,11 @@ const AdminLineItem = ({
   isEditModalOpen: boolean;
   closeModal: () => void;
 }) => {
+  const [newProduct, setNewProduct] = useState(p);
+
+  useEffect(() => {
+    setNewProduct(p);
+  }, [p]);
   const [deleteAdminProduct] = useDeleteAdminProductMutation();
 
   const handleDelete = async (inventoryId: number) => {
@@ -92,8 +97,8 @@ const AdminLineItem = ({
               {isEditModalOpen && (
                 <ProductEditModal
                   closeModal={closeModal}
-                  initialPattern={p}
-                  inventoryId={p.productInventories[inventory.id].id}
+                  initialPattern={newProduct}
+                  inventoryId={inventory.id}
                 />
               )}
               <button
