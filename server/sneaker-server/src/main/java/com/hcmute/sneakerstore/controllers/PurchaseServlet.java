@@ -41,8 +41,8 @@ public class PurchaseServlet extends HttpServlet {
 				//
 				if (userId > 0 && !ValidationUtils.isNullOrEmpty(lineItems) && address != null) {
 					// Business processing
-					String orderConfirmationFilePath = getServletContext().getRealPath("assets/mails/order_confirmation.html");
-					boolean result = purchaseService.purchase(userId, lineItems, address, orderConfirmationFilePath);
+//					String orderConfirmationFilePath = getServletContext().getRealPath("assets/mails/order_confirmation.html");
+					boolean result = purchaseService.purchase(userId, lineItems, address, ""); // virtual string for performance
 					if (result) {
 						HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_CREATED,
 								StatusMessage.SM_CREATED.getDescription());

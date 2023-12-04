@@ -2,7 +2,12 @@
 import React, { FormEvent, useState } from "react";
 import Image from "next/image";
 import Product from "../_components/Product";
-import { Sneaker, useGetProductsQuery } from "../_store/services/productsApi";
+import {
+  AdminSneaker,
+  Sneaker,
+  useAddAdminProductMutation,
+  useGetAdminProductsQuery,
+} from "../_store/services/productsApi";
 import { FaThumbsUp } from "react-icons/fa6";
 import { useAppDispatch, useAppSelector } from "../_store/hooks";
 import { RootState } from "../_store/store";
@@ -14,10 +19,11 @@ const Dashboard = () => {
   const {
     isLoading,
     isFetching,
-    data: products = [],
+    data: adminProducts = [],
     isSuccess,
     error,
-  } = useGetProductsQuery(null);
+  } = useGetAdminProductsQuery(null);
+
   const dispatch = useAppDispatch();
   const isNotificationOpen = useAppSelector(
     (state: RootState) => state.navbar.isNotificationOpen
@@ -41,42 +47,17 @@ const Dashboard = () => {
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
-  const currentItems = products.slice(firstItemIndex, lastItemIndex);
+  const currentItems = adminProducts.slice(firstItemIndex, lastItemIndex);
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(adminProducts.length / itemsPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  //add item
+
   //create popup to add new product
-  const initialPattern: Sneaker = {
-    id: 0,
-    name: "",
-    brand: "",
-    ean: "",
-    price: 0,
-    description: "",
-    imageUrl: "",
-    releaseDate: "",
-    categories: [],
-  };
-
-  const [newProduct, setNewProduct] = useState(initialPattern);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement; // Type assertion here
-    const { name, value } = target;
-    setNewProduct({ ...newProduct, [name]: value });
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Form submitted", newProduct);
-    setNewProduct({
+  const initialPattern: AdminSneaker = {
+    product: {
       id: 0,
       name: "",
       brand: "",
@@ -86,8 +67,58 @@ const Dashboard = () => {
       imageUrl: "",
       releaseDate: "",
       categories: [],
-    });
-    closeModal();
+    },
+    productInventories: [
+      // ... array of inventory items
+    ],
+    // ... any other required properties
+  };
+
+  const [newProduct, setNewProduct] = useState(initialPattern);
+
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  const openAddModal = () => setIsAddModalOpen(true);
+  const openEditModal = () => setIsEditModalOpen(true);
+  const closeAddModal = () => setIsAddModalOpen(false);
+  const closeEditModal = () => setIsEditModalOpen(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name in newProduct.product) {
+      // Update product details
+      setNewProduct((prevState) => ({
+        ...prevState,
+        product: {
+          ...prevState.product,
+          [name]: value,
+        },
+      }));
+    } else {
+      // Handle updates for inventory items, assuming a naming convention like "inventory-0-color"
+      const [field, indexStr, property] = name.split("-");
+
+      if (field === "inventory") {
+        const index = parseInt(indexStr, 10); // Convert string index to a number
+
+        setNewProduct((prevState) => {
+          const newInventories = [...prevState.productInventories];
+          if (newInventories[index]) {
+            newInventories[index] = {
+              ...newInventories[index],
+              [property]: value,
+            };
+          }
+
+          return {
+            ...prevState,
+            productInventories: newInventories,
+          };
+        });
+      }
+    }
   };
 
   return (
@@ -96,17 +127,15 @@ const Dashboard = () => {
         <h1 className="text-xl font-bold">All products</h1>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
-          onClick={openModal}
+          onClick={openAddModal}
         >
           Add new product
         </button>
 
-        {isModalOpen && (
+        {isAddModalOpen && (
           <ProductDetailsModal
-            closeModal={closeModal}
-            handleSubmit={handleSubmit}
-            newProduct={newProduct}
-            handleInputChange={handleInputChange}
+            closeModal={closeAddModal}
+            initialPattern={initialPattern}
           />
         )}
       </div>
@@ -136,7 +165,13 @@ const Dashboard = () => {
           </thead>
 
           {currentItems.map((p, idx) => (
-            <AdminLineItem key={idx} p={p} openModal={openModal} />
+            <AdminLineItem
+              key={idx}
+              p={p}
+              openModal={openEditModal}
+              isEditModalOpen={isEditModalOpen}
+              closeModal={closeEditModal}
+            />
           ))}
         </table>
       </div>
@@ -159,10 +194,11 @@ const Dashboard = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`py-2 px-4 rounded ${i + 1 === currentPage
+            className={`py-2 px-4 rounded ${
+              i + 1 === currentPage
                 ? "bg-blue-700 text-white"
                 : "bg-blue-500 text-white hover:bg-blue-700"
-              }`}
+            }`}
           >
             {i + 1}
           </button>

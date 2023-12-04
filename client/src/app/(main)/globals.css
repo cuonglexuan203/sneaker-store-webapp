@@ -206,6 +206,7 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Số lớn để nó nằm trên cùng */
+    overflow-y: auto;
   }
 
   .modal-content {
@@ -214,6 +215,7 @@ input[type="number"] {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 500px; /* Hoặc bất kỳ kích thước nào bạn muốn */
+    overflow-y: auto;
   }
 
   .modal-header {

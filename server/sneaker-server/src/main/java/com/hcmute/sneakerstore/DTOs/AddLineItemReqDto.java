@@ -10,7 +10,7 @@ import com.hcmute.sneakerstore.model.enums.Color;
 import lombok.Data;
 
 @Data
-public class LineItemAdditionReqDto {
+public class AddLineItemReqDto {
 	private Color color;
 	private int size;
 	private int quantity;

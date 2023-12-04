@@ -3,6 +3,6 @@ package com.hcmute.sneakerstore.DTOs;
 import lombok.Data;
 
 @Data
-public class LineItemDelReqDto {
+public class DeleteLineItemReqDto {
 	private long[] lineItemIds;
 }

@@ -504,35 +504,43 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                         Choose a color
                                     </legend>
                                     <ul className="flex items-center space-x-3 select-none">
-                                        {colors.map((c, idx) => (
-                                            <li key={c.value} className="">
-                                                <label
-                                                    className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${color === c.value
-                                                        ? "ring-blue-400 ring-2"
-                                                        : ""
-                                                        }`}
-                                                >
-                                                    <input
-                                                        type="radio"
-                                                        value={c.value}
-                                                        className="sr-only"
-                                                    />
-                                                    <span
-                                                        id="color-choice-0-label"
-                                                        className="sr-only"
+                                        {colors.map((c, idx) => {
+                                            const maxCount = productInventories.find(p => p.color === c.value && p.size === size)?.productAmount;
+                                            const tempBgColor = c.bgColor;
+                                            return (
+
+                                                <li key={c.value} className="">
+                                                    <label
+                                                        className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${color.toLowerCase() == c.value.toLowerCase()
+                                                            ? " ring-blue-400 ring-2 "
+                                                            : ""
+                                                            }`}
                                                     >
-                                                        {c.value}
-                                                    </span>
-                                                    <span
-                                                        onClick={() => {
-                                                            setColor(c.value);
-                                                        }}
-                                                        aria-hidden="true"
-                                                        className={`h-8 w-8 ${c.bgColor} rounded-full border border-black border-opacity-10 cursor-pointer`}
-                                                    />
-                                                </label>
-                                            </li>
-                                        ))}
+                                                        <input
+                                                            type="radio"
+                                                            value={c.value}
+                                                            className="sr-only"
+                                                        />
+                                                        <span
+                                                            id="color-choice-0-label"
+                                                            className="sr-only"
+                                                        >
+                                                            {c.value}
+                                                        </span>
+                                                        <span
+                                                            onClick={() => {
+                                                                setColor(c.value);
+                                                                if (productCount > maxCount!) {
+                                                                    setProductCount(maxCount!);
+                                                                }
+                                                            }}
+                                                            aria-hidden="true"
+                                                            className={`h-8 w-8 ${tempBgColor} ring-blue-400 rounded-full border border-black border-opacity-10 cursor-pointer`}
+                                                        />
+                                                    </label>
+                                                </li>
+                                            )
+                                        })}
                                     </ul>
                                 </fieldset>
                             </div>
@@ -555,65 +563,60 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                         Choose a size
                                     </legend>
                                     <div className="grid grid-cols-4 gap-4 select-none">
-                                        {sizes.map((s) => (
-                                            <div
-                                                key={s}
-                                                onClick={() => setSize(s)}
-                                            >
-                                                <label
-                                                    className={`group relative flex items-center justify-center rounded-md border ${size === s
-                                                        ? "border-black"
-                                                        : ""
-                                                        } py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-pointer bg-white text-gray-900 shadow-sm`}
-                                                >
-                                                    <input
-                                                        type="radio"
-                                                        name="size-choice"
-                                                        value={s}
-                                                        className="sr-only"
-                                                    />
-                                                    <span>{s}</span>
+                                        {sizes.map((s) => {
+                                            const maxCount = productInventories.find(p => p.color === color && p.size === s)?.productAmount;
 
-                                                    <span
-                                                        className="pointer-events-none absolute -inset-px rounded-md"
-                                                        aria-hidden="true"
-                                                    ></span>
-                                                </label>
-                                            </div>
-                                        ))}
-
-                                        <label className="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 cursor-not-allowed bg-gray-50 text-gray-200">
-                                            <input
-                                                type="radio"
-                                                name="size-choice"
-                                                value="XXXL"
-                                                disabled
-                                                className="sr-only"
-                                                aria-labelledby="size-choice-7-label"
-                                            />
-                                            <span id="size-choice-7-label">
-                                                28
-                                            </span>
-                                            <span
-                                                aria-hidden="true"
-                                                className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                            >
-                                                <svg
-                                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                                    viewBox="0 0 100 100"
-                                                    preserveAspectRatio="none"
-                                                    stroke="currentColor"
+                                            return (
+                                                <div
+                                                    key={s}
+                                                    onClick={() => {
+                                                        setSize(s);
+                                                        if (productCount > maxCount!) {
+                                                            setProductCount(maxCount!);
+                                                        }
+                                                    }}
                                                 >
-                                                    <line
-                                                        x1="0"
-                                                        y1="100"
-                                                        x2="100"
-                                                        y2="0"
-                                                        vectorEffect="non-scaling-stroke"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </label>
+                                                    <label
+                                                        className={`group relative flex items-center justify-center rounded-md border ${size === s
+                                                            ? "border-black"
+                                                            : ""
+                                                            } py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 shadow-sm ${maxCount === 0 ? "cursor-not-allowed bg-gray-50 text-gray-200" : "cursor-pointer bg-white text-gray-900"}`}
+                                                    >
+                                                        <input
+                                                            type="radio"
+                                                            name="size-choice"
+                                                            value={s}
+                                                            className="sr-only"
+                                                        />
+                                                        <span>{s}</span>
+
+                                                        <span
+                                                            className={`pointer-events-none absolute -inset-px rounded-md ${maxCount === 0 ? " border-2 border-gray-200" : ""}`}
+                                                            aria-hidden="true"
+                                                        >
+                                                            {maxCount === 0 && (
+                                                                <svg
+                                                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
+                                                                    viewBox="0 0 100 100"
+                                                                    preserveAspectRatio="none"
+                                                                    stroke="currentColor"
+                                                                >
+                                                                    <line
+                                                                        x1="0"
+                                                                        y1="100"
+                                                                        x2="100"
+                                                                        y2="0"
+                                                                        vectorEffect="non-scaling-stroke"
+                                                                    />
+                                                                </svg>
+                                                            )}
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            )
+                                        })}
+
+
                                     </div>
                                 </fieldset>
                                 {size > 0 && color !== "" && (
@@ -639,10 +642,18 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     <div className="w-28">
                                         <div className="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
                                             <button
-                                                onClick={() =>
-                                                    setProductCount(
-                                                        productCount - 1
-                                                    )
+                                                onClick={() => {
+                                                    const count = productCount - 1;
+                                                    const maxCount = productInventories.find(p => p.color === color && p.size === size)?.productAmount || 0;
+                                                    let num = count;
+                                                    if (count < 0) {
+                                                        num = 0;
+                                                    }
+                                                    if (num > maxCount) {
+                                                        num = maxCount;
+                                                    }
+                                                    setProductCount(num);
+                                                }
                                                 }
                                                 className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300"
                                             >
@@ -651,20 +662,36 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                                 </span>
                                             </button>
                                             <input
-                                                onChange={(e) =>
-                                                    setProductCount(
-                                                        parseInt(e.target.value)
-                                                    )
+                                                onChange={(e) => {
+                                                    const count = parseInt(e.target.value);
+                                                    const maxCount = productInventories.find(p => p.color === color && p.size === size)?.productAmount || 0;
+                                                    let num = count;
+                                                    if (count < 0) {
+                                                        num = 0;
+                                                    }
+                                                    if (num > maxCount) {
+                                                        num = maxCount;
+                                                    }
+                                                    setProductCount(num);
+                                                }
                                                 }
                                                 type="number"
                                                 className="form-input border-none flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
                                                 value={productCount}
                                             />
                                             <button
-                                                onClick={() =>
-                                                    setProductCount(
-                                                        productCount + 1
-                                                    )
+                                                onClick={() => {
+                                                    const count = productCount + 1;
+                                                    const maxCount = productInventories.find(p => p.color === color && p.size === size)?.productAmount || 0;
+                                                    let num = count;
+                                                    if (count < 0) {
+                                                        num = 0;
+                                                    }
+                                                    if (num > maxCount) {
+                                                        num = maxCount;
+                                                    }
+                                                    setProductCount(num);
+                                                }
                                                 }
                                                 className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300"
                                             >
@@ -723,16 +750,18 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                                     </button>
                                 </div>
                                 <button
+                                    disabled={productCount === 0}
                                     onClick={handleAddToCart}
-                                    className="w-full px-4 py-3 text-center text-blue-600 bg-blue-100 border border-blue-600 dark:hover:bg-gray-900 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-700 hover:bg-blue-600 hover:text-gray-100 lg:w-1/2 rounded-xl"
+                                    className={`w-full px-4 py-3 text-center border ${productCount === 0 ? "text-gray-600 bg-gray-100 border-gray-600 hover:bg-gray-600 cursor-not-allowed" : "text-blue-600 bg-blue-100 border-blue-600 hover:bg-blue-600 cursor-pointer"} dark:hover:bg-gray-900 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-700  hover:text-gray-100 lg:w-1/2 rounded-xl`}
                                 >
                                     Add to cart
                                 </button>
                             </div>
                             <div className="flex gap-4 mb-6">
                                 <button
+                                    disabled={productCount === 0}
                                     onClick={handleBuyNow}
-                                    className="w-full px-4 py-3 text-center text-gray-100 bg-blue-600 border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl"
+                                    className={`w-full px-4 py-3 text-center text-gray-100 ${productCount === 0 ? "bg-gray-600 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 cursor-not-allowed" : "bg-blue-600 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 cursor-pointer"} border border-transparent dark:border-gray-700 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl`}
                                 >
                                     Buy now
                                 </button>
@@ -860,9 +889,9 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div >
                 {/* Review */}
-                <div className="mt-16 flex flex-col justify-start items-start w-full space-y-8">
+                <div className="mt-16 flex flex-col justify-start items-start w-full space-y-8" >
                     <div className="flex justify-start items-start">
                         <p className="text-2xl lg:text-3xl font-semibold leading-7 lg:leading-9 text-gray-800 dark:text-white ">
                             Reviews
@@ -1273,14 +1302,14 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
             {/* Toasts */}
-            <div className="bottom-8 right-8 fixed">
+            <div className="bottom-8 right-8 fixed" >
                 {isSuccessfulToastVisible && successfulToast}
                 {isFailedToastVisible && failedToast}
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

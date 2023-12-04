@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.gson.JsonSyntaxException;
 import com.hcmute.sneakerstore.DTOs.AddAdminProductReqDto;
-import com.hcmute.sneakerstore.DTOs.LineItemQtyUpdateReqDto;
+import com.hcmute.sneakerstore.DTOs.UpdateLineItemQtyReqDto;
 import com.hcmute.sneakerstore.DTOs.ProductResDto;
 import com.hcmute.sneakerstore.DTOs.UpdateAdminProductReqDto;
 import com.hcmute.sneakerstore.services.AdminService;

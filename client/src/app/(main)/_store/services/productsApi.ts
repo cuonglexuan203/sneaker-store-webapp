@@ -201,7 +201,7 @@ export const productsApi = createApi({
                     "Content-Type": "application/json"
                 }
             }),
-            invalidatesTags: ["cart", "invoices"]
+            invalidatesTags: ["cart", "invoices", "product"]
         }),
         getInvoices: builder.query<Invoice[], number>({
             query: (userId) => `invoices?userId=${userId}`,

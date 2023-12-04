@@ -9,7 +9,7 @@ import com.hcmute.sneakerstore.DAOs.CartDao;
 import com.hcmute.sneakerstore.DAOs.DaoFactory;
 import com.hcmute.sneakerstore.DAOs.LineItemDao;
 import com.hcmute.sneakerstore.DAOs.UserDao;
-import com.hcmute.sneakerstore.DTOs.LineItemAdditionReqDto;
+import com.hcmute.sneakerstore.DTOs.AddLineItemReqDto;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.LineItem;
 import com.hcmute.sneakerstore.model.User;
@@ -35,7 +35,7 @@ public class CartService {
 		return null;
 	}
 
-	public boolean addLineItem(LineItemAdditionReqDto lineItemWrapper) {
+	public boolean addLineItem(AddLineItemReqDto lineItemWrapper) {
 		User user = userDao.findById(lineItemWrapper.getUserId());
 		if (user == null) {
 			return false;

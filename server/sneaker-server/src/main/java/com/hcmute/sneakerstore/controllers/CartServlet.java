@@ -3,7 +3,7 @@ package com.hcmute.sneakerstore.controllers;
 import java.io.IOException;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.DTOs.LineItemAdditionReqDto;
+import com.hcmute.sneakerstore.DTOs.AddLineItemReqDto;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.services.CartService;
 import com.hcmute.sneakerstore.utils.GsonProvider;
@@ -65,8 +65,8 @@ public class CartServlet extends HttpServlet {
 
 			//
 			try {
-				LineItemAdditionReqDto lineItemData = GsonProvider.getGsonInstance().fromJson(body,
-						LineItemAdditionReqDto.class);
+				AddLineItemReqDto lineItemData = GsonProvider.getGsonInstance().fromJson(body,
+						AddLineItemReqDto.class);
 
 				//
 				if (!lineItemData.isValid()) {

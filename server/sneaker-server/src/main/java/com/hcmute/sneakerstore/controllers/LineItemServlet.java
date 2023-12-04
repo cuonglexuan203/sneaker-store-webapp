@@ -3,8 +3,8 @@ package com.hcmute.sneakerstore.controllers;
 import java.io.IOException;
 
 import com.google.gson.JsonSyntaxException;
-import com.hcmute.sneakerstore.DTOs.LineItemDelReqDto;
-import com.hcmute.sneakerstore.DTOs.LineItemQtyUpdateReqDto;
+import com.hcmute.sneakerstore.DTOs.DeleteLineItemReqDto;
+import com.hcmute.sneakerstore.DTOs.UpdateLineItemQtyReqDto;
 import com.hcmute.sneakerstore.model.LineItem;
 import com.hcmute.sneakerstore.services.LineItemService;
 import com.hcmute.sneakerstore.utils.GsonProvider;
@@ -61,8 +61,8 @@ public class LineItemServlet extends HttpServlet {
 		String bodyStr = (String) req.getAttribute("body");
 		if (!ValidationUtils.isNullOrEmpty(bodyStr)) {
 			try {
-				LineItemQtyUpdateReqDto bodyObj = GsonProvider.getGsonInstance().fromJson(bodyStr,
-						LineItemQtyUpdateReqDto.class);
+				UpdateLineItemQtyReqDto bodyObj = GsonProvider.getGsonInstance().fromJson(bodyStr,
+						UpdateLineItemQtyReqDto.class);
 				if (bodyObj != null) {
 					// Business processing
 					boolean result = lineItemService.updateLineItemQuantity(bodyObj);
@@ -105,8 +105,8 @@ public class LineItemServlet extends HttpServlet {
 
 					String body = (String) req.getAttribute("body");
 					if (!ValidationUtils.isNullOrEmpty(body)) {
-						LineItemDelReqDto deleteManyRequestBody = GsonProvider.getGsonInstance().fromJson(body,
-								LineItemDelReqDto.class);
+						DeleteLineItemReqDto deleteManyRequestBody = GsonProvider.getGsonInstance().fromJson(body,
+								DeleteLineItemReqDto.class);
 						//
 						if (deleteManyRequestBody != null) {
 							boolean result = lineItemService.deleteLineItems(deleteManyRequestBody);

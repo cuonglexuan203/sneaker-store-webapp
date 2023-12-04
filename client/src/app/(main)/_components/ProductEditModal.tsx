@@ -4,25 +4,27 @@ import {
   AdminSneaker,
   ProductInventory,
   Sneaker,
-  useAddAdminProductMutation,
+  useUpdateAdminProductMutation,
 } from "../_store/services/productsApi";
 
 const ProductDetailsModal = ({
   closeModal,
   initialPattern,
+  inventoryId,
 }: {
   closeModal: () => void;
   initialPattern: AdminSneaker;
+  inventoryId: number;
 }) => {
   const [
-    addProduct,
+    EditProduct,
     {
-      isLoading: isAdding,
-      error: addError,
-      data: addData,
-      isSuccess: isAddSuccess,
+      isLoading: isEditting,
+      error: editError,
+      data: editData,
+      isSuccess: iseditSuccess,
     },
-  ] = useAddAdminProductMutation();
+  ] = useUpdateAdminProductMutation();
 
   const [adđConfirmed, setAddConfirmed] = useState(false);
 
@@ -42,10 +44,16 @@ const ProductDetailsModal = ({
   const [releaseDate, setReleaseDate] = useState(
     newProduct.product.releaseDate
   );
-  const [idInventory, setIdInventory] = useState(Number);
-  const [size, setSize] = useState(String);
-  const [color, setColor] = useState(String);
-  const [quantity, setQuantity] = useState(Number);
+
+  const inventoryItem = initialPattern.productInventories.find(
+    (inventory) => inventory.id === inventoryId
+  );
+
+  const [size, setSize] = useState(inventoryItem ? inventoryItem.size : 0);
+  const [color, setColor] = useState(inventoryItem ? inventoryItem.color : "");
+  const [quantity, setQuantity] = useState(
+    inventoryItem ? inventoryItem.productAmount : 0
+  );
 
   const isFormComplete = () => {
     return (
@@ -60,25 +68,6 @@ const ProductDetailsModal = ({
     );
   };
 
-  const addInventoryItem = () => {
-    const newInventoryItem: ProductInventory = {
-      id: idInventory,
-      productAmount: quantity,
-      size: parseInt(size),
-      color: color,
-    };
-
-    setNewProduct((prevState) => ({
-      ...prevState,
-      productInventories: [...prevState.productInventories, newInventoryItem],
-    }));
-
-    // Reset input fields
-    setSize("");
-    setColor("");
-    setQuantity(0);
-  };
-
   //handle
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     const answer = confirm("Are you sure you want to add this product?");
@@ -86,38 +75,31 @@ const ProductDetailsModal = ({
     const categoriesArray = categoriesString
       .split(",")
       .map((cat) => cat.trim()); // Chuyển chuỗi thành mảng
-
-    const Pattern: AdminSneaker = {
-      product: {
-        id: id,
-        brand: brand,
-        name: name,
-        ean: ean,
-        price: price,
-        releaseDate: releaseDate,
-        categories: categoriesArray,
-        description: description,
-        imageUrl: imageURL,
-      },
-      productInventories: [
-        {
-          id: idInventory,
-          productAmount: quantity,
-          color: color,
-          size: parseInt(size),
-        },
-      ],
-      // ... any other required properties
+    const isUpdatingProduct = id !== 0;
+    const productPayload = {
+      id: id, // Đảm bảo rằng 'id' này là ID của sản phẩm bạn muốn cập nhật
+      brand: brand,
+      name: name,
+      ean: ean,
+      price: price,
+      releaseDate: releaseDate,
+      categories: categoriesArray,
+      description: description,
+      imageUrl: imageURL,
     };
 
     try {
-      const response = await addProduct(Pattern).unwrap();
-      console.log("Product added successfully", response);
+      const response = await EditProduct({
+        product: productPayload,
+        productInventoryId: inventoryId,
+        productInventoryQty: quantity,
+      }).unwrap();
+      console.log("Product updated successfully", response);
       setAddConfirmed(true);
       closeModal();
     } catch (error) {
-      console.error("Error adding product:", error);
-      alert("Failed to add product. Please check your input.");
+      console.error("Error updating product:", error);
+      alert("Failed to update product. Please check your input.");
     }
 
     setAddConfirmed(true); // Update your confirmation state
@@ -246,7 +228,12 @@ const ProductDetailsModal = ({
             placeholder="Size"
             value={size}
             onChange={(e) => {
-              setSize(e.target.value);
+              const newValue = e.target.value;
+              if (newValue.trim() !== "" && !isNaN(Number(newValue))) {
+                setSize(Number(newValue)); // Convert the string to a number and set it
+              } else {
+                setSize(0); // Set to a default value or keep the previous value if the input is not a valid number
+              }
             }}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />

@@ -2,8 +2,8 @@ package com.hcmute.sneakerstore.services;
 
 import com.hcmute.sneakerstore.DAOs.CartDao;
 import com.hcmute.sneakerstore.DAOs.LineItemDao;
-import com.hcmute.sneakerstore.DTOs.LineItemDelReqDto;
-import com.hcmute.sneakerstore.DTOs.LineItemQtyUpdateReqDto;
+import com.hcmute.sneakerstore.DTOs.DeleteLineItemReqDto;
+import com.hcmute.sneakerstore.DTOs.UpdateLineItemQtyReqDto;
 import com.hcmute.sneakerstore.model.Cart;
 import com.hcmute.sneakerstore.model.LineItem;
 
@@ -25,7 +25,7 @@ public class LineItemService {
 		return null;
 	}
 
-	public boolean updateLineItemQuantity(LineItemQtyUpdateReqDto bodyObj) {
+	public boolean updateLineItemQuantity(UpdateLineItemQtyReqDto bodyObj) {
 		long lineItemId = bodyObj.getLineItemId();
 		int quantity = bodyObj.getQuantity();
 		//
@@ -58,7 +58,7 @@ public class LineItemService {
 		return false;
 	}
 
-	public boolean deleteLineItems(LineItemDelReqDto deleteManyRequestBody) {
+	public boolean deleteLineItems(DeleteLineItemReqDto deleteManyRequestBody) {
 		long[] lineItemIds = deleteManyRequestBody.getLineItemIds();
 		if (lineItemIds != null) {
 			for (long l : lineItemIds) {
