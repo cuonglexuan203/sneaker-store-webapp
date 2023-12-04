@@ -91,27 +91,8 @@ const Dashboard = () => {
 
   const closeAddModal = () => setIsAddModalOpen(false);
   const closeEditModal = () => setIsEditModalOpen(false);
-  //add item
 
-  //create popup to add new product
-  const initialPattern: AdminSneaker = {
-    product: {
-      id: 0,
-      name: "",
-      brand: "",
-      ean: "",
-      price: 0,
-      description: "",
-      imageUrl: "",
-      releaseDate: "",
-      categories: [],
-    },
-    productInventories: [
-    ],
-  };
 
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
 
   //   if (name in newProduct.product) {
   //     // Update product details
@@ -242,7 +223,6 @@ const Dashboard = () => {
       {isAddModalOpen && (
         <ProductDetailsModal
           closeModal={closeAddModal}
-          initialPattern={initialPattern}
         />
       )}
       {

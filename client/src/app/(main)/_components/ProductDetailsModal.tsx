@@ -9,10 +9,8 @@ import {
 
 const ProductDetailsModal = ({
   closeModal,
-  initialPattern,
 }: {
   closeModal: () => void;
-  initialPattern: AdminSneaker;
 }) => {
   const [
     addProduct,
@@ -24,28 +22,18 @@ const ProductDetailsModal = ({
     },
   ] = useAddAdminProductMutation();
 
-  const [adđConfirmed, setAddConfirmed] = useState(false);
 
-  const [newProduct, setNewProduct] = useState(initialPattern);
-  const [id, setId] = useState(newProduct.product.id);
-  const [brand, setBrand] = useState(newProduct.product.brand);
-  const [categoriesString, setCategoriesString] = useState(
-    initialPattern.product.categories.join(", ")
-  );
-  const [description, setDescription] = useState(
-    newProduct.product.description
-  );
-  const [ean, setEan] = useState(newProduct.product.ean);
-  const [imageURL, setImageURL] = useState(newProduct.product.imageUrl);
-  const [name, setName] = useState(newProduct.product.name);
-  const [price, setPrice] = useState(newProduct.product.price);
-  const [releaseDate, setReleaseDate] = useState(
-    newProduct.product.releaseDate
-  );
-  const [idInventory, setIdInventory] = useState(Number);
-  const [size, setSize] = useState(String);
-  const [color, setColor] = useState(String);
-  const [quantity, setQuantity] = useState(Number);
+  const [name, setName] = useState("");
+  const [brand, setBrand] = useState("");
+  const [categoriesString, setCategoriesString] = useState("");
+  const [description, setDescription] = useState("");
+  const [ean, setEan] = useState("");
+  const [imageURL, setImageURL] = useState("/images/sneakers/");
+  const [price, setPrice] = useState(0);
+  const [releaseDate, setReleaseDate] = useState("");
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [quantity, setQuantity] = useState(0);
 
   const isFormComplete = () => {
     return (
@@ -57,26 +45,8 @@ const ProductDetailsModal = ({
       imageURL.trim() !== "" &&
       releaseDate.trim() !== "" &&
       categoriesString.length > 0
+      && size.trim() !== "" && color.trim() !== "" && quantity >= 0
     );
-  };
-
-  const addInventoryItem = () => {
-    const newInventoryItem: ProductInventory = {
-      id: idInventory,
-      productAmount: quantity,
-      size: parseInt(size),
-      color: color,
-    };
-
-    setNewProduct((prevState) => ({
-      ...prevState,
-      productInventories: [...prevState.productInventories, newInventoryItem],
-    }));
-
-    // Reset input fields
-    setSize("");
-    setColor("");
-    setQuantity(0);
   };
 
   //handle
@@ -84,68 +54,57 @@ const ProductDetailsModal = ({
     const answer = confirm("Are you sure you want to add this product?");
     event.preventDefault();
     const categoriesArray = categoriesString
-      .split(",")
-      .map((cat) => cat.trim()); // Chuyển chuỗi thành mảng
+      .split(", ")
+      .map((cat) => cat.trim());
 
-    const Pattern: AdminSneaker = {
+    const pattern: AdminSneaker = {
       product: {
-        id: id,
-        brand: brand,
-        name: name,
-        ean: ean,
-        price: price,
-        releaseDate: releaseDate,
+        id: 0,
+        brand,
+        name,
+        ean,
+        price,
+        releaseDate,
         categories: categoriesArray,
-        description: description,
+        description,
         imageUrl: imageURL,
       },
       productInventories: [
         {
-          id: idInventory,
+          id: 0,
           productAmount: quantity,
           color: color,
           size: parseInt(size),
         },
       ],
-      // ... any other required properties
     };
 
     try {
-      const response = await addProduct(Pattern).unwrap();
+      const response = await addProduct(pattern).unwrap();
       console.log("Product added successfully", response);
-      setAddConfirmed(true);
       closeModal();
+      // reset 
+      setName("");
+      setBrand("");
+      setCategoriesString("");
+      setImageURL("");
+      setReleaseDate("");
+      setDescription("");
+      setEan("");
+      setPrice(0)
+      setSize("");
+      setColor("");
+      setQuantity(0);
     } catch (error) {
       console.error("Error adding product:", error);
       alert("Failed to add product. Please check your input.");
-    }
-
-    setAddConfirmed(true); // Update your confirmation state
-  };
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-      case "brand":
-        setBrand(value);
-        break;
-      // Các trường hợp khác...
-      case "categories":
-        setCategoriesString(value);
-        break;
-      // Không quên các trường hợp khác
     }
   };
 
   return (
     <div className="modal-backdrop">
       <div
-        className="modal-content"
-        style={{ maxHeight: "90vh", overflowY: "auto" }}
+        className="modal-content max-h-[90vh] overflow-y-auto"
       >
         <div className="modal-header">
           <div className="container mx-auto">
@@ -192,7 +151,7 @@ const ProductDetailsModal = ({
             name="id"
             type="text"
             placeholder="Price"
-            value={price.toString()} // Convert id to a string for rendering in the input field
+            value={price.toString()}
             onChange={(e) => {
               const newValue = e.target.value;
               if (newValue.trim() !== "" && !isNaN(Number(newValue))) {
@@ -219,7 +178,7 @@ const ProductDetailsModal = ({
             type="text"
             placeholder="Categories"
             value={categoriesString}
-            onChange={handleInputChange}
+            onChange={e => setCategoriesString(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           <input

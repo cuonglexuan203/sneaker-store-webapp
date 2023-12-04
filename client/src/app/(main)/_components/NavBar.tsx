@@ -489,11 +489,11 @@ const NavBar = () => {
                                         <span className="sr-only">
                                             Open user menu
                                         </span>
-                                        <Image
-                                            width={32}
-                                            height={32}
-                                            sizes="100%"
-                                            className="rounded-full"
+                                        <img
+                                            // width={32}
+                                            // height={32}
+                                            // sizes="100%"
+                                            className="rounded-full w-8 h-8"
                                             src={
                                                 userInfo.imageUrl ||
                                                 "/images/auth/unknown_user.jpg"
