@@ -29,6 +29,7 @@ const OAuthButton = ({
                         isLogging: true,
                         isOAuth: true,
                         isAccount: false,
+                        isAdmin: false,
                     })
                 );
             }}

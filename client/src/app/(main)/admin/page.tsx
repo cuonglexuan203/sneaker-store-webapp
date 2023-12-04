@@ -4,6 +4,7 @@ import Image from "next/image";
 import Product from "../_components/Product";
 import {
   AdminSneaker,
+  ProductInventory,
   Sneaker,
   useAddAdminProductMutation,
   useGetAdminProductsQuery,
@@ -14,8 +15,44 @@ import { RootState } from "../_store/store";
 import { hideLoading, showLoading } from "../_store/features/statusSlice";
 import ProductDetailsModal from "../_components/ProductDetailsModal";
 import AdminLineItem from "../_components/AdminLineItem";
+import EditProductDetailModal from "../_components/EditProductDetailModal";
+import { AuthRequiredError } from "../lib/exception";
+
+
+export type ModalData = {
+  product: Sneaker,
+  productInventory: ProductInventory
+}
 
 const Dashboard = () => {
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  //
+
+
+  const initialModalData: ModalData = {
+    product: {
+      id: 0,
+      name: "",
+      brand: "",
+      ean: "",
+      price: 0,
+      description: "",
+      imageUrl: "",
+      releaseDate: "",
+      categories: [],
+    }, productInventory: {
+      id: 0,
+      color: "",
+      productAmount: 0,
+      size: 0
+    }
+  }
+  const [modalData, setModalData] = useState(initialModalData);
+  //
   const {
     isLoading,
     isFetching,
@@ -25,24 +62,23 @@ const Dashboard = () => {
   } = useGetAdminProductsQuery(null);
 
   const dispatch = useAppDispatch();
-  const isNotificationOpen = useAppSelector(
-    (state: RootState) => state.navbar.isNotificationOpen
-  );
-  const isUserMenuOpen = useAppSelector(
-    (state: RootState) => state.navbar.isUserMenuOpen
-  );
+
   const user = useAppSelector((state) => state.user);
-  const authlog = useAppSelector((state) => state.auth);
+  const isAdmin: boolean = useAppSelector(state => state.auth.isAdmin);
+
+  if (!isAdmin) {
+    throw new AuthRequiredError();
+  }
   //
   if (isLoading || isFetching) {
     dispatch(showLoading());
+    return <div className="h-[50vh] text-center mt-16">Loading...</div>
   } else if (isSuccess) {
     setInterval(() => {
       dispatch(hideLoading());
     }, 500);
   }
 
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -52,6 +88,9 @@ const Dashboard = () => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+
+  const closeAddModal = () => setIsAddModalOpen(false);
+  const closeEditModal = () => setIsEditModalOpen(false);
   //add item
 
   //create popup to add new product
@@ -71,52 +110,42 @@ const Dashboard = () => {
     ],
   };
 
-  const [newProduct, setNewProduct] = useState(initialPattern);
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  //   if (name in newProduct.product) {
+  //     // Update product details
+  //     setNewProduct((prevState) => ({
+  //       ...prevState,
+  //       product: {
+  //         ...prevState.product,
+  //         [name]: value,
+  //       },
+  //     }));
+  //   } else {
+  //     // Handle updates for inventory items, assuming a naming convention like "inventory-0-color"
+  //     const [field, indexStr, property] = name.split("-");
 
-  const openAddModal = () => setIsAddModalOpen(true);
-  const openEditModal = () => setIsEditModalOpen(true);
-  const closeAddModal = () => setIsAddModalOpen(false);
-  const closeEditModal = () => setIsEditModalOpen(false);
+  //     if (field === "inventory") {
+  //       const index = parseInt(indexStr, 10); // Convert string index to a number
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  //       setNewProduct((prevState) => {
+  //         const newInventories = [...prevState.productInventories];
+  //         if (newInventories[index]) {
+  //           newInventories[index] = {
+  //             ...newInventories[index],
+  //             [property]: value,
+  //           };
+  //         }
 
-    if (name in newProduct.product) {
-      // Update product details
-      setNewProduct((prevState) => ({
-        ...prevState,
-        product: {
-          ...prevState.product,
-          [name]: value,
-        },
-      }));
-    } else {
-      // Handle updates for inventory items, assuming a naming convention like "inventory-0-color"
-      const [field, indexStr, property] = name.split("-");
-
-      if (field === "inventory") {
-        const index = parseInt(indexStr, 10); // Convert string index to a number
-
-        setNewProduct((prevState) => {
-          const newInventories = [...prevState.productInventories];
-          if (newInventories[index]) {
-            newInventories[index] = {
-              ...newInventories[index],
-              [property]: value,
-            };
-          }
-
-          return {
-            ...prevState,
-            productInventories: newInventories,
-          };
-        });
-      }
-    }
-  };
+  //         return {
+  //           ...prevState,
+  //           productInventories: newInventories,
+  //         };
+  //       });
+  //     }
+  //   }
+  // };
 
   return (
     <div className="container mx-auto p-4">
@@ -124,17 +153,10 @@ const Dashboard = () => {
         <h1 className="text-xl font-bold">All products</h1>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
-          onClick={openAddModal}
+          onClick={() => setIsAddModalOpen(true)}
         >
           Add new product
         </button>
-
-        {isAddModalOpen && (
-          <ProductDetailsModal
-            closeModal={closeAddModal}
-            initialPattern={initialPattern}
-          />
-        )}
       </div>
       <div className="bg-white shadow-md rounded my-6 overflow-scroll">
         <table className="text-left w-full border-collapse">
@@ -160,16 +182,16 @@ const Dashboard = () => {
               </th>
             </tr>
           </thead>
+          <tbody>
+            {currentItems.map((p, idx) => (
+              p.productInventories.map((pi, idx) => (
+                <tr key={pi.id}>
+                  <AdminLineItem product={p.product} productInventory={pi} setModalData={setModalData} setIsEditModalOpen={setIsEditModalOpen} />
+                </tr>
+              ))
+            ))}
+          </tbody>
 
-          {currentItems.map((p, idx) => (
-            <AdminLineItem
-              key={idx}
-              p={p}
-              openModal={openEditModal}
-              isEditModalOpen={isEditModalOpen}
-              closeModal={closeEditModal}
-            />
-          ))}
         </table>
       </div>
       <div className="pagination flex items-center justify-center space-x-2 my-4">
@@ -217,6 +239,17 @@ const Dashboard = () => {
           Last
         </button>
       </div>
+      {isAddModalOpen && (
+        <ProductDetailsModal
+          closeModal={closeAddModal}
+          initialPattern={initialPattern}
+        />
+      )}
+      {
+        isEditModalOpen && (
+          <EditProductDetailModal modalData={modalData} closeModal={closeEditModal} />
+        )
+      }
     </div>
   );
 };

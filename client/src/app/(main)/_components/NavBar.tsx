@@ -114,6 +114,8 @@ const NavBar = () => {
     const isUserMenuOpen = useAppSelector(
         (state: RootState) => state.navbar.isUserMenuOpen
     );
+    const isAdmin: boolean = useAppSelector(state => state.auth.isAdmin);
+    //
 
     const authData = useAppSelector((state) => state.auth);
     const userInfo = useAppSelector((state) => state.user.info);
@@ -542,14 +544,16 @@ const NavBar = () => {
                                                 Order History
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link
-                                                href="/admin"
-                                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                            >
-                                                Dash Board
-                                            </Link>
-                                        </li>
+                                        {isAdmin && (
+                                            <li>
+                                                <Link
+                                                    href="/admin"
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                >
+                                                    Dash Board
+                                                </Link>
+                                            </li>
+                                        )}
                                         <li>
                                             <a
                                                 href="#"

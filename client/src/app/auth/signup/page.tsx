@@ -132,6 +132,7 @@ const SignInPage = () => {
                         isLogging: true,
                         isOAuth: false,
                         isAccount: true,
+                        isAdmin: signUpResponse.role === "ADMIN",
                     })
                 );
             }

@@ -84,6 +84,7 @@ export default function SignIn() {
                         isLogging: true,
                         isOAuth: false,
                         isAccount: true,
+                        isAdmin: signInResponse.role === "ADMIN"
                     })
                 );
             }
