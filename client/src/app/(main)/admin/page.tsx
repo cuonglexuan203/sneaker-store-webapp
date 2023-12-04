@@ -43,8 +43,7 @@ const Dashboard = () => {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
+  const itemsPerPage = 1;
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
   const currentItems = adminProducts.slice(firstItemIndex, lastItemIndex);
@@ -69,9 +68,7 @@ const Dashboard = () => {
       categories: [],
     },
     productInventories: [
-      // ... array of inventory items
     ],
-    // ... any other required properties
   };
 
   const [newProduct, setNewProduct] = useState(initialPattern);
@@ -194,11 +191,10 @@ const Dashboard = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`py-2 px-4 rounded ${
-              i + 1 === currentPage
-                ? "bg-blue-700 text-white"
-                : "bg-blue-500 text-white hover:bg-blue-700"
-            }`}
+            className={`py-2 px-4 rounded ${i + 1 === currentPage
+              ? "bg-blue-700 text-white"
+              : "bg-blue-500 text-white hover:bg-blue-700"
+              }`}
           >
             {i + 1}
           </button>

@@ -24,16 +24,13 @@ const AdminLineItem = ({
       window.confirm("Are you sure you want to delete this inventory item?")
     ) {
       try {
-        // Gọi API để xóa `productInventory` dựa trên `inventoryId`
         await deleteAdminProduct(inventoryId).unwrap();
         console.log(`Product inventory ${inventoryId} deleted successfully`);
-        // Cập nhật UI ở đây nếu cần, ví dụ như cập nhật lại state để loại bỏ item đã xóa
       } catch (error) {
         console.error(
           `Error deleting product inventory ${inventoryId}:`,
           error
         );
-        // Xử lý lỗi tại đây
       }
     }
   };
