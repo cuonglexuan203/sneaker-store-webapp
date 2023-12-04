@@ -101,7 +101,7 @@ const Orders = () => {
     <section className="container mx-auto">
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <p className="text-3xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800 text-center">
-          Customer’s Cart
+          Customer&apos;s Cart
         </p>
 
         {sortedInvoices.map((invoice, index) => {
