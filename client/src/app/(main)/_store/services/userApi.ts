@@ -45,7 +45,7 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     tagTypes: ['user', 'account', "invoices"],
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8080/sneaker-server/",
+        baseUrl: "http://hcmute-sneaker-store.ap-southeast-1.elasticbeanstalk.com/",
         credentials: "include"
     }),
     refetchOnReconnect: true,
