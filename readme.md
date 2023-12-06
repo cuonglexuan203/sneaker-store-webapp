@@ -22,7 +22,7 @@
     <img src="https://img.shields.io/github/forks/cuonglexuan203/sneaker-store-webapp" alt="forks" />
   </a>
   <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/stargazers">
-    <img src="https://img.shields.io/cuonglexuan203/sneaker-store-webapp/awesome-readme-template" alt="stars" />
+    <img src="https://img.shields.io/github/stars/cuonglexuan203/sneaker-store-webapp" alt="stars" />
   </a>
   <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/issues/">
     <img src="https://img.shields.io/github/issues/cuonglexuan203/sneaker-store-webapp" alt="open issues" />
@@ -36,7 +36,7 @@
 <h4>
     <a href="https://sneaker-store-webapp.vercel.app/">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/blob/main/README.md">Documentation</a>
+    <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/blob/main/readme.md">Documentation</a>
   <span> · </span>
     <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/issues/">Report Bug</a>
   <span> · </span>
@@ -86,10 +86,9 @@
     - [:space\_invader: Tech Stack](#space_invader-tech-stack)
     - [:dart: Features](#dart-features)
     - [:art: Color Reference](#art-color-reference)
-    - [:key: Environment Variables](#key-environment-variables)
   - [:toolbox: Getting Started](#toolbox-getting-started)
     - [:bangbang: Prerequisites](#bangbang-prerequisites)
-    - [:gear: Installation \&  Run Locally :running:](#gear-installation---run-locally-running)
+    - [:gear: Installation & Run Locally :running:](#gear-installation---run-locally-running)
   - [:wave: Contributing](#wave-contributing)
   - [:warning: License](#warning-license)
   - [:handshake: Contact](#handshake-contact)
@@ -103,7 +102,7 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+  <img src="https://github.com/NamSellsFish/sneaker-store-webapp/blob/main/client/public/images/logo/logo.png" alt="screenshot" />
 </div>
 
 <!-- TechStack -->
@@ -178,10 +177,19 @@
 <!-- Features -->
 
 ### :dart: Features
-
-- Feature 1
-- Feature 2
-- Feature 3
+- Decentralization
+- Add sneaker to cart
+- Search
+- View product information
+- Edit product
+- Add new customer
+- Edit customer information
+- Edit admin information
+- View carts
+- View invoices
+- Delete Product
+- Delete Customer
+- Deletion Blog
 
 <!-- Color Reference -->
 
@@ -193,16 +201,6 @@
 | Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
 | Accent Color    | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
 | Text Color      | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
-
-<!-- Env Variables -->
-
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
 
 <!-- Getting Started -->
 
@@ -263,7 +261,7 @@ docker run -dp 3000:3000 cuonglexuan203/hcmute-sneaker-store-client:latest
 
 ## :wave: Contributing
 
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
+<a href="https://github.com/cuonglexuan203/sneaker-store-webapp/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=cuonglexuan203/sneaker-store-webapp" />
 </a>
 
