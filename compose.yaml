@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  # mysql:
+  #   image: mysql:latest
+  #   container_name: sneakerstore-mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 123456xc
+  #     MYSQL_DATABASE: sneakerstore
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: 123456xc
+
+  backend:
+    build:
+      context: ./server/sneaker-server
+      target: runner
+    container_name: sneakerstore-backend
+    working_dir: /app
+    volumes:
+      - ./server/sneaker-server:/app
+    ports:
+      - "8080:8080"
+    # depends_on:
+    #   - mysql
+
+  frontend:
+    build:
+      context: ./client
+      target: runner
+    volumes:
+      - ./client:/app
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development

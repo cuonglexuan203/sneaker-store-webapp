@@ -6,7 +6,7 @@ COPY pom.xml /app
 
 RUN mvn clean install -f /app/pom.xml
 
-FROM tomcat:10.1.13-jdk21-openjdk
+FROM tomcat:10.1.13-jdk21-openjdk as runner
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
