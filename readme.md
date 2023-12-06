@@ -88,7 +88,7 @@
     - [:art: Color Reference](#art-color-reference)
   - [:toolbox: Getting Started](#toolbox-getting-started)
     - [:bangbang: Prerequisites](#bangbang-prerequisites)
-    - [:gear: Installation & Run Locally :running:](#gear-installation---run-locally-running)
+    - [⚙️ Installation & Run Locally :runner:](#gear-installation---run-locally-running)
   - [:wave: Contributing](#wave-contributing)
   - [:warning: License](#warning-license)
   - [:handshake: Contact](#handshake-contact)
@@ -102,7 +102,7 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://github.com/NamSellsFish/sneaker-store-webapp/blob/main/client/public/images/logo/logo.png" alt="screenshot" />
+  <img src="https://github.com/cuonglexuan203/sneaker-store-webapp/blob/main/client/public/images/logo/logo.png" alt="screenshot" />
 </div>
 
 <!-- TechStack -->
@@ -221,25 +221,7 @@ This project uses NodeJS as JavaScript runtime & Docker as local deloyment manag
 
 <!-- Installation -->
 
-### :gear: Installation &  Run Locally :running:
-
-Clone the project
-
-```bash
-  git clone https://github.com/cuonglexuan203/sneaker-store-webapp.git
-```
-
-Go to the project directory
-
-```bash
-  cd sneaker-store-webapp
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
+### ⚙️ Installation &  Run Locally 🏃
 
 Open Docker Desktop GUI
 
@@ -262,7 +244,7 @@ docker run -dp 3000:3000 cuonglexuan203/hcmute-sneaker-store-client:latest
 ## :wave: Contributing
 
 <a href="https://github.com/cuonglexuan203/sneaker-store-webapp/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=cuonglexuan203/sneaker-store-webapp" />
+  <img src="https://github.com/cuonglexuan203/sneaker-store-webapp/blob/main/client/public/images/logo/contributors.png" />
 </a>
 
 Contributions are always welcome!
