@@ -102,7 +102,7 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://github.com/NamSellsFish/sneaker-store-webapp/blob/main/client/public/images/logo/logo.png" alt="screenshot" />
+  <img src="https://github.com/cuonglexuan203/sneaker-store-webapp/blob/main/client/public/images/logo/logo.png" alt="screenshot" />
 </div>
 
 <!-- TechStack -->
