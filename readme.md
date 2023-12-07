@@ -73,7 +73,8 @@
             <td>Member</td>
         </tr>
 </table>
-
+<p>https://sneaker-store-webapp.vercel.app/</p>
+🆘HTTP only (Setting insecure content in your browser)
 <br />
 </div>
 <!-- Table of Contents -->
