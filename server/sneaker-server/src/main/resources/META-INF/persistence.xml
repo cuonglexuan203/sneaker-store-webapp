@@ -10,21 +10,22 @@
 		<properties>
 			<!-- MySQL -->
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/sneakerstore" />
+				value="jdbc:mysql://sneakerstoredb.cdhms4zemc83.ap-southeast-1.rds.amazonaws.com:3306/sneakerstore" />
 
 			<!-- Credentials -->
 			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="hocgioidethanhtai@1234" />
+				value="123456xc" />
 
 			<!-- Automatic schema export -->
 			<!--
 			 
-<property name="jakarta.persistence.schema-generation.database.action"
-                      value="drop-and-create"/>
+
  -->
 			<!-- SQL statement logging -->
 			<!-- 
+			<property name="jakarta.persistence.schema-generation.database.action"
+                      value="drop-and-create"/>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.highlight_sql" value="true" />
