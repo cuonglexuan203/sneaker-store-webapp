@@ -97,6 +97,7 @@ public class CartServlet extends HttpServlet {
 	// Empty cart
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		System.out.println("delete cart");
 		// Preprocessing raw request
 		String userIdStr = req.getParameter("userId");
 		if (!ValidationUtils.isNullOrEmpty(userIdStr)) {

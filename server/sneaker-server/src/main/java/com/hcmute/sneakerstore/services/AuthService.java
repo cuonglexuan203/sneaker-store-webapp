@@ -12,10 +12,27 @@ import com.hcmute.sneakerstore.model.User;
 import com.hcmute.sneakerstore.utils.DBUtils;
 import com.hcmute.sneakerstore.utils.EmailSender;
 import com.hcmute.sneakerstore.utils.PasswordVerification;
+import jakarta.servlet.http.HttpSession;
 
 public class AuthService {
 	private AccountDao accountDao;
 	private UserDao userDao;
+
+	public enum AuthenticatedUserKey{
+		ACCOUNT_ID("accountId"),
+		ROLE("role"),
+		USER("user");
+
+
+
+		private String storedKey = "";
+		AuthenticatedUserKey(String value){
+			storedKey = value;
+		}
+		public String getStoredKey() {
+			return storedKey;
+		}
+	}
 
 	public AuthService() {
 		accountDao = new AccountDao();
@@ -23,7 +40,7 @@ public class AuthService {
 	}
 
 	public Map<String, Object> signIn(Account account) {
-		Map<String, Object> jsonResponse = new HashMap<>();
+		Map<String, Object> jsonResponse = null;
 		Account managedAccount = accountDao.findByUsername(account.getUsername());
 
 		if (managedAccount != null) {
@@ -35,9 +52,10 @@ public class AuthService {
 				//
 				User authenticatedUser = managedAccount.getUser();
 				//
-				jsonResponse.put("accountId", Long.toString(managedAccount.getId()));
-				jsonResponse.put("role", managedAccount.getRole().toString());
-				jsonResponse.put("user", authenticatedUser);
+				String accountId = Long.toString(managedAccount.getId());
+				String newAccountRoleStr = managedAccount.getRole().toString();
+				jsonResponse = getAuthenticatedDataMap(accountId, newAccountRoleStr, authenticatedUser);
+
 			}
 		}
 
@@ -45,7 +63,7 @@ public class AuthService {
 	}
 
 	public Map<String, Object> signUp(SignUpReqDto signUpData) {
-		Map<String, Object> jsonResponse = new HashMap<>();
+		Map<String, Object> jsonResponse = null;
 		User newUser = signUpData.getUser();
 		Account newAccount = signUpData.getAccount();
 
@@ -68,9 +86,9 @@ public class AuthService {
 				//
 
 				if (insertedUserId != DBUtils.FAILED_ID) {
-					jsonResponse.put("accountId", Long.toString(insertedUserId));
-					jsonResponse.put("role", newAccount.getRole().toString());
-					jsonResponse.put("user", newUser);
+					String accountId = Long.toString(insertedUserId);
+					String newAccountRoleStr = newAccount.getRole().toString();
+					jsonResponse = getAuthenticatedDataMap(accountId, newAccountRoleStr, newUser);
 					//
 					String htmlText = "<h1>Thanks for your Sign Up<h1>";
 					EmailSender.sendHtmlMail("cuongit2003@gmail.com", newUser.getEmail(), newUser.getFirstName() + " " + newUser.getLastName(), "Sneaker Store Sign Up Successfully", htmlText);
@@ -81,4 +99,21 @@ public class AuthService {
 		return jsonResponse;
 	}
 
+	public static Map<String, Object> getAuthenticatedDataMap(String accountId, String role, User user){
+		Map<String, Object> jsonResponse = new HashMap<>();
+		jsonResponse.put(AuthenticatedUserKey.ACCOUNT_ID.getStoredKey(), accountId);
+		jsonResponse.put(AuthenticatedUserKey.ROLE.getStoredKey(), role);
+		jsonResponse.put(AuthenticatedUserKey.USER.getStoredKey(), user);
+		return jsonResponse;
+	}
+
+	public static void establishUserSession(HttpSession session, Map<String, Object> authenticatedUserData){
+		String accountId = (String) authenticatedUserData.get(AuthenticatedUserKey.ACCOUNT_ID.getStoredKey());
+		String userRole = (String) authenticatedUserData.get(AuthenticatedUserKey.ROLE.getStoredKey());
+		User user = (User) authenticatedUserData.get(AuthenticatedUserKey.USER.getStoredKey());
+		//
+		session.setAttribute(AuthenticatedUserKey.ACCOUNT_ID.getStoredKey(), accountId);
+		session.setAttribute(AuthenticatedUserKey.ROLE.getStoredKey(), userRole);
+		session.setAttribute(AuthenticatedUserKey.USER.getStoredKey(), user);
+	}
 }

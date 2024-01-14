@@ -68,5 +68,13 @@ public class CrossSiteCookie {
 			}
 		};
 	}
+	public static void addSessionIdHeader(String sessionId, HttpServletResponse res){
+		int maxAge = 1 * 24 * 60 * 60;
+		String path = "/";
+		boolean httpOnly = true;
+
+		CrossSiteCookie.builder().name("JSESSIONID").value(sessionId).maxAge(maxAge) //
+				.path(path).httpOnly(httpOnly).response(res).build();
+	}
 
 }

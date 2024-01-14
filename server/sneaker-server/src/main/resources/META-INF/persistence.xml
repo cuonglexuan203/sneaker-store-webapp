@@ -10,7 +10,7 @@
 		<properties>
 			<!-- MySQL -->
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://sneakerstoredb.cdhms4zemc83.ap-southeast-1.rds.amazonaws.com:3306/sneakerstore" />
+				value="jdbc:mysql://localhost:3306/sneakerstore" />
 
 			<!-- Credentials -->
 			<property name="jakarta.persistence.jdbc.user" value="root" />

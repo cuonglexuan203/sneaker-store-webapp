@@ -87,8 +87,8 @@ export interface PurchaseRequestBody {
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://hcmute-sneaker-shop.ap-southeast-1.elasticbeanstalk.com/",
-        credentials: "include",
+        baseUrl: "http://localhost:8080/sneaker-server/",
+        credentials: "include"
     }),
     refetchOnReconnect: true,
     tagTypes: ["products", "admin_products", "product", "cart", "line_item", "invoices"],
@@ -188,7 +188,7 @@ export const productsApi = createApi({
                 url: `/lineitems/${body.lineItemId}`,
                 body,
                 method: "POST",
-                headers: { "Content-Type": "application/json" }
+                headers: { "Content-Type": "application/json" },
             }),
             invalidatesTags: ["line_item", "cart"]
         }),
@@ -199,7 +199,7 @@ export const productsApi = createApi({
                 body,
                 headers: {
                     "Content-Type": "application/json"
-                }
+                },
             }),
             invalidatesTags: ["cart", "invoices", "product"]
         }),

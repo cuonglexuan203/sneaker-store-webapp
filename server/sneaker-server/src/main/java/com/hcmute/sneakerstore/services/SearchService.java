@@ -3,6 +3,7 @@ package com.hcmute.sneakerstore.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.hcmute.sneakerstore.DAOs.DaoFactory;
 import com.hcmute.sneakerstore.DAOs.ProductDao;
+import com.hcmute.sneakerstore.DAOs.ProductInventoryDao;
 import com.hcmute.sneakerstore.model.Product;
 import com.hcmute.sneakerstore.model.ProductInventory;
 import com.hcmute.sneakerstore.model.Sale;
@@ -21,6 +24,7 @@ import com.hcmute.sneakerstore.utils.ValidationUtils;
 
 public class SearchService {
 	private ProductDao productDao;
+	private ProductInventoryDao productInventoryDao;
 	//
 	private String[] defaultGenders = { "men", "women" };
 	private String[] defaultPriceRanges = { "0-99", "100-199", "200-299", "300-399", "400-499", "500-999999" };
@@ -33,7 +37,8 @@ public class SearchService {
 	//
 
 	public SearchService() {
-		productDao = new ProductDao();
+		productDao = DaoFactory.getProductDao();
+		productInventoryDao = DaoFactory.getProductInventoryDao();
 	}
 
 	// main function
@@ -370,7 +375,7 @@ public class SearchService {
 
 		return unlabeled;
 	}
-
+	
 	private Map<String, List<Product>> groupProducts(List<Product> ps, String[] labels,
 			BiFunction<String[], Product, String> classifyByLabel) {
 		//
@@ -379,7 +384,6 @@ public class SearchService {
 					String label = classifyByLabel.apply(labels, p);
 					return label;
 				}));
-
 		return groupedProducts;
 	}
 }

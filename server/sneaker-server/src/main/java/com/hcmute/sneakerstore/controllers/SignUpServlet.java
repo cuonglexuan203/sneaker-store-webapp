@@ -1,5 +1,6 @@
 package com.hcmute.sneakerstore.controllers;
 
+import com.hcmute.sneakerstore.utils.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,10 +13,7 @@ import java.util.Map;
 import com.google.gson.JsonSyntaxException;
 import com.hcmute.sneakerstore.DTOs.SignUpReqDto;
 import com.hcmute.sneakerstore.services.AuthService;
-import com.hcmute.sneakerstore.utils.GsonProvider;
-import com.hcmute.sneakerstore.utils.HttpResponseHandler;
-import com.hcmute.sneakerstore.utils.StatusMessage;
-import com.hcmute.sneakerstore.utils.ValidationUtils;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/auth/signup")
 public class SignUpServlet extends HttpServlet {
@@ -40,6 +38,10 @@ public class SignUpServlet extends HttpServlet {
 					// Business processing
 					Map<String, Object> jsonResponse = authService.signUp(signUpData);
 					if (jsonResponse.get("user") != null) {
+						HttpSession session = req.getSession();
+						AuthService.establishUserSession(session, jsonResponse);
+//						CrossSiteCookie.addSessionIdHeader(session.getId(), res); // use in case of different domains
+						//
 						HttpResponseHandler.sendSuccessJsonResponse(res, res.SC_CREATED, jsonResponse);
 						return;
 					}
