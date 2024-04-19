@@ -29,24 +29,19 @@ public class AuthorizationFilter extends HttpFilter implements Filter {
         User user = (session != null) ? (User) session.getAttribute(AuthService.AuthenticatedUserKey.USER.getStoredKey()) : null;
         String userRole = (session != null) ? (String) session.getAttribute(AuthService.AuthenticatedUserKey.ROLE.getStoredKey()) : null;
         String requestURI = httpRequest.getRequestURI();
-        System.out.println("Session: " + session);
-        System.out.println("Role: " + userRole);
-        System.out.println("user is: " + user);
-        System.out.println(requestURI);
-        System.out.println(httpRequest.getMethod().toString());
+
         if (user != null && isAuthorized(userRole, requestURI)) {
             chain.doFilter(httpRequest, httpResponse); // User is authorized
         }
         else if(isAuthorized("visitor", requestURI)) {
             chain.doFilter(httpRequest,httpResponse);
         }
-//        else {
-//        HttpResponseHandler.sendErrorResponse(httpResponse, httpResponse.SC_NOT_FOUND, StatusMessage.SM_NOT_FOUND.getDescription());
-//        }
+        else if (!httpRequest.getMethod().toString().equals(("OPTIONS"))) {
+            HttpResponseHandler.sendErrorResponse(httpResponse, httpResponse.SC_NOT_FOUND, StatusMessage.SM_NOT_FOUND.getDescription());
+        }
     }
 
     private boolean isAuthorized(String role, String requestURI) {
-        System.out.println(role);
         // Administrator
         if(role.equals(Role.ADMIN.toString())){
             return true;

@@ -229,7 +229,7 @@ Open Docker Desktop GUI
 Start the server (at http://localhost:8080)
 
 ```bash
-docker pull cuonglexuan203 hcmute-sneaker-store-server
+docker pull cuonglexuan203/hcmute-sneaker-store-server
 docker run -dp 8080:8080 cuonglexuan203/hcmute-sneaker-store-server:latest
 ```
 
